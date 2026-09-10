@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+body {
+  max-width: 68rem;
+  margin: auto;
+  padding: 1.5rem;
+  font: 1rem/1.5 system-ui, sans-serif;
+  color: #17212b;
+  background: #f7f8fa;
+}
+body > section, #react-root > section { margin-block: 1.5rem; }
+.settings-examples { display: grid; gap: 2rem; }
+[data-settings-page] {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid #c6ccd4;
+  border-radius: 0.5rem;
+  background: white;
+}
+[data-settings-page] header { margin-block-end: 1.5rem; }
+[data-settings-page] h2 { margin-block: 0 0.5rem; }
+[data-settings-page] fieldset { min-width: 0; padding: 1rem; border: 1px solid #c6ccd4; }
+[data-settings-page] legend { padding-inline: 0.35rem; font-weight: 600; }
+[data-settings-page] label { display: block; }
+[data-settings-page] input:not([type="checkbox"]) {
+  display: block;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.45rem;
+  border: 1px solid #707b87;
+  border-radius: 0.2rem;
+  font: inherit;
+}
+[data-settings-page] input[type="checkbox"] + label { display: inline; }
+[data-settings-page] p { margin-block: 0.4rem 0; }
+[data-settings-page] output { display: block; overflow-wrap: anywhere; margin-block-start: 0.5rem; }
+[data-settings-danger] { border-block-start: 1px solid #c6ccd4; margin-block-start: 1.5rem; padding-block-start: 1rem; }
+[data-settings-danger] h3 { margin-block: 0; }
+[data-settings-danger] p { margin-block-end: 1rem; }
+[data-field-error] { color: #9c1526; }
+@media (min-width: 56rem) { .settings-examples { grid-template-columns: 1fr 1fr; align-items: start; } }
+@media (max-width: 32rem) {
+  body { padding: 0.75rem; }
+  [data-settings-page] { padding: 1rem; }
+}

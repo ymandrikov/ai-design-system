@@ -1,0 +1,22 @@
+{
+  "name": "ai-design-system",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "check-contract": "node skills/ai-design/scripts/check-contract.mjs",
+    "demo": "esbuild fixtures/mini-ds/demo/index.ts --bundle --outfile=fixtures/mini-ds/demo/dist/index.js --format=esm --jsx=automatic"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "esbuild": "^0.25.0",
+    "happy-dom": "^18.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}

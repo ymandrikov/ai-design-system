@@ -1,0 +1,226 @@
+# ai-design-system
+
+An embeddable framework for design systems consumed by coding agents. Agents choose
+and compose a project's existing components, layouts and page patterns from contracts.
+The project keeps its code, bindings, styles and tools; root DESIGN.md connects them.
+
+Read [CONTEXT.md](CONTEXT.md) when discussing or changing domain terms. It is the
+canonical glossary, exposed at the repository root by a symlink to the copy packaged
+with `ai-design`. [Project boundary rules](skills/ai-design/reference/model.md)
+describe how those terms map to project artifacts and workflows.
+
+The framework covers developing and maintaining design systems, including component
+implementation, and building product interfaces that consume them. These are separate
+responsibilities described in the workflows below.
+
+## Workflows
+
+The single [ai-design skill](skills/ai-design/SKILL.md) routes to two workflows:
+
+- `ai-design use` discovers an appropriate composition, implements product
+  UI through public APIs and verifies the affected relationships and behaviour.
+- `ai-design craft` develops and maintains reusable components, layouts, patterns,
+  contracts, rules and tokens, and verifies readiness for new selection. It follows
+  the project's implementation conventions and can create a system from scratch.
+
+Craft's [maintainer discussion](skills/ai-design/reference/maintainer-discussion.md)
+turns a need and optional mockup into a component proposal. Maintainers can accept,
+amend or delegate choices; questions focus on material decisions still needing input.
+
+Choose `craft` or `use` explicitly, or describe the result and let the entrypoint
+route it. A page request permits product work and suitable local fallbacks. A system
+gap is handed off to craft; it does not authorise shared component or rule changes.
+When both workflows are authorised, complete the needed craft work and checks before
+resuming use, with separate results for system and product work.
+
+`ai-design setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
+connection, selection, review, gap recording and journal triage. Equivalent natural language requests
+also work. Standalone discovery stays read-only; selection and review end at their
+own result. All procedures are Markdown references loaded when needed, with one
+`SKILL.md`, shared templates and the existing contract checker:
+
+```text
+skills/ai-design/
+  SKILL.md
+  reference/
+    craft.md
+    use.md
+    discovery.md
+    setup.md
+    verify.md
+    gaps.md
+    triage.md
+    ... shared model, contract and token procedures
+  assets/
+  scripts/
+```
+
+Install the package with all its resources; the project installation lives at
+`.agents/skills/ai-design/`:
+
+```sh
+npx skills add <this repository>
+```
+
+## Connect a project
+
+Ask `ai-design setup` to connect the project. It can discover and inspect
+pages automatically; no selected page, adoption or demonstration is required.
+[The DESIGN.md template](skills/ai-design/assets/DESIGN.md) connects
+visual intent, shared rules, tokens, indexes, public usage and verification:
+
+```text
+<repo_root>/
+  .agents/skills/ai-design/
+  design-system/
+    components/
+      button.md
+    layouts/
+      stack.md
+    COMPONENTS.md
+    LAYOUTS.md
+    PATTERNS.md
+    gaps.md
+    gaps-archive.md
+  AGENTS.md
+  DESIGN.md
+```
+
+Component and layout contracts live in their respective design-system directories;
+PATTERNS.md holds the contents and full descriptions of every pattern. This structure
+also applies when connecting an existing project: move contracts, merge pattern
+documents and update references. Implementation and token-source paths stay unchanged.
+AGENTS.md points to root DESIGN.md, which connects the sources and verification tools.
+
+Contract frontmatter owns the stable id, status and root-relative source/evidence paths:
+
+```yaml
+---
+id: button
+status: discoverable
+sources:
+  - src/components/Button.tsx
+  - src/components/Button.css
+tests:
+  - src/components/Button.test.tsx
+examples:
+  - src/components/Button.stories.tsx
+---
+```
+
+`sources` is required; tests/examples are optional lists of concrete files. The
+[format reference](skills/ai-design/reference/formats.md) defines the supported flat
+YAML syntax and unimplemented drafts. COMPONENTS.md and LAYOUTS.md contain display
+names, short Purpose summaries and Contract links; identity/status are read from
+contracts. Each pattern section has its own id/status and stable anchor. IDs remain
+unique across all three groups. Empty groups are valid.
+
+Markdown links resolve from their containing file; frontmatter paths and operational
+paths in DESIGN.md resolve from the project root. Token catalogues retain their existing
+format and roles, without inheriting UI metadata or contract sections.
+
+Setup records unavailable tools explicitly. An independent analogous-page demonstration
+is optional quality work; missing browser access does not prevent ordinary connection.
+
+## Selection and composition
+
+For a page, discovery starts with patterns, then layouts and components. It reads and
+compares all shortlisted contracts before choosing and revisits the outer selection
+when its parts cannot fulfil the request. Local changes start at the affected level
+while retaining surrounding obligations. Discovery also selects tokens by role, type,
+scope and theme for consumer-controlled properties and public settings. Equal values
+do not make token roles interchangeable; private component details stay outside discovery.
+
+A missing fact is unknown. Preference-only assumptions are reported; facts determining
+validity, required composition or material behaviour require an answer before building.
+Required rules, recommendations and documented exceptions are distinct. Contracts name
+who owns spacing, grouping, adaptation and accessibility; linked specifications,
+tokens or implementation supply visual values without duplicating them.
+
+Only `discoverable` entities enter managed selection. `hidden` and `deprecated` cannot
+enter new use through fallback. Unmanaged code may be investigated and reused when no
+managed candidate fits, with limited verification explicitly reported. Reuse alone
+does not adopt it into the design system.
+
+See [the glossary](CONTEXT.md) and
+[authority rules](skills/ai-design/reference/model.md).
+
+## Contracts and evidence
+
+[Fixed formats](skills/ai-design/reference/formats.md) define one
+section order per group. Components describe API and behaviour; layouts describe API
+and composition; patterns describe structure, composition and verification.
+
+Check actual links, group format and index membership using both indexes and PATTERNS.md:
+
+```sh
+node skills/ai-design/scripts/check-contract.mjs --kind layout \
+  --inventory fixtures/mini-ds/design-system/COMPONENTS.md \
+  --inventory fixtures/mini-ds/design-system/LAYOUTS.md \
+  --inventory fixtures/mini-ds/design-system/PATTERNS.md \
+  fixtures/mini-ds/design-system/layouts/stack.md
+```
+
+Use `--kind pattern` with the full `design-system/PATTERNS.md` to validate its sections
+and anchors. The structural checker verifies metadata, listed files, links, group
+placement and cross-group identity; it does not prove semantics. Ordinary authoring audits evidence
+for public promises, suitable/unsuitable use and edge cases, with actual discovery for
+admission or changed selection rules. Existing focused tests/examples can supply evidence;
+missing support remains unverified. Admission requires proven promises and authority.
+[Independent gates](skills/ai-design/reference/blind-gates.md) supplement
+that audit only when requested by the task or DESIGN.md policy. Craft includes component
+development using the project's process. Report static, behavioural and visual evidence
+separately. A request to add a component includes admission after successful checks,
+unless project policy or the request limits it. Drafts and unsupported implementations
+remain hidden; documenting an existing component alone does not authorise admission.
+
+Contracts are promises; implementation drift is a defect. Product work does not weaken
+a contract to hide a mismatch. A reusable gap closes only after its original expected
+result is demonstrated, including discoverability when requested. Independent legacy
+violations and unrelated gaps do not expand a local change into a migration. The gap
+journal holds only open entries without mandatory categories. Closed entries move
+in full to the archive linked from DESIGN.md, by default `design-system/gaps-archive.md`,
+with a closure date, disposition and basis. Resolved entries retain the resolution
+and verification evidence; dismissed entries retain the reason; merged duplicates
+link to the retained entry. See [archiving](skills/ai-design/reference/gaps.md#archive-an-entry).
+
+`ai-design triage` checks the open journal against related system sources, merges
+duplicates without losing expectations, and archives erroneous or already-resolved
+entries with evidence. It recommends a work order and next steps, separating work
+ready for craft from pending facts or owner decisions. Triage updates the journal and archive;
+repairs and a system-wide search for new gaps require separate scope.
+
+## Fixtures and scenarios
+
+- `fixtures/mini-ds/`: components in React and Web Components, a shared Stack layout,
+  contracts under design-system/ and a settings-page pattern with two working compositions.
+  Product checks reject broken labels/errors, form ownership and action/group order.
+- `fixtures/tie-ds/`: overlapping document-only contracts for ranking, conditional
+  choices, token roles/themes and lifecycle exclusions. Their missing runtime is deliberate.
+- `scenarios/`: isolated skill requests evaluated by one independent agent against
+  contracts and actual artifacts. [The runner procedure](scenarios/README.md) separates
+  worker inputs from evaluation criteria. Reports have no required grading format;
+  build checks assert target existence, composition and behaviour. The script collects
+  assessments without matching worker wording. Historical grades remain unchanged.
+
+```sh
+npm test
+npm run demo
+python3 -m http.server 4173 --bind 127.0.0.1
+```
+
+Open `/fixtures/mini-ds/demo/settings.html` on that server. The two pages simulate
+submission locally; no data is persisted. Shared CSS owns component appearance and
+Stack spacing. Tests establish DOM/composition behaviour; browser measurements and
+interaction checks establish rendered/runtime evidence separately.
+
+## Commit messages
+
+This repository follows Conventional Commits: `type(scope): description`, with an
+optional scope. For example: `feat: add a component` or `docs: clarify setup`.
+
+## Project boundary
+
+Framework-specific bindings, CSS, lifecycle machinery and tools stay project-owned.
+This repository carries selection, composition, system development, contract authoring
+and verification protocols. See the [project boundary rules](skills/ai-design/reference/model.md).
