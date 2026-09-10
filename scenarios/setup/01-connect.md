@@ -12,6 +12,11 @@
 
 **Expected:**
 
+- Use plain language matching the user's language in questions, explanations and
+  reports; briefly explain new technical terms at first mention.
+- Before offering escape-hatch analysis, explain a controlled local exception with
+  a required reason and explicit limits, preserving behaviour and accessibility.
+  Explain how these boundaries help prevent exceptions from becoming general rules.
 - Use root DESIGN.md and AGENTS.md. Migrate existing component/layout contracts to
   design-system/components/ and design-system/layouts/, with uppercase COMPONENTS.md
   and LAYOUTS.md indexes. Merge pattern descriptions into design-system/PATTERNS.md.

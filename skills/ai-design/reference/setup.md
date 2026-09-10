@@ -11,6 +11,20 @@ For an explicit request to migrate automatically, setup also owns the
 [automatic migration stage](#automatic-migration), including its mode, authority and
 continuation. A connection-only request ends after reporting the connection.
 
+Use plain language in the user's language throughout setup questions, explanations
+and reports. Briefly explain each new technical term at its first mention, beside
+the decision or result it describes. For example, introduce a contract as documented
+rules for using a component, and ask "What may I change during migration?" when
+presenting the modes below; describe each option by its practical effect.
+
+At the first mention of an escape hatch, before a migration-mode choice or an
+analysis offer, briefly explain it as a controlled local exception to design-system
+rules, with a required reason and explicit limits that preserve behaviour and
+accessibility. Explain that these boundaries help keep a local exception from
+silently becoming a general rule and the design system from drifting. Use
+[craft's exception rules](craft.md#design-public-apis-and-escape-hatches) for its
+actual permissions and requirements.
+
 ## Survey the existing sources
 
 Read repository instructions, existing DESIGN.md or legacy profile, UI libraries,

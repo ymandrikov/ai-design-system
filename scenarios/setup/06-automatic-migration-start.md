@@ -13,6 +13,11 @@
 - Ask for the missing mode and separately for business-logic authority in one
   numbered conversational round. Offer all three modes, recommend mode 3 and
   recommend leaving business logic unchanged.
+- Explain each mode by what it permits changing, using plain language matching the
+  user and briefly defining new terms at first mention. Before the mode choice,
+  explain an escape hatch as a controlled local exception with a required reason
+  and explicit limits, preserving behaviour and accessibility. Explain how those
+  boundaries help keep local exceptions from silently becoming general rules.
 - In that same round explain applicable verification, including setup structure/link
   checks, offer run or skip, and recommend running it. Wait before any verification;
   source inspection and the saved work list can proceed.
