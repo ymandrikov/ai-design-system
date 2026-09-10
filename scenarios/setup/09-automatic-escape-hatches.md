@@ -20,6 +20,7 @@
 > Fully automatically migrate this whole codebase to ai-design-system. Choose
 > the migration mode and business-logic setting using your recommendations, and
 > finish all available work. Preserve saved results that are still valid.
+> Run the applicable verification checks.
 
 **Expected:**
 

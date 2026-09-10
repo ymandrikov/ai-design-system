@@ -106,6 +106,15 @@ without questions. Already supplied decisions are reused. For example:
 Use ai-design setup to automatically migrate the whole codebase in mode 3, without changing business logic.
 ```
 
+Before any migration checks, including setup link validation, the agent explains
+the applicable checks and waits for a run-or-skip choice alongside other startup
+decisions. An explicit or saved choice is reused across batches and resumptions.
+Skipping testing or verification applies in every mode, including gradual adoption:
+all checks are skipped, while authorised code repairs and documentation continue.
+Documented implemented entities become `discoverable`, retaining existing `deprecated`
+status. Results are explicitly unverified, and the user accepts the risk of nonworking
+code. See [migration verification](skills/ai-design/reference/model.md#migration-verification).
+
 The agent chooses an unspecified batch size, saves progress in `design-system/adoption.md`
 and continues through all batches without repeated confirmation. Blocked items remain
 explicit while independent work proceeds. New design rules need authoritative sources
@@ -219,14 +228,15 @@ placement and cross-group identity; it does not prove semantics. Ordinary author
 for public promises, suitable/unsuitable use and edge cases, with actual discovery for
 admission or changed selection rules. Existing focused tests/examples can supply evidence;
 missing support remains unverified. Ordinary admission requires proven promises and authority;
-[automatic mode-1 migration](skills/ai-design/reference/setup.md#contracts-only-admission)
-explicitly admits documented existing entities with recorded verification limits.
+[automatic mode-1 migration](skills/ai-design/reference/setup.md#contracts-only-admission) and
+[migration without verification](skills/ai-design/reference/model.md#migration-verification)
+explicitly admit documented existing entities with recorded verification limits.
 [Independent gates](skills/ai-design/reference/blind-gates.md) supplement
 that audit only when requested by the task or DESIGN.md policy. Craft includes component
 development using the project's process. Report static, behavioural and visual evidence
 separately. A request to add a component includes admission after successful checks,
 unless project policy or the request limits it. Unimplemented drafts remain hidden;
-ordinary documentation alone does not authorise admission outside automatic mode-1 migration.
+ordinary documentation alone does not authorise admission outside these migration exceptions.
 
 Contracts are promises; implementation drift is a defect. Product work does not weaken
 a contract to hide a mismatch. A reusable gap closes only after its original expected

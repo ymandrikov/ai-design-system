@@ -8,6 +8,7 @@
 > Connect mini-ds to the framework using its existing sources. You may inspect
 > pages you find automatically. No adoption or independent demonstration is
 > requested; no page has been selected. Complete the ordinary connection.
+> Run the applicable verification checks.
 
 **Expected:**
 

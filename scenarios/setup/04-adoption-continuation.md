@@ -11,6 +11,7 @@
 - Mark one wrapper's API analysis complete with a concrete source-based finding;
   leave its migration pending. Record a separate wrapper's migration as blocked
   on missing browser evidence. Do not supply invented verification results.
+- Save the user's choice to run migration verification in `adoption.md`.
 
 **Request:**
 
@@ -21,6 +22,7 @@
 
 - Read and reconcile the saved list, preserving the independent analysis result.
   Discover other owned entities missing from the prepared list before processing.
+- Reuse the saved verification choice without asking again.
 - Process dependency-ready migration items in batches of at most two and save
   progress after each, continuing beyond the first batch without confirmation.
 - Save two as the migration batch size without asking; preserve any independently

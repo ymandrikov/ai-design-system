@@ -19,6 +19,8 @@ not invented design rules or an unrelated component catalogue.
 For explicitly requested automatic codebase migration, [setup’s automatic migration stage](setup.md#automatic-migration) owns
 the scope, mode, business-logic authority and continuation; return there after each
 craft result. Its contracts-only admission rule takes precedence for mode 1.
+In any migration, [migration verification](model.md#migration-verification) governs
+skipped audits, admission and completion while preserving authorised repairs.
 For adding contracts across existing components/layouts/patterns or a separate escape-hatch analysis,
 follow [gradual adoption](adoption.md) for the list, batch limits and completion rules.
 Return here for each migration item's contract, audit and admission; an analysis-only
@@ -60,7 +62,8 @@ Record unsupported choices or rule replacements instead of normalising them.
 For UI contracts, follow [contract authoring](contract.md) and the standard structure
 in [the model](model.md). Component/layout metadata belongs in contract frontmatter;
 pattern metadata belongs in its PATTERNS.md section. New/adopted entities start hidden
-until ordinary admission or [automatic mode-1 admission](setup.md#contracts-only-admission).
+until ordinary admission, [automatic mode-1 admission](setup.md#contracts-only-admission)
+or [migration admission without verification](model.md#migration-verification).
 Update directly invalidated contract references and index
 summaries within scope. Preserve a disqualifier when only its suggested alternative
 has retired; report an uncovered need if no replacement fits.
@@ -131,7 +134,9 @@ scope. A request to add a component to the design system includes admission afte
 successful checks, unless the request or project policy limits that authority.
 Draft creation and ordinary documentation alone do not imply admission; explicit
 [automatic mode-1 migration](setup.md#contracts-only-admission) includes admission
-with recorded verification limits. For other work, admit only when public promises
+with recorded verification limits, as does
+[migration without verification](model.md#migration-verification) in every mode.
+For other work, admit only when public promises
 are evidenced, selection/composition checks
 pass and the decision is authorised; required optional-mode gates must also pass.
 An intended contract with missing implementation remains hidden and its support

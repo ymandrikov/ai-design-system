@@ -21,6 +21,7 @@
 
 > Automatically migrate the settings product area and its owned UI dependencies
 > in mode 2. Do not change business logic. Other product areas are outside scope.
+> Run the applicable verification checks.
 
 **Expected:**
 

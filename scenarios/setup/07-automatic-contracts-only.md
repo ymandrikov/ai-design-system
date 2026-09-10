@@ -19,6 +19,7 @@
 > Use ai-design setup to automatically migrate the whole codebase in mode 1,
 > contracts only. Finish
 > everything without changing runtime code. Browser verification is unavailable.
+> Run the applicable available verification checks.
 
 **Expected:**
 

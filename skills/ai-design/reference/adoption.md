@@ -5,6 +5,8 @@ Enter from [setup](setup.md) when a proposed next step is accepted, or from
 Migration delivers contracts, checks and admission; API analysis delivers
 recommendations independently of contract readiness. Honour an explicitly narrower
 scope, such as documentation only. Selecting one step does not start the other.
+Before migration checks, settle [migration verification](model.md#migration-verification)
+alongside any missing batch-size decision. Reuse the choice from setup or saved progress.
 For explicitly requested automatic codebase migration, use [setup’s automatic migration stage](setup.md#automatic-migration):
 it reuses this work list but owns mode selection, automatic batches and completion.
 
@@ -55,6 +57,10 @@ is complete or only blocked work remains. Requesting contracts for all entities 
 the list's scope; it alone does not override the one-batch default.
 
 ## Migrate contracts and admit
+
+Apply the saved [verification choice](model.md#migration-verification): a refusal
+skips audits and admits documented implemented entities with an unverified result.
+The check-based admission and completion requirements below apply when checks are enabled.
 
 For each migration item, follow [craft](craft.md#edit-and-audit) to author or complete
 its contract and index entry and run the applicable audits. A request for this migration,

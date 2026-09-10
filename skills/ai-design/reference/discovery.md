@@ -39,7 +39,7 @@ pattern section in full, including linked composition obligations. The index sum
 routes; it does not add requirements, metadata authority or visual values.
 
 Read linked known defects and verification limits as well. A discoverable entity
-admitted through automatic mode-1 migration may have unverified or failing promises.
+admitted through migration may have unverified or failing promises.
 If a known defect prevents the requested result, report it and seek a working
 alternative; missing evidence requires verification by the caller, not an assumed pass.
 

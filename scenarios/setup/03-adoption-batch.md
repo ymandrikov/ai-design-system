@@ -22,7 +22,7 @@
 
 **Expected:**
 
-- Complete the ordinary connection, then prepare migration without renewed permission.
+- Prepare the ordinary connection and migration without renewed scope permission.
   Offer API analysis separately without running it.
 - Save and link `design-system/adoption.md` with the complete owned scope, including
   the 12 wrappers, unmanaged Toggle and Stack. Group bindings of the same entity;
@@ -31,6 +31,9 @@
   connection and avoid redundant migration of already complete entities.
 - Show the scope and remaining count, then ask for the size in an ordinary numbered
   question with 5 and 10 as options, recommend 10, and allow another positive integer.
+- In that same round explain applicable checks, including setup structure/link
+  validation, offer run or skip, and recommend running verification. Wait for the
+  choice before any checks, including connection checks; reading sources is allowed.
 - Wait for the answer before processing migration items; neither silence nor the
   word "all" supplies a size or authorises unlimited batches. Leave API-analysis
   size unset and do not claim migration checks or admission before processing.

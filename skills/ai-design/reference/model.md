@@ -59,7 +59,8 @@ not unmanaged escape routes. Unknown status is excluded. Discovery lists only el
 candidates; an explicit request for an excluded entity gets a separate availability
 explanation. Quoting the word "toggle" in a rejection is not selecting an unmanaged Toggle.
 
-[Automatic mode-1 migration](setup.md#contracts-only-admission) admits documented
+[Automatic mode-1 migration](setup.md#contracts-only-admission) and
+[migration without verification](#migration-verification) admit documented
 existing entities with recorded defects or verification limits. `discoverable`
 permits comparison; it does not certify runtime promises. Read linked limitations
 when selecting and verify the promises required by the consuming interface.
@@ -87,6 +88,44 @@ one task, complete the needed craft work and its checks before resuming use.
 Preserve independent legacy violations and unrelated gaps; report them separately,
 subject to the [contrast scope](verify.md#contrast-scope) exception.
 Honour explicit scope and owner decisions already given in the current task.
+
+## Migration verification
+
+For automatic migration, gradual contract adoption and contract moves during setup,
+settle verification before the first check, including connection/link validation.
+Inspect sources and configured commands first. Explain the applicable structural/link,
+contract/selection, test/build, behavioural/browser and visual checks, including
+required independent gates and unavailable capabilities. Offer to run or skip
+verification, recommend running it, and wait for the user's choice. Batch this with
+other missing startup decisions using [the question format](#questions-to-the-user).
+Surveying sources and saving the work list can proceed meanwhile.
+
+Reuse an explicit choice or the saved choice for this migration without asking again.
+Save it in `design-system/adoption.md` with the migration progress; an explicit new
+choice replaces it. Automation or delegation of mode/batch size alone does not decide
+verification. A saved refusal also applies on resume and after a mode change.
+
+An explicit request to skip testing or verification takes precedence over check
+requirements throughout setup, adoption, craft, use and their supporting procedures,
+in every migration mode. With that choice, read sources, tests and consumers to
+understand and perform the work, but skip all verification: tests, builds, structural
+and link validators, contract/selection audits, browser/visual checks and independent
+gates. Do not run checks under another name or require them for completion.
+
+Keep the selected scope, including authorised implementation and consumer repairs,
+escape hatches, contracts, indexes, supporting documents, links and progress. A refusal
+does not select contracts-only mode or grant new business-logic, scope or exception
+authority. Make newly documented implemented entities `discoverable` immediately;
+preserve existing `deprecated` status and keep unimplemented drafts hidden. This
+exception overrides evidence-gated admission and structural-validation prerequisites.
+
+Record skipped checks as `unverified — skipped by user choice` in progress and reports,
+and link limitations from the affected contracts. Preserve earlier evidence with its
+scope; changed promises are not covered by stale results. Work may finish with
+verification explicitly unverified; skipped checks alone are not blockers. Keep real
+unresolved decisions and unfinished repairs explicit, and leave gaps requiring proof
+open. Report that the user accepted the risk of nonworking code by choosing migration
+without verification; `discoverable` and completed work do not certify correctness.
 
 ## Questions to the user
 

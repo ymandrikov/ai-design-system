@@ -23,6 +23,11 @@ project context are known; surveying pages does not authorise their adoption.
 
 ## Connect the project
 
+Before migration checks, settle [migration verification](model.md#migration-verification).
+Its saved choice governs connection checks and any subsequent migration stages.
+For an explicitly requested automatic migration, gather its missing boundary decisions
+in that same round before connection checks; for gradual adoption, include batch size.
+
 Use [the DESIGN.md template](../assets/DESIGN.md) to create or complete root DESIGN.md.
 Preserve existing design content and link authoritative sources. Record actual paths,
 commands and missing tools; source conflicts remain explicit. Existing profiles may
@@ -93,6 +98,8 @@ whole-codebase request covers the whole project. Report the discovered scope.
 | 2 — Contracts and repairs | Mode 1 plus implementation and affected consumer repairs against authoritative rules within the selected area. Apply ordinary admission checks. |
 | 3 — Repairs with escape hatches | Mode 2 plus justified local exceptions, including creating a bounded mechanism when none fits. |
 
+Include any missing [verification choice](model.md#migration-verification) in this
+startup round; an earlier setup choice already settles it.
 Reuse explicit answers and saved decisions for this migration. If the mode is
 missing, ask for it and separately ask whether business-logic changes are allowed,
 in one round using [the question format](model.md#questions-to-the-user).
@@ -116,7 +123,8 @@ the migration. New normative rules require authoritative sources or explicit
 delegation from the decision owner; observed behaviour alone does not establish a
 standard. Record conflicts and unresolved decisions instead of weakening promises.
 
-Complete this step when mode, area and business-logic authority are settled and saved.
+Complete this step when mode, area, business-logic authority and verification choice
+are settled and saved.
 
 ### Execute and resume
 
@@ -125,8 +133,8 @@ components, layouts and existing patterns; in modes 2 and 3 also list affected
 consumer locations and repair dependencies. Pages are consumers, not automatically
 new patterns. Group supported bindings and process dependencies first.
 
-Save the mode, area, business-logic decision and any delegated normative authority in
-`design-system/adoption.md`. Track documentation, admission, repairs and verification
+Save the mode, area, business-logic decision, verification choice and any delegated
+normative authority in `design-system/adoption.md`. Track documentation, admission, repairs and verification
 separately, with evidence, exceptions, blockers and the next work. Preserve independent
 API-analysis results; using mode 3 does not require a separate analysis campaign.
 
@@ -139,9 +147,12 @@ Revisit blockers only when their missing decision or evidence changes. A mode ch
 retains prior evidence but reopens obligations newly required by that mode.
 
 For each entity, follow [contract authoring](contract.md) and the applicable
-[craft audits](craft.md#edit-and-audit). Mode 1 uses the admission rule below.
-In modes 2 and 3, verify the needed craft repair before updating and verifying its
-consumers through [use](use.md). Existing authority settles the scope of those
+[craft audits](craft.md#edit-and-audit), subject to the saved
+[verification choice](model.md#migration-verification). A refusal uses that rule's
+admission and completion exceptions in every mode. Otherwise mode 1 uses the rule below.
+In modes 2 and 3, complete the needed craft repair before updating its consumers
+through [use](use.md); when verification is enabled, verify each stage before proceeding.
+Existing authority settles the scope of those
 consumer updates; unresolved API defaults or normative decisions remain blockers.
 Mode 2 repairs through supported APIs without introducing or applying new exceptions.
 Mode 3 first uses supported APIs or repairs the violation. Use an escape hatch only
@@ -173,7 +184,9 @@ Stop when every in-scope item has its mode's result or only blocked work remains
 An empty scope is a completed result. Report the mode and area, business-logic
 authority, documentation and eligibility, repairs and exceptions, static/behavioural/
 visual evidence, and one consolidated list of remaining blockers and decisions.
-Mode 1 documentation may be complete with failed or unverified runtime promises;
-report those separately. Modes 2 and 3 remain partially complete while required
-repairs or verification are blocked. An exception records a local deviation; close
+With verification skipped, apply [migration verification](model.md#migration-verification)
+for completion and report the unverified result separately from completed repairs.
+With verification enabled, mode 1 documentation may be complete with failed or unverified
+runtime promises; report those separately. Modes 2 and 3 remain partially complete while
+required repairs or enabled verification are blocked. An exception records a local deviation; close
 a gap only under [the existing resolution rules](gaps.md#record-and-resolve).
