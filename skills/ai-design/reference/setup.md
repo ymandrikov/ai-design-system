@@ -209,6 +209,13 @@ consider these limitations during discovery and verify the promises they rely on
 Mandatory project approval conditions still apply; report a policy conflict as a
 blocker instead of silently declaring admission or changing the policy.
 
+### Validate plan completion
+
+After the batches finish, follow [plan completion validation](migration-planning.md#validate-plan-completion)
+to reconcile the plan with actual results and save the assessment in
+`design-system/adoption.md`. Complete any actionable omissions before the final report;
+if only blocked work remains, record the partial result.
+
 ### Complete and report
 
 Stop when every in-scope item has its mode's result or only blocked work remains.
