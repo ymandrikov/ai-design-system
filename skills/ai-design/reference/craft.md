@@ -16,6 +16,16 @@ not invented design rules or an unrelated component catalogue.
 
 ## Identify the change
 
+When the user asks to fix a design-system gap, automatically follow [triage](triage.md)
+for the requested entry and directly related duplicates before planning the repair.
+For an unrecorded gap, first use [gap recording](gaps.md) to capture the request,
+expected result and evidence. Return here with the current failure, authoritative
+requirements and next actionable step. The repair request already authorises its
+craft scope; continue ready work without renewed permission. An already-resolved or
+dismissed entry needs no system repair; report its disposition and any remaining
+work. Keep unrelated entries outside this review and resolve missing owner decisions
+before dependent edits.
+
 For explicitly requested automatic codebase migration, [setup’s automatic migration stage](setup.md#automatic-migration) owns
 the scope, mode, repair authority and continuation; return there after each
 craft result. Its admission exception takes precedence for modes 1 and 3.

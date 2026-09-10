@@ -17,7 +17,7 @@ capability does not expand it.
 
 | Requested result | Read and follow |
 | --- | --- |
-| Create or maintain the design system: components and their implementation, layouts, patterns, contracts, tokens, rules or availability | [craft](reference/craft.md) |
+| Create or maintain the design system: components and their implementation, layouts, patterns, contracts, tokens, rules or availability; fix a design-system gap | [craft](reference/craft.md) |
 | Build or change a product interface by selecting and composing the system's public capabilities | [use](reference/use.md) |
 
 `craft` delivers reusable system capabilities and evidence for their promises.

@@ -6,9 +6,11 @@ explicitly selected by the request. Inspect related rules, contracts, implementa
 and consumers to assess those entries; a system-wide search for new gaps is a
 separate request. An empty journal ends with no open gaps to triage.
 
-Triage updates the journal and archive and recommends work. Repairs belong to a separately
-authorised [craft](craft.md) or [use](use.md) stage. Keep implementation, contracts,
-indexes and normative rules unchanged during triage.
+Triage updates the journal and archive and recommends work. Repairs belong to an
+authorised [craft](craft.md) or [use](use.md) stage. A user's request to fix a gap
+already authorises its repair scope: craft may invoke triage automatically for that
+gap, then resume the repair. Keep implementation, contracts, indexes and normative
+rules unchanged during triage.
 
 ## Verify and clean the journal
 
@@ -60,3 +62,6 @@ use an explained order rather than numerical scoring.
 
 Finish with the updated journal and archive and a concise report of dispositions and evidence,
 recommended work order, ready next steps and pending facts or owner decisions.
+When called from craft for a requested repair, return these results to craft and
+continue the authorised work without a new permission question. A standalone triage
+request ends with the report.
