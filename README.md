@@ -13,6 +13,28 @@ The framework covers developing and maintaining design systems, including compon
 implementation, and building product interfaces that consume them. These are separate
 responsibilities described in the workflows below.
 
+## Installation
+
+You need Node.js with npm, Git, and a coding agent that supports skills.
+From the root of the project where you want to use the skill, run:
+
+```sh
+npx skills add ymandrikov/ai-design-system --skill ai-design
+```
+
+Select your coding agent in the installer. Installation is project-local by default;
+add `--global` to make the skill available across your projects. See the
+[skills CLI](https://github.com/vercel-labs/skills) for supported agents and options.
+
+Then ask your agent to connect an existing design system:
+
+```text
+Use ai-design setup to connect this project's design system.
+```
+
+If the project does not have a design system yet, ask `ai-design craft` to create
+one. See [Connect a project](#connect-a-project) for the resulting structure.
+
 ## Workflows
 
 The single [ai-design skill](skills/ai-design/SKILL.md) routes to two workflows:
@@ -53,13 +75,6 @@ skills/ai-design/
     ... shared model, contract and token procedures
   assets/
   scripts/
-```
-
-Install the package with all its resources; the project installation lives at
-`.agents/skills/ai-design/`:
-
-```sh
-npx skills add <this repository>
 ```
 
 ## Connect a project
