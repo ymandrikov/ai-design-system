@@ -156,8 +156,9 @@ are settled and saved.
 
 ### Execute and resume
 
-Complete and link the shared work list before the first batch. Include project-owned
-components, layouts and existing patterns; in modes 1 and 2 also list affected
+Before the first batch, follow [migration planning](migration-planning.md) to complete
+and link the shared work list and execution plan in `design-system/adoption.md`.
+Include project-owned components, layouts and existing patterns; in modes 1 and 2 also list affected
 consumer locations and change dependencies. Pages are consumers, not automatically
 new patterns. Group supported bindings and process dependencies first.
 
@@ -170,7 +171,8 @@ Use an explicit batch size, otherwise a saved migration size, otherwise choose a
 suitable positive size (10 is a starting point). Save it without asking. Automatic
 migration authorises every batch: save each item's result and each batch's progress,
 then continue without confirmation. Count attempted blocked items toward batch size.
-On resume, reconcile sources and saved decisions; recheck only invalidated results.
+On resume, reconcile sources and saved decisions, updating affected tasks through
+[migration planning](migration-planning.md); recheck only invalidated results.
 Revisit blockers only when their missing decision or evidence changes. A mode change
 retains prior evidence but reopens obligations newly required by that mode.
 
