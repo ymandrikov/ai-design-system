@@ -162,7 +162,8 @@ examples:
 `sources` is required; tests/examples are optional lists of concrete files. The
 [format reference](skills/ai-design/reference/formats.md) defines the supported flat
 YAML syntax and unimplemented drafts. COMPONENTS.md and LAYOUTS.md contain display
-names, short Purpose summaries and Contract links; identity/status are read from
+names, Purpose descriptions covering supported tasks, means and material distinctions
+for candidate discovery, and Contract links; identity/status are read from
 contracts. Each pattern section has its own id/status and stable anchor. IDs remain
 unique across all three groups. Empty groups are valid.
 

@@ -30,7 +30,8 @@ design-system/
 
 Each component/layout has one Markdown contract in its group directory. Its
 frontmatter owns the stable id, status and code/evidence paths; see [formats](formats.md).
-The two indexes contain display names, short Purpose summaries and Contract links.
+The two indexes contain display names, Purpose descriptions sufficient for candidate
+discovery (see [formats](formats.md#shared-selection-sections)) and Contract links.
 Read identity and eligibility from the linked contract, not the index label. Layouts
 appear only in LAYOUTS.md. PATTERNS.md contains one section per pattern with an id,
 status and stable anchor; links target that section. IDs are unique across all three

@@ -77,8 +77,12 @@ instead of "a short list", for example.
 
 **Purpose** describes the task/outcome and means, and the entity's role and guarantees
 in the system. Paragraph count is unrestricted. Use words a request can contain. No prescribed
-English opener or id-to-name spelling rule. Index summaries are shorter routing aids;
-keep their meaning aligned without copying all conditions.
+English opener or id-to-name spelling rule. Index Purpose descriptions support candidate
+discovery: cover the supported tasks, means and material distinctions from related
+components/layouts in words a request can contain. Derive them from the contract and
+check that none of its supported tasks would be missed through an omitted purpose.
+There is no fixed length; include the detail needed for discovery. Keep exact
+applicability conditions in the contract rather than duplicating selection rules.
 
 **When to use** introduces its list by stating whether all or any criteria must hold.
 Conditions describe request facts: user task, data or surrounding context. Consumer-supplied labels,
