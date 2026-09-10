@@ -26,6 +26,10 @@ exceptions only when their conditions hold. Use the selected tokens for their ro
 and themes within consumer-controlled properties and supported public settings.
 Apply recommendations with stated reasons for material departures. A public override
 requiring review waits for the decision owner; existing authorisation counts.
+Use the project's documented escape hatch within its permitted scope, supplying the
+required reason. Keep the deviation local rather than treating it as a reusable
+system variant. For each use or design-lint suppression, follow
+[exception recording](gaps.md#record-exceptions); suppressing a warning grants no permission.
 
 On `nothing fits`, inspect existing product patterns and unmanaged code, its tests
 and callers. Prefer a suitable existing implementation to duplication. Report

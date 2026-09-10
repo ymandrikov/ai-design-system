@@ -11,6 +11,18 @@ Missing request facts and product-specific choices within permitted freedom are 
 gaps. A persistent missing verification capability is a tooling gap; a transient
 outage is a verification limit.
 
+## Record exceptions
+
+Record every escape-hatch use and design-lint suppression in the journal, including
+authorised product-specific exceptions. Capture the source location, end-user need,
+actual and expected result, affected rule, reason and evidence, and any required
+approval. Link each use to its entry using the project's annotation convention.
+Reuse an entry for a shared cause and retain every use location. Ordinary
+product-specific fallback within permitted freedom alone needs no entry.
+Recording an exception or suppressing a warning does not grant authorisation or
+establish a reusable design-system rule. Follow the recording and review procedures
+below; an explanation alone does not resolve the underlying limitation.
+
 ## Check the basis for choices
 
 When choosing API values, comparing visual variants or extracting shared UI, check

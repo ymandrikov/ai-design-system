@@ -58,6 +58,43 @@ has retired; report an uncovered need if no replacement fits.
 For token organisation, values or shared design rules, follow
 [design rules and tokens](tokens.md).
 
+### Design public APIs and escape hatches
+
+When creating or changing a public API, prefer inputs that express consumer intent
+and supported system options. Encapsulate established design rules in the component;
+use project linters for rules that cannot reasonably be enforced through its API.
+For example, if this system defines confirmation button styles and order by intent,
+let the dialog own those decisions instead of accepting arbitrary action buttons:
+
+```jsx
+<ConfirmationDialog intent="destructive" confirmLabel="Delete organization" />
+```
+
+Where local deviations are needed, prefer a clearly named escape hatch with a
+mandatory, non-empty reason over unrestricted styling or composition overrides.
+Reuse the codebase's exception mechanism; its shape depends on the project's binding
+and conventions, not a required prop on every component. This JSX is illustrative:
+
+```jsx
+<Badge
+  designSystemException={{
+    reason: "HTTP method badges must fit 24px inspector rows; the smallest Badge is 28px.",
+    attributes: { className: "min-h-0 px-1 py-0 text-xs leading-4" },
+  }}
+>
+  GET
+</Badge>
+```
+
+Define the permitted deviations and approval conditions in the contract. Restrict
+the mechanism to that scope and validate the reason; a generic attributes object
+must not silently bypass unrelated behaviour or accessibility guarantees. Treat the
+result as a local exception, not a variant to copy into other consumers. Each use,
+including a design-lint suppression, follows [exception recording](gaps.md#record-exceptions).
+A reason or suppressed warning does not replace required authorisation.
+
+### Audit the implementation
+
 For component creation or repair, implement the promised public boundary using the
 project's existing code, styles and development process. Check affected callers
 before changing shared behaviour. Verify public use, relevant states, accessibility
