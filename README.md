@@ -94,16 +94,16 @@ migrate automatically, or use equivalent natural language. Select an area or the
 
 | Mode | Result |
 | --- | --- |
-| 1 — Contracts only | Contracts for components, layouts and existing patterns, indexes and DESIGN.md; runtime code stays unchanged. |
-| 2 — Contracts and repairs | Also repair implementations and affected consumers against authoritative rules. |
-| 3 — Repairs with escape hatches | Also allow justified local exceptions through a bounded, documented mechanism. |
+| 1 — Contracts and escape hatches (recommended) | Document existing entities and connect bounded local exceptions while preserving appearance and observable behaviour; no standalone repairs. |
+| 2 — Contracts, escape hatches and repairs | Also repair implementations and affected consumers, including business logic, against authoritative requirements. Preserve correct behaviour; fix evidenced defects. |
+| 3 — Contracts only | Contracts for components, layouts and existing patterns, indexes and DESIGN.md; runtime code stays unchanged. |
 
-The agent asks for missing mode and business-logic decisions together, recommending
-**mode 3 without business-logic changes**. Explicit delegation permits that choice
-without questions. Already supplied decisions are reused. For example:
+The agent asks for the missing mode, recommending **mode 1**. The mode settles
+business-logic authority without a separate question. Explicit delegation permits the
+recommended choice without questions. Already supplied decisions are reused. For example:
 
 ```text
-Use ai-design setup to automatically migrate the whole codebase in mode 3, without changing business logic.
+Use ai-design setup to automatically migrate the whole codebase in mode 1.
 ```
 
 Before any migration checks, including setup link validation, the agent explains
@@ -118,13 +118,17 @@ code. See [migration verification](skills/ai-design/reference/model.md#migration
 The agent chooses an unspecified batch size, saves progress in `design-system/adoption.md`
 and continues through all batches without repeated confirmation. Blocked items remain
 explicit while independent work proceeds. New design rules need authoritative sources
-or delegated decision authority; mode 3 preserves project exception-approval conditions.
+or delegated decision authority. Modes 1 and 2 can reuse or create a bounded escape
+hatch for a concrete need, preserving project exception-approval conditions.
 See [automatic migration](skills/ai-design/reference/setup.md#automatic-migration) for scope and completion.
 
-Automatic mode-1 migration makes documented existing entities `discoverable`, retaining
+Automatic migration in modes 1 and 3 makes documented existing entities `discoverable`, retaining
 `deprecated` status where already set. Known defects and unverified promises are linked
 from contracts and considered during selection. Documentation completion and runtime
 verification are separate results; availability does not certify correctness.
+Defects outside those modes' repair authority do not block documentation completion.
+Mode 1 still requires completing its exception changes; mode 2 remains partially
+complete while required repairs or enabled verification are blocked.
 
 [The DESIGN.md template](skills/ai-design/assets/DESIGN.md) connects
 visual intent, shared rules, tokens, indexes, public usage and verification:
@@ -228,7 +232,7 @@ placement and cross-group identity; it does not prove semantics. Ordinary author
 for public promises, suitable/unsuitable use and edge cases, with actual discovery for
 admission or changed selection rules. Existing focused tests/examples can supply evidence;
 missing support remains unverified. Ordinary admission requires proven promises and authority;
-[automatic mode-1 migration](skills/ai-design/reference/setup.md#contracts-only-admission) and
+[automatic migration in modes 1 and 3](skills/ai-design/reference/setup.md#admission-without-repairs) and
 [migration without verification](skills/ai-design/reference/model.md#migration-verification)
 explicitly admit documented existing entities with recorded verification limits.
 [Independent gates](skills/ai-design/reference/blind-gates.md) supplement

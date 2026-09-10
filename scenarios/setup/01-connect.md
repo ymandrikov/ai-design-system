@@ -31,4 +31,4 @@
   analysis, each with a chosen batch size and saved progress. Finish connection without
   starting either step or requiring an answer to the offers.
 - Mention automatic migration as an explicit opt-in with three modes; setup alone
-  does not start it or ask for its business-logic authority.
+  does not start it or require a migration-mode choice.

@@ -17,8 +17,8 @@ not invented design rules or an unrelated component catalogue.
 ## Identify the change
 
 For explicitly requested automatic codebase migration, [setup’s automatic migration stage](setup.md#automatic-migration) owns
-the scope, mode, business-logic authority and continuation; return there after each
-craft result. Its contracts-only admission rule takes precedence for mode 1.
+the scope, mode, repair authority and continuation; return there after each
+craft result. Its admission exception takes precedence for modes 1 and 3.
 In any migration, [migration verification](model.md#migration-verification) governs
 skipped audits, admission and completion while preserving authorised repairs.
 For adding contracts across existing components/layouts/patterns or a separate escape-hatch analysis,
@@ -62,7 +62,7 @@ Record unsupported choices or rule replacements instead of normalising them.
 For UI contracts, follow [contract authoring](contract.md) and the standard structure
 in [the model](model.md). Component/layout metadata belongs in contract frontmatter;
 pattern metadata belongs in its PATTERNS.md section. New/adopted entities start hidden
-until ordinary admission, [automatic mode-1 admission](setup.md#contracts-only-admission)
+until ordinary admission, [automatic admission in modes 1 and 3](setup.md#admission-without-repairs)
 or [migration admission without verification](model.md#migration-verification).
 Update directly invalidated contract references and index
 summaries within scope. Preserve a disqualifier when only its suggested alternative
@@ -133,7 +133,7 @@ retirement. Existing explicit authority counts. Independent migrations stay outs
 scope. A request to add a component to the design system includes admission after
 successful checks, unless the request or project policy limits that authority.
 Draft creation and ordinary documentation alone do not imply admission; explicit
-[automatic mode-1 migration](setup.md#contracts-only-admission) includes admission
+[automatic migration in modes 1 and 3](setup.md#admission-without-repairs) includes admission
 with recorded verification limits, as does
 [migration without verification](model.md#migration-verification) in every mode.
 For other work, admit only when public promises

@@ -86,7 +86,7 @@ APIs and consumers for escape-hatch recommendations. Explain that each uses a ch
 batch size and saved progress. A connection-only request ends with these offers;
 an explicit request for either step starts its list without renewed permission.
 Also mention [automatic migration](#automatic-migration) as an explicit opt-in for completing
-the selected scope, with contracts only, repairs, or repairs with escape hatches.
+the selected scope with the migration modes below.
 Before processing, follow [batch size selection](adoption.md#choose-the-batch-size).
 Adoption and admission are separate; connection requires neither. For an analogous-page
 demonstration requested by the task or project policy, follow
@@ -108,28 +108,29 @@ whole-codebase request covers the whole project. Report the discovered scope.
 
 | Mode | Authorised work |
 | --- | --- |
-| 1 — Contracts only | Component, layout and existing pattern contracts, indexes, DESIGN.md and supporting links, journals and progress. Runtime code stays unchanged. |
-| 2 — Contracts and repairs | Mode 1 plus implementation and affected consumer repairs against authoritative rules within the selected area. Apply ordinary admission checks. |
-| 3 — Repairs with escape hatches | Mode 2 plus justified local exceptions, including creating a bounded mechanism when none fits. |
+| 1 — Contracts and escape hatches without behaviour changes (recommended) | Contracts and supporting documents, plus bounded local exceptions. API and consumer edits may connect an exception while preserving existing appearance and observable behaviour; no standalone repairs. |
+| 2 — Contracts, escape hatches and repairs preserving correct behaviour | Mode 1 plus implementation and affected consumer repairs against authoritative requirements within the selected area, including business logic. Correct behaviour stays intact; evidenced defects may change. Apply ordinary admission checks. |
+| 3 — Contracts only | Component, layout and existing pattern contracts, indexes, DESIGN.md and supporting links, journals and progress. Runtime code stays unchanged. |
 
 Include any missing [verification choice](model.md#migration-verification) in this
 startup round; an earlier setup choice already settles it.
 Reuse explicit answers and saved decisions for this migration. If the mode is
-missing, ask for it and separately ask whether business-logic changes are allowed,
-in one round using [the question format](model.md#questions-to-the-user).
-Recommend **mode 3, without business-logic changes**. If mode 2 or 3 is already
-chosen, ask only for missing business-logic authority. Mode 1 already excludes such
-changes. Explicit delegation to choose permits the recommended combination without
-questions; a request for automation alone is not that delegation. Wait for required
+missing, present the three options in the order above using
+[the question format](model.md#questions-to-the-user). Recommend **mode 1**.
+The selected mode settles business-logic authority; do not ask a separate question.
+Explicit delegation to choose permits mode 1 without questions; a request for
+automation alone is not that delegation. Wait for required
 answers before dependent edits; the survey and work list can proceed meanwhile.
 
-Business logic includes domain-data validation, permissions, calculations,
-persistence, network operations and business-process transitions. Fixing a field's
-label may be UI work; changing when its form submits crosses this boundary.
-Even when authorised, change business logic only as needed for an evidenced
-in-scope repair. Without authority, leave that repair blocked and continue others.
+Mode 1 may replace an existing styling override with a documented escape hatch
+that produces the same appearance and behaviour. Record defects that require repairs
+without fixing them. Mode 2 preserves correct behaviour, not defects: if an
+authoritative requirement forbids saving an empty name but the form allows it,
+add the missing validation. This authority also covers necessary in-scope repairs to
+permissions, calculations, persistence, network operations and business-process
+transitions. Preserve unaffected behaviour and honour any explicitly narrower scope.
 
-Modes 2 and 3 authorise the necessary craft changes and migration of their affected
+Modes 1 and 2 authorise their permitted craft changes and migration of their affected
 product consumers. Inspect all callers before changing a shared API or appearance.
 Preserve compatibility with consumers outside the selected area; if this cannot be
 done, block the change pending a scope decision. Keep unrelated redesign outside
@@ -137,20 +138,20 @@ the migration. New normative rules require authoritative sources or explicit
 delegation from the decision owner; observed behaviour alone does not establish a
 standard. Record conflicts and unresolved decisions instead of weakening promises.
 
-Complete this step when mode, area, business-logic authority and verification choice
+Complete this step when mode, area, any explicit restrictions and verification choice
 are settled and saved.
 
 ### Execute and resume
 
 Complete and link the shared work list before the first batch. Include project-owned
-components, layouts and existing patterns; in modes 2 and 3 also list affected
-consumer locations and repair dependencies. Pages are consumers, not automatically
+components, layouts and existing patterns; in modes 1 and 2 also list affected
+consumer locations and change dependencies. Pages are consumers, not automatically
 new patterns. Group supported bindings and process dependencies first.
 
-Save the mode, area, business-logic decision, verification choice and any delegated
+Save the mode, area, explicit restrictions, verification choice and any delegated
 normative authority in `design-system/adoption.md`. Track documentation, admission, repairs and verification
 separately, with evidence, exceptions, blockers and the next work. Preserve independent
-API-analysis results; using mode 3 does not require a separate analysis campaign.
+API-analysis results; using escape hatches does not require a separate analysis campaign.
 
 Use an explicit batch size, otherwise a saved migration size, otherwise choose a
 suitable positive size (10 is a starting point). Save it without asking. Automatic
@@ -163,21 +164,22 @@ retains prior evidence but reopens obligations newly required by that mode.
 For each entity, follow [contract authoring](contract.md) and the applicable
 [craft audits](craft.md#edit-and-audit), subject to the saved
 [verification choice](model.md#migration-verification). A refusal uses that rule's
-admission and completion exceptions in every mode. Otherwise mode 1 uses the rule below.
-In modes 2 and 3, complete the needed craft repair before updating its consumers
+admission and completion exceptions in every mode. Otherwise modes 1 and 3 use the
+admission rule below. In modes 1 and 2, complete permitted craft changes before updating consumers
 through [use](use.md); when verification is enabled, verify each stage before proceeding.
 Existing authority settles the scope of those
 consumer updates; unresolved API defaults or normative decisions remain blockers.
-Mode 2 repairs through supported APIs without introducing or applying new exceptions.
-Mode 3 first uses supported APIs or repairs the violation. Use an escape hatch only
+Use supported APIs within the selected mode's behaviour boundary; mode 2 also repairs
+violations. In modes 1 and 2, use an escape hatch only
 for an evidenced local need, following [craft's exception rules](craft.md#design-public-apis-and-escape-hatches)
 and [exception recording](gaps.md#record-exceptions). Reuse a suitable mechanism;
-otherwise create only the bounded mechanism needed. Mode 3 authorises the mechanism,
-not a waiver of project approval conditions or behaviour/accessibility guarantees.
+otherwise create only the bounded mechanism needed. Both modes authorise creation
+and use, with a mandatory non-empty reason, explicit limits and the project's approval
+conditions and behaviour/accessibility guarantees. Add mechanisms only where needed.
 
-### Contracts-only admission
+### Admission without repairs
 
-For mode 1, completing a structurally valid contract and index entry for an existing
+For modes 1 and 3, completing a structurally valid contract and index entry for an existing
 entity includes making it `discoverable`, even when a behavioural/visual check fails
 or evidence is unavailable. Preserve existing `deprecated` status. This is an explicit
 exception to ordinary evidence-gated admission, not a claim of runtime readiness.
@@ -195,12 +197,15 @@ blocker instead of silently declaring admission or changing the policy.
 ### Complete and report
 
 Stop when every in-scope item has its mode's result or only blocked work remains.
-An empty scope is a completed result. Report the mode and area, business-logic
-authority, documentation and eligibility, repairs and exceptions, static/behavioural/
+An empty scope is a completed result. Report the mode, area and explicit restrictions,
+documentation and eligibility, repairs and exceptions, static/behavioural/
 visual evidence, and one consolidated list of remaining blockers and decisions.
 With verification skipped, apply [migration verification](model.md#migration-verification)
 for completion and report the unverified result separately from completed repairs.
-With verification enabled, mode 1 documentation may be complete with failed or unverified
-runtime promises; report those separately. Modes 2 and 3 remain partially complete while
-required repairs or enabled verification are blocked. An exception records a local deviation; close
+In modes 1 and 3, defects requiring repairs outside the mode do not block documentation
+completion; report failed or unverified runtime promises separately. In mode 1,
+unfinished exception changes or failed/unavailable enabled checks of those changes
+still block completion. Mode 2 remains partially complete while required repairs or
+enabled verification are blocked. Unresolved requirements and mandatory approvals
+remain blockers in every mode. An exception records a local deviation; close
 a gap only under [the existing resolution rules](gaps.md#record-and-resolve).

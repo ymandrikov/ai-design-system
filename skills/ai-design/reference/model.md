@@ -59,7 +59,7 @@ not unmanaged escape routes. Unknown status is excluded. Discovery lists only el
 candidates; an explicit request for an excluded entity gets a separate availability
 explanation. Quoting the word "toggle" in a rejection is not selecting an unmanaged Toggle.
 
-[Automatic mode-1 migration](setup.md#contracts-only-admission) and
+[Automatic migration in modes 1 and 3](setup.md#admission-without-repairs) and
 [migration without verification](#migration-verification) admit documented
 existing entities with recorded defects or verification limits. `discoverable`
 permits comparison; it does not certify runtime promises. Read linked limitations
@@ -114,8 +114,8 @@ gates. Do not run checks under another name or require them for completion.
 
 Keep the selected scope, including authorised implementation and consumer repairs,
 escape hatches, contracts, indexes, supporting documents, links and progress. A refusal
-does not select contracts-only mode or grant new business-logic, scope or exception
-authority. Make newly documented implemented entities `discoverable` immediately;
+does not change the selected mode's repair, scope or exception authority.
+Make newly documented implemented entities `discoverable` immediately;
 preserve existing `deprecated` status and keep unimplemented drafts hidden. This
 exception overrides evidence-gated admission and structural-validation prerequisites.
 
