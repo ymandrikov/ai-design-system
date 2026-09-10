@@ -58,6 +58,11 @@ not unmanaged escape routes. Unknown status is excluded. Discovery lists only el
 candidates; an explicit request for an excluded entity gets a separate availability
 explanation. Quoting the word "toggle" in a rejection is not selecting an unmanaged Toggle.
 
+[Automatic mode-1 migration](setup.md#contracts-only-admission) admits documented
+existing entities with recorded defects or verification limits. `discoverable`
+permits comparison; it does not certify runtime promises. Read linked limitations
+when selecting and verify the promises required by the consuming interface.
+
 ## Token scope
 
 The design-system token source and index describe tokens available to consumers.

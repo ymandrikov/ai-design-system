@@ -56,7 +56,7 @@ When both workflows are authorised, complete the needed craft work and checks be
 resuming use, with separate results for system and product work.
 
 `ai-design setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
-connection, selection, review, gap recording and journal triage. Equivalent natural language requests
+connection and opt-in automatic migration, selection, review, gap recording and journal triage. Equivalent natural language requests
 also work. Standalone discovery stays read-only; selection and review end at their
 own result. All procedures are Markdown references loaded when needed, with one
 `SKILL.md`, shared templates and the existing contract checker:
@@ -83,9 +83,40 @@ Ask `ai-design setup` to connect the project. It can discover and inspect
 pages automatically; no selected page, adoption or demonstration is required.
 Setup then offers contract migration with checks and admission, and a separate
 escape-hatch analysis of APIs and real uses. Each uses a shared work list in
-`design-system/adoption.md`, with independent progress and one batch of 10 by default.
-Ask to continue for the next batch, choose another batch size, or explicitly request
+`design-system/adoption.md`, with independent progress and a saved size for each step.
+After listing the scope, the agent asks for a batch size unless already supplied,
+saved or delegated: 5 or 10 (recommended), or another positive integer.
+Ask to continue for the next batch, change the batch size, or explicitly request
 completion of every batch. See [gradual adoption](skills/ai-design/reference/adoption.md).
+
+Automatic migration is an opt-in stage of `ai-design setup`. Explicitly ask setup to
+migrate automatically, or use equivalent natural language. Select an area or the whole codebase:
+
+| Mode | Result |
+| --- | --- |
+| 1 — Contracts only | Contracts for components, layouts and existing patterns, indexes and DESIGN.md; runtime code stays unchanged. |
+| 2 — Contracts and repairs | Also repair implementations and affected consumers against authoritative rules. |
+| 3 — Repairs with escape hatches | Also allow justified local exceptions through a bounded, documented mechanism. |
+
+The agent asks for missing mode and business-logic decisions together, recommending
+**mode 3 without business-logic changes**. Explicit delegation permits that choice
+without questions. Already supplied decisions are reused. For example:
+
+```text
+Use ai-design setup to automatically migrate the whole codebase in mode 3, without changing business logic.
+```
+
+The agent chooses an unspecified batch size, saves progress in `design-system/adoption.md`
+and continues through all batches without repeated confirmation. Blocked items remain
+explicit while independent work proceeds. New design rules need authoritative sources
+or delegated decision authority; mode 3 preserves project exception-approval conditions.
+See [automatic migration](skills/ai-design/reference/setup.md#automatic-migration) for scope and completion.
+
+Automatic mode-1 migration makes documented existing entities `discoverable`, retaining
+`deprecated` status where already set. Known defects and unverified promises are linked
+from contracts and considered during selection. Documentation completion and runtime
+verification are separate results; availability does not certify correctness.
+
 [The DESIGN.md template](skills/ai-design/assets/DESIGN.md) connects
 visual intent, shared rules, tokens, indexes, public usage and verification:
 
@@ -186,13 +217,15 @@ and anchors. The structural checker verifies metadata, listed files, links, grou
 placement and cross-group identity; it does not prove semantics. Ordinary authoring audits evidence
 for public promises, suitable/unsuitable use and edge cases, with actual discovery for
 admission or changed selection rules. Existing focused tests/examples can supply evidence;
-missing support remains unverified. Admission requires proven promises and authority.
+missing support remains unverified. Ordinary admission requires proven promises and authority;
+[automatic mode-1 migration](skills/ai-design/reference/setup.md#contracts-only-admission)
+explicitly admits documented existing entities with recorded verification limits.
 [Independent gates](skills/ai-design/reference/blind-gates.md) supplement
 that audit only when requested by the task or DESIGN.md policy. Craft includes component
 development using the project's process. Report static, behavioural and visual evidence
 separately. A request to add a component includes admission after successful checks,
-unless project policy or the request limits it. Drafts and unsupported implementations
-remain hidden; documenting an existing component alone does not authorise admission.
+unless project policy or the request limits it. Unimplemented drafts remain hidden;
+ordinary documentation alone does not authorise admission outside automatic mode-1 migration.
 
 Contracts are promises; implementation drift is a defect. Product work does not weaken
 a contract to hide a mismatch. A reusable gap closes only after its original expected

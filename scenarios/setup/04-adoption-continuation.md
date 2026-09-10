@@ -23,6 +23,8 @@
   Discover other owned entities missing from the prepared list before processing.
 - Process dependency-ready migration items in batches of at most two and save
   progress after each, continuing beyond the first batch without confirmation.
+- Save two as the migration batch size without asking; preserve any independently
+  saved API-analysis size. Later continuation without a new size reuses this value.
 - Reuse admission authority for successful items; keep unsupported newly adopted
   items hidden and unfinished. Do not equate analysis completion with admission.
 - Revisit the recorded blocker only if the missing evidence becomes available.

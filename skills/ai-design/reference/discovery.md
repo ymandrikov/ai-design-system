@@ -38,6 +38,11 @@ widget/context language or shortlisted contracts. Read every shortlisted contrac
 pattern section in full, including linked composition obligations. The index summary
 routes; it does not add requirements, metadata authority or visual values.
 
+Read linked known defects and verification limits as well. A discoverable entity
+admitted through automatic mode-1 migration may have unverified or failing promises.
+If a known defect prevents the requested result, report it and seek a working
+alternative; missing evidence requires verification by the caller, not an assumed pass.
+
 Keep a candidate when its purpose covers the task, no explicitly applicable
 When-not-to-use clause rejects it, and its API/Structure and required composition
 can express the stated request. An explicit conflict with a required When-to-use

@@ -16,7 +16,10 @@ not invented design rules or an unrelated component catalogue.
 
 ## Identify the change
 
-For adding contracts across existing components/layouts or a separate escape-hatch analysis,
+For explicitly requested automatic codebase migration, [setup’s automatic migration stage](setup.md#automatic-migration) owns
+the scope, mode, business-logic authority and continuation; return there after each
+craft result. Its contracts-only admission rule takes precedence for mode 1.
+For adding contracts across existing components/layouts/patterns or a separate escape-hatch analysis,
 follow [gradual adoption](adoption.md) for the list, batch limits and completion rules.
 Return here for each migration item's contract, audit and admission; an analysis-only
 request ends with saved recommendations.
@@ -56,7 +59,9 @@ Record unsupported choices or rule replacements instead of normalising them.
 
 For UI contracts, follow [contract authoring](contract.md) and the standard structure
 in [the model](model.md). Component/layout metadata belongs in contract frontmatter;
-pattern metadata belongs in its PATTERNS.md section. New/adopted entities start hidden. Update directly invalidated contract references and index
+pattern metadata belongs in its PATTERNS.md section. New/adopted entities start hidden
+until ordinary admission or [automatic mode-1 admission](setup.md#contracts-only-admission).
+Update directly invalidated contract references and index
 summaries within scope. Preserve a disqualifier when only its suggested alternative
 has retired; report an uncovered need if no replacement fits.
 
@@ -124,8 +129,10 @@ before asking about unresolved normative rules, admission, breaking changes or
 retirement. Existing explicit authority counts. Independent migrations stay outside
 scope. A request to add a component to the design system includes admission after
 successful checks, unless the request or project policy limits that authority.
-Draft creation and documenting an existing component alone do not imply admission.
-Admit only when public promises are evidenced, selection/composition checks
+Draft creation and ordinary documentation alone do not imply admission; explicit
+[automatic mode-1 migration](setup.md#contracts-only-admission) includes admission
+with recorded verification limits. For other work, admit only when public promises
+are evidenced, selection/composition checks
 pass and the decision is authorised; required optional-mode gates must also pass.
 An intended contract with missing implementation remains hidden and its support
 unverified. Documentation can be complete without claiming runtime readiness.

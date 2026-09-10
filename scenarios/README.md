@@ -39,6 +39,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Adoption, intended contracts, compatibility, lifecycle and gaps | authoring/01–08; gap-record/01–02 |
 | Root DESIGN.md connection without page adoption | setup/01 |
 | Saved adoption scope, batch limits, continuation and separate API analysis | setup/03–05 |
+| Automatic migration startup, contracts-only availability, repair boundaries and escape hatches | setup/06–09 |
 | Automatic use routing and system-gap handoff | build/03 |
 | Component implementation and admission authority in craft | authoring/09 |
 | Explicit migration and default decisions for component API extensions | authoring/10 |

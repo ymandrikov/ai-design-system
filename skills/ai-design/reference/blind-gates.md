@@ -6,7 +6,9 @@ creation or contract edits; run discovery for admission or changes to selection,
 composition eligibility or index routing. A hidden entity staying hidden can skip
 discovery. In this mode promotion requires both gates. Apply only affected gates to
 clarifications. Failures or unavailable required gates remain explicit and block the
-admission they are required to support.
+admission they are required to support. In [automatic mode 1](setup.md#contracts-only-admission),
+use its admission exception and report gate failures or unavailable evidence separately;
+explicit project approval conditions still apply.
 
 Use a fresh agent context for each gate, with the current skill files and only the
 raw project artifacts it needs. A fresh subagent or independent session is required;

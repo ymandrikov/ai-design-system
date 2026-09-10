@@ -1,6 +1,6 @@
 ---
 name: ai-design
-description: Create and maintain a design system and its components, or build and verify product interfaces using that system. Also handles project setup, component and token discovery, gap recording and triage.
+description: Create and maintain a design system and its components, or build and verify product interfaces using that system. Also handles explicitly requested automatic codebase migration, project setup, component and token discovery, gap recording and triage.
 ---
 
 # AI design
@@ -33,7 +33,7 @@ failed discovery. Keep unrelated system work outside the task.
 
 ## Standalone procedures
 
-Explicit `ai-design discovery`, `setup`, `verify`, `gaps` or `triage`, and equivalent natural
+Explicit `ai-design setup`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
 language requests, reach the matching procedure directly. These are internal Markdown
 instructions, not additional skills. End at that procedure's result; standalone
 selection or review does not start implementation.
@@ -41,7 +41,7 @@ selection or review does not start implementation.
 | Request or workflow condition | Read and follow |
 | --- | --- |
 | Select components, layouts, patterns or tokens; assess system coverage | [discovery](reference/discovery.md), read/search only; return the decision without writing files |
-| Connect existing sources or complete missing project context | [setup](reference/setup.md); creation of a missing system belongs to craft |
+| Connect existing sources, complete missing project context or explicitly migrate a codebase automatically | [setup](reference/setup.md); automatic migration is an opt-in stage that coordinates craft and use; creation of a missing system belongs to craft |
 | Check an interface or component against its contracts and design sources | [verify](reference/verify.md) |
 | Record a systemic shortfall or inspect the basis for a design choice | [gaps](reference/gaps.md); resolving a system gap belongs to craft |
 | Review open gaps, clean the journal and recommend next work | [triage](reference/triage.md); journal updates and recommendations only |

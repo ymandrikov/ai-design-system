@@ -1,4 +1,4 @@
-# Enumerate the full scope and stop after the default batch
+# Enumerate the full scope and ask for the batch size
 
 **Skill:** ai-design
 **Route:** setup
@@ -22,15 +22,15 @@
 
 **Expected:**
 
-- Complete the ordinary connection, then start migration without asking again.
+- Complete the ordinary connection, then prepare migration without renewed permission.
   Offer API analysis separately without running it.
 - Save and link `design-system/adoption.md` with the complete owned scope, including
   the 12 wrappers, unmanaged Toggle and Stack. Group bindings of the same entity;
   exclude product pages, private helpers and the third-party dependency itself.
-- Process Button before dependent wrappers. Preserve existing eligibility during
+- Order Button before dependent wrappers. Preserve existing eligibility during
   connection and avoid redundant migration of already complete entities.
-- Attempt up to 10 migration items, counting blocked attempts, then save progress
-  and stop with remaining work. The word "all" sets scope, not unlimited batches.
-- Newly adopted items become discoverable only after applicable craft checks pass;
-  unavailable evidence leaves them hidden and unfinished with a reason. Capture
-  evidence and remaining work instead of treating written contracts as completion.
+- Show the scope and remaining count, then ask for the size in an ordinary numbered
+  question with 5 and 10 as options, recommend 10, and allow another positive integer.
+- Wait for the answer before processing migration items; neither silence nor the
+  word "all" supplies a size or authorises unlimited batches. Leave API-analysis
+  size unset and do not claim migration checks or admission before processing.

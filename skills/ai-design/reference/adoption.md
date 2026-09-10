@@ -5,11 +5,13 @@ Enter from [setup](setup.md) when a proposed next step is accepted, or from
 Migration delivers contracts, checks and admission; API analysis delivers
 recommendations independently of contract readiness. Honour an explicitly narrower
 scope, such as documentation only. Selecting one step does not start the other.
+For explicitly requested automatic codebase migration, use [setup’s automatic migration stage](setup.md#automatic-migration):
+it reuses this work list but owns mode selection, automatic batches and completion.
 
 ## Save the work list
 
 Inspect source exports, implementations and consumers to enumerate all project-owned
-reusable components and layouts in scope, including wrappers around dependencies.
+reusable components, layouts and existing patterns in scope, including wrappers around dependencies.
 Exclude private implementation details, pages and unwrapped third-party components;
 record ambiguous candidates with the classification question still open. Group
 bindings of the same entity together and order dependencies before their consumers.
@@ -25,10 +27,24 @@ Complete the list before starting the first batch. On continuation, read saved
 progress and reconcile source changes, preserving prior results. An empty list is
 a valid result; report it without inventing entities or work.
 
+## Choose the batch size
+
+After saving a nonempty work list, show its scope and remaining count. Use an explicit
+requested size, otherwise reuse the saved size for the selected step. If neither
+exists, ask once using the [question format](model.md#questions-to-the-user): offer
+5 or 10 entities, recommend 10, and accept any other positive integer. Wait for the
+answer before processing the first batch. Explicit delegation to choose the size
+allows choosing it without a question. An empty or completed list needs no size choice.
+
+Save the selected size in `design-system/adoption.md` separately for migration and
+API analysis. Reuse it on continuation until the user changes it; a new explicit
+size replaces the saved value. Permission to finish all batches controls continuation,
+not size selection.
+
 ## Run a batch
 
-Default to one batch of up to 10 entities for the selected step; honour a requested
-batch size. Count attempted entities, including blocked ones, toward the limit.
+Process one batch up to the selected size for the selected step.
+Count attempted entities, including blocked ones, toward the limit.
 Save each result and leave blocked items unfinished with a reason. Continue independent
 items within the batch; revisit a blocker when its missing decision or evidence changes.
 

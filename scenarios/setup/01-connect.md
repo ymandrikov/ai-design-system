@@ -22,5 +22,7 @@
 - Connect both the open journal and archive through DESIGN.md. Preserve existing
   records; initialise a missing archive with a title and no historical recovery.
 - Offer contract migration with checks and admission, and a separate escape-hatch
-  analysis, each in batches of 10 with saved progress. Finish connection without
+  analysis, each with a chosen batch size and saved progress. Finish connection without
   starting either step or requiring an answer to the offers.
+- Mention automatic migration as an explicit opt-in with three modes; setup alone
+  does not start it or ask for its business-logic authority.
