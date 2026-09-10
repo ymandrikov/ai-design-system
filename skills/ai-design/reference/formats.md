@@ -6,6 +6,21 @@ sections. Group follows the standard directory and its index linked from DESIGN.
 PATTERNS.md uses an H1 document title, a contents list and an H2 per pattern; its six
 sections use H3 and their subsections use H4.
 
+## Detail for agent decisions
+
+Contracts primarily serve agents selecting, configuring and composing entities.
+Use enough detail to make those decisions correctly; length is not a quality target.
+Add distinctions from alternatives, boundary cases, reasons for non-obvious limits
+and worked scenarios when they resolve ambiguity. A contract that already supports
+these decisions needs no expansion.
+
+Keep explanations in the relevant existing section, using subsections where useful;
+place selection scenarios in Purpose so the selection lists remain checkable criteria.
+Explicitly distinguish requirements, recommendations and illustrative examples.
+Worked scenarios connect request facts to an applicable rule and then a decision.
+Examples illustrate the rules without adding restrictions or exhausting valid uses;
+state any normative condition in the section that governs it.
+
 ## Contract frontmatter
 
 ```yaml

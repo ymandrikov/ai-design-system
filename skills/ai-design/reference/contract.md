@@ -37,8 +37,6 @@ For every affected public parameter, use the [Public API rules](formats.md#compo
 to determine a value from a concrete request. Follow linked rules and check defaults,
 interacting inputs and permitted free choice. If only accepted values or examples
 explain the choice, report the missing basis through craft's gap process.
-Include a new use whose choices must be derived from the rules rather than copied
-from a documented example.
 
 Compare public calls, defaults, states, events, form values and accessibility with
 evidence for each supported binding. Check promised parity and documented differences,
@@ -46,8 +44,12 @@ not identical internal DOM. Include layout spacing, region order/grouping and al
 consumer obligations from linked contracts. Report unsupported promises as defects;
 use the project's implementation conventions for internal mechanics.
 
-Check a suitable use, an explicit unsuitable use (when the contract has a disqualifier)
-and a valid edge case. For patterns/layouts also check a deliberate violation of a
+Check a suitable use absent from the documented examples, a closely related unsuitable
+use (when the contract has a disqualifier) and a valid edge case. Derive selection,
+configuration and composition from the rules. The [explanations](formats.md#detail-for-agent-decisions)
+are sufficient when these decisions follow without guessing restrictions or treating
+examples as the only valid uses; report any missing basis through craft's gap process.
+For patterns/layouts also check a deliberate violation of a
 required composition rule. Run actual discovery for admission or changes to selection,
 composition eligibility or index routing. Keep competing candidates present; for
 admission use an isolated copy with proposed discoverable status in the contract metadata. A hidden entity
