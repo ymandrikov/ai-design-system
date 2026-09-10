@@ -129,9 +129,11 @@ without verification; `discoverable` and completed work do not certify correctne
 
 ## Questions to the user
 
-Across all ai-design procedures, ask questions in an ordinary conversation message,
-without built-in question/ask-user tools or emoji. Use the user's language and this
-format, including for a single question:
+Across all ai-design procedures, use the host's available question/ask-user tool
+when permitted in the current mode. Use its native fields for the question, options,
+consequences and recommendation. Use the user's language without emoji.
+If no permitted question tool is available, ask in a separate conversation message
+using this format, including for a single question:
 
 ```markdown
 **Q1 — Short title:** Question and necessary context.
@@ -148,8 +150,9 @@ answer. For an unknown fact, explain the decision it affects and offer ways forw
 Delegation can authorise a new decision; it does not establish an unknown fact.
 Investigate facts available from sources before asking.
 
-Batch all currently independent questions together, separated by `---`. Continue
-question numbering across rounds in the discussion. Wait for prerequisite answers
+Batch all currently independent questions together within the tool's limits; in
+text, separate them with `---`. Continue question numbering across rounds in the
+discussion. Wait for prerequisite answers
 before asking dependent questions; continue independent authorised work meanwhile.
 This format creates no requirement for an interview or repeated confirmation when
 the task is clear and authorised. Silence is not an answer or delegation.

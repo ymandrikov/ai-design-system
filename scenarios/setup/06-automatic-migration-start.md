@@ -10,7 +10,9 @@
 
 - Route to setup’s automatic migration stage, inspect real sources and save the
   discovered scope.
-- Ask for the missing mode in one numbered conversational round, offering in order:
+- Use an available question tool permitted in the current mode; otherwise use the
+  separate numbered text format with options and a recommendation.
+- Ask for the missing mode in the startup round, offering in order:
   mode 1 — contracts and escape hatches preserving existing appearance and behaviour
   (recommended); mode 2 — contracts, escape hatches and repairs preserving correct
   behaviour; mode 3 — contracts only, with runtime unchanged.
