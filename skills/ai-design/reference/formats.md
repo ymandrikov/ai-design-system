@@ -166,7 +166,8 @@ exists. Separate static relationships from browser behaviour and visual measurem
 Name the linked visual specification/token/implementation source in Public API,
 Composition or Verification where the consumer needs it. Document who owns spacing,
 not duplicate pixel values. A consumer-controlled value names the supported input
-or token and its meaning. Visual state and contrast remain verifiable promises.
+or token and its meaning. Visual state and applicable contrast requirements remain
+verifiable promises; apply the [contrast scope](verify.md#contrast-scope) during audit.
 
 Use native elements, attributes and anatomy where needed for invocation, forms,
 composition, events or accessibility. Keep internal DOM dumps out of contracts.

@@ -52,6 +52,26 @@ Complete when each affected observable promise has passing evidence or an explic
 failed/unverified result. With no visual reference, verify documented layout and
 behaviour; mark undefined visual comparisons unverified rather than invent values.
 
+## Contrast scope
+
+In ordinary work, exclude inherited or explicitly prescribed colour combinations
+from contrast checks: an existing component used as intended, an explicitly supplied
+token combination, or a combination reproduced from a design reference such as Figma.
+For these combinations, omit contrast findings from user reports, completion blockers
+and gap records, and preserve the colours rather than correcting them autonomously.
+This also applies to incidental findings from broader checks.
+
+An available palette or token alone does not establish an intended combination.
+Check contrast regressions introduced by the agent's choices, including changes to
+background, opacity or token role. A direct contrast audit or an explicit task,
+project or contract contrast requirement remains applicable. Report a conflict with
+that requirement once; honour an already accepted owner exception without reopening it.
+
+Excluded contrast is outside the task's verification scope, not failed or unverified
+work blocking completion. Omit it from routine reports; never describe an excluded
+check as passed or imply that all contrast was verified. Other applicable visual,
+behavioural and accessibility checks remain in scope.
+
 ## Report and gap gate
 
 Report static, behavioural and visual outcomes separately, with evidence and limits.
@@ -65,7 +85,8 @@ Visual: pass|fail|unverified|not applicable — <evidence>
 
 Use `not applicable` only when the task changes no property of that kind; a missing
 tool is `unverified`. Include the reconciliation match count when a reference exists
-and one row per deviation. Existing independent violations are incidental findings.
+and one row per deviation. Existing independent violations are incidental findings,
+subject to the [contrast scope](#contrast-scope) exception.
 
 For a reusable system limitation, contract drift, contradictory guidance or design
 conflict read and follow [gap recording](gaps.md),

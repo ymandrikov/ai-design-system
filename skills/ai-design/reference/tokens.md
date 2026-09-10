@@ -27,7 +27,8 @@ consumer-controlled decisions and public overrides against their UI contracts.
 
 For a changed visual value, inspect affected consumers and use
 [UI verification](verify.md) for the relevant appearance,
-contrast, layout and themes. Token selection can be correct while rendered contrast
+contrast within its [scope](verify.md#contrast-scope), layout and themes.
+Token selection can be correct while rendered contrast
 fails. Record missing evidence instead of claiming a visual pass. An organisational
 change with unchanged resolved values needs reference/meaning checks, not invented
 runtime work. Return evidence, compatibility and any remaining decisions to craft.

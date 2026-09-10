@@ -78,7 +78,8 @@ component implementation, contracts, indexes, design rules and tokens, using the
 project's development process. A system gap is a handoff between these responsibilities,
 not permission for use to change the system. When both workflows are authorised in
 one task, complete the needed craft work and its checks before resuming use.
-Preserve independent legacy violations and unrelated gaps; report them separately.
+Preserve independent legacy violations and unrelated gaps; report them separately,
+subject to the [contrast scope](verify.md#contrast-scope) exception.
 Honour explicit scope and owner decisions already given in the current task.
 
 ## Reports
