@@ -37,9 +37,8 @@ conditions and assess container adaptation separately from visual density.
 Make the proposal easy to accept as a whole, amend, or delegate within a stated scope.
 A fully specified request or existing delegation can make further questions unnecessary.
 Ask only for answers that materially change the proposal and cannot be obtained from
-sources or resolved within that delegation. Batch currently answerable questions,
-number them, and give each a concrete recommendation with consequences. Questions
-depending on an unanswered decision belong to a later round.
+sources or resolved within that delegation. Follow the shared
+[question format and rounds](model.md#questions-to-the-user).
 
 Use the contract topics to prepare the proposal, not as a mandatory questionnaire.
 When the maintainer is unsure, offer a recommended resolution and explain the useful

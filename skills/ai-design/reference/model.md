@@ -82,10 +82,38 @@ Preserve independent legacy violations and unrelated gaps; report them separatel
 subject to the [contrast scope](verify.md#contrast-scope) exception.
 Honour explicit scope and owner decisions already given in the current task.
 
+## Questions to the user
+
+Across all ai-design procedures, ask questions in an ordinary conversation message,
+without built-in question/ask-user tools or emoji. Use the user's language and this
+format, including for a single question:
+
+```markdown
+**Q1 — Short title:** Question and necessary context.
+
+- **A. Option** — consequences.
+- **B. Option** — consequences.
+
+**Recommendation:** A — brief rationale.
+```
+
+Offer at least two meaningful options and recommend one explicitly. Allow a custom
+answer. For an unknown fact, explain the decision it affects and offer ways forward
+(such as supplying the fact or delegating a proposed decision), not invented facts.
+Delegation can authorise a new decision; it does not establish an unknown fact.
+Investigate facts available from sources before asking.
+
+Batch all currently independent questions together, separated by `---`. Continue
+question numbering across rounds in the discussion. Wait for prerequisite answers
+before asking dependent questions; continue independent authorised work meanwhile.
+This format creates no requirement for an interview or repeated confirmation when
+the task is clear and authorised. Silence is not an answer or delegation.
+
 ## Reports
 
 Report decisions, material assumptions and evidence clearly. Labels shown by the
-workflow procedures are convenient examples; equivalent prose or tables are valid.
+workflow procedures are convenient examples; equivalent prose or tables are valid
+for reports. User questions follow the format above.
 Do not manufacture fields, alternatives or explanations just to fill a template.
 Free-form reports do not change the fixed contract format within each entity group,
 the project's public APIs, or its required composition rules.
