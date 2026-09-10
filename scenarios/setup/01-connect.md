@@ -14,7 +14,7 @@
 
 - Use plain language matching the user's language in questions, explanations and
   reports; briefly explain new technical terms at first mention.
-- Before offering escape-hatch analysis, explain a controlled local exception with
+- At the first mention of an escape hatch, explain a controlled local exception with
   a required reason and explicit limits, preserving behaviour and accessibility.
   Explain how these boundaries help prevent exceptions from becoming general rules.
 - Use root DESIGN.md and AGENTS.md. Migrate existing component/layout contracts to
@@ -27,8 +27,13 @@
 - Record missing token catalogue/browser capabilities honestly; no invented commands.
 - Connect both the open journal and archive through DESIGN.md. Preserve existing
   records; initialise a missing archive with a title and no historical recovery.
-- Offer contract migration with checks and admission, and a separate escape-hatch
-  analysis, each with a chosen batch size and saved progress. Finish connection without
-  starting either step or requiring an answer to the offers.
-- Mention automatic migration as an explicit opt-in with three modes; setup alone
-  does not start it or require a migration-mode choice.
+- Ask "What next?" with four explicit selectable options in order: A — automatic
+  migration (recommended), B — gradual adoption, C — API and consumer analysis,
+  D — stop here. Merely mentioning automatic migration below the question fails.
+- Explain that A completes the selected scope across all batches with saved progress;
+  B adds contracts, checks and admission with pauses after batches; C saves
+  recommendations without implementation; D ends with the completed connection.
+- If the available question tool cannot show all four options, use the separate
+  text question format rather than omitting an option.
+- Finish connection without starting a follow-up or requiring an answer for connection
+  completion. Defer migration-mode and batch-size questions until a step is chosen.

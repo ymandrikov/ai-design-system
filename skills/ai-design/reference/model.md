@@ -132,7 +132,7 @@ without verification; `discoverable` and completed work do not certify correctne
 Across all ai-design procedures, use the host's available question/ask-user tool
 when permitted in the current mode. Use its native fields for the question, options,
 consequences and recommendation. Use the user's language without emoji.
-If no permitted question tool is available, ask in a separate conversation message
+If no permitted question tool can present all required options, ask in a separate conversation message
 using this format, including for a single question:
 
 ```markdown

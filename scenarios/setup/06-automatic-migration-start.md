@@ -31,3 +31,17 @@
 - Do not ask for batch size or permission to survey. Preserve runtime files,
   existing contract promises and lifecycle statuses while awaiting answers.
 - Do not replace the request with standalone escape-hatch analysis or claim completion.
+
+**Independent variant — choose the setup offer:** Start from a connected fixture
+and save verification enabled in `design-system/adoption.md`. Replace the Request with:
+
+> Connection is complete. For "What next?" you offered A — automatic migration
+> (recommended), B — gradual adoption, C — API and consumer analysis, D — stop here.
+> I choose A.
+
+Treat A as explicit automatic-migration opt-in. Ask only for the missing migration
+mode, offering all three and recommending mode 1. Reuse saved verification; do not
+repeat the next-step question, ask permission to start, ask for batch size, or choose
+mode 1 on the user's behalf. Source inspection and the work list may proceed while
+dependent edits wait for the mode answer. Once the mode is supplied, automatic
+migration owns all batches without renewed continuation permission.

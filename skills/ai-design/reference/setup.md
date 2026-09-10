@@ -78,16 +78,29 @@ files; operational paths in DESIGN.md resolve from the repository root.
 Report DESIGN.md, linked sources, created artifacts, unmanaged UI and decisions needed.
 If automatic codebase migration was explicitly requested, continue to
 [automatic migration](#automatic-migration) after connection. Its startup decisions
-and batching apply instead of the gradual-adoption offers and batch-size question.
-For a connection-only request, follow the offers below.
-Offer two separate next steps through [gradual adoption](adoption.md): migrate
-remaining components/layouts and existing patterns with contracts, checks and admission; or analyse their
-APIs and consumers for escape-hatch recommendations. Explain that each uses a chosen
-batch size and saved progress. A connection-only request ends with these offers;
-an explicit request for either step starts its list without renewed permission.
-Also mention [automatic migration](#automatic-migration) as an explicit opt-in for completing
-the selected scope with the migration modes below.
-Before processing, follow [batch size selection](adoption.md#choose-the-batch-size).
+and batching apply instead of the next-step question below.
+For a connection-only request, ask "What next?" using
+[the question format](model.md#questions-to-the-user), with these four explicit
+options in this order:
+
+- **A. Automatic migration (recommended)** — complete the selected scope with saved
+  progress, continuing through all batches without repeated confirmation.
+- **B. Gradual adoption** — write contracts, run checks and admit existing components,
+  layouts and patterns in batches, pausing after each for the user to continue.
+- **C. API and consumer analysis** — recommend escape hatches from actual APIs and
+  callers, without implementing them; use batches and save findings.
+- **D. Stop here** — finish with the completed connection.
+
+Automatic migration must be a selectable option, not a note below the question.
+Connection is complete without an answer; start further work only when selected.
+Choosing A explicitly opts into [automatic migration](#automatic-migration). Ask
+for its missing mode next, recommending mode 1; selecting A alone does not choose
+the mode. Reuse an already supplied mode and verification choice, and ask for any
+missing verification choice in that same startup round. Choose an unspecified batch
+size automatically and continue all batches under that stage's rules.
+Choosing B or C starts the corresponding [gradual adoption](adoption.md) step
+without renewed permission; follow its [batch size selection](adoption.md#choose-the-batch-size)
+before processing. Choosing D ends setup.
 Adoption and admission are separate; connection requires neither. For an analogous-page
 demonstration requested by the task or project policy, follow
 [optional independent quality](blind-gates.md).

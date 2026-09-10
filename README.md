@@ -81,16 +81,28 @@ skills/ai-design/
 
 Ask `ai-design setup` to connect the project. It can discover and inspect
 pages automatically; no selected page, adoption or demonstration is required.
-Setup then offers contract migration with checks and admission, and a separate
-escape-hatch analysis of APIs and real uses. Each uses a shared work list in
-`design-system/adoption.md`, with independent progress and a saved size for each step.
-After listing the scope, the agent asks for a batch size unless already supplied,
-saved or delegated: 5 or 10 (recommended), or another positive integer.
+After connection, setup asks "What next?" with four explicit options in order:
+
+- **A. Automatic migration (recommended)** — complete the selected scope across all
+  batches with saved progress and no repeated confirmation.
+- **B. Gradual adoption** — add contracts, run checks and admit existing entities,
+  pausing after each batch for continuation.
+- **C. API and consumer analysis** — save escape-hatch recommendations without
+  implementing them.
+- **D. Stop here** — keep the completed connection.
+
+Choosing A leads to the migration-mode choice below, recommending mode 1; it does
+not select a mode automatically. Already supplied mode and verification decisions
+are reused, and the agent chooses an unspecified batch size itself.
+For B and C, the shared work list in `design-system/adoption.md` saves independent
+progress and batch sizes. After listing the scope, the agent asks for a batch size
+unless already supplied, saved or delegated: 5 or 10 (recommended), or another positive integer.
 Ask to continue for the next batch, change the batch size, or explicitly request
 completion of every batch. See [gradual adoption](skills/ai-design/reference/adoption.md).
 
-Automatic migration is an opt-in stage of `ai-design setup`. Explicitly ask setup to
-migrate automatically, or use equivalent natural language. Select an area or the whole codebase:
+Automatic migration is an opt-in stage of `ai-design setup`. Choose A after connection,
+explicitly ask setup to migrate automatically, or use equivalent natural language.
+Select an area or the whole codebase:
 
 | Mode | Result |
 | --- | --- |
