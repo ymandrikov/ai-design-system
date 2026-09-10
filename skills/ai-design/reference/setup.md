@@ -54,8 +54,12 @@ files; operational paths in DESIGN.md resolve from the repository root.
 ## Report the connection
 
 Report DESIGN.md, linked sources, created artifacts, unmanaged UI and decisions needed.
-Adopt entities through [craft](craft.md) only for the requested scope. Adoption
-and admission are separate; connection requires neither. For an analogous-page
+Offer two separate next steps through [gradual adoption](adoption.md): migrate
+remaining components/layouts with contracts, checks and admission; or analyse their
+APIs and consumers for escape-hatch recommendations. Explain that each defaults to
+one batch of 10 with saved progress. A setup-only request ends with these offers;
+an explicit request for either step starts its list and first batch without asking again.
+Adoption and admission are separate; connection requires neither. For an analogous-page
 demonstration requested by the task or project policy, follow
 [optional independent quality](blind-gates.md).
 Its absence does not make ordinary setup incomplete.

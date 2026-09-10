@@ -81,6 +81,11 @@ skills/ai-design/
 
 Ask `ai-design setup` to connect the project. It can discover and inspect
 pages automatically; no selected page, adoption or demonstration is required.
+Setup then offers contract migration with checks and admission, and a separate
+escape-hatch analysis of APIs and real uses. Each uses a shared work list in
+`design-system/adoption.md`, with independent progress and one batch of 10 by default.
+Ask to continue for the next batch, choose another batch size, or explicitly request
+completion of every batch. See [gradual adoption](skills/ai-design/reference/adoption.md).
 [The DESIGN.md template](skills/ai-design/assets/DESIGN.md) connects
 visual intent, shared rules, tokens, indexes, public usage and verification:
 

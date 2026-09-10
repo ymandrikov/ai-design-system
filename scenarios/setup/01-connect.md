@@ -21,3 +21,6 @@
 - Record missing token catalogue/browser capabilities honestly; no invented commands.
 - Connect both the open journal and archive through DESIGN.md. Preserve existing
   records; initialise a missing archive with a title and no historical recovery.
+- Offer contract migration with checks and admission, and a separate escape-hatch
+  analysis, each in batches of 10 with saved progress. Finish connection without
+  starting either step or requiring an answer to the offers.

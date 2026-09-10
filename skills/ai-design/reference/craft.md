@@ -16,6 +16,11 @@ not invented design rules or an unrelated component catalogue.
 
 ## Identify the change
 
+For adding contracts across existing components/layouts or a separate escape-hatch analysis,
+follow [gradual adoption](adoption.md) for the list, batch limits and completion rules.
+Return here for each migration item's contract, audit and admission; an analysis-only
+request ends with saved recommendations.
+
 Find authoritative definitions and affected references through DESIGN.md and indexes.
 For a UI entity, distinguish creation, adoption, implementation repair, contract
 change, clarification and lifecycle change. For tokens/rules, identify the role,
