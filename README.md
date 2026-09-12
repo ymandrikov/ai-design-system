@@ -349,7 +349,13 @@ Ordinary authoring audits public promises, new suitable contexts, nearby unsuita
 uses and edge cases. [Independent discovery](skills/ai-design/reference/blind-gates.md)
 is mandatory for contract creation and changes to selection, composition eligibility
 or index routing, using one fresh agent per authoring batch with only public inputs.
-Admission requires current passing discovery evidence. Existing focused tests/examples
+Outside setup, admission requires current passing discovery evidence.
+[Setup migrations](skills/ai-design/reference/setup.md#discovery-during-setup-migration)
+finish the whole selected contract set and admit documented existing entities first,
+then run independent discovery over saved project scenarios and confusing alternatives.
+Ordinary author audits remain required; reduced coverage and uncovered entities are
+recorded. Blocked contracts defer the check; failed checks leave setup incomplete
+without reversing admission. Existing focused tests/examples
 can supply runtime evidence; missing support remains unverified.
 Ordinary admission requires proven promises and authority;
 [automatic migration in modes 1 and 3](skills/ai-design/reference/setup.md#admission-without-repairs) and

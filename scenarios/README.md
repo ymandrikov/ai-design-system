@@ -41,6 +41,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Composition advice, nested layouts, permitted-class recipes and proposed local spacing | discovery/24–26 |
 | Adoption, intended contracts, compatibility, lifecycle and gaps | authoring/01–08; gap-record/01–02 |
 | Root DESIGN.md connection without page adoption | setup/01 |
+| Setup delegation, file ownership, failure recovery and independent final review | setup/12 |
 | Repository workflow preservation, specialist routing, targeted conflicts and explicit consolidation | setup/11 |
 | Saved adoption scope, batch limits, continuation and separate API analysis | setup/03–05 |
 | Migration modes, admission without repairs, design-only repairs, preserved logic and bounded escape hatches | setup/06–09 |
@@ -49,7 +50,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Component implementation and admission authority in craft | authoring/09 |
 | Explicit migration and default decisions for component API extensions | authoring/10 |
 | Coherent component proposals and scoped delegation without repeated questions | authoring/11–12 |
-| Sufficient selection rules and mandatory independent discovery per batch | authoring/13; setup/07 |
+| Sufficient selection rules; strict authoring gates and deferred setup discovery | authoring/13; setup/07 |
 | Contract-only selection with missing rules and misleading implementation evidence | discovery/27 |
 | Automatic craft routing with no pre-existing system | setup/02 |
 | Semantic token roles and theme alias values | discovery/23 |

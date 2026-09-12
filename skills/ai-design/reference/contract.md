@@ -60,7 +60,9 @@ treating examples as the only valid uses; report any missing basis through craft
 For patterns/layouts also check a deliberate violation of a
 required composition rule.
 
-Run the mandatory [independent discovery gate](blind-gates.md) for contract creation,
+For migration within setup, defer independent discovery and use
+[setup’s coverage and admission rules](setup.md#discovery-during-setup-migration);
+ordinary author audits above still apply. Outside setup, run the mandatory [independent discovery gate](blind-gates.md) for contract creation,
 including adoption and intended hidden contracts, and changes to selection, composition
 eligibility or index routing. It runs the actual discovery procedure once per authoring
 batch in fresh context; the author's ordinary audit cannot replace it. Admission needs

@@ -1,5 +1,10 @@
 # Independent contract gates
 
+For migrations within setup, follow [setup discovery](setup.md#discovery-during-setup-migration)
+for timing, coverage, admission and completion instead of the per-batch rules below.
+Use the public-input isolation and result assessment here with setup’s saved scenarios.
+Outside setup, the following strict rules apply.
+
 Discovery is mandatory for contract creation (including adoption and intended hidden
 contracts) and changes to selection, composition eligibility or index routing.
 Admission requires passing evidence for the current contracts and competing candidates;

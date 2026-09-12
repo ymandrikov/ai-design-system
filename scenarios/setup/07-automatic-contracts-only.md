@@ -28,8 +28,13 @@
   and fix affected references.
 - Choose and save a batch size without asking; continue beyond the first batch.
 - Produce structurally valid contracts and indexes, making documented existing
-  entities discoverable after mandatory independent discovery passes, including Notice.
-  Use one fresh discovery worker per batch. Preserve deprecated status.
+  entities discoverable before independent discovery, including Notice. Preserve
+  deprecated status. Finish ordinary author audits and all in-scope contracts and
+  reconcile indexes before dispatch; abbreviated drafts do not count as ready.
+- Save real page scenarios and at least one distinguishing request per group of
+  similar candidates; list uncovered entities. Run these against the whole public
+  set in fresh independent context. No per-entity positive/negative pair is required,
+  and batch completion alone never triggers an independent discovery run.
 - Keep Notice's intended promise; link its failed test and defect from the contract.
   Record unavailable browser evidence separately. Do not weaken promises, change
   runtime code, hide Notice or claim the defect is repaired.
@@ -40,5 +45,16 @@
   explicit rather than inventing rules to finish the list.
 
 Repeat with the independent discovery worker unavailable. Finish the settled document
-work and record the missing gate; leave dependent admission incomplete. Mode 3's runtime
-exception does not replace a required selection check with the author's own reasoning.
+work and retain discoverable status; record verification and setup completion as
+pending. The author's own reasoning does not replace independent evidence.
+
+Repeat with one contract blocked by a missing normative decision: finish independent
+work and save progress, but defer discovery of the whole set until it is resolved.
+Repeat with a discovery failure: repair the contract and rerun affected cases in a
+fresh context without reverting discoverable status or claiming setup complete early.
+Repeat with no real consumers or similar candidate groups: save synthetic scenarios
+from contract purposes and composition rules, label the coverage and still run discovery.
+Repeat as gradual setup migration across multiple batches and a resumed session:
+retain the setup origin and defer the independent check until the whole area is ready.
+In modes 1 and 2, allow discovery for actual page updates once needed contracts are
+ready; this does not count as the final independent check or waive required repairs.

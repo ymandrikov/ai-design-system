@@ -11,6 +11,10 @@ For an explicit request to migrate automatically, setup also owns the
 [automatic migration stage](#automatic-migration), including its mode, authority and
 continuation. A connection-only request ends after reporting the connection.
 
+For connection and subsequent automatic or gradual migration, follow
+[setup delegation](setup-delegation.md) to distribute substantial independent work
+when subagents are available and permitted. Correctness takes precedence over speed.
+
 Use plain language in the user's language throughout setup questions, explanations
 and reports. Briefly explain each new technical term at its first mention, beside
 the decision or result it describes. For example, introduce a contract as documented
@@ -24,6 +28,46 @@ accessibility. Explain that these boundaries help keep a local exception from
 silently becoming a general rule and the design system from drifting. Use
 [craft's exception rules](craft.md#design-public-apis-and-escape-hatches) for its
 actual permissions and requirements.
+
+## Discovery during setup migration
+
+This rule applies to automatic and gradual migrations within setup, including resumed
+setup migrations. Record that origin in `design-system/adoption.md`. It overrides
+per-batch independent discovery and discovery-gated admission in the supporting
+craft, contract and adoption procedures; work outside setup keeps their strict gates.
+Connection without creating or changing contract boundaries needs no discovery gate.
+
+First finish all contracts in the selected migration area and reconcile their indexes.
+Keep ordinary author audits and structural checks: selection rules, public API,
+behaviour, accessibility and composition obligations must support use without missing
+normative decisions. Headings or abbreviated drafts alone do not establish readiness.
+Make fully documented existing entities `discoverable` before independent discovery;
+preserve `deprecated` status and keep unimplemented drafts hidden. Project approval
+conditions still apply. Track runtime defects and required repairs separately; this
+status does not certify correctness or waive the selected mode's repair obligations.
+
+Batches organise authoring and progress, not independent discovery. If any contract
+is blocked, finish independent work, save the blockers and defer the independent check
+until the whole selected set is ready. Discovery to select components for actual
+consumer updates may run earlier once the needed contracts are ready.
+
+Before dispatch, save a coverage list of real page scenarios and groups of similar
+components, layouts and patterns. Cover each such group with at least one request
+that distinguishes candidates. Where real consumers or comparison groups are absent,
+derive synthetic requests from documented purposes and composition rules and label
+that coverage as synthetic. Record uncovered entities and the reduced coverage.
+Setup does not require a must-fit/must-not-fit pair for every entity.
+
+Run the saved requests against the complete public set in a fresh independent context,
+using [the discovery gate's public inputs and result assessment](blind-gates.md#discovery-gate-run-the-actual-procedure).
+Keep expected answers outside worker inputs. Correct discovered contract errors and
+rerun affected cases in fresh context against final inputs; retain failures and keep
+`discoverable` status. A failed or unavailable check leaves setup verification and
+completion pending, rather than reversing admission. Reuse evidence only while its
+inputs and relevant rules remain unchanged.
+
+The saved [migration verification choice](model.md#migration-verification) takes
+precedence: an explicit refusal retains its existing audit and completion exceptions.
 
 ## Survey the existing sources
 
@@ -204,6 +248,10 @@ final report, using the same scope rule for that stage's documents.
 
 ## Report the connection
 
+Apply [the final independent review](setup-delegation.md#review-the-final-result)
+before reporting completion; for an authorised migration continuing in this run,
+perform that review after migration instead.
+
 Report DESIGN.md, linked sources, created artifacts, unmanaged UI and decisions needed,
 including inspected repository skills, preserved workflows, specialist routing,
 any explicitly requested migrations and remaining conflicts.
@@ -330,14 +378,15 @@ Add mechanisms only where needed.
 ### Admission without repairs
 
 For modes 1 and 3, completing a structurally valid contract and index entry for an existing
-entity, with passing mandatory independent discovery, includes making it `discoverable`,
+entity includes making it `discoverable` under [setup discovery](#discovery-during-setup-migration),
 even when a behavioural/visual check fails or evidence is unavailable. Preserve existing
 `deprecated` status. This is an explicit
 exception to ordinary evidence-gated admission, not a claim of runtime readiness.
 Keep unimplemented drafts outside this exception. An unresolved normative choice
 still blocks the dependent contract decision; document the settled parts meanwhile.
-This exception concerns runtime evidence, not the contract's ability to support selection.
-A failed or unavailable required discovery gate leaves that audit and admission incomplete.
+Ordinary contract completeness remains required. Independent discovery follows the
+whole-set setup procedure above; a failed or unavailable gate leaves verification
+and setup completion pending, while documented entities retain admission.
 
 Run applicable checks and record their actual outcomes. Keep the intended promises;
 link known defects and unverified promises from the relevant existing contract
@@ -357,7 +406,9 @@ if only blocked work remains, record the partial result.
 ### Complete and report
 
 Before reporting, complete [final document reconciliation](#reconcile-final-documents)
-for documents changed by migration. Stop when every in-scope item has its mode's
+for documents changed by migration and apply
+[the final independent review](setup-delegation.md#review-the-final-result).
+Stop when every in-scope item has its mode's
 result or only blocked work remains.
 An empty scope is a completed result. Report the mode, area and explicit restrictions,
 documentation and eligibility, repairs and exceptions, static/behavioural/

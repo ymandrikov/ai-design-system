@@ -135,7 +135,9 @@ when affected promises have evidence or an explicit failed/unverified result.
 
 Use the ordinary audits and mandatory independent discovery specified by
 [contract authoring](contract.md#ordinary-audit). Follow [independent gates](blind-gates.md)
-for batch dispatch, evidence and failure handling. Run independent consumption as well
+for batch dispatch, evidence and failure handling, subject to
+[setup migration’s discovery exception](setup.md#discovery-during-setup-migration)
+when this work is part of setup. Run independent consumption as well
 when the task or DESIGN.md requires it; that additional check remains optional otherwise.
 
 Repair design drift within the authorised craft scope; otherwise record
@@ -153,7 +155,8 @@ Draft creation and ordinary documentation alone do not imply admission; explicit
 [automatic migration in modes 1 and 3](setup.md#admission-without-repairs) includes admission
 with recorded verification limits, as does
 [migration without verification](model.md#migration-verification) in every mode.
-For other work, admit only when public promises
+[Setup migration](setup.md#discovery-during-setup-migration) also admits complete
+existing contracts before its final independent discovery. For other work, admit only when public promises
 are evidenced, selection/composition checks
 pass and the decision is authorised; all applicable independent gates must also pass.
 An intended contract awaiting implementation remains hidden and its support

@@ -60,7 +60,12 @@ the list's scope; it alone does not override the one-batch default.
 
 Apply the saved [verification choice](model.md#migration-verification): a refusal
 skips audits and admits documented implemented entities with an unverified result.
-The check-based admission and completion requirements below apply when checks are enabled.
+For migration accepted within setup, save that origin and follow
+[setup discovery](setup.md#discovery-during-setup-migration), including on resume,
+for whole-set timing, admission and completion. Also apply
+[setup delegation](setup-delegation.md), including its final review before completing
+the selected migration scope. Otherwise the check-based admission
+and completion requirements below apply when checks are enabled.
 
 For each migration item, follow [craft](craft.md#edit-and-audit) to author or complete
 its contract and index entry and run the applicable audits. A request for this migration,
