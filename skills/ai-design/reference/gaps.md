@@ -87,6 +87,10 @@ Set Status and add Closed date (`YYYY-MM-DD`) with the disposition's basis:
 
 For a merge, preserve all sources and expectations in the retained open entry before
 archiving the duplicate's original record. Keep entry and evidence links valid when
-moving records. Preserve existing archive entries; create a missing archive with a
+moving records. Preserve existing archive entries outside cleanup; create a missing archive with a
 title when first needed. Remove the open entry only after its archive record is saved,
 then report the disposition and evidence. Retain uncertain entries in the open journal.
+
+After adding archive entries, count the archive's lines with a local command without
+loading its contents into context. At 500 or more lines, follow
+[archive cleanup](archive-cleanup.md), including when called from craft.

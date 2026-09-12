@@ -48,7 +48,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Coherent maintainer proposals and scoped delegation without repeated questions | authoring/11–12 |
 | Automatic craft routing with no pre-existing system | setup/02 |
 | Semantic token roles and theme alias values | discovery/23 |
-| Gap triage, evidence-based cleanup, priorities and owner decisions | triage/01–02 |
+| Gap triage, archive cleanup, priorities and owner decisions | triage/01–03 |
 
 These are scenario coverage, not a claim that every model has passed. Production setup, unmanaged product fallback and deprecated migration still need model runs.
 Fixture tests alone do not establish agent selection or browser correctness.

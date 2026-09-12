@@ -4,13 +4,17 @@ Read [gap recording](gaps.md) for the definition of a gap, evidence requirements
 and the journal and archive locations in DESIGN.md. Review the open journal, or the entries
 explicitly selected by the request. Inspect related rules, contracts, implementation
 and consumers to assess those entries; a system-wide search for new gaps is a
-separate request. An empty journal ends with no open gaps to triage.
+separate request. At entry, count the archive's lines with a local command without
+loading its contents into context. At 500 or more lines, or on an explicit archive
+cleanup request regardless of size, follow [archive cleanup](archive-cleanup.md).
+A cleanup-only request ends there. An empty journal ends with no open gaps to triage
+after this archive check.
 
 Triage updates the journal and archive and recommends work. Repairs belong to an
 authorised [craft](craft.md) or [use](use.md) stage. A user's request to fix a gap
 already authorises its repair scope: craft may invoke triage automatically for that
 gap, then resume the repair. Keep implementation, contracts, indexes and normative
-rules unchanged during triage.
+rules unchanged during triage, except for archive-link replacements required by cleanup.
 
 ## Verify and clean the journal
 

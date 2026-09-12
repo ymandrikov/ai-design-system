@@ -277,6 +277,11 @@ duplicates without losing expectations, and archives erroneous or already-resolv
 entries with evidence. It recommends a work order and next steps, separating work
 ready for craft from pending facts or owner decisions. Triage updates the journal and archive;
 repairs and a system-wide search for new gaps require separate scope.
+Archive cleanup runs on explicit request or at 500 lines, checked at triage entry
+and after archiving. It removes all entries whose current version is saved in Git,
+retains uncommitted records and replaces incoming links with verified commit permalinks.
+See [archive cleanup](skills/ai-design/reference/archive-cleanup.md) for retention
+when history or link replacement is unavailable. Cleanup creates no commits.
 
 ## Fixtures and scenarios
 

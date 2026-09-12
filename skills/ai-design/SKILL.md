@@ -44,7 +44,7 @@ selection or review does not start implementation.
 | Connect existing sources, complete missing project context or explicitly migrate a codebase automatically | [setup](reference/setup.md); automatic migration is an opt-in stage that coordinates craft and use; creation of a missing system belongs to craft |
 | Check an interface or component against its contracts and design sources | [verify](reference/verify.md) |
 | Record a systemic shortfall or inspect the basis for a design choice | [gaps](reference/gaps.md); resolving a system gap belongs to craft |
-| Review open gaps, clean the journal and recommend next work | [triage](reference/triage.md); journal updates and recommendations only |
+| Review open gaps, clean the journal or archive and recommend next work | [triage](reference/triage.md); journal/archive maintenance and recommendations |
 
 Procedures call each other through their file links. Follow the selected procedure's
 scope even when the host exposes broader tools; read-only discovery never inherits
