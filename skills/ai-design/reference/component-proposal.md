@@ -1,6 +1,6 @@
-# Develop a component proposal
+# Develop a component, layout or pattern proposal
 
-Enter from [craft](craft.md) for component creation or public changes; for adoption
+Enter from [craft](craft.md) for component, layout or pattern creation or public changes; for adoption
 or clarification, discuss only uncovered decisions. A need and an optional mockup
 are sufficient to start.
 
@@ -13,9 +13,18 @@ rules. Separate desired behaviour from observed and verified implementation.
 
 Present a coherent proposed public boundary: purpose, selection conditions, public
 use, behaviour/states, composition and accessibility, covering the relevant parts of
-[the contract format](formats.md#component). Scale detail to the change. Explain
+[the contract formats](formats.md). Scale detail to the change. Explain
 consumer decisions in terms of tasks and outcomes; translate them into the project's
 API conventions. Identify which decisions come from sources and which are proposals.
+
+For layouts, propose grouping, regions or children, nesting and ownership of spacing,
+inset, sizing, order and adaptation. For patterns, propose the shared end-user task,
+required and optional regions, relationships, substitutions and a minimal recipe.
+Follow the project's composition conventions: a recipe may use components with
+permitted classes without a dedicated layout implementation. Compare reuse and
+adaptation with a new reusable boundary; distinguish a screen-specific composition
+from a pattern justified by a shared task. Keep consumer-owned content, behaviour
+and semantics explicit, using the applicable contract format for the final proposal.
 
 For each proposed setting, establish who decides: a system standard, automatic
 component behaviour, or consumer choice. Give conditions for choosing values,
@@ -24,7 +33,7 @@ uses follow the same rule. An aesthetic preference can establish an authorised
 visual standard; it needs no invented usability claim. Explain what warrants a
 difference when proposing variants.
 
-Challenge the need for a new component or setting with concrete uses and alternatives.
+Challenge the need for a new entity or setting with concrete uses and alternatives.
 Recommend reuse, a single standard or automatic adaptation when it covers the need;
 account for compatibility when changing an existing API. For example, page names do
 not determine pagination density. Propose a shared standard or meaningful selection

@@ -36,6 +36,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Layout, surfaces and controls have distinct responsibilities | discovery/09, 16, 17 |
 | Ranking follows task, context and fewer assumptions | discovery/18–20 |
 | Page patterns and prescribed dependencies guide composition | discovery/22; build/02 |
+| Composition advice, nested layouts, permitted-class recipes and proposed local spacing | discovery/24–26 |
 | Adoption, intended contracts, compatibility, lifecycle and gaps | authoring/01–08; gap-record/01–02 |
 | Root DESIGN.md connection without page adoption | setup/01 |
 | Repository workflow preservation, specialist routing, targeted conflicts and explicit consolidation | setup/11 |

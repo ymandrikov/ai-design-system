@@ -14,6 +14,11 @@ implementation until answered; rerun it with the answer. Independent work can
 continue. Preference assumptions within explicitly permitted freedom do not require
 approval.
 
+Before implementation, present discovery's recommended composition and adaptation
+limits, scaled to the change. Reuse an already explained or supplied composition;
+continue within existing authority once material decisions are settled, without
+making the presentation a new approval gate.
+
 Complete when every affected element has a managed choice or explicit fallback,
 consumer-controlled token decisions are accounted for, and required decisions for
 the work about to be implemented are settled.

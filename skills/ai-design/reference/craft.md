@@ -48,8 +48,8 @@ Search incoming links and usages before editing shared promises or values. An ex
 consumer needs impact assessment; a dependent contract directs future use and may
 need correction. Complete when the change's scope and compatibility are understood.
 
-For component creation or public changes, follow the
-[component proposal discussion](component-proposal.md) to prepare a coherent proposal and
+For component, layout or pattern creation or public changes, follow the
+[proposal discussion](component-proposal.md) to prepare a coherent proposal and
 resolve material choices. For adoption or clarification, use it for uncovered
 decisions. Reuse complete briefs and existing delegation without a mandatory interview.
 

@@ -79,6 +79,32 @@ the choice.
 Return `nothing fits` only when no eligible candidate can cover the element.
 Complete when each choice has its basis, assumptions and any required decision.
 
+## Advise on composition
+
+For composition advice or an interface request, turn the choices into a concrete
+arrangement: identify meaningful groups and nesting, explain why the parts belong
+together, and name the owners of spacing, inset, width, order and adaptation where
+affected. Show which parts are required and which the consumer can replace or adapt.
+
+Follow the project's composition conventions. These may use layout components,
+nested primitives such as Stack, or task patterns assembling components with
+permitted classes. Classes used within the documented public boundary are ordinary
+composition; apply exception conditions only where that boundary requires them.
+A recipe need not introduce a layout component. Classify patterns by their shared
+end-user task and composition rules, not by the presence of classes alone.
+
+Use established selection rules and contextual defaults for spacing and other
+settings. When their basis is missing, propose a concrete choice for this composition
+and explain the grouping it serves, marking it as a proposal subject to the existing
+decision rules. Acceptance for one screen does not establish a system-wide rule.
+Recommend a new layout or pattern only for an evidenced responsibility or task that
+existing capabilities cannot suitably cover; describe its boundary and an example
+use for a possible craft handoff, separately from the available selection.
+
+Scale the advice to the affected composition: one sentence may suffice for a small
+group; use a short outline or example when nesting needs explanation. Complete when
+the consumer can understand the recommended arrangement and its adaptation limits.
+
 ## Select tokens for consumer decisions
 
 Read DESIGN.md's design rules and token catalogue or definitions. Select by intended

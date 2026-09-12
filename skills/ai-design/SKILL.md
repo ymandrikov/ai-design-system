@@ -43,7 +43,7 @@ selection or review does not start implementation.
 | Request or workflow condition | Read and follow |
 | --- | --- |
 | Analyze the codebase for component, layout or pattern extraction, consolidation or reuse candidates | [analyze](reference/analyze.md); saved recommendations, with readiness determined by design-system artifacts and indexes |
-| Select components, layouts, patterns or tokens; assess system coverage | [discovery](reference/discovery.md), read/search only; return the decision without writing files |
+| Select components, layouts, patterns or tokens; advise how to organise or adapt a composition; assess system coverage | [discovery](reference/discovery.md), read/search only; return the recommendation without writing files |
 | Connect existing sources, complete missing project context or explicitly migrate a codebase automatically | [setup](reference/setup.md); automatic migration is an opt-in stage that coordinates craft and use; creation of a missing system belongs to craft |
 | Check an interface or component against its contracts and design sources | [verify](reference/verify.md) |
 | Record a systemic shortfall or inspect the basis for a design choice | [gaps](reference/gaps.md); resolving a system gap belongs to craft |

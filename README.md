@@ -45,8 +45,8 @@ The single [ai-design skill](skills/ai-design/SKILL.md) routes to two workflows:
   contracts, rules and tokens, and verifies readiness for new selection. It follows
   the project's implementation conventions and can create a system from scratch.
 
-Craft's [component proposal discussion](skills/ai-design/reference/component-proposal.md)
-turns a need and optional mockup into a component proposal. Users can accept,
+Craft's [proposal discussion](skills/ai-design/reference/component-proposal.md)
+turns a need and optional mockup into a component, layout or pattern proposal. Users can accept,
 amend or delegate choices; questions focus on material decisions still needing input.
 
 Choose `craft` or `use` explicitly, or describe the result and let the entrypoint
@@ -255,6 +255,13 @@ Setup records unavailable tools explicitly. An independent analogous-page demons
 is optional quality work; missing browser access does not prevent ordinary connection.
 
 ## Selection and composition
+
+Ask how to organise components for composition advice through discovery. It recommends
+meaningful groups, nesting, responsibility for spacing and adaptation, and permitted
+substitutions using the project's layout APIs or recipes with permitted classes.
+Use presents that recommendation before implementation; material unresolved choices
+need decisions, while settled work continues. A proposed local choice does not establish
+a shared rule; new reusable capabilities belong to craft.
 
 For a page, discovery starts with patterns, then layouts and components. It reads and
 compares all shortlisted contracts before choosing and revisits the outer selection
