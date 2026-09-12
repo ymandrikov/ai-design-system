@@ -85,7 +85,7 @@ with that limit named.
 
 Pass requires correct decisions, valid artifacts, no unresolved fact needed for those
 tasks, and passing applicable executable checks. Classify failures as contract,
-implementation, test expectation or owner decision; route contract changes to craft
+implementation, test expectation or decision; route contract changes to craft
 and component fixes to the project process, then rerun affected gates on final artifacts.
 An unavailable check is not run, not pass. Record each applicable gate with raw evidence.
 

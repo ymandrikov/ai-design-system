@@ -65,7 +65,7 @@ An available palette or token alone does not establish an intended combination.
 Check contrast regressions introduced by the agent's choices, including changes to
 background, opacity or token role. A direct contrast audit or an explicit task,
 project or contract contrast requirement remains applicable. Report a conflict with
-that requirement once; honour an already accepted owner exception without reopening it.
+that requirement once; honour an already accepted exception without reopening it.
 
 Excluded contrast is outside the task's verification scope, not failed or unverified
 work blocking completion. Omit it from routine reports; never describe an excluded

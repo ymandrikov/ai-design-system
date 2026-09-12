@@ -66,14 +66,14 @@ eligibility does not block it. State any preference assumption and continue.
 If the selected composition depends on the answer, return a provisional choice
 and a distinguishing Question before implementation. A single conditional candidate
 can require a question without an Alternative.
-If conflicting contracts need a new normative rule, identify the owner decision.
+If conflicting contracts need a new normative rule, identify the decision.
 A design reference that contradicts a required rule needs that decision unless a
 documented exception applies. A reference selecting a valid preference needs none.
 
 For API values and visual variants, check the
 [basis for choices](gaps.md#check-the-basis-for-choices).
 Return a missing or conflicting basis to the caller for gap recording and any required
-owner decision; discovery remains read-only. An accepted value alone does not settle
+decision; discovery remains read-only. An accepted value alone does not settle
 the choice.
 
 Return `nothing fits` only when no eligible candidate can cover the element.

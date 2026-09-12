@@ -25,7 +25,7 @@ area, and the selected contracts' APIs and required composition. Follow document
 exceptions only when their conditions hold. Use the selected tokens for their roles
 and themes within consumer-controlled properties and supported public settings.
 Apply recommendations with stated reasons for material departures. A public override
-requiring review waits for the decision owner; existing authorisation counts.
+requiring review waits for approval; existing authorisation counts.
 Use the project's documented escape hatch within its permitted scope, supplying the
 required reason. Keep the deviation local rather than treating it as a reusable
 system variant. For each use or design-lint suppression, follow

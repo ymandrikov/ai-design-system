@@ -45,10 +45,10 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Automatic use routing and system-gap handoff | build/03 |
 | Component implementation and admission authority in craft | authoring/09 |
 | Explicit migration and default decisions for component API extensions | authoring/10 |
-| Coherent maintainer proposals and scoped delegation without repeated questions | authoring/11–12 |
+| Coherent component proposals and scoped delegation without repeated questions | authoring/11–12 |
 | Automatic craft routing with no pre-existing system | setup/02 |
 | Semantic token roles and theme alias values | discovery/23 |
-| Gap triage, archive cleanup, priorities and owner decisions | triage/01–03 |
+| Gap triage, archive cleanup, priorities and decisions | triage/01–03 |
 
 These are scenario coverage, not a claim that every model has passed. Production setup, unmanaged product fallback and deprecated migration still need model runs.
 Fixture tests alone do not establish agent selection or browser correctness.

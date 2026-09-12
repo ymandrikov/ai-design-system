@@ -45,8 +45,8 @@ The single [ai-design skill](skills/ai-design/SKILL.md) routes to two workflows:
   contracts, rules and tokens, and verifies readiness for new selection. It follows
   the project's implementation conventions and can create a system from scratch.
 
-Craft's [maintainer discussion](skills/ai-design/reference/maintainer-discussion.md)
-turns a need and optional mockup into a component proposal. Maintainers can accept,
+Craft's [component proposal discussion](skills/ai-design/reference/component-proposal.md)
+turns a need and optional mockup into a component proposal. Users can accept,
 amend or delegate choices; questions focus on material decisions still needing input.
 
 Choose `craft` or `use` explicitly, or describe the result and let the entrypoint
@@ -275,7 +275,7 @@ link to the retained entry. See [archiving](skills/ai-design/reference/gaps.md#a
 `ai-design triage` checks the open journal against related system sources, merges
 duplicates without losing expectations, and archives erroneous or already-resolved
 entries with evidence. It recommends a work order and next steps, separating work
-ready for craft from pending facts or owner decisions. Triage updates the journal and archive;
+ready for craft from pending facts or decisions. Triage updates the journal and archive;
 repairs and a system-wide search for new gaps require separate scope.
 Archive cleanup runs on explicit request or at 500 lines, checked at triage entry
 and after archiving. It removes all entries whose current version is saved in Git,

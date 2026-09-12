@@ -15,7 +15,7 @@
 **Expected:**
 
 - Inspect existing rules and components, then exercise the delegated authority
-  without asking the maintainer to choose sizes or approve every decision again.
+  without asking the user to choose sizes or approve every decision again.
 - Define a coherent public boundary and explain the basis for exposed choices or
   a single standard. Either can be valid; a list of sizes alone is insufficient.
 - Save rules and concise material rationale in the intended contract, without a

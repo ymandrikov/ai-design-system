@@ -1,11 +1,11 @@
-# Help a maintainer turn a need into a component proposal
+# Turn a need into a component proposal
 
 **Skill:** ai-design
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**
 
-> I maintain this design system. We need a pagination footer for numbered
+> We need a pagination footer for numbered
 > collections: navigation, result count and page-size choice. I have no mockup.
 > I'm not sure which options or variants it needs; help me settle the design
 > before implementation.
@@ -13,7 +13,7 @@
 **Expected:**
 
 - Inspect the connected rules, components and public-use conventions instead of
-  asking the maintainer for discoverable facts.
+  asking the user for discoverable facts.
 - Present a coherent proposed public boundary, including selection, state ownership
   and relevant edge behaviour. Distinguish existing rules from proposed decisions.
 - Make the proposal easy to accept as a whole or amend. Any questions concern

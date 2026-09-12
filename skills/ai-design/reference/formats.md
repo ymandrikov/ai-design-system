@@ -158,7 +158,7 @@ when no code is involved. Do not invent an API for a document-only recipe.
 **Composition** has H4 Required, Recommendations and Exceptions inside PATTERNS.md. Describe information
 grouping, permissible substitutions, nesting, actions and adaptation. Include consumer
 accessibility obligations and required behaviour. A pattern cannot relax a dependency's
-contract; incompatible dependencies are an owner decision. Linked public composition
+contract; incompatible dependencies require a decision. Linked public composition
 rules are part of the recipe and must be read.
 
 **Verification** names observable checks for a valid composition and an intentional

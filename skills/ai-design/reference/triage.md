@@ -48,11 +48,10 @@ format; categories remain optional.
 ## Recommend the next work
 
 For each retained entry, identify the next actionable step: system work in craft,
-consumer work in use, request-fact clarification or a decision by the owner named
-in DESIGN.md. Distinguish work ready for craft from work awaiting an answer or
-verification. A recommendation does not authorise that work.
+consumer work in use, request-fact clarification or a decision from the user.
+Distinguish work ready for craft from work awaiting an answer or verification. A recommendation does not authorise that work.
 
-When a new rule or another owner decision is needed, prepare a concrete question,
+When a new rule or another decision is needed, prepare a concrete question,
 alternatives and a recommended decision with reasons. Keep the gap open and
 continue the other entries. Observed variants do not establish normative authority;
 apply [the basis for choices](gaps.md#check-the-basis-for-choices). Honour decisions
@@ -65,7 +64,7 @@ factor for comparable harm. State unknown impact, reach and effort explicitly;
 use an explained order rather than numerical scoring.
 
 Finish with the updated journal and archive and a concise report of dispositions and evidence,
-recommended work order, ready next steps and pending facts or owner decisions.
+recommended work order, ready next steps and pending facts or decisions.
 When called from craft for a requested repair, return these results to craft and
 continue the authorised work without a new permission question. A standalone triage
 request ends with the report.

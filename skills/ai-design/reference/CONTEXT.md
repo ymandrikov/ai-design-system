@@ -9,21 +9,16 @@ interfaces. All definitions and canonical terms are in English.
 
 **End user**:
 The person whose task the interface serves.
-_Avoid_: Unqualified User when it could mean the person directing an agent; Consumer or Decision owner for the person using the product.
+_Avoid_: Unqualified User when it could mean the person directing an agent; Consumer for the person using the product.
 
 **Consumer**:
 A person, agent or UI composition using a UI entity or design token under the system's
 rules; distinguish an authoring consumer assembling UI from consuming UI using those choices.
 _Avoid_: End user when referring to the party assembling the interface.
 
-**Decision owner**:
-The person or team authorised to settle a particular design-system rule or change.
-Authority belongs to a stated decision area, rather than automatically to every user.
-_Avoid_: Owner when it could mean responsibility for a UI property.
-
 **Responsibility**:
 An obligation assigned to a UI entity or its consumer, such as providing a label or
-controlling spacing; saying a layout owns spacing describes responsibility, not decision authority.
+controlling spacing.
 
 ### Design system and UI
 

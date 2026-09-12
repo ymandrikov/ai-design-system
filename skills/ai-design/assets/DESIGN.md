@@ -48,6 +48,5 @@ Open gaps: [journal](design-system/gaps.md). Closed entries:
 their disposition, closure date and basis. Resolution requires demonstrating the
 original expected result.
 
-Name the decision owner for normative rules, admission, breaking changes, retirement
-and reviewed public overrides. Existing explicit decisions count. Independent quality
-mode applies only when the task or project policy requires it; name any such policy.
+Existing explicit decisions count. Independent quality mode applies only when the
+task or project policy requires it; name any such policy.

@@ -31,8 +31,8 @@ Read repository instructions, existing DESIGN.md or legacy profile, UI libraries
 token definitions, themes, design rules, public usage and verification commands.
 Find pages from the code when useful; a user-selected page is not required. Inspect
 representative consumers to distinguish actual evidence from naming or popularity.
-Report conflicting sources and unresolved normative choices without choosing new
-system rules on the owner's behalf. Complete when the available sources and gaps in
+Report conflicting sources and unresolved normative choices without inventing new
+system rules. Complete when the available sources and gaps in
 project context are known; surveying pages does not authorise their adoption.
 
 ## Reconcile repository skills
@@ -192,7 +192,7 @@ product consumers. Inspect all callers before changing a shared API or appearanc
 Preserve compatibility with consumers outside the selected area; if this cannot be
 done, block the change pending a scope decision. Keep unrelated redesign outside
 the migration. New normative rules require authoritative sources or explicit
-delegation from the decision owner; observed behaviour alone does not establish a
+delegation from the user; observed behaviour alone does not establish a
 standard. Record conflicts and unresolved decisions instead of weakening promises.
 
 Complete this step when mode, area, any explicit restrictions and verification choice

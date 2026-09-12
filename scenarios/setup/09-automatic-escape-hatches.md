@@ -9,7 +9,7 @@
   override. Preserve the established Stack spacing rules.
 - Link an authoritative decision permitting the inspector's precise spacing
   exception, requiring a non-empty reason and preserving behaviour/accessibility.
-  State that the second view's deviation still requires decision-owner approval.
+  State that the second view's deviation still requires approval.
 - Provide no existing exception mechanism. Add one ordinary incorrect consumer
   configuration whose correction through Stack's public API would change its visible
   spacing. Record its defect and current rendering as preparation evidence.

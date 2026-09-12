@@ -1,7 +1,5 @@
-# Develop a component proposal with its maintainer
+# Develop a component proposal
 
-Design system maintainers are the designers and developers maintaining the system.
-Decision authority follows the project's decision owners and the scope they delegate.
 Enter from [craft](craft.md) for component creation or public changes; for adoption
 or clarification, discuss only uncovered decisions. A need and an optional mockup
 are sufficient to start.
@@ -41,17 +39,17 @@ sources or resolved within that delegation. Follow the shared
 [question format and rounds](model.md#questions-to-the-user).
 
 Use the contract topics to prepare the proposal, not as a mandatory questionnaire.
-When the maintainer is unsure, offer a recommended resolution and explain the useful
+When the user is unsure, offer a recommended resolution and explain the useful
 alternatives. Deepen discussion at their request or around a concrete contradiction;
 offer a visual comparison or prototype when it would resolve that uncertainty.
 Keep accepted and remaining material decisions briefly visible in the conversation,
-rather than assigning the maintainer a backlog of unanswered questions.
+rather than assigning the user a backlog of unanswered questions.
 
 Explicit delegation authorises the agent to choose and record decisions in that
 area without repeated approval. Preserve its limits: deciding a new component's
 defaults does not authorise changing shared rules or migrating unrelated consumers.
-Outside delegation, a proposal becomes a rule through the relevant owner's acceptance;
-silence is not acceptance. Bundle the remaining owner decisions into the concrete
+Outside delegation, a proposal becomes a rule through the user's acceptance;
+silence is not acceptance. Bundle the remaining decisions into the concrete
 proposal, and continue independent work within the task's scope.
 
 ## Return to craft
@@ -61,5 +59,5 @@ the authorised craft work. A discussion-only request ends with the proposal.
 Record settled rules and concise material rationale in the contract or authoritative
 shared source, linking instead of duplicating them in a separate questionnaire.
 Contract authors perform the [ordinary audit](contract.md#ordinary-audit), including
-selection and public-use checks; the maintainer need not answer those checks as another
+selection and public-use checks; the user need not answer those checks as another
 interview. Agreement on design does not establish implementation evidence or admission.

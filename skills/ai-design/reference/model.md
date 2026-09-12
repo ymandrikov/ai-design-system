@@ -4,15 +4,14 @@ Read this and [the canonical domain glossary](CONTEXT.md) once when entering any
 framework workflow. DESIGN.md maps canonical terms to the project's names;
 their responsibilities stay the same. Existing instructions using `entity` mean
 **UI entity**, with managed status determined separately. Existing `user task`
-wording means an end-user task. Approval-related `owner` means **Decision owner**;
-a component that `owns` a property has a **Responsibility**. Token indexes lead to
-token definitions; they do not inherit UI contract formats or eligibility statuses.
+wording means an end-user task; a component that `owns` a property has a
+**Responsibility**. Token indexes lead to token definitions; they do not inherit UI contract formats or eligibility statuses.
 
 ## DESIGN.md and indexes
 
 Read `DESIGN.md` at the target repository root. It explains design intent and shared
 rules, and links UI indexes, token definitions, themes, public usage, verification
-and decision owners. Operational paths in it resolve from that root; ordinary Markdown
+instructions. Operational paths in it resolve from that root; ordinary Markdown
 links resolve relative to their containing file. Missing connections for existing
 sources route to [setup](setup.md). For a new system, [craft](craft.md) establishes
 the requested decisions and sources, then uses setup to connect them.
@@ -77,7 +76,7 @@ expose an override unless their contract permits one.
 Contracts state intended valid use; implementation and tests establish actual behaviour.
 A mismatch is a defect, not permission to weaken the contract. A design reference
 cannot silently override a required contract rule. Use a documented exception when
-its conditions hold; otherwise bring the conflict to the decision owner named in DESIGN.md.
+its conditions hold; otherwise ask the user to resolve the conflict.
 
 The [use workflow](use.md) owns product interfaces and required surrounding
 relationships through public APIs. The [craft workflow](craft.md) owns reusable
@@ -87,7 +86,7 @@ not permission for use to change the system. When both workflows are authorised 
 one task, complete the needed craft work and its checks before resuming use.
 Preserve independent legacy violations and unrelated gaps; report them separately,
 subject to the [contrast scope](verify.md#contrast-scope) exception.
-Honour explicit scope and owner decisions already given in the current task.
+Honour explicit scope and decisions already given in the current task.
 
 ## Migration verification
 

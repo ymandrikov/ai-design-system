@@ -40,7 +40,7 @@ Permitted freedom needs no approval for each individual choice.
 
 Existing calls, API value lists and individual mockups demonstrate use; they do not
 alone establish permission to vary. When creating or changing a normative rule,
-identify a pre-existing authoritative source or an explicit owner decision. A rule
+identify a pre-existing authoritative source or an explicit decision. A rule
 just written from observed implementation cannot independently justify that same
 implementation. Inspect the prior rule when replacing it; record an unsupported
 replacement as drift rather than claiming that no rule ever existed.
@@ -48,7 +48,7 @@ replacement as drift rather than claiming that no rule ever existed.
 During refactoring, existing appearance may remain as temporary compatibility with
 an explicit link to the open gap, not as a newly established standard. New uses
 follow the applicable standard or permitted freedom. If neither provides a basis,
-prepare a concrete proposal and obtain the owner decision before implementing the
+prepare a concrete proposal and obtain the decision before implementing the
 dependent part; independent work can continue. Recording a gap grants no exception.
 
 Resolve a choice gap only after establishing the standard, selection conditions or

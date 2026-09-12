@@ -11,13 +11,13 @@ no new code.
 ## Write the promise
 
 For creation or a public change, describe intended valid use from the request and
-authoritative sources. Report new unresolved normative choices to the decision owner.
+authoritative sources. Report new unresolved normative choices to the user.
 An intended promise is not evidence that its implementation already exists.
 
 For adoption, inspect code, styles, tests and actual consumers as evidence of public
 use and observable outcomes. Separate entity responsibilities from consumer choices.
 An emitted change event demonstrates notification, not a required save policy.
-Trace each promise and restriction to evidence or an explicit owner decision;
+Trace each promise and restriction to evidence or an explicit decision;
 report source contradictions and desired improvements separately. Incidental internal
 acceptance need not become public API.
 
@@ -31,7 +31,7 @@ Check every selection item against the [shared selection rules](formats.md#share
 list form, one criterion per item and a single interpretation. Compare the combined
 When-to-use logic with every disqualifier, including boundary values, and look for a
 request that both allows and forbids use. Any such case is a contract contradiction;
-resolve it from authoritative evidence or report the unresolved owner decision.
+resolve it from authoritative evidence or report the unresolved decision.
 
 For every affected public parameter, use the [Public API rules](formats.md#component)
 to determine a value from a concrete request. Follow linked rules and check defaults,

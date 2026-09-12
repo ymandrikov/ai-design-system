@@ -7,7 +7,7 @@ bindings and tools. Product interfaces belong to the separate [use workflow](use
 
 For an existing system with missing connections, follow [setup](setup.md). To create
 a system from scratch, inspect the project and the requested scope first. Establish
-design intent and needed rules from the brief, authoritative sources and owner
+design intent and needed rules from the brief, authoritative sources and explicit
 decisions; resolve material missing choices before implementing dependent work.
 Use setup to connect those decisions and sources through DESIGN.md and indexes,
 then create the requested capabilities here. Empty indexes are valid while building;
@@ -23,7 +23,7 @@ expected result and evidence. Return here with the current failure, authoritativ
 requirements and next actionable step. The repair request already authorises its
 craft scope; continue ready work without renewed permission. An already-resolved or
 dismissed entry needs no system repair; report its disposition and any remaining
-work. Keep unrelated entries outside this review and resolve missing owner decisions
+work. Keep unrelated entries outside this review and resolve missing decisions
 before dependent edits.
 
 For explicitly requested automatic codebase migration, [setup’s automatic migration stage](setup.md#automatic-migration) owns
@@ -41,7 +41,7 @@ For a UI entity, distinguish creation, adoption, implementation repair, contract
 change, clarification and lifecycle change. For tokens/rules, identify the role,
 scope and affected consumers.
 Classify compatibility: rejecting previously valid use or changing an observable
-promise is breaking. State undecidable consequences as an owner decision.
+promise is breaking. State undecidable consequences as a decision.
 
 Map affected implementations, contracts, indexes, rules, tokens and public consumers.
 Search incoming links and usages before editing shared promises or values. An existing
@@ -49,7 +49,7 @@ consumer needs impact assessment; a dependent contract directs future use and ma
 need correction. Complete when the change's scope and compatibility are understood.
 
 For component creation or public changes, follow the
-[maintainer discussion](maintainer-discussion.md) to prepare a coherent proposal and
+[component proposal discussion](component-proposal.md) to prepare a coherent proposal and
 resolve material choices. For adoption or clarification, use it for uncovered
 decisions. Reuse complete briefs and existing delegation without a mandatory interview.
 
