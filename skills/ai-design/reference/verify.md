@@ -6,6 +6,10 @@ Missing DESIGN.md context is missing evidence: report it and route [setup](setup
 Verification checks the actual changed composition or component preview and its
 required surrounding relationships. The caller owns repairs. A standalone review
 reports findings and records applicable gaps without starting implementation.
+The framework determines the contract and design-system conditions to verify.
+Follow the project's established testing and preview procedures for engineering
+evidence; do not introduce a separate testing methodology. Apply the saved migration
+verification choice when relevant.
 
 ## Static verification
 
@@ -41,10 +45,9 @@ a failed check is never a pass.
 
 ## Behavioural and visual verification
 
-Render the changed screen with the application or preview instructions in DESIGN.md.
-Exercise the changed behaviour, native submission/validation, keyboard/focus and
-required states. Measure layout, spacing, sizing and typography against the linked
-visual source using the procedure. Inspect relevant supported themes/viewports.
+Follow the project's established procedure linked from DESIGN.md to verify affected
+behaviour, semantics, states, layout, spacing, sizing and typography against their
+contracts and visual sources. Include relevant supported themes and contexts.
 Browser absence does not prevent static work, but leaves these properties unverified.
 Unit DOM output alone is not rendered layout or interactive-browser evidence.
 
@@ -94,4 +97,5 @@ then report `Gap gate: recorded — <title>`
 or `Gap gate: none`. Complete means no failed applicable checks; fully verified UI
 also requires no unverified affected visual or behavioural property. Documentation
 work can finish with runtime checks not applicable. Contracts and shared code stay
-unchanged here; return defects to the workflow that owns them.
+unchanged here; return design defects to the authorised workflow and internal-logic
+defects to project development.

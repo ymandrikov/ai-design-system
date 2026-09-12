@@ -119,7 +119,8 @@
   connection work without claiming those pairs are consolidated.
 - **Mixed contract and process document:** Add an existing component contract outside
   the standard contract directories that also specifies a mandatory release approval
-  process. Link it into the existing sources. Keep the document at its original path
-  and link it from DESIGN.md; report deferred reorganisation without silently moving,
-  splitting or dropping its process. Ordinary standalone contracts still move under
-  setup's standard structure. Independent connection can finish with that deferral.
+  process. Link it into the existing sources. Move all contract content into the
+  appropriate contract under design-system/; leave only the release-process content
+  at the original path. Preserve its invocation, repair incoming links by their
+  intended destination and retain a relevant link from the new contract. Do not
+  defer the contract move, duplicate contract rules or lose process instructions.

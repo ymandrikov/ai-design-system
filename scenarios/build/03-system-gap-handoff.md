@@ -17,6 +17,8 @@
 - Deliver the authorised local warning; check its actual rendered text with a
   focused project check and report browser evidence as unavailable.
 - Record one reusable warning gap and describe the craft handoff in the response.
+- The request explicitly permits the local paragraph. The gap record alone would
+  not permit a new shared warning variant; preserve this distinction in the handoff.
   Do not send an external message to the team.
 - Preserve shared component implementations, contracts, indexes, rules and tokens.
   The gap and future reuse do not authorise building or admitting a shared component.

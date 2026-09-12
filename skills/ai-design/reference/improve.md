@@ -1,29 +1,29 @@
 # Improve an existing design system
 
 Survey the existing system, implement evidenced improvements to its presentation,
-structure and documentation, and verify the result. Read [the shared model](model.md)
+composition and documentation, and verify the result. Read [the shared model](model.md)
 and root DESIGN.md. Missing connections are a [setup](setup.md) prerequisite:
 report what is missing and end this invocation without starting setup or migration.
 Creating a system belongs to a separate [craft](craft.md) task.
 
 ## Preserve the boundary
 
-Improve changes only design-system-owned artifacts: shared presentation, internal
-structure, contracts, indexes, tokens, rules and their supporting evidence. Ownership
-comes from DESIGN.md, contracts and actual responsibilities, not directory names;
-a pattern's source may be a product page that remains read-only here.
+Improve changes design-system contracts, indexes, rules, tokens and presentation,
+including related consumer CSS, markup and public design settings within scope.
+Ownership comes from DESIGN.md, contracts and actual responsibilities, not directory
+names. Follow the [design-only boundary](model.md#design-only-change-boundary) and any
+explicitly narrower request, such as leaving consumers unchanged.
 
 Preserve business logic and component interaction behaviour. Event handling, data
-processing, validation, state transitions, focus, keyboard control and accessibility
-semantics stay unchanged, including when defective. Logic refactoring is outside
-scope even if intended to preserve behaviour. Read consumers and run checks against
-them, but leave consumer code, styles and tests unchanged. Visual improvements are
-permitted when they preserve interaction and satisfy authoritative or agreed design
-rules; CSS or markup that changes interaction is a behaviour change too.
+processing, domain validation, state transitions and focus/keyboard implementations
+stay unchanged, including when defective. Logic refactoring is outside scope even if
+intended to preserve behaviour. Design changes may correct presentation or semantic
+markup under established or agreed contracts; assess behavioural consequences before
+changing CSS or markup and preserve interaction guarantees.
 
 Record systemic logic defects through [gaps](gaps.md) and defer their repair to a
-separate craft task. Keep improvements requiring consumer edits as proposals with
-the necessary migration for a separate task. Product-only defects remain outside
+project-development task. Keep improvements requiring excluded logic or out-of-scope
+consumer edits as proposals with their dependencies. Product-only logic defects remain outside
 this survey's repair scope and are not system gaps. Calling another procedure,
 delegating choices or accepting a proposal within improve never lifts these limits.
 
@@ -53,11 +53,11 @@ when every system area in scope has a coverage entry.
 
 Inspect actual source, contracts, rules, tests, examples and affected consumer flows.
 Look for contract/index drift, presentation that conflicts with established rules,
-misleading documentation, duplicated presentation and unnecessarily complex system
-structure. Evaluate opportunities without a defect only when current uses establish
+misleading documentation, duplicated presentation and unclear composition ownership.
+Evaluate opportunities without a defect only when current uses establish
 a concrete benefit; visual similarity and speculative future reuse are insufficient.
 Use [analysis criteria](analyze.md#evaluate-candidates) for reuse or consolidation
-questions, keeping analysis advisory and product sources read-only.
+questions, keeping analysis advisory until a design change is authorised.
 
 For each finding, identify its evidence, expected result, benefit, affected artifacts
 and consumers, compatibility, and next action. Separate independently repairable
@@ -82,10 +82,11 @@ authorise a repair, and a contract must not be weakened to match defective behav
 Present new design rules, public capabilities, contract-semantic changes and breaking
 changes before dependent edits. Include concrete proposals, compatibility and consumer
 impact; reuse decisions already supplied. Editorial corrections supported by an
-unchanged contract need no new approval. Even an accepted proposal is deferred when
-it requires changing logic or consumers. A permitted API extension still needs craft's
-default and migration decisions; only an outcome requiring no consumer edits can run
-here. Preserve the original behaviour when that extension is omitted.
+unchanged contract need no new approval. Defer accepted proposals that require excluded
+logic or out-of-scope consumer changes. A permitted API extension still needs craft's
+default and migration decisions. Related consumer design changes use [use](use.md):
+**craft → checks → use → checks**. Preserve the original behaviour when that extension
+is omitted unless an authorised design decision explicitly changes that promise.
 
 Batch all currently independent questions using [the shared question rules](model.md#questions-to-the-user)
 and continue independent work while answers are pending. After answers, implement

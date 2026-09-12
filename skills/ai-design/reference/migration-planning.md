@@ -1,11 +1,14 @@
 # Plan automatic migration
 
-Adapted from `superpowers:writing-plans` for automatic migration. Write the plan in
+Plan the design-system migration and its evidence. Write the plan in
 `design-system/adoption.md`, extending the [saved work list](adoption.md#save-the-work-list)
 with tasks and steps. The plan and execution progress share this document.
 [Automatic migration](setup.md#automatic-migration) owns scope, authority, batching,
 resume and completion; [migration verification](model.md#migration-verification)
 owns the saved run-or-skip choice.
+Use the [design-only boundary](model.md#design-only-change-boundary) in every mode.
+Internal component and business-logic work remains an explicit project dependency,
+not an executable migration task. Engineering checks follow the project's procedure.
 
 ## Establish the plan context
 
@@ -38,9 +41,9 @@ For every task, specify:
 - Ordered `- [ ]` steps, each containing one action small enough to perform in a few
   minutes, and explicit criteria for completing the task.
 - When verification is enabled, the applicable check commands and expected outcomes.
-  For new or repaired behaviour, plan the focused failing check, its expected failure,
-  the minimal change and the passing check. Use the saved verification choice to
-  determine whether these steps apply.
+  State which contract promises and selection/composition results they must establish.
+  Follow the project's established testing procedure; this plan prescribes no
+  test-authoring method. Use the saved verification choice to determine which checks apply.
 
 Describe exact edits and expected behaviour. Include code or test examples where
 needed to remove ambiguity; duplicating all future implementation and test code is

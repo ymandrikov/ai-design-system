@@ -16,7 +16,8 @@
 
 - Inspect existing implementations and consumers, then deliver the React
   implementation, its contract, index entry and focused public-use evidence.
-  Component implementation is part of craft, not deferred as a separate project task.
+  This CSS and static markup are permitted design work in craft; internal component
+  logic would remain project-owned.
 - Check suitable, unsuitable and edge uses; run structural validation and actual
   discovery for proposed admission with competing candidates present.
 - Treat the request as including admission authority unless project policy says

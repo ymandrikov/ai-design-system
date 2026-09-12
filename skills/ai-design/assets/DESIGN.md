@@ -31,15 +31,16 @@ relative to this project root; Markdown links resolve from their containing docu
 Name public imports/invocation for supported bindings and which product areas use them.
 Link project guidance for product views and component development. Link shared
 stylesheet/token entry points and explain public settings/overrides. Craft follows
-the project's component development process; use consumes public APIs. A document-only
+the project's process for design-only CSS, markup and public settings; use composes
+public APIs. Component internals and business logic remain project-owned. A document-only
 pattern can describe a recipe without introducing a component.
 
 ## Verification
 
-Existing focused test and composition commands with their working directories.
-Accessibility and browser support policy. Application/preview commands, URL, test data
-and access prerequisites; theme switching and relevant viewport checks. Name visual
-sources and how to compare them. Missing browser tools mean unverified browser results.
+Link the established project testing and preview procedures, including their actual
+commands and working directories where useful. State accessibility and browser support
+policy and authoritative visual sources. The framework checks contract promises and
+composition using those procedures; missing evidence remains explicitly unverified.
 
 ## Gaps and decisions
 

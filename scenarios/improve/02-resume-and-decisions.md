@@ -26,7 +26,7 @@
 - Reconcile saved progress with actual sources, correct the regressed index and
   inspect the pending areas. Saved completion alone is not current evidence.
 - Preserve the rejected proposal and reason. Keep the accepted API simplification
-  deferred for a separate task because its consumer migration exceeds improve scope.
+  deferred for a separate task because its consumer migration exceeds this request's scope.
 - Present both independent design questions together with concrete recommendations;
   leave dependent edits pending and finish independent improvements.
 - Update the same improvements report with coverage, source-linked results,

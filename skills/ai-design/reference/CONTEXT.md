@@ -154,16 +154,19 @@ Adoption and admission are distinct events that may occur in the same task.
 _Avoid_: Adoption as evidence that admission has occurred.
 
 **Craft**:
-The workflow for developing and maintaining a design system: reusable component
-implementation, layouts, patterns, contracts, design rules, tokens and availability.
+The workflow for developing and maintaining a design system: reusable design
+capabilities, layouts, patterns, contracts, design rules, tokens and availability.
+Code changes are limited to design-related CSS, markup and public settings;
+component internals and business logic remain project-owned.
 It establishes and verifies the system's public promises using the project's
 development process. Authoring contracts and rules is part of craft.
 _Avoid_: Building a product interface as implicit permission to develop the system.
 
 **Use**:
 The workflow for building product interfaces by selecting and composing UI through
-public boundaries and the design system's rules and tokens. A needed system change
-is handed off to craft; it requires authorised system scope even within the same task.
+public boundaries and the design system's rules and tokens, with design-only changes.
+A needed system change is handed off to craft; it requires authorised system scope
+even within the same task. Both the shared capability and its resulting use are checked.
 
 **Contract drift**:
 A system gap in which the behaviour or result provided by a UI entity differs from
@@ -172,8 +175,9 @@ its observable contract promises.
 **Improve**:
 The procedure for surveying and improving an existing design system's presentation,
 structure and documentation through bounded craft work, with saved progress and
-verification. Business logic, component interaction behaviour and consumers remain
-unchanged; improvements requiring those changes become proposals for separate tasks.
+verification. Related consumer presentation may change within scope; component
+internals and business logic remain unchanged. Improvements depending on excluded
+work remain proposals for project development.
 
 **Gap**:
 A systemic shortfall in design-system capabilities or rules, or a violation of its

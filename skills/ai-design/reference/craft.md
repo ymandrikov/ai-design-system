@@ -1,9 +1,11 @@
 # Craft the design system
 
 Read [the shared model](model.md) and existing root `DESIGN.md`. Craft owns reusable
-components and their implementation, layouts, patterns, contracts, indexes, design
-rules and token organisation/values. Use the project's development conventions,
-bindings and tools. Product interfaces belong to the separate [use workflow](use.md).
+components' design, layouts, patterns, contracts, indexes, design rules and token
+organisation/values. Apply the [design-only boundary](model.md#design-only-change-boundary)
+using project conventions: CSS, markup and public design settings may change;
+component internals and business logic remain project-owned. Related consumer design
+changes use the separate [use workflow](use.md).
 
 For an existing system with missing connections, follow [setup](setup.md). To create
 a system from scratch, inspect the project and the requested scope first. Establish
@@ -37,7 +39,7 @@ Return here for each migration item's contract, audit and admission; an analysis
 request ends with saved recommendations.
 
 Find authoritative definitions and affected references through DESIGN.md and indexes.
-For a UI entity, distinguish creation, adoption, implementation repair, contract
+For a UI entity, distinguish creation, adoption, design repair, contract
 change, clarification and lifecycle change. For tokens/rules, identify the role,
 scope and affected consumers.
 Classify compatibility: rejecting previously valid use or changing an observable
@@ -56,12 +58,14 @@ decisions. Reuse complete briefs and existing delegation without a mandatory int
 For every extension of a component's public API, including backward-compatible
 optional inputs, present the concrete proposal and impact on existing uses. Before
 implementing dependent changes, settle whether and which existing uses to migrate,
-and what behaviour applies when the new input is omitted. Reuse explicit answers or
-resolve choices within delegated authority; otherwise ask for the missing decisions
+and what behaviour applies when the new input is omitted. Reuse explicit answers,
+authoritative project rules or choices within delegated authority; otherwise ask for the missing decisions
 in one batch. A required input with no default is valid. Recommend preserving existing
 behaviour where possible and explain the consequences for current uses. Proceed once
 both decisions are settled. Migration concerns uses of the changed component only;
-extending other components requires its own scope.
+extending other components requires its own scope. Do not repeat questions whose
+answers are already determined; technical compatibility alone does not settle an
+otherwise unknown design default or migration decision.
 
 ## Edit and audit
 
@@ -84,8 +88,8 @@ For token organisation, values or shared design rules, follow
 ### Design public APIs and escape hatches
 
 When creating or changing a public API, prefer inputs that express consumer intent
-and supported system options. Encapsulate established design rules in the component;
-use project linters for rules that cannot reasonably be enforced through its API.
+and supported system options. Make established design rules part of the public boundary;
+the project determines how that boundary is implemented and enforced.
 For example, if this system defines confirmation button styles and order by intent,
 let the dialog own those decisions instead of accepting arbitrary action buttons:
 
@@ -110,7 +114,9 @@ and conventions, not a required prop on every component. This JSX is illustrativ
 ```
 
 Define the permitted deviations and approval conditions in the contract. Restrict
-the mechanism to that scope and validate the reason; a generic attributes object
+the mechanism to that scope and verify that each use supplies a meaningful non-empty
+reason. The project determines the enforcement mechanism; adding internal validation
+logic is project work. A generic attributes object
 must not silently bypass unrelated behaviour or accessibility guarantees. Treat the
 result as a local exception, not a variant to copy into other consumers. Each use,
 including a design-lint suppression, follows [exception recording](gaps.md#record-exceptions).
@@ -118,8 +124,9 @@ A reason or suppressed warning does not replace required authorisation.
 
 ### Audit the implementation
 
-For component creation or repair, implement the promised public boundary using the
-project's existing code, styles and development process. Check affected callers
+For component creation or design repair, implement permitted CSS, markup and public
+design settings using the project's process. Keep internal logic project-owned;
+record dependencies on it and preserve the intended contract. Check affected callers
 before changing shared behaviour. Verify public use, relevant states, accessibility
 and composition with focused project checks; use [verification](verify.md) for
 affected browser promises. Keep documentation-only requests documentation-only.
@@ -131,7 +138,7 @@ requires independent quality checks, also load [independent gates](blind-gates.m
 for the applicable UI contract changes. That mode supplements ordinary evidence;
 it is not a default prerequisite for authoring, admission or setup.
 
-Repair implementation drift within the authorised craft scope; otherwise record
+Repair design drift within the authorised craft scope; otherwise record
 the remaining defect. A contract is not weakened to hide a defect. Craft owns the
 agreement between implementation and public promises, including their evidence.
 
@@ -166,3 +173,6 @@ For new systemic gaps, use [gap recording](gaps.md).
 Report changed artifacts, compatibility, public-use evidence, affected consumers,
 gaps and unresolved decisions. Separate static, behavioural and visual results;
 a missing check is unverified, not pass.
+When consumer changes are in scope, continue through [use](use.md) after craft's
+checks, then verify the affected composition. Earlier component evidence alone does
+not prove the correctness of its new use.

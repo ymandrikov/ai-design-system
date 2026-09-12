@@ -14,10 +14,10 @@
   separate numbered text format with options and a recommendation.
 - Ask for the missing mode in the startup round, offering in order:
   mode 1 — contracts and escape hatches preserving existing appearance and behaviour
-  (recommended); mode 2 — contracts, escape hatches and repairs preserving correct
+  (recommended); mode 2 — contracts, escape hatches and design repairs preserving correct
   behaviour; mode 3 — contracts only, with runtime unchanged.
-- Explain that mode 2 can correct evidenced defects, including business logic,
-  against authoritative requirements. Do not ask separately for business-logic authority.
+- Explain that mode 2 can correct evidenced design defects against authoritative
+  requirements. Every mode preserves component internals and business logic.
 - Explain each mode by what it permits changing, using plain language matching the
   user and briefly defining new terms at first mention. Before the mode choice,
   explain an escape hatch as a controlled local exception with a required reason

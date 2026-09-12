@@ -21,3 +21,8 @@
   propose spreading fullWidth to LinkButton, CopyButton or other components.
 - Await the missing answers before implementing dependent API, contract or consumer
   changes. The general request to extend Button does not settle these choices.
+
+**Independent variant:** Add "Omission means false; keep existing consumer calls
+unchanged" to the Request, or supply an authoritative project rule settling both
+choices. Reuse those decisions without a new questionnaire, assess compatibility,
+apply the design-only change and run the applicable contract and project checks.

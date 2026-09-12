@@ -76,8 +76,9 @@ than response formatting or a printed candidate list. A stated false restriction
 is a failure even when the chosen id is correct. Run generated artifacts with the
 project's real bindings and focused checks in an isolated copy. For patterns/layouts verify that
 the target composition exists, valid compositions pass and the deliberate violation
-is rejected for the intended reason. Use assertions that fail on a violated condition;
-passing checks over unrelated existing UI are insufficient. A schema validator or a
+is rejected for the intended reason. Follow the project's established engineering
+verification procedure; the framework defines these expected contract outcomes, not
+how to author tests. Passing checks over unrelated existing UI are insufficient. A schema validator or a
 worker saying "valid" does not replace runnable composition evidence when code exists.
 Visual/interactive promises need the browser evidence described by
 [verification](verify.md); document-only work can have executable checks not applicable,

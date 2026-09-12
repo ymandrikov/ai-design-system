@@ -105,7 +105,9 @@ multiple gaps, use one list item per entry.
 
 Recording neither blocks product work nor authorises repairs. Hand system work to
 the separate [craft workflow](craft.md),
-which requires authorised system scope. Craft archives an in-scope entry as Resolved
+which requires authorised design-system scope. Internal component and business-logic
+repairs belong to project development; retain their contract drift until the original
+expectation is demonstrated. Craft archives an in-scope entry as Resolved
 only after proving its original expectation, including admission when required.
 
 For reviewing existing entries, merging duplicates, dismissing erroneous records

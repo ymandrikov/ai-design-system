@@ -1,11 +1,13 @@
 ---
 name: ai-design
-description: Create and maintain a design system and its components, improve an existing system while preserving logic and consumers, or build and verify product interfaces using that system. Also handles codebase analysis for reusable UI candidates, explicitly requested automatic codebase migration, project setup, component and token discovery, gap recording and triage.
+description: Organise and maintain a consistent design system through contracts, discovery, reuse and verification. Handles design-only component and consumer changes, setup, adoption and migration, analysis, gaps and triage; component internals and business logic remain project-owned.
 ---
 
 # AI design
 
-One entrypoint, two workflows with separate responsibilities. Read
+One entrypoint, two workflows with separate responsibilities. The framework governs
+design-system work and its checks; implementation and engineering test methods follow
+the project's procedures. Read
 [the shared model](reference/model.md) once, then the procedure for the request.
 Load supporting references only when their stated condition applies.
 Within a project workflow, act as its design-system specialist under the
@@ -19,8 +21,8 @@ capability does not expand it.
 
 | Requested result | Read and follow |
 | --- | --- |
-| Survey and improve an existing design system's presentation, structure and documentation while preserving logic and consumers | [improve](reference/improve.md); bounded system improvement through craft |
-| Create or maintain the design system: components and their implementation, layouts, patterns, contracts, tokens, rules or availability; fix a design-system gap | [craft](reference/craft.md) |
+| Survey and improve design-system consistency, including related consumer presentation while preserving logic | [improve](reference/improve.md); bounded system improvement through craft |
+| Create or maintain components' design, layouts, patterns, contracts, tokens, rules or availability; fix a design-system gap | [craft](reference/craft.md) |
 | Build or change a product interface by selecting and composing the system's public capabilities | [use](reference/use.md) |
 
 `craft` delivers reusable system capabilities and evidence for their promises.
@@ -30,7 +32,8 @@ development and system rule changes require craft scope. Record a reusable short
 as a gap and hand it off to craft. Recording it does not authorise the repair.
 
 When both workflows are authorised, identify their separate stages and results.
-Complete and verify the needed craft work before resuming use of that capability.
+Follow **craft → checks → use → checks**: verify the shared capability before using
+it, then verify its actual composition, subject to explicit migration exceptions.
 Existing authorisation counts; crossing the boundary is not an automatic response to
 failed discovery. Keep unrelated system work outside the task.
 
@@ -44,7 +47,7 @@ system changes; its stricter scope remains in force when calling craft.
 
 | Request or workflow condition | Read and follow |
 | --- | --- |
-| Improve the existing system, or resume saved improvements, with logic and consumers unchanged | [improve](reference/improve.md); one survey pass, permitted edits and verification with saved progress |
+| Improve the existing system, or resume saved improvements, preserving logic and allowing scoped consumer design changes | [improve](reference/improve.md); one survey pass, permitted edits and verification with saved progress |
 | Analyze the codebase for component, layout or pattern extraction, consolidation or reuse candidates | [analyze](reference/analyze.md); saved recommendations, with readiness determined by design-system artifacts and indexes |
 | Select components, layouts, patterns or tokens; advise how to organise or adapt a composition; assess system coverage | [discovery](reference/discovery.md), read/search only; return the recommendation without writing files |
 | Connect existing sources, complete missing project context or explicitly migrate a codebase automatically | [setup](reference/setup.md); automatic migration is an opt-in stage that coordinates craft and use; creation of a missing system belongs to craft |

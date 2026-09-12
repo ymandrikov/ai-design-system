@@ -1,6 +1,8 @@
 # Validate ai-design with other agents
 
 Scenarios test decisions and resulting UI, not the wording of an agent's response.
+These repository validation procedures do not prescribe a consuming project's
+engineering test methodology.
 A worker performs the Request in an isolated copy. One independent evaluator reviews
 the selected results using [the semantic rubric](evaluate.md). `grade.mjs` collects
 those assessments; it does not parse the worker's prose or decide correctness by regex.
@@ -41,7 +43,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Root DESIGN.md connection without page adoption | setup/01 |
 | Repository workflow preservation, specialist routing, targeted conflicts and explicit consolidation | setup/11 |
 | Saved adoption scope, batch limits, continuation and separate API analysis | setup/03–05 |
-| Migration mode choice, admission without repairs, behaviour preservation, business-logic repairs and bounded escape hatches | setup/06–09 |
+| Migration modes, admission without repairs, design-only repairs, preserved logic and bounded escape hatches | setup/06–09 |
 | Verification refusal across migration modes, setup moves, gradual adoption and resume | setup/10 |
 | Automatic use routing and system-gap handoff | build/03 |
 | Component implementation and admission authority in craft | authoring/09 |
@@ -51,7 +53,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Semantic token roles and theme alias values | discovery/23 |
 | Gap triage, archive cleanup, priorities, decisions and resolvability | triage/01–04 |
 | Reusable UI analysis, artifact prerequisites, full coverage and preserved decisions on rerun | analyze/01–02 |
-| System-only improvement, preserved logic and consumers, bounded passes, decisions and resumed progress | improve/01–02 |
+| Scoped improvement, preserved logic, consumer limits and permitted design changes, bounded passes and saved decisions | improve/01–02 |
 
 These are scenario coverage, not a claim that every model has passed. Production setup, unmanaged product fallback and deprecated migration still need model runs.
 Fixture tests alone do not establish agent selection or browser correctness.

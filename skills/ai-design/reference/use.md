@@ -4,6 +4,10 @@ Read [the shared model](model.md) and the
 root DESIGN.md. Missing context routes to [setup](setup.md); continue UI
 work after the required sources are connected. Read a supplied design reference
 before selecting the structure.
+Apply the [design-only boundary](model.md#design-only-change-boundary) to changes:
+compose public capabilities and edit related CSS, markup and design settings while
+preserving component internals and business logic. Broader project work follows its
+own instructions and remains separate from this workflow's authority.
 
 ## Select the composition
 
@@ -38,15 +42,20 @@ system variant. For each use or design-lint suppression, follow
 
 On `nothing fits`, inspect existing product patterns and unmanaged code, its tests
 and callers. Prefer a suitable existing implementation to duplication. Report
-`Fallback: <path> — unmanaged; <evidence and remaining limits>`. Otherwise build
-product-local markup and report it. Hidden/deprecated entries and missing managed
+`Fallback: <path> — unmanaged; <evidence and remaining limits>`. Product-local markup
+is valid for screen-specific composition within existing contracts. A missing
+reusable capability requires an extension, a justified new entity or a bounded
+exception before introducing an independent shared variant; merely recording a gap
+does not authorise that variant. Hidden/deprecated entries and missing managed
 contracts cannot enter through fallback. Do not create a contract during product work.
 
 When implementation contradicts a contract, record the defect and use a working
-alternative if available. Shared component implementation, contract, rule and token
+alternative if available. Shared component design, contract, rule and token
 changes belong to the separate [craft workflow](craft.md). Hand off the gap and
 needed capability; enter craft only when system work is authorised. When both
 workflows are in scope, finish craft and its applicable checks before resuming use.
+Then verify the resulting use: **craft → checks → use → checks**. Explicit migration
+exceptions retain their scope and must remain visible in the reported evidence.
 Keep independent legacy violations outside the diff; expand only surrounding
 relationships needed for the new work to function correctly.
 
@@ -60,7 +69,7 @@ missing components/layouts/patterns, unexplained API choices or visual variants,
 misleading guidance, contract drift or required design-reference conflicts using
 [gap recording](gaps.md). Read it
 when such a gap appears. A product-specific fallback alone needs no gap. Recording
-never blocks product work.
+alone grants no bypass and does not block independent contract-compatible work.
 
 Report choices, material assumptions, fallback evidence, changed composition,
 static/behavioural/visual results and gaps. End with Decisions needed, or `none`.

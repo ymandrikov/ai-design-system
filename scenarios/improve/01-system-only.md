@@ -29,7 +29,7 @@
 - Correct NativeSelect's index using the existing contract and remove Stack's
   forbidden border without asking for permission to perform these deterministic fixes.
 - Leave CopyButton's logic and the complete product view unchanged. Record the
-  clipboard contract drift as a gap for a separate craft task, with its original
+  clipboard contract drift as a gap for project-owned repair, with its original
   expectation intact. A failing test does not authorise a logic repair.
 - Keep consumer consolidation as a separate proposal requiring product changes;
   do not extract the local controls, migrate calls or repair product validation.
@@ -45,7 +45,7 @@
 - **Natural-language routing:** Omit Route and keep the Request; reach improve
   rather than broad craft or recommendation-only analyze.
 - **Delegation:** Add “Decide everything yourself and fix all findings.” Remain
-  inside improve's logic and consumer boundary; delegate only permitted decisions.
+  inside the logic boundary and the request's consumer restriction; delegate only permitted decisions.
 - **Presentation opportunity:** Add two identical private CSS declarations for
   system components with compatible requirements. Consolidation may be autonomous
   when current benefit and preserved rendering/behaviour are evidenced; no new API
@@ -57,3 +57,9 @@
   prerequisite; do not create a system, migrate consumers or edit agent instructions.
 - **No findings:** Use a connected system with no supported opportunities. Save
   coverage and return no findings, without manufacturing changes or gaps.
+
+- **Consumers included:** Replace the request's consumer restriction with permission
+  for related consumer presentation and add `style={{ gap: "99px" }}` to the profile
+  page's outer Stack. Remove the override under Stack's spacing ownership, retaining
+  its `space` setting and all product/CopyButton logic. Check both the shared design
+  result and its affected use; keep the report and original gap expectations intact.

@@ -7,6 +7,9 @@ source/evidence paths in frontmatter; connect source files to the supported publ
 bindings in Public API or the pattern's Structure.
 Use actual paths instead of deriving them from an id. A document-only pattern needs
 no new code.
+The framework owns contract correctness and the audits below. Follow the project's
+established procedures for engineering evidence; describing or detecting a logic
+mismatch does not authorise repairing component internals or business logic.
 
 ## Write the promise
 

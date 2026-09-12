@@ -1,24 +1,16 @@
-# Browser verification procedure
+# Follow the project's verification procedure
 
-## Render the actual composition
+## Obtain evidence
 
-Use the DESIGN.md's application for a screen and previews for component-level work.
-Use the relevant data, supported themes and narrow/wide containers. Inspect the real
-loaded styles and wiring, not a reconstruction that omits the project's environment.
-When the environment is unavailable, record the missing check and continue static
-verification. No markup-derived claim becomes a browser result.
+Follow the established project testing and preview procedures linked from DESIGN.md,
+using the actual changed component or composition. Assess affected contract promises,
+visual sources, supported contexts and any defined tolerances. Record commands or
+observations and their results; use the project's methods rather than prescribing
+new tests, browser measurement techniques or a screenshot workflow.
 
-## Measure and exercise
-
-Measure layout, spacing, size and typography with computed styles and bounding boxes
-in the browser. Compare with the linked visual specification, tokens or implementation
-identified by the contract or DESIGN.md. A screenshot supports measurement, not substitutes
-for it. If the source defines a tolerance, use it; otherwise record any difference.
-
-Exercise affected states and relationships: required regions/order, labels and errors,
-form submission/validation, keyboard/focus, disabled/empty states, responsive adaptation
-and themes. A JS test environment's DOM assertions do not establish rendered geometry.
-Check native behaviour even for components without a JS implementation file.
+When a required procedure or environment is unavailable, record the missing evidence
+and continue independent checks. Static markup does not establish runtime behaviour
+or rendered geometry. Honour the migration's saved verification choice.
 
 ## Reconcile
 

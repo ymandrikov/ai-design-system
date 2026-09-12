@@ -4,7 +4,7 @@ Read [the shared model](model.md). Use its standard contract directories and upp
 index filenames for new and existing projects. Preserve implementation paths;
 DESIGN.md stays at the repository root.
 Setup connects sources and records missing capabilities. For a new system, the
-[craft workflow](craft.md) owns the requested design decisions and implementation;
+[craft workflow](craft.md) owns the requested design decisions and permitted design changes;
 connect its established sources as they become available. Missing sources may be
 recorded as absent, and empty indexes are valid.
 For an explicit request to migrate automatically, setup also owns the
@@ -155,8 +155,11 @@ IDs remain unique across components, layouts and patterns; report collisions bef
 choosing a new identity. Empty groups are valid. Complete migration when the standard
 locations and metadata validate and all affected links resolve.
 For documents mixing contracts and process instructions, apply the
-[shared model's deferred-move rule](model.md#designmd-and-indexes): link the existing
-document and report the deferred reorganisation without blocking independent connection.
+[shared model's split rule](model.md#designmd-and-indexes): always move the contract
+content into `design-system/` and leave only the non-contract information and
+instructions at the old path. Preserve their invocation and references; route each
+incoming link to the content it needs. Mixed content is not a reason to defer the
+contract move. Unresolved rules remain explicit rather than silently discarded.
 Link an existing token catalogue or directly usable definitions without duplicating
 it. Record absent token sources explicitly rather than inventing definitions.
 
@@ -250,7 +253,7 @@ whole-codebase request covers the whole project. Report the discovered scope.
 | Mode | Authorised work |
 | --- | --- |
 | 1 — Contracts and escape hatches without behaviour changes (recommended) | Contracts and supporting documents, plus bounded local exceptions. API and consumer edits may connect an exception while preserving existing appearance and observable behaviour; no standalone repairs. |
-| 2 — Contracts, escape hatches and repairs preserving correct behaviour | Mode 1 plus implementation and affected consumer repairs against authoritative requirements within the selected area, including business logic. Correct behaviour stays intact; evidenced defects may change. Apply ordinary admission checks. |
+| 2 — Contracts, escape hatches and design repairs | Mode 1 plus design-only CSS, markup and public-parameter repairs, including related consumer presentation within the selected area. Preserve component internals and business logic. Apply ordinary admission checks. |
 | 3 — Contracts only | Component, layout and existing pattern contracts, indexes, DESIGN.md and supporting links, journals and progress. Runtime code stays unchanged. |
 
 Include any missing [verification choice](model.md#migration-verification) in this
@@ -258,18 +261,19 @@ startup round; an earlier setup choice already settles it.
 Reuse explicit answers and saved decisions for this migration. If the mode is
 missing, present the three options in the order above using
 [the question format](model.md#questions-to-the-user). Recommend **mode 1**.
-The selected mode settles business-logic authority; do not ask a separate question.
+All modes retain the [design-only boundary](model.md#design-only-change-boundary);
+none authorises internal component or business-logic changes.
 Explicit delegation to choose permits mode 1 without questions; a request for
 automation alone is not that delegation. Wait for required
 answers before dependent edits; the survey and work list can proceed meanwhile.
 
 Mode 1 may replace an existing styling override with a documented escape hatch
 that produces the same appearance and behaviour. Record defects that require repairs
-without fixing them. Mode 2 preserves correct behaviour, not defects: if an
-authoritative requirement forbids saving an empty name but the form allows it,
-add the missing validation. This authority also covers necessary in-scope repairs to
-permissions, calculations, persistence, network operations and business-process
-transitions. Preserve unaffected behaviour and honour any explicitly narrower scope.
+without fixing them. Mode 2 can restore a missing accessible label or correct a
+consumer spacing setting against its contract. A missing domain validation or broken
+interaction algorithm remains project-owned work even when evidenced by a failing
+check. Record that defect without weakening the intended promise. Preserve unaffected
+behaviour and honour explicitly narrower scope.
 
 Modes 1 and 2 authorise their permitted craft changes and migration of their affected
 product consumers. Inspect all callers before changing a shared API or appearance.
@@ -309,16 +313,19 @@ For each entity, follow [contract authoring](contract.md) and the applicable
 [verification choice](model.md#migration-verification). A refusal uses that rule's
 admission and completion exceptions in every mode. Otherwise modes 1 and 3 use the
 admission rule below. In modes 1 and 2, complete permitted craft changes before updating consumers
-through [use](use.md); when verification is enabled, verify each stage before proceeding.
+through [use](use.md); when verification is enabled, follow
+**craft → checks → use → checks**, verifying both the capability and its resulting use.
 Existing authority settles the scope of those
 consumer updates; unresolved API defaults or normative decisions remain blockers.
 Use supported APIs within the selected mode's behaviour boundary; mode 2 also repairs
 violations. In modes 1 and 2, use an escape hatch only
 for an evidenced local need, following [craft's exception rules](craft.md#design-public-apis-and-escape-hatches)
 and [exception recording](gaps.md#record-exceptions). Reuse a suitable mechanism;
-otherwise create only the bounded mechanism needed. Both modes authorise creation
-and use, with a mandatory non-empty reason, explicit limits and the project's approval
-conditions and behaviour/accessibility guarantees. Add mechanisms only where needed.
+otherwise create only its permitted design portion. Both modes require a non-empty
+reason, explicit limits and the project's approval conditions and behaviour/accessibility
+guarantees. Any missing internal enforcement logic remains a project dependency;
+leave dependent exception work unfinished instead of shipping an unrestricted bypass.
+Add mechanisms only where needed.
 
 ### Admission without repairs
 

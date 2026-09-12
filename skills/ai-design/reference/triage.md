@@ -52,7 +52,8 @@ For each retained entry in scope, add or update its
 Keep its level separate from the work order below.
 
 For each retained entry, identify the next actionable step: system work in craft,
-consumer work in use, request-fact clarification or a decision from the user.
+consumer design work in use, project-owned logic repair, request-fact clarification
+or a decision from the user.
 Distinguish work ready for craft from work awaiting an answer or verification. A recommendation does not authorise that work.
 
 When a new rule or another decision is needed, prepare a concrete question,

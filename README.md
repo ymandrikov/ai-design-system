@@ -1,7 +1,8 @@
 # ai-design-system
 
-An embeddable framework for design systems consumed by coding agents. Agents choose
-and compose a project's existing components, layouts and page patterns from contracts.
+An embeddable framework for organising and maintaining consistent design systems
+consumed by coding agents. Agents describe, choose and compose components, layouts
+and page patterns through contracts, with checks that prevent drift over time.
 The project keeps its code, bindings, styles and tools; root DESIGN.md connects them.
 
 Read [CONTEXT.md](CONTEXT.md) when discussing or changing domain terms. It is the
@@ -9,9 +10,13 @@ canonical glossary, exposed at the repository root by a symlink to the copy pack
 with `ai-design`. [Project boundary rules](skills/ai-design/reference/model.md)
 describe how those terms map to project artifacts and workflows.
 
-The framework covers developing and maintaining design systems, including component
-implementation, and building product interfaces that consume them. These are separate
-responsibilities described in the workflows below.
+The framework governs design-system contracts, selection, reuse, checks, lifecycle,
+setup and migration procedures. It can change CSS, markup and public design settings,
+including related consumer presentation within scope. Component internals, business
+logic, application architecture and source-file organisation remain project-owned.
+Engineering checks follow the project's established procedures; the framework defines
+the design-system outcomes they must establish. See the
+[responsibilities and design-only boundary](skills/ai-design/reference/model.md#responsibilities).
 
 ## Installation
 
@@ -53,7 +58,10 @@ Choose `craft` or `use` explicitly, or describe the result and let the entrypoin
 route it. A page request permits product work and suitable local fallbacks. A system
 gap is handed off to craft; it does not authorise shared component or rule changes.
 When both workflows are authorised, complete the needed craft work and checks before
-resuming use, with separate results for system and product work.
+resuming use, then check the resulting composition: **craft → checks → use → checks**.
+Explicit migration exceptions remain visible in the evidence. A gap record alone
+does not permit another independent shared variant; choose an extension, a justified
+new entity or a bounded exception. Local composition within existing contracts is valid.
 
 `ai-design improve`, `analyze`, `setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
 bounded system improvement, codebase analysis, connection and opt-in automatic migration,
@@ -87,16 +95,16 @@ and verify the result. An unspecified scope covers the whole system; name a comp
 package or area to narrow it. The [improve procedure](skills/ai-design/reference/improve.md)
 coordinates existing craft, analysis, gap and verification procedures.
 
-Improve changes only system-owned presentation, structure and documentation. It
-preserves business logic and component interaction behaviour, including event handling,
-validation, state transitions, focus and keyboard control. Consumers are inspected
-and checked but never edited. Logic defects are recorded for separate repair;
-improvements requiring consumer migration remain proposals for a separate task.
+Improve changes system presentation, composition and documentation, including related
+consumer CSS, markup and public design settings within scope. It preserves component
+internals and business logic, including when defective. Such defects remain project
+work; changes depending on that work or out-of-scope consumers remain proposals.
+Explicitly narrower requests, such as read-only consumers, still apply.
 
 Corrections under existing requirements proceed autonomously. Opportunities such as
 presentation deduplication need demonstrated current benefit. New rules, public
 capabilities, contract-semantic changes and breaking changes require decisions before
-dependent edits; approving them does not lift the logic or consumer boundary.
+dependent edits; approving them does not lift the logic or task-scope boundary.
 Independent questions are batched while other work continues, and eligible approved
 changes resume in the same run.
 
@@ -182,11 +190,11 @@ Select an area or the whole codebase:
 | Mode | Result |
 | --- | --- |
 | 1 — Contracts and escape hatches (recommended) | Document existing entities and connect bounded local exceptions while preserving appearance and observable behaviour; no standalone repairs. |
-| 2 — Contracts, escape hatches and repairs | Also repair implementations and affected consumers, including business logic, against authoritative requirements. Preserve correct behaviour; fix evidenced defects. |
+| 2 — Contracts, escape hatches and design repairs | Also repair CSS, markup and public design settings in components and related consumers. Preserve component internals and business logic. |
 | 3 — Contracts only | Contracts for components, layouts and existing patterns, indexes and DESIGN.md; runtime code stays unchanged. |
 
 The agent asks for the missing mode, recommending **mode 1**. The mode settles
-business-logic authority without a separate question. Explicit delegation permits the
+design-repair scope; all modes preserve internal component and business logic. Explicit delegation permits the
 recommended choice without questions. Already supplied decisions are reused. For example:
 
 ```text
@@ -246,7 +254,10 @@ visual intent, shared rules, tokens, indexes, public usage and verification:
 Component, layout and pattern contracts each live in their respective design-system
 directories, one entity per file. COMPONENTS.md, LAYOUTS.md and PATTERNS.md are indexes.
 This structure also applies when connecting an existing project: move contracts
-and update references. Implementation and token-source paths stay unchanged.
+and update references. Split mixed legacy documents: move their contract content into
+`design-system/`, leaving only non-contract information and instructions at the old
+path, with their meaning and references preserved. Implementation and token-source
+paths stay unchanged.
 The tree shows the shared agent convention; Claude-only projects use CLAUDE.md instead
 of the pair. The instruction file points to root DESIGN.md, which connects the sources
 and verification tools. The installed skill stays at its existing local or global path.
@@ -339,7 +350,7 @@ missing support remains unverified. Ordinary admission requires proven promises 
 explicitly admit documented existing entities with recorded verification limits.
 [Independent gates](skills/ai-design/reference/blind-gates.md) supplement
 that audit only when requested by the task or DESIGN.md policy. Craft includes component
-development using the project's process. Report static, behavioural and visual evidence
+design changes using the project's process. Report static, behavioural and visual evidence
 separately. A request to add a component includes admission after successful checks,
 unless project policy or the request limits it. Unimplemented drafts remain hidden;
 ordinary documentation alone does not authorise admission outside these migration exceptions.

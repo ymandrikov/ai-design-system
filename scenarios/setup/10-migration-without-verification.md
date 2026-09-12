@@ -14,7 +14,8 @@
   unimplemented hidden draft as controls, seeding them if absent.
 - Add a Stack consumer with an existing 6px spacing override for host alignment.
   Authorise that precise exception with a required reason and preserved behaviour
-  and accessibility. Provide no existing exception mechanism.
+  and accessibility. Provide an existing project exception mechanism with non-empty
+  reason enforcement and a spacing-only boundary.
 - Keep structural validators, tests and browser instructions available. The worker's
   tool log is the evidence for whether checks ran; missing tools cannot explain a skip.
 
@@ -29,9 +30,9 @@
   mode. Save the verification choice alongside mode, scope and progress.
 - Read implementations, tests and consumers to author contracts and repair the
   missing label and its affected references within the selected scope.
-- Create a bounded escape hatch and migrate the authorised spacing override to it,
-  preserving existing geometry and behaviour; validate the reason in runtime code
-  without executing verification checks.
+- Reuse the bounded escape hatch and migrate the authorised spacing override to it,
+  preserving existing geometry and behaviour. Supply the required reason without
+  changing internal enforcement logic or executing verification checks.
 - Always perform setup's final document reconciliation: reread written documents,
   DESIGN.md, AGENTS.md and existing CLAUDE.md files in the affected area from disk,
   compare them with actual sources and setup/migration results, and correct factual

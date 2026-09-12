@@ -10,7 +10,8 @@
 - Link an authoritative decision permitting the inspector's precise spacing
   exception, requiring a non-empty reason and preserving behaviour/accessibility.
   State that the second view's deviation still requires approval.
-- Provide no existing exception mechanism. Add one ordinary incorrect consumer
+- Provide an existing project mechanism enforcing a non-empty reason and limiting
+  the exception to spacing. Add one ordinary incorrect consumer
   configuration whose correction through Stack's public API would change its visible
   spacing. Record its defect and current rendering as preparation evidence.
 - Seed adoption.md with an independent completed API-analysis result and evidence,
@@ -28,7 +29,7 @@
 - Select mode 1 through explicit delegation; save that decision, choose an
   unspecified batch size and continue without a mode or business-logic question.
 - Reconcile the work list while preserving independent API-analysis evidence.
-- Use the authorised inspector need to create only a bounded exception mechanism
+- Use the authorised inspector need to reuse that bounded exception mechanism
   in project style and move its existing override into it. Preserve its rendered
   spacing, interaction and behaviour; API and consumer edits are allowed for this work.
 - Leave the ordinary configuration defect unchanged and record it in the contract
