@@ -49,6 +49,8 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Component implementation and admission authority in craft | authoring/09 |
 | Explicit migration and default decisions for component API extensions | authoring/10 |
 | Coherent component proposals and scoped delegation without repeated questions | authoring/11–12 |
+| Sufficient selection rules and mandatory independent discovery per batch | authoring/13; setup/07 |
+| Contract-only selection with missing rules and misleading implementation evidence | discovery/27 |
 | Automatic craft routing with no pre-existing system | setup/02 |
 | Semantic token roles and theme alias values | discovery/23 |
 | Gap triage, archive cleanup, priorities, decisions and resolvability | triage/01–04 |

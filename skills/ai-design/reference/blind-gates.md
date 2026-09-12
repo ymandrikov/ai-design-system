@@ -1,27 +1,38 @@
-# Optional independent quality mode
+# Independent contract gates
 
-Load only when the task or DESIGN.md requires independent quality checks. Ordinary
-contract audits and setup connection do not depend on this mode. Run consumption after
-creation or contract edits; run discovery for admission or changes to selection,
-composition eligibility or index routing. A hidden entity staying hidden can skip
-discovery. In this mode promotion requires both gates. Apply only affected gates to
-clarifications. Failures or unavailable required gates remain explicit and block the
-admission they are required to support. In [automatic modes 1 and 3](setup.md#admission-without-repairs),
-use its admission exception and report gate failures or unavailable evidence separately;
-explicit project approval conditions still apply.
+Discovery is mandatory for contract creation (including adoption and intended hidden
+contracts) and changes to selection, composition eligibility or index routing.
+Admission requires passing evidence for the current contracts and competing candidates;
+reuse it while those inputs and relevant rules remain unchanged. Typographical or
+other clarifications that preserve these decisions need no new discovery gate.
+Connection-only setup needs no gate unless it creates or changes those boundaries.
 
-Use a fresh agent context for each gate, with the current skill files and only the
-raw project artifacts it needs. A fresh subagent or independent session is required;
-the author's own reasoning is not gate evidence. If unavailable, record not run.
+Independent consumption/composition is additional: run it after creation or affected
+public-use edits only when the task or DESIGN.md requires that check. Optional setup
+demonstrations follow the last section. These checks supplement ordinary author audits.
+
+Use one fresh subagent or independent session for the discovery requests in each
+authoring batch, with the current skill files and only the public inputs below.
+Use a separate fresh context for optional consumption. The author's own reasoning is
+not independent evidence. If unavailable, record not run; keep the required audit and
+dependent admission incomplete. A failed discovery gate also blocks contract completion.
+The runtime-evidence exception in [automatic modes 1 and 3](setup.md#admission-without-repairs)
+does not waive discovery. An explicit [migration verification refusal](model.md#migration-verification)
+still takes precedence; report skipped evidence under that rule.
 The controller saves prompts, complete answers, generated artifacts and executable
 results in the provided evidence directory outside the product copy when supplied. Do not
 supply expected answers to the worker. A controller checks results, not prose style.
 
 ## Prepare tasks before dispatch
 
-Derive a must-fit request from a supported use without naming the target, an explicit
-must-not-fit request from a real disqualifier, and an API/composition edge using a
-valid combination of optional features. Do not set mutually exclusive inputs together.
+For each affected entity, derive a must-fit request in a new supported context beyond
+its examples, and a nearby must-not-fit request from a real disqualifier. Neither
+request names the target. Choose the closest plausible confusion, not just an obvious
+mismatch; include a native alternative or no managed match where relevant. If the
+entity has no disqualifiers, record that and test its boundary against a competing
+candidate without inventing an exclusion. Prepare an API/composition edge for the
+ordinary audit and optional consumption gate using a valid combination of optional
+features. Do not set mutually exclusive inputs together.
 A general component's canonical example is not automatically a disqualifier.
 Record the expected decisions and deciding constraints separately from worker inputs.
 For a pattern/layout, also prepare a composition that violates one required rule;
@@ -29,29 +40,42 @@ record which rule the verifier must reject. Prefer an actual project defect or b
 
 ## Discovery gate: run the actual procedure
 
-Give the worker a DESIGN.md, all three UI indexes, their linked contracts and the current
-ai-design entrypoint and discovery procedure. Keep competing candidates present.
-For admission only, use an isolated copy with the target's proposed discoverable
-status in its contract frontmatter; label this as proposed admission evidence, never change the source status.
-For an already admitted entity use its actual status.
+Give the worker an isolated copy containing DESIGN.md, all three UI indexes, their
+linked contracts, required public rules/token definitions and the current ai-design
+skill. Keep competing candidates present. Omit component implementations, private
+styles, tests, previews, consumer code and authoring history; source/evidence links
+in the copied contracts are references, not additional permitted inputs. Keep expected
+answers outside the worker's inputs. Validate structure and source links on the
+author's full copy, not this reduced one.
+For hidden new contracts or admission, set proposed discoverable status only in the
+gate copy. Label the result proposed-selection evidence; it authorises neither source
+status changes nor runtime-readiness claims. Already admitted entities keep actual status.
 
-Dispatch one independent request per must-fit/must-not-fit case:
+Dispatch all unnamed requests for the batch together, with neutral case ids and no
+must-fit/must-not-fit labels. The worker decides each request separately:
 
 ```text
 Read <copy>/skills/ai-design/SKILL.md and follow ai-design discovery.
 Design: <DESIGN.md in copy>.
-Request: <unnamed task>.
+Requests: <case ids and unnamed tasks>.
 Read only the supplied copy. Return the full discovery response in the conversation.
+For each case, connect request facts to the deciding contract or linked public rule.
 Use only read/search operations; the controller saves your response.
 ```
 
 Compare the actual selection, required questions and composition decisions with
 the prepared expectations. Must-fit selects the target under actual ranking after
 candidate contracts are compared; must-not-fit excludes it for the applicable clause.
+A correct id with an invented reason, a guess filling a missing rule, or reliance on
+implementation knowledge fails. Assess the decision and its stated basis, not response
+length or formatting. A missing contract rule is an authoring defect, not a request fact
+for the worker to invent or the controller to supply as an expected answer.
 A different valid candidate may expose bad expected evidence: inspect contracts
 before deciding whether the task, summary or contract needs correction. Do not alter
-other contracts just to force a target win. A missing fact may legitimately require
-an answer; supply it in a new run instead of marking a conditional choice as verified.
+other contracts just to force a target win. A missing request fact may legitimately
+require an answer; supply it in a new run instead of marking a conditional choice as
+verified. Save each case's clauses and actual result. After corrections, rerun affected
+cases in a fresh context against the final public inputs; retain earlier failures.
 
 ## Consumption/composition gate
 

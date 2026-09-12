@@ -8,6 +8,15 @@ Use only read/search operations. Never create, modify or delete files, including
 temporary files, reports, logs and tests, through any tool or delegated agent.
 
 Compare contracts, then choose. An omitted fact is unknown, not false.
+For managed UI selection, use the request, DESIGN.md's public rules, supplied design
+references, indexes, contracts and their linked public dependencies. Component
+implementations, private styles, tests, previews and existing call sites are not
+selection inputs; frontmatter source/evidence paths serve authoring and verification.
+Public token definitions remain inputs to token selection even when stored in CSS.
+The deciding rule must be available in a contract or a linked public rule. When it
+is missing, return the contract gap to the caller rather than inferring it from code,
+appearance or the entity's name. Distinguish that gap from a missing request fact,
+which needs a question only when it could change the decision.
 Read [the shared vocabulary and project rules](model.md) once per
 conversation, then root DESIGN.md and any supplied design reference. Without the
 required context, report what is missing and return [setup](setup.md) to the caller.
@@ -74,7 +83,8 @@ For API values and visual variants, check the
 [basis for choices](gaps.md#check-the-basis-for-choices).
 Return a missing or conflicting basis to the caller for gap recording and any required
 decision; discovery remains read-only. An accepted value alone does not settle
-the choice.
+the choice. A correct component id justified by an invented rule is still a failed
+selection; tie the reason to the actual deciding public rule.
 
 Return `nothing fits` only when no eligible candidate can cover the element.
 Complete when each choice has its basis, assumptions and any required decision.

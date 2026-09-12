@@ -23,5 +23,6 @@
 - Create a hidden Badge contract with sources: [] and the component index entry.
   Keep implementation, other components and shared rules unchanged.
 - Run structural validation; assess suitable, unsuitable and edge uses, including
-  a new use beyond copying the contract example. Runtime and visual behaviour
+  mandatory independent discovery and a new use beyond copying the contract example.
+  Ordinary quality mode does not waive discovery. Runtime and visual behaviour
   remain unverified; delegated design decisions are not implementation evidence.

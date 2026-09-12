@@ -234,7 +234,7 @@ without renewed permission; follow its [batch size selection](adoption.md#choose
 before processing. Choosing D ends setup.
 Adoption and admission are separate; connection requires neither. For an analogous-page
 demonstration requested by the task or project policy, follow
-[optional independent quality](blind-gates.md).
+[the optional setup demonstration](blind-gates.md#optional-setup-demonstration).
 Its absence does not make ordinary setup incomplete.
 
 ## Automatic migration
@@ -330,11 +330,14 @@ Add mechanisms only where needed.
 ### Admission without repairs
 
 For modes 1 and 3, completing a structurally valid contract and index entry for an existing
-entity includes making it `discoverable`, even when a behavioural/visual check fails
-or evidence is unavailable. Preserve existing `deprecated` status. This is an explicit
+entity, with passing mandatory independent discovery, includes making it `discoverable`,
+even when a behavioural/visual check fails or evidence is unavailable. Preserve existing
+`deprecated` status. This is an explicit
 exception to ordinary evidence-gated admission, not a claim of runtime readiness.
 Keep unimplemented drafts outside this exception. An unresolved normative choice
 still blocks the dependent contract decision; document the settled parts meanwhile.
+This exception concerns runtime evidence, not the contract's ability to support selection.
+A failed or unavailable required discovery gate leaves that audit and admission incomplete.
 
 Run applicable checks and record their actual outcomes. Keep the intended promises;
 link known defects and unverified promises from the relevant existing contract

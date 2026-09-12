@@ -26,8 +26,9 @@ below; an explanation alone does not resolve the underlying limitation.
 ## Check the basis for choices
 
 When choosing API values, comparing visual variants or extracting shared UI, check
-the basis for the affected decisions. Inspect applicable rules and directly affected
-consumers; extraction includes every consumer being consolidated. This is not a
+the basis for the affected decisions in applicable public rules. Discovery uses its
+[public selection inputs](discovery.md); authoring, refactoring and verification also
+inspect directly affected consumers. Extraction includes every consumer being consolidated. This is not a
 whole-product audit. Uses are comparable when they serve the same user task under
 conditions material to the decision, such as input method or available space for
 density. Page names and entity types alone do not justify a difference.

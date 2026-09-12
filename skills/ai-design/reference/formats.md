@@ -7,7 +7,9 @@ COMPONENTS.md, LAYOUTS.md and PATTERNS.md use the shared [index template](../ass
 
 ## Detail for agent decisions
 
-Contracts primarily serve agents selecting, configuring and composing entities.
+Write for an agent that knows the request and public design rules but has not seen
+the entity's implementation, styles, tests or previews. The contract and its linked
+public rules must supply the basis for selecting, configuring and composing it.
 Use enough detail to make those decisions correctly; length is not a quality target.
 Add distinctions from alternatives, boundary cases, reasons for non-obvious limits
 and worked scenarios when they resolve ambiguity. A contract that already supports
@@ -73,8 +75,19 @@ Write **When to use** and **When not to use** as bullet lists, with exactly one
 independently checkable criterion per item. Split independently applicable conditions
 into separate items; keep an alternative's link with the criterion it addresses.
 Each criterion must identify an observable request fact and yield one interpretation.
-Define bounds and terms locally when needed: use an explicit option-count range
-instead of "a short list", for example.
+Define decision-changing bounds and terms from authoritative evidence or an explicit
+design decision. "Short", "compact" or "fits the screen" alone cannot decide a case;
+an evidenced option-count range can. Report an unsettled boundary rather than inventing
+a numeric limit to make the wording precise.
+
+Explain what each instance represents, the end-user outcome, its relationship to
+surrounding content, and the task, data or interaction facts that distinguish it from
+the nearest plausible alternatives. Cover only distinctions that affect selection;
+there is no required bullet count. For example, "non-interactive inline tag" leaves
+Badge indistinguishable from ordinary text. A marker that annotates another item
+with its status, role or count supplies a meaningful boundary; standalone instructions
+and messages with a body test that boundary more closely than an action button does.
+These examples illustrate authoring quality, not rules for every project's Badge.
 
 **Purpose** describes the task/outcome and means, and the entity's role and guarantees
 in the system. Paragraph count is unrestricted. Use words a request can contain. No prescribed
@@ -89,10 +102,17 @@ applicability conditions in the contract rather than duplicating selection rules
 Conditions describe request facts: user task, data or surrounding context. Consumer-supplied labels,
 slots and attributes are composition obligations, not reasons to reject an otherwise
 suitable candidate before implementation. Prefer explicit positive conditions.
+Translate observed call sites into their supported task and context: use on one named
+screen does not by itself restrict the entity to that screen. "Needs the prescribed
+separator" must link the rule that determines that need or state its deciding facts.
 
 **When not to use** states explicit disqualifiers. Link a known alternative's actual
 contract instead of deriving a filename. A missing request fact is not a disqualifier.
 Contract exclusions describe the entity's boundary, not every missing system capability.
+Address plausible confusions, including ordinary native content or a different
+composition when no managed alternative exists. Explain non-obvious limits and why
+the alternative fits; distinguish an entity owning a responsibility from participating
+in a composition whose parent owns it.
 Any listed disqualifier excludes the entity. If there are none, use a single item
 stating that there are no disqualifiers.
 

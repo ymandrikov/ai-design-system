@@ -133,10 +133,10 @@ affected browser promises. Keep documentation-only requests documentation-only.
 Document-only patterns need no implementation. Complete the implementation audit
 when affected promises have evidence or an explicit failed/unverified result.
 
-Use the ordinary audits in those references. If the task or DESIGN.md explicitly
-requires independent quality checks, also load [independent gates](blind-gates.md)
-for the applicable UI contract changes. That mode supplements ordinary evidence;
-it is not a default prerequisite for authoring, admission or setup.
+Use the ordinary audits and mandatory independent discovery specified by
+[contract authoring](contract.md#ordinary-audit). Follow [independent gates](blind-gates.md)
+for batch dispatch, evidence and failure handling. Run independent consumption as well
+when the task or DESIGN.md requires it; that additional check remains optional otherwise.
 
 Repair design drift within the authorised craft scope; otherwise record
 the remaining defect. A contract is not weakened to hide a defect. Craft owns the
@@ -155,7 +155,7 @@ with recorded verification limits, as does
 [migration without verification](model.md#migration-verification) in every mode.
 For other work, admit only when public promises
 are evidenced, selection/composition checks
-pass and the decision is authorised; required optional-mode gates must also pass.
+pass and the decision is authorised; all applicable independent gates must also pass.
 An intended contract awaiting implementation remains hidden and its support
 unverified. A document-only pattern needs no implementation of its own; `sources: []`
 does not prevent admission after its selection, composition and dependency checks pass.

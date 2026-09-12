@@ -57,4 +57,5 @@ basis. Resolution requires demonstrating the original expectation.
 
 Ask the person running the skill.
 
-Independent quality mode is optional unless explicitly requested.
+Follow ai-design's mandatory independent discovery checks. Independent consumption
+and setup demonstrations are optional unless explicitly requested.

@@ -28,7 +28,8 @@
   and fix affected references.
 - Choose and save a batch size without asking; continue beyond the first batch.
 - Produce structurally valid contracts and indexes, making documented existing
-  entities discoverable, including Notice. Preserve deprecated status.
+  entities discoverable after mandatory independent discovery passes, including Notice.
+  Use one fresh discovery worker per batch. Preserve deprecated status.
 - Keep Notice's intended promise; link its failed test and defect from the contract.
   Record unavailable browser evidence separately. Do not weaken promises, change
   runtime code, hide Notice or claim the defect is repaired.
@@ -37,3 +38,7 @@
   just because migration surveyed them.
 - Save per-item results and next-work state. Leave unresolved normative decisions
   explicit rather than inventing rules to finish the list.
+
+Repeat with the independent discovery worker unavailable. Finish the settled document
+work and record the missing gate; leave dependent admission incomplete. Mode 3's runtime
+exception does not replace a required selection check with the author's own reasoning.

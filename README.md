@@ -341,15 +341,22 @@ node skills/ai-design/scripts/check-contract.mjs --kind layout \
 ```
 
 Use `--kind pattern` with an individual `design-system/patterns/<name>.md` contract.
-The structural checker verifies metadata, listed files, links, group placement and cross-group identity; it does not prove semantics. Ordinary authoring audits evidence
-for public promises, suitable/unsuitable use and edge cases, with actual discovery for
-admission or changed selection rules. Existing focused tests/examples can supply evidence;
-missing support remains unverified. Ordinary admission requires proven promises and authority;
+The structural checker verifies metadata, listed files, links, group placement and
+cross-group identity; it does not prove semantics. Contracts serve agents choosing and composing
+UI without studying implementation. They explain each instance's meaning, relevant
+request facts and distinctions from nearby alternatives; length is not a quality target.
+Ordinary authoring audits public promises, new suitable contexts, nearby unsuitable
+uses and edge cases. [Independent discovery](skills/ai-design/reference/blind-gates.md)
+is mandatory for contract creation and changes to selection, composition eligibility
+or index routing, using one fresh agent per authoring batch with only public inputs.
+Admission requires current passing discovery evidence. Existing focused tests/examples
+can supply runtime evidence; missing support remains unverified.
+Ordinary admission requires proven promises and authority;
 [automatic migration in modes 1 and 3](skills/ai-design/reference/setup.md#admission-without-repairs) and
 [migration without verification](skills/ai-design/reference/model.md#migration-verification)
 explicitly admit documented existing entities with recorded verification limits.
-[Independent gates](skills/ai-design/reference/blind-gates.md) supplement
-that audit only when requested by the task or DESIGN.md policy. Craft includes component
+Independent consumption/composition supplements
+that audit when requested by the task or DESIGN.md policy. Craft includes component
 design changes using the project's process. Report static, behavioural and visual evidence
 separately. A request to add a component includes admission after successful checks,
 unless project policy or the request limits it. Unimplemented drafts remain hidden;

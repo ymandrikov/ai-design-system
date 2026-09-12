@@ -23,6 +23,9 @@ An emitted change event demonstrates notification, not a required save policy.
 Trace each promise and restriction to evidence or an explicit decision;
 report source contradictions and desired improvements separately. Incidental internal
 acceptance need not become public API.
+Capture the resulting selection reasoning in the contract. A consumer cannot rely
+on the author's knowledge of the implementation or infer a restriction from the
+absence of other call sites.
 
 Clarification preserves valid calls, composition and observable promises. Reclassify
 as a contract change if meaning changes. Complete when the required sections describe
@@ -47,16 +50,23 @@ not identical internal DOM. Include layout spacing, region order/grouping and al
 consumer obligations from linked contracts. Report unsupported promises as defects;
 use the project's implementation conventions for internal mechanics.
 
-Check a suitable use absent from the documented examples, a closely related unsuitable
-use (when the contract has a disqualifier) and a valid edge case. Derive selection,
-configuration and composition from the rules. The [explanations](formats.md#detail-for-agent-decisions)
-are sufficient when these decisions follow without guessing restrictions or treating
-examples as the only valid uses; report any missing basis through craft's gap process.
+Check a new suitable context beyond the documented examples, the nearest plausible
+unsuitable use (when the contract has a disqualifier) and a valid edge case. For each,
+connect request facts to the deciding contract clauses and the resulting selection,
+configuration or composition. An obvious mismatch alone does not test a disputed
+boundary. The [explanations](formats.md#detail-for-agent-decisions) are sufficient when
+these decisions follow without implementation knowledge, invented restrictions or
+treating examples as the only valid uses; report any missing basis through craft's gap process.
 For patterns/layouts also check a deliberate violation of a
-required composition rule. Run actual discovery for admission or changes to selection,
-composition eligibility or index routing. Keep competing candidates present; for
-admission use an isolated copy with proposed discoverable status in the contract metadata. A hidden entity
-staying hidden can skip selection execution. Clarification needs only affected checks.
+required composition rule.
+
+Run the mandatory [independent discovery gate](blind-gates.md) for contract creation,
+including adoption and intended hidden contracts, and changes to selection, composition
+eligibility or index routing. It runs the actual discovery procedure once per authoring
+batch in fresh context; the author's ordinary audit cannot replace it. Admission needs
+current passing discovery evidence. Clarification with no eligibility/routing change
+needs only affected ordinary checks. Independent consumption remains optional unless
+the task or DESIGN.md requires it.
 
 Use existing tests, examples and focused public-use checks as evidence where they
 prove the current promises; inspect their actual results. Missing runtime evidence
@@ -80,5 +90,7 @@ Source paths resolve from the nearest ancestor DESIGN.md.
 Record the command, result and output or evidence path. The checker validates
 structure/links/indexes, not semantic correctness. Fix structural errors and report
 semantic contradictions, failing or unavailable checks to craft. Complete the
-audit when each affected public promise has evidence or an explicit limitation.
-Craft owns admission and optional independent quality mode.
+audit when each affected public promise has evidence or an explicit limitation and
+any required independent discovery has passed, subject to an explicit
+[migration verification refusal](model.md#migration-verification).
+Craft owns admission and coordinates the applicable independent gates.
