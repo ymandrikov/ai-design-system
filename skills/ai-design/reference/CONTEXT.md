@@ -169,6 +169,12 @@ is handed off to craft; it requires authorised system scope even within the same
 A system gap in which the behaviour or result provided by a UI entity differs from
 its observable contract promises.
 
+**Improve**:
+The procedure for surveying and improving an existing design system's presentation,
+structure and documentation through bounded craft work, with saved progress and
+verification. Business logic, component interaction behaviour and consumers remain
+unchanged; improvements requiring those changes become proposals for separate tasks.
+
 **Gap**:
 A systemic shortfall in design-system capabilities or rules, or a violation of its
 promises. A missing request fact, product-specific choice or defect confined to a

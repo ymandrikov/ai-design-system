@@ -55,8 +55,9 @@ gap is handed off to craft; it does not authorise shared component or rule chang
 When both workflows are authorised, complete the needed craft work and checks before
 resuming use, with separate results for system and product work.
 
-`ai-design analyze`, `setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
-codebase analysis, connection and opt-in automatic migration, selection, review, gap recording and journal triage. Equivalent natural language requests
+`ai-design improve`, `analyze`, `setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
+bounded system improvement, codebase analysis, connection and opt-in automatic migration,
+selection, review, gap recording and journal triage. Equivalent natural language requests
 also work. Standalone discovery stays read-only; selection and review end at their
 own result. All procedures are Markdown references loaded when needed, with one
 `SKILL.md`, shared templates and the existing contract checker:
@@ -67,6 +68,7 @@ skills/ai-design/
   reference/
     craft.md
     use.md
+    improve.md
     analyze.md
     discovery.md
     setup.md
@@ -77,6 +79,33 @@ skills/ai-design/
   assets/
   scripts/
 ```
+
+## Improve an existing design system
+
+Ask `ai-design improve` to survey the existing system, implement evidenced improvements
+and verify the result. An unspecified scope covers the whole system; name a component,
+package or area to narrow it. The [improve procedure](skills/ai-design/reference/improve.md)
+coordinates existing craft, analysis, gap and verification procedures.
+
+Improve changes only system-owned presentation, structure and documentation. It
+preserves business logic and component interaction behaviour, including event handling,
+validation, state transitions, focus and keyboard control. Consumers are inspected
+and checked but never edited. Logic defects are recorded for separate repair;
+improvements requiring consumer migration remain proposals for a separate task.
+
+Corrections under existing requirements proceed autonomously. Opportunities such as
+presentation deduplication need demonstrated current benefit. New rules, public
+capabilities, contract-semantic changes and breaking changes require decisions before
+dependent edits; approving them does not lift the logic or consumer boundary.
+Independent questions are batched while other work continues, and eligible approved
+changes resume in the same run.
+
+Scope, coverage, changes, decisions and evidence live in
+`design-system/improvements.md`, linking existing gaps and analysis findings without
+duplicating them. Resumption reconciles progress with current sources and preserves
+decisions. Each run completes one survey pass and applicable verification, repairing
+its own regressions without restarting the survey. Zero findings is valid; incomplete
+coverage, deferred work and verification limits remain explicit.
 
 ## Analyze reusable UI candidates
 

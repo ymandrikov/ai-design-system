@@ -1,6 +1,6 @@
 ---
 name: ai-design
-description: Create and maintain a design system and its components, or build and verify product interfaces using that system. Also handles codebase analysis for reusable UI candidates, explicitly requested automatic codebase migration, project setup, component and token discovery, gap recording and triage.
+description: Create and maintain a design system and its components, improve an existing system while preserving logic and consumers, or build and verify product interfaces using that system. Also handles codebase analysis for reusable UI candidates, explicitly requested automatic codebase migration, project setup, component and token discovery, gap recording and triage.
 ---
 
 # AI design
@@ -19,6 +19,7 @@ capability does not expand it.
 
 | Requested result | Read and follow |
 | --- | --- |
+| Survey and improve an existing design system's presentation, structure and documentation while preserving logic and consumers | [improve](reference/improve.md); bounded system improvement through craft |
 | Create or maintain the design system: components and their implementation, layouts, patterns, contracts, tokens, rules or availability; fix a design-system gap | [craft](reference/craft.md) |
 | Build or change a product interface by selecting and composing the system's public capabilities | [use](reference/use.md) |
 
@@ -35,13 +36,15 @@ failed discovery. Keep unrelated system work outside the task.
 
 ## Standalone procedures
 
-Explicit `ai-design analyze`, `setup`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
+Explicit `ai-design improve`, `analyze`, `setup`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
 language requests, reach the matching procedure directly. These are internal Markdown
 instructions, not additional skills. End at that procedure's result; standalone
-selection or review does not start implementation.
+selection or review does not start implementation. Improve performs its bounded
+system changes; its stricter scope remains in force when calling craft.
 
 | Request or workflow condition | Read and follow |
 | --- | --- |
+| Improve the existing system, or resume saved improvements, with logic and consumers unchanged | [improve](reference/improve.md); one survey pass, permitted edits and verification with saved progress |
 | Analyze the codebase for component, layout or pattern extraction, consolidation or reuse candidates | [analyze](reference/analyze.md); saved recommendations, with readiness determined by design-system artifacts and indexes |
 | Select components, layouts, patterns or tokens; advise how to organise or adapt a composition; assess system coverage | [discovery](reference/discovery.md), read/search only; return the recommendation without writing files |
 | Connect existing sources, complete missing project context or explicitly migrate a codebase automatically | [setup](reference/setup.md); automatic migration is an opt-in stage that coordinates craft and use; creation of a missing system belongs to craft |
