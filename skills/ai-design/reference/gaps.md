@@ -103,8 +103,8 @@ user with its exact journal heading and a clickable `path:line` link. Use the
 heading's 1-based line number verified in the saved journal after all edits. For
 multiple gaps, use one list item per entry.
 
-Recording neither blocks product work nor
-authorises repairs. Hand system work to the separate [craft workflow](craft.md),
+Recording neither blocks product work nor authorises repairs. Hand system work to
+the separate [craft workflow](craft.md),
 which requires authorised system scope. Craft archives an in-scope entry as Resolved
 only after proving its original expectation, including admission when required.
 

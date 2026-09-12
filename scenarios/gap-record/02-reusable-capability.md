@@ -15,3 +15,5 @@
 - Append one open entry for the reusable inline-warning need in design-system/gaps.md,
   preserving the request, expected capability and existing entries. Leave contracts
   and the archive unchanged: recording an open gap does not close any entry.
+- Report the saved entry's exact heading and a clickable journal path with the
+  heading's actual 1-based line number.
