@@ -94,8 +94,9 @@ For automatic migration, gradual contract adoption and contract moves during set
 settle verification before the first check, including connection/link validation.
 Inspect sources and configured commands first. Explain the applicable structural/link,
 contract/selection, test/build, behavioural/browser and visual checks, including
-required independent gates and unavailable capabilities. Offer to run or skip
-verification, recommend running it, and wait for the user's choice. Batch this with
+required independent gates and unavailable capabilities. Explain that [final document reconciliation](setup.md#reconcile-final-documents)
+is mandatory during setup. Offer to run or skip the remaining verification,
+recommend running it, and wait for the user's choice. Batch this with
 other missing startup decisions using [the question format](#questions-to-the-user).
 Surveying sources and saving the work list can proceed meanwhile.
 
@@ -106,8 +107,10 @@ verification. A saved refusal also applies on resume and after a mode change.
 
 An explicit request to skip testing or verification takes precedence over check
 requirements throughout setup, adoption, craft, use and their supporting procedures,
-in every migration mode. With that choice, read sources, tests and consumers to
-understand and perform the work, but skip all verification: tests, builds, structural
+in every migration mode, except setup's mandatory
+[final document reconciliation](setup.md#reconcile-final-documents), which always runs.
+With that choice, read sources, tests and consumers to
+understand and perform the work, but skip the remaining verification: tests, builds, structural
 and link validators, contract/selection audits, browser/visual checks and independent
 gates. Do not run checks under another name or require them for completion.
 

@@ -32,8 +32,12 @@
 - Create a bounded escape hatch and migrate the authorised spacing override to it,
   preserving existing geometry and behaviour; validate the reason in runtime code
   without executing verification checks.
-- Run no verification commands or audit procedures, including setup link/structure
-  validation, tests, build, contract/selection audits, browser/visual checks or
+- Always perform setup's final document reconciliation: reread written documents,
+  DESIGN.md, AGENTS.md and existing CLAUDE.md files in the affected area from disk,
+  compare them with actual sources and setup/migration results, and correct factual
+  mismatches. Report unresolved rule conflicts. Repeat after migration document edits.
+- Apart from that mandatory reconciliation, run no verification commands or audit
+  procedures, including setup link/structure validation, tests, build, contract/selection audits, browser/visual checks or
   independent gates. Do not rename a check as inspection, a smoke test or a repair step.
 - Complete contracts, indexes, supporting links and progress across all batches.
   Make the newly documented implemented wrappers discoverable immediately without
@@ -59,9 +63,13 @@ refusal, reporting and admission criteria with these scope differences:
   Use batches of two and finish every batch. Do not run any verification." Newly
   documented wrappers become discoverable, while runtime repairs remain outside scope.
 - Setup moves: request "Connect existing sources and move existing contracts to the
-  standard structure. Do not run verification." Complete documents and links without
-  checks or runtime repairs; do not start whole-codebase adoption.
+  standard structure. Do not run verification." Seed an existing CLAUDE.md with a
+  reference to a contract being moved and preserve an unrelated instruction in it.
+  Complete documents and links with mandatory final reconciliation: repair the stale
+  reference and preserve the unrelated instruction. Skip other checks and runtime
+  repairs; do not start whole-codebase adoption.
 - Resume and mode change: save mode 1, batch size two and verification skipped by
   explicit user choice in adoption.md, with wrappers still pending. Request "Resume
   migration in mode 2 and finish all batches."
-  Reuse the refusal without asking, keep all checks skipped and perform the label repair.
+  Reuse the refusal without asking, perform mandatory final document reconciliation,
+  skip other checks and perform the label repair.

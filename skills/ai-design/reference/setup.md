@@ -81,7 +81,8 @@ from the completed connection; do not claim compatibility beyond the inspected s
 ## Connect the project
 
 Before migration checks, settle [migration verification](model.md#migration-verification).
-Its saved choice governs connection checks and any subsequent migration stages.
+Its saved choice governs optional connection checks and subsequent migration checks;
+[final document reconciliation](#reconcile-final-documents) is always required.
 For an explicitly requested automatic migration, gather its missing boundary decisions
 in that same round before connection checks; for gradual adoption, include batch size.
 
@@ -115,6 +116,27 @@ Create AGENTS.md with that pointer if absent. The installed package belongs in
 Complete when DESIGN.md reaches the real sources, indexes and available verification
 instructions, and missing capabilities are explicit. Check links from their containing
 files; operational paths in DESIGN.md resolve from the repository root.
+
+## Reconcile final documents
+
+Before reporting connection, reread from disk every document created or changed by
+setup, plus root DESIGN.md, AGENTS.md and existing CLAUDE.md files in the affected
+area, even if setup did not edit them. Do not create an absent CLAUDE.md for this check.
+Compare their contents with the actual project state and completed setup results:
+source and skill paths, links, configured commands, craft/use responsibilities,
+transferred rules and references affected by moves or skill replacements. Check links
+from their containing files and operational paths from the repository root; existence
+alone does not establish that a document describes the resulting setup accurately.
+
+Correct factual mismatches within setup scope and reread the corrected files. Preserve
+unrelated instructions; record contradictory rules and ask for unresolved normative
+decisions rather than choosing a new rule. This reconciliation runs in every setup,
+including when testing or verification is skipped; it is a mandatory exception to
+[migration verification](model.md#migration-verification). Complete when every in-scope
+document has been reconciled and actionable mismatches are corrected. Report coverage
+and any unreadable files or unresolved conflicts explicitly, without claiming those
+parts are reconciled. Repeat after automatic migration changes documents before its
+final report, using the same scope rule for that stage's documents.
 
 ## Report the connection
 
@@ -262,7 +284,9 @@ if only blocked work remains, record the partial result.
 
 ### Complete and report
 
-Stop when every in-scope item has its mode's result or only blocked work remains.
+Before reporting, complete [final document reconciliation](#reconcile-final-documents)
+for documents changed by migration. Stop when every in-scope item has its mode's
+result or only blocked work remains.
 An empty scope is a completed result. Report the mode, area and explicit restrictions,
 documentation and eligibility, repairs and exceptions, static/behavioural/
 visual evidence, and one consolidated list of remaining blockers and decisions.

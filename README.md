@@ -130,7 +130,11 @@ Before any migration checks, including setup link validation, the agent explains
 the applicable checks and waits for a run-or-skip choice alongside other startup
 decisions. An explicit or saved choice is reused across batches and resumptions.
 Skipping testing or verification applies in every mode, including gradual adoption:
-all checks are skipped, while authorised code repairs and documentation continue.
+checks are skipped except mandatory [final document reconciliation](skills/ai-design/reference/setup.md#reconcile-final-documents),
+while authorised code repairs and documentation continue. Before reporting setup results,
+the agent rereads all created or changed documents, DESIGN.md, AGENTS.md and existing
+CLAUDE.md files in the affected area and reconciles them with the actual project and
+setup results. Factual mismatches are corrected; unresolved rule conflicts are reported.
 Documented implemented entities become `discoverable`, retaining existing `deprecated`
 status. Results are explicitly unverified, and the user accepts the risk of nonworking
 code. See [migration verification](skills/ai-design/reference/model.md#migration-verification).
