@@ -277,6 +277,9 @@ duplicates without losing expectations, and archives erroneous or already-resolv
 entries with evidence. It recommends a work order and next steps, separating work
 ready for craft from pending facts or decisions. Triage updates the journal and archive;
 repairs and a system-wide search for new gaps require separate scope.
+New gaps and entries reviewed during triage or repair receive an
+[A/B/C resolvability assessment](skills/ai-design/reference/gaps.md#assess-resolvability),
+separate from priority and repair authority. Existing journals need no bulk update.
 Archive cleanup runs on explicit request or at 500 lines, checked at triage entry
 and after archiving. It removes all entries whose current version is saved in Git,
 retains uncommitted records and replaces incoming links with verified commit permalinks.

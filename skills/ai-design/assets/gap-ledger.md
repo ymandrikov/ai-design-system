@@ -12,4 +12,5 @@ demonstrating the original Expected result.
 - **Need:** <The end-user task or consumer decision>
 - **Actual result:** <What failed or is missing>
 - **Expected result:** <Observable outcome, including discoverability when required>
+- **Assessment:** <A | B | C — Evidence-based reason; A cites authority and verification path, B states the clarification question, C identifies required change or missing proof>
 - **Evidence:** <Request facts, source paths, rules or failing checks>

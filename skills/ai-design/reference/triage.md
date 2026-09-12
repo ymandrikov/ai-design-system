@@ -47,6 +47,10 @@ format; categories remain optional.
 
 ## Recommend the next work
 
+For each retained entry in scope, add or update its
+[resolvability assessment](gaps.md#assess-resolvability) from current evidence.
+Keep its level separate from the work order below.
+
 For each retained entry, identify the next actionable step: system work in craft,
 consumer work in use, request-fact clarification or a decision from the user.
 Distinguish work ready for craft from work awaiting an answer or verification. A recommendation does not authorise that work.

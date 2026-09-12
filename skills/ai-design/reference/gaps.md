@@ -56,6 +56,40 @@ explicitly permitted freedom and verifying affected contracts and consumers agai
 that decision. Adding a prop, documenting current calls or passing technical tests
 alone does not establish the missing basis.
 
+## Assess resolvability
+
+Assessment records the least design-system intervention needed to fulfil the original
+Expected result. It applies to components, layouts, patterns, tokens, rules and tooling;
+it does not measure priority, value, effort or diff size. Split independent causes
+before assessing; categories do not determine the level.
+
+Use the first level whose complete conditions are proven:
+
+- **A — Autonomous resolution.** Conflict-free authoritative sources determine one
+  result, and a reproducible verification path exists in the supported agent
+  environment. Resolution requires no new or changed shared capability, public API,
+  semantic intent, token or visual rule, interaction or accessibility model, contract
+  semantics, or discovery/verification infrastructure. Cite the source and verification
+  path. Normal review and merge gates do not disqualify A.
+- **B — Bounded clarification.** A is not proven only because existing behaviour is
+  missing from the evidence, ambiguous or contradictory. State one concrete question
+  to the system owner whose answer makes resolution deterministic while preserving
+  existing capabilities and promises. An editorial clarification can be B; creating
+  a new rule or changing a promise is C even if one question settles it.
+- **C — System change or insufficient evidence.** Resolution requires a shared change
+  excluded by A, or B cannot be proven. State which basis applies: a demonstrated
+  required change, or the missing evidence preventing proof of A/B.
+
+Record `Assessment: <level> — <evidence-based reason>` for every new gap. Evaluate
+against the original Expected result; narrowing it cannot justify a lower level.
+Assess the standard supported environment: a transient outage is a verification
+limit and does not change the level; persistently missing tooling is a separate gap.
+
+Add or update assessments on existing entries only within scoped triage or repair,
+as evidence changes; no journal-wide backfill is required. An assessment grants no
+repair authority and does not expand scope to unrelated entries or their underlying
+code. Priority remains governed by [triage](triage.md#recommend-the-next-work).
+
 ## Record and resolve
 
 Reuse a matching open entry or add one per independent cause. Preserve the request,
@@ -64,7 +98,12 @@ deciding clauses, failed checks or measurements. State what must become possible
 including discoverability when needed. Categories are optional. A matching Purpose
 sentence alone does not demonstrate resolution.
 
-Record without asking and report the gap. Recording neither blocks product work nor
+Record without asking. After saving, report each added or supplemented gap to the
+user with its exact journal heading and a clickable `path:line` link. Use the
+heading's 1-based line number verified in the saved journal after all edits. For
+multiple gaps, use one list item per entry.
+
+Recording neither blocks product work nor
 authorises repairs. Hand system work to the separate [craft workflow](craft.md),
 which requires authorised system scope. Craft archives an in-scope entry as Resolved
 only after proving its original expectation, including admission when required.
