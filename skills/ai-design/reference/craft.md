@@ -70,8 +70,8 @@ using [choice gaps](gaps.md#check-the-basis-for-choices).
 Record unsupported choices or rule replacements instead of normalising them.
 
 For UI contracts, follow [contract authoring](contract.md) and the standard structure
-in [the model](model.md). Component/layout metadata belongs in contract frontmatter;
-pattern metadata belongs in its PATTERNS.md section. New/adopted entities start hidden
+in [the model](model.md). Metadata for all three groups belongs in contract frontmatter.
+New/adopted entities start hidden
 until ordinary admission, [automatic admission in modes 1 and 3](setup.md#admission-without-repairs)
 or [migration admission without verification](model.md#migration-verification).
 Update directly invalidated contract references and index
@@ -149,8 +149,10 @@ with recorded verification limits, as does
 For other work, admit only when public promises
 are evidenced, selection/composition checks
 pass and the decision is authorised; required optional-mode gates must also pass.
-An intended contract with missing implementation remains hidden and its support
-unverified. Documentation can be complete without claiming runtime readiness.
+An intended contract awaiting implementation remains hidden and its support
+unverified. A document-only pattern needs no implementation of its own; `sources: []`
+does not prevent admission after its selection, composition and dependency checks pass.
+Documentation can be complete without claiming runtime readiness.
 
 ## Resolve gaps and report
 

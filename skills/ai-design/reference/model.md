@@ -24,23 +24,22 @@ New and connected projects use this contract structure:
 design-system/
   components/          # component contracts only
   layouts/             # layout contracts only
+  patterns/            # pattern contracts only
   COMPONENTS.md         # component index
   LAYOUTS.md            # layout index
-  PATTERNS.md           # contents and full pattern descriptions
+  PATTERNS.md           # pattern index
 ```
 
-Each component/layout has one Markdown contract in its group directory. Its
+Each component/layout/pattern has one Markdown contract in its group directory. Its
 frontmatter owns the stable id, status and code/evidence paths; see [formats](formats.md).
-The two indexes contain display names, Purpose descriptions sufficient for candidate
+The three indexes contain display names, Purpose descriptions sufficient for candidate
 discovery (see [formats](formats.md#shared-selection-sections)) and Contract links.
 Read identity and eligibility from the linked contract, not the index label. Layouts
-appear only in LAYOUTS.md. PATTERNS.md contains one section per pattern with an id,
-status and stable anchor; links target that section. IDs are unique across all three
-groups. Empty indexes and a PATTERNS.md with only its title are valid.
+appear only in LAYOUTS.md; patterns appear only in PATTERNS.md. IDs are unique across
+all three groups. Empty indexes are valid.
 
-Setup moves existing UI contracts and indexes into this structure and merges pattern
-contracts into PATTERNS.md, updating incoming links and relative references. Documents
-mixing contracts with process instructions stay linked at their existing paths until
+Setup moves existing UI contracts and indexes into this structure, updating incoming
+links and relative references. Documents mixing contracts with process instructions stay linked at their existing paths until
 their reorganisation is separately agreed; report the deferred contract move. Code,
 styles, tests, token catalogues and other existing sources keep their project paths.
 A contract id does not determine code paths or exports. Patterns can describe recipes
@@ -56,7 +55,7 @@ AGENTS.md or CLAUDE.md to point to DESIGN.md and record the responsibilities bel
 | discoverable | Eligible for comparison by contract. Verify actual implementation before claiming completion. |
 | hidden | Managed but not admitted; excluded from new selection and fallback. |
 | deprecated | Excluded from new selection and fallback. Preserve existing calls outside the task; follow documented migration guidance within it. |
-| unmanaged | No component/layout index entry or pattern section. Product build may inspect code/tests/consumers as a fallback after managed discovery finds no fit; report limited verification. This does not adopt it. |
+| unmanaged | No entry in its component/layout/pattern index. Product build may inspect code/tests/consumers as a fallback after managed discovery finds no fit; report limited verification. This does not adopt it. |
 
 Malformed entries, missing contracts and contradictory guidance are system defects,
 not unmanaged escape routes. Unknown status is excluded. Discovery lists only eligible

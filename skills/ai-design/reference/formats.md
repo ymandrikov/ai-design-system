@@ -1,10 +1,9 @@
 # Fixed contract formats
 
-Component and layout contracts use YAML frontmatter, an H1 name, then exactly the
+Component, layout and pattern contracts use YAML frontmatter, an H1 name, then exactly the
 six H2 headings below in order, with nonempty sections. H3 headings may organise
 sections. Group follows the standard directory and its index linked from DESIGN.md.
-PATTERNS.md uses an H1 document title, a contents list and an H2 per pattern; its six
-sections use H3 and their subsections use H4.
+COMPONENTS.md, LAYOUTS.md and PATTERNS.md use the shared [index template](../assets/inventory.md).
 
 ## Detail for agent decisions
 
@@ -43,8 +42,10 @@ cannot be `none`. Status is `hidden`, `discoverable` or `deprecated`. Keep these
 metadata values only here; indexes refer to the contract instead of copying them.
 `sources` lists implementation files for every supported binding and the styles
 that define the entity. Native/CSS-only entities may list just their stylesheet.
-For an intended contract without code, use `sources: []`, keep it hidden and report
-implementation as unverified. Empty sources never establish runtime readiness.
+For an intended contract awaiting implementation, use `sources: []`, keep it hidden
+and report implementation as unverified. A document-only pattern can use `sources: []`
+and become discoverable after its selection and composition obligations are checked;
+it needs no implementation of its own. Empty sources never establish runtime readiness.
 
 All path fields are lists of concrete files relative to the project root containing
 DESIGN.md, using forward slashes. Paths stay inside the project, including through
@@ -60,7 +61,7 @@ with an explicit schema/checker change when a concrete check needs them.
 
 ## Section order
 
-| Group | Section headings in order (H2 for components/layouts, H3 for patterns) |
+| Group | Section headings in order (H2 for all groups) |
 | --- | --- |
 | component | Purpose; When to use; When not to use; Public API; Behaviour and states; Accessibility |
 | layout | Purpose; When to use; When not to use; Public API; Composition; Accessibility |
@@ -142,20 +143,18 @@ a suggested example from an invariant. **Accessibility** follows component owner
 
 ## Pattern
 
-Use [the pattern document template](../assets/patterns.md). Each pattern has a
-stable explicit anchor immediately before its H2 name, followed by `ID: <id>` and
-`Status: <status>` lines. The anchor equals the id; keep it stable when renaming the
-heading. The contents list links to every pattern anchor. ID/status follow the same
-rules as component metadata, but live in the pattern section because the file holds
-multiple patterns. Patterns need no source-file frontmatter. Link any executable
-examples and checks in their Structure or Verification sections.
+Use [the pattern contract template](../assets/patterns.md) for one file in
+`design-system/patterns/`. Keep identity, status and source/evidence paths in
+[frontmatter](#contract-frontmatter). PATTERNS.md links to each contract using the
+shared index format. Link executable examples and checks from Structure or Verification
+and list their files in the corresponding frontmatter fields when available.
 
 **Structure** names required/optional regions, their user purpose and order, linked
 layout/component contracts, and which choices remain with the consumer. Include one
 minimal composition example per supported binding, or a binding-neutral region recipe
 when no code is involved. Do not invent an API for a document-only recipe.
 
-**Composition** has H4 Required, Recommendations and Exceptions inside PATTERNS.md. Describe information
+**Composition** has H3 Required, Recommendations and Exceptions. Describe information
 grouping, permissible substitutions, nesting, actions and adaptation. Include consumer
 accessibility obligations and required behaviour. A pattern cannot relax a dependency's
 contract; incompatible dependencies require a decision. Linked public composition

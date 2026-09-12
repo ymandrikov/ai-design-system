@@ -21,7 +21,7 @@ export const FORMATS = {
 export function checkContract(markdown, { resolveLink = () => true, kind = "component" } = {}) {
   if (!Object.hasOwn(FORMATS, kind)) return [`unknown contract kind: ${kind}`];
   markdown = markdown.replaceAll("\r\n", "\n");
-  const parsed = kind === "pattern" ? { body: markdown, problems: [] } : frontmatter(markdown);
+  const parsed = frontmatter(markdown);
   const problems = [...parsed.problems];
   markdown = withoutCode(parsed.body);
 
@@ -172,33 +172,6 @@ function resolvesLink(file, target) {
   return anchors.includes(decodeURIComponent(fragment));
 }
 
-function patterns(markdown, resolveLink = () => true) {
-  const source = withoutCode(markdown.replaceAll("\r\n", "\n"));
-  const headings = [...source.matchAll(/^## (.+)$/gm)];
-  const entries = [];
-  const problems = [];
-  const preamble = source.slice(0, headings[0]?.index ?? source.length);
-  for (let i = 0; i < headings.length; i++) {
-    const start = headings[i];
-    const block = source.slice(start.index, headings[i + 1]?.index ?? source.length);
-    const id = block.match(/^ID: (.+)$/m)?.[1];
-    const status = block.match(/^Status: (.+)$/m)?.[1];
-    entries.push({ id, status });
-    problems.push(...identityProblems({ id, status }).map((p) => `${start[1]}: ${p}`));
-    const before = source.slice(0, start.index).trimEnd();
-    if (!before.endsWith(`<a id="${id}"></a>`)) problems.push(`${id}: missing stable anchor before pattern heading`);
-    if (!localLinks(preamble).includes(`#${id}`)) problems.push(`${id}: missing table-of-contents anchor link`);
-    const body = block.replace(/^#{2,} /gm, (h) => h.slice(1));
-    problems.push(...checkContract(body, { kind: "pattern", resolveLink }).map((p) => `${id}: ${p}`));
-  }
-  const ids = entries.map((entry) => entry.id);
-  if (new Set(ids).size !== ids.length) problems.push("duplicate pattern id");
-  for (const target of localLinks(preamble)) {
-    if (target.startsWith("#") ? !ids.includes(target.slice(1)) : !resolveLink(target)) problems.push(`pattern anchor/link does not resolve: ${target}`);
-  }
-  return { entries, problems };
-}
-
 function projectRoot(file) {
   let dir = dirname(file);
   while (!existsSync(resolve(dir, "DESIGN.md"))) {
@@ -239,21 +212,19 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
   const file = resolve(path);
   const markdown = readFileSync(file, "utf8");
   const resolveLink = (target) => resolvesLink(file, target);
-  const problems = kind === "pattern" ? patterns(markdown, resolveLink).problems : checkContract(markdown, { kind, resolveLink });
+  const problems = checkContract(markdown, { kind, resolveLink });
   const root = projectRoot(file);
   if (!root) problems.push("cannot locate project root: missing DESIGN.md");
   else {
     const location = relative(root, file).split(sep).join("/");
-    const expected = kind === "pattern" ? "design-system/PATTERNS.md" : `design-system/${kind === "layout" ? "layouts" : "components"}/`;
-    if (kind === "pattern" ? location !== expected : !location.startsWith(expected)) problems.push(`contract must be located in ${expected}`);
-    if (kind !== "pattern") {
-      const { metadata } = frontmatter(markdown);
-      for (const field of PATH_FIELDS) for (const target of Array.isArray(metadata[field]) ? metadata[field] : []) {
-        if (!validPath(target)) continue;
-        const full = resolve(root, target);
-        if (!existsSync(full) || !statSync(full).isFile() || !realpathSync(full).startsWith(realpathSync(root) + sep)) {
-          problems.push(`${field} file does not resolve: ${target}`);
-        }
+    const expected = `design-system/${kind}s/`;
+    if (!location.startsWith(expected)) problems.push(`contract must be located in ${expected}`);
+    const { metadata } = frontmatter(markdown);
+    for (const field of PATH_FIELDS) for (const target of Array.isArray(metadata[field]) ? metadata[field] : []) {
+      if (!validPath(target)) continue;
+      const full = resolve(root, target);
+      if (!existsSync(full) || !statSync(full).isFile() || !realpathSync(full).startsWith(realpathSync(root) + sep)) {
+        problems.push(`${field} file does not resolve: ${target}`);
       }
     }
   }
@@ -266,13 +237,6 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
   };
   for (const index of indexes) {
     const text = readFileSync(index, "utf8");
-    if (basename(index) === "PATTERNS.md") {
-      const result = patterns(text, (target) => resolvesLink(index, target));
-      if (index !== file) problems.push(...result.problems.map((p) => `${index}: ${p}`));
-      result.entries.forEach(({ id }) => addId(id));
-      paths.add(index);
-      continue;
-    }
     for (const entry of inventoryEntries(withoutCode(text))) {
       const context = `${index}: ${entry.name}`;
       for (const key of ["ID", "Status"]) if (entry[key] !== undefined) problems.push(`${context}: ${key} belongs in contract frontmatter`);
@@ -285,7 +249,7 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
         const result = frontmatter(readFileSync(target, "utf8"));
         problems.push(...result.problems.map((p) => `${context}: ${p}`));
         addId(result.metadata.id);
-        const group = basename(index) === "LAYOUTS.md" ? "layouts" : "components";
+        const group = basename(index) === "PATTERNS.md" ? "patterns" : basename(index) === "LAYOUTS.md" ? "layouts" : "components";
         const targetRoot = projectRoot(target);
         if (targetRoot && !relative(targetRoot, target).split(sep).join("/").startsWith(`design-system/${group}/`)) {
           problems.push(`${context}: indexed contract must be in design-system/${group}/`);

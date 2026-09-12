@@ -29,10 +29,10 @@ record which rule the verifier must reject. Prefer an actual project defect or b
 
 ## Discovery gate: run the actual procedure
 
-Give the worker a DESIGN.md, both indexes, PATTERNS.md, their linked contracts and the current
+Give the worker a DESIGN.md, all three UI indexes, their linked contracts and the current
 ai-design entrypoint and discovery procedure. Keep competing candidates present.
 For admission only, use an isolated copy with the target's proposed discoverable
-status in its contract frontmatter or pattern section; label this as proposed admission evidence, never change the source status.
+status in its contract frontmatter; label this as proposed admission evidence, never change the source status.
 For an already admitted entity use its actual status.
 
 Dispatch one independent request per must-fit/must-not-fit case:

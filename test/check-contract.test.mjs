@@ -105,7 +105,8 @@ describe("checkContract", () => {
     const layout = contract({ "Behaviour and states": COMPOSITION }).replace("## Behaviour and states", "## Composition");
     const pattern = layout.replace("## Public API", "## Structure").replace("## Accessibility", "## Verification");
     expect(checkContract(layout, { kind: "layout" })).toEqual([]);
-    expect(checkContract(pattern.replace(/^---[\s\S]*?---\n/, ""), { kind: "pattern" })).toEqual([]);
+    expect(checkContract(pattern, { kind: "pattern" })).toEqual([]);
+    expect(checkContract(pattern.replace(/^---[\s\S]*?---\n/, ""), { kind: "pattern" })).toContain("missing frontmatter");
     expect(checkContract(pattern)).not.toEqual([]);
     expect(checkContract(contract(), { kind: "unknown" })).toContain("unknown contract kind: unknown");
   });
@@ -114,7 +115,7 @@ describe("checkContract", () => {
     const layout = contract({ "Behaviour and states": COMPOSITION }).replace("## Behaviour and states", "## Composition");
     for (const [kind, markdown] of [
       ["layout", layout],
-      ["pattern", layout.replace(/^---[\s\S]*?---\n/, "").replace("## Public API", "## Structure").replace("## Accessibility", "## Verification")],
+      ["pattern", layout.replace("## Public API", "## Structure").replace("## Accessibility", "## Verification")],
     ]) {
       expect(checkContract(markdown, { kind })).toEqual([]);
       for (const heading of ["Required", "Recommendations", "Exceptions"]) {
@@ -168,13 +169,13 @@ function entry(path) {
 }
 
 function pattern(id = "settings") {
-  const body = contract({ "Behaviour and states": COMPOSITION })
-    .replace(/^---[\s\S]*?---\n\n# X\n/, "")
+  return contract({ "Behaviour and states": COMPOSITION })
+    .replace("id: x", `id: ${id}`)
+    .replace("sources:\n  - src/X.tsx", "sources: []")
+    .replace("# X\n", "# Settings\n")
     .replace("## Public API", "## Structure")
     .replace("## Behaviour and states", "## Composition")
-    .replace("## Accessibility", "## Verification")
-    .replace(/^(#{2,}) /gm, "$1# ");
-  return `<a id="${id}"></a>\n## Settings\n\nID: ${id}\nStatus: discoverable\n${body}`;
+    .replace("## Accessibility", "## Verification");
 }
 
 describe("checkContractFile", () => {
@@ -233,24 +234,39 @@ describe("checkContractFile", () => {
     expect(checkContractFile(path).some((p) => p.includes("tests file does not resolve"))).toBe(true);
   });
 
-  it("validates several full patterns, stable anchors and cross-group identities", () => {
+  it("validates individual document-only patterns through their index and cross-group identities", () => {
     const { path, inventoryPath, write } = project();
-    const patterns = write("design-system/PATTERNS.md", `# Patterns\n\n- [Settings](#settings)\n- [Other](#other)\n\n${pattern()}\n${pattern("other")}`);
-    expect(checkContractFile(patterns, { kind: "pattern", inventoryPaths: [inventoryPath, patterns] })).toEqual([]);
-    write("design-system/PATTERNS.md", `# Patterns\n\n- [Settings](#x)\n\n${pattern("x")}`);
+    const settings = write("design-system/patterns/settings.md", pattern());
+    const other = write("design-system/patterns/other.md", pattern("other"));
+    const patterns = write("design-system/PATTERNS.md", entry("patterns/settings.md") + entry("patterns/other.md"));
+    for (const file of [settings, other]) {
+      expect(checkContractFile(file, { kind: "pattern", inventoryPaths: [inventoryPath, patterns] })).toEqual([]);
+    }
+    write("design-system/patterns/settings.md", pattern("x"));
     expect(checkContractFile(path, { inventoryPaths: [inventoryPath, patterns] })).toContain("duplicate inventory id: x");
-    write("design-system/PATTERNS.md", `# Patterns\n\n- [Settings](#wrong)\n\n${pattern().replace("### Structure", "### Wrong")}`);
-    const problems = checkContractFile(patterns, { kind: "pattern" });
+    write("design-system/patterns/settings.md", pattern().replace("## Structure", "## Wrong"));
+    const problems = checkContractFile(settings, { kind: "pattern" });
     expect(problems.some((p) => p.includes("H2 headings must be exactly"))).toBe(true);
-    expect(problems.some((p) => p.includes("anchor"))).toBe(true);
+    write("design-system/PATTERNS.md", entry("components/Action%20Button.md"));
+    expect(checkContractFile(path, { inventoryPaths: [patterns] }).some((p) => p.includes("indexed contract must be in design-system/patterns/"))).toBe(true);
+  });
+
+  it("checks pattern evidence paths and rejects a combined pattern document", () => {
+    const { write } = project();
+    const path = write("design-system/patterns/settings.md", pattern().replace("sources: []", "sources: []\nexamples:\n  - missing.tsx"));
+    expect(checkContractFile(path, { kind: "pattern" })).toContain("examples file does not resolve: missing.tsx");
+    const combined = write("design-system/PATTERNS.md", "# Patterns\n\n- [Settings](#settings)\n\n<a id=\"settings\"></a>\n## Settings\n\nID: settings\nStatus: discoverable\n" + pattern().slice(pattern().indexOf("## Purpose")).replace(/^(#{2,}) /gm, "$1# "));
+    const problems = checkContractFile(combined, { kind: "pattern" });
+    expect(problems).toContain("missing frontmatter");
+    expect(problems).toContain("contract must be located in design-system/patterns/");
   });
 
   it("resolves links to specific patterns and rejects absent anchors", () => {
     const { path, write } = project();
-    write("design-system/PATTERNS.md", `# Patterns\n\n- [Settings](#settings)\n\n${pattern()}`);
-    write("design-system/components/Action Button.md", contract({ "Public API": "See [Settings](../PATTERNS.md#settings)." }));
+    write("design-system/patterns/settings.md", pattern());
+    write("design-system/components/Action Button.md", contract({ "Public API": "See [Settings](../patterns/settings.md#composition)." }));
     expect(checkContractFile(path)).toEqual([]);
-    write("design-system/components/Action Button.md", contract({ "Public API": "See [Settings](../PATTERNS.md#missing)." }));
+    write("design-system/components/Action Button.md", contract({ "Public API": "See [Settings](../patterns/settings.md#missing)." }));
     expect(checkContractFile(path).some((p) => p.includes("does not resolve"))).toBe(true);
   });
 });
@@ -292,7 +308,7 @@ describe("check-contract CLI", () => {
 });
 
 
-it("validates migrated fixture contracts and the combined pattern document", () => {
+it("validates fixture contracts through all three indexes", () => {
   for (const ds of ["mini-ds", "tie-ds"]) {
     const base = `fixtures/${ds}/design-system`;
     const indexes = [`${base}/COMPONENTS.md`, `${base}/LAYOUTS.md`, `${base}/PATTERNS.md`];
@@ -301,9 +317,11 @@ it("validates migrated fixture contracts and the combined pattern document", () 
         ? ["fixtures/tie-ds/ranking-inventory.md", ...indexes.slice(1)] : indexes;
       expect(checkContractFile(`${base}/components/${file}`, { inventoryPaths }), file).toEqual([]);
     }
-    expect(checkContractFile(`${base}/PATTERNS.md`, { kind: "pattern", inventoryPaths: indexes })).toEqual([]);
   }
   const base = "fixtures/mini-ds/design-system";
+  expect(checkContractFile(`${base}/patterns/settings-page.md`, {
+    kind: "pattern", inventoryPaths: ["COMPONENTS.md", "LAYOUTS.md", "PATTERNS.md"].map((f) => `${base}/${f}`),
+  })).toEqual([]);
   expect(checkContractFile(`${base}/layouts/stack.md`, {
     kind: "layout", inventoryPaths: ["COMPONENTS.md", "LAYOUTS.md", "PATTERNS.md"].map((f) => `${base}/${f}`),
   })).toEqual([]);

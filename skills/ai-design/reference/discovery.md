@@ -14,8 +14,8 @@ required context, report what is missing and return [setup](setup.md) to the cal
 
 ## Start at the affected level
 
-For a new screen, read PATTERNS.md first, then the layouts and components
-needed by viable patterns. Compare candidates at each level. For a local change,
+For a new screen, read PATTERNS.md and its candidate contracts first, then the
+layouts and components needed by viable patterns. Compare candidates at each level. For a local change,
 read the containing composition's constraints and start at the affected level.
 Split meaningful controls, layout containers and semantic surfaces into elements.
 Fixed parts owned by a selected contract need contract validation, not separate
@@ -30,12 +30,12 @@ requested element, inherited obligation and affected token role is accounted for
 
 ## Find candidates
 
-Read the relevant indexes or PATTERNS.md contents. For each entry whose Purpose
+Read the relevant indexes. For each entry whose Purpose
 covers the task or a broader category, follow its Contract link and read the
-frontmatter to establish id and status. Pattern sections supply their own id/status.
+frontmatter to establish id and status.
 Shortlist only discoverable entities, including eligible entities named by the request,
-widget/context language or shortlisted contracts. Read every shortlisted contract or
-pattern section in full, including linked composition obligations. The index summary
+widget/context language or shortlisted contracts. Read every shortlisted contract
+in full, including linked composition obligations. The index summary
 routes; it does not add requirements, metadata authority or visual values.
 
 Read linked known defects and verification limits as well. A discoverable entity

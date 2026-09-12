@@ -13,6 +13,6 @@
 
 **Expected:**
 
-- Choose settings-page from design-system/PATTERNS.md and validate its prescribed Stack/Button and applicable field-control contracts. Preserve required grouping, save boundaries and the optional independent destructive section. Do not invent discretionary component choices for the pattern’s fixed dependencies.
+- Follow design-system/PATTERNS.md to patterns/settings-page.md, read its frontmatter and full contract, choose settings-page and validate its prescribed Stack/Button and applicable field-control contracts. Preserve required grouping, save boundaries and the optional independent destructive section. Do not invent discretionary component choices for the pattern’s fixed dependencies.
 
 - Discovery leaves project files unchanged.

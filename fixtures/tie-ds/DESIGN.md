@@ -15,11 +15,11 @@ match. There is no complete visual identity or rendered reference.
 
 - Components: [inventory](design-system/COMPONENTS.md)
 - Layouts: [index](design-system/LAYOUTS.md)
-- Patterns: [full descriptions](design-system/PATTERNS.md)
+- Patterns: [index](design-system/PATTERNS.md)
 
 ## Contracts
 
-Contracts live in `design-system/components/`; the uppercase indexes and PATTERNS.md
+Contracts live in `design-system/components/`; the three uppercase indexes
 use the framework structure. Frontmatter owns identity/status; `sources: []` records
 that this fixture deliberately has no implementation. Its discoverable statuses are
 synthetic inputs for selection tests only, not evidence of runtime readiness or an

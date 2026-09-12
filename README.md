@@ -202,6 +202,8 @@ visual intent, shared rules, tokens, indexes, public usage and verification:
       button.md
     layouts/
       stack.md
+    patterns/
+      settings-page.md
     COMPONENTS.md
     LAYOUTS.md
     PATTERNS.md
@@ -212,10 +214,10 @@ visual intent, shared rules, tokens, indexes, public usage and verification:
   DESIGN.md
 ```
 
-Component and layout contracts live in their respective design-system directories;
-PATTERNS.md holds the contents and full descriptions of every pattern. This structure
-also applies when connecting an existing project: move contracts, merge pattern
-documents and update references. Implementation and token-source paths stay unchanged.
+Component, layout and pattern contracts each live in their respective design-system
+directories, one entity per file. COMPONENTS.md, LAYOUTS.md and PATTERNS.md are indexes.
+This structure also applies when connecting an existing project: move contracts
+and update references. Implementation and token-source paths stay unchanged.
 The tree shows the shared agent convention; Claude-only projects use CLAUDE.md instead
 of the pair. The instruction file points to root DESIGN.md, which connects the sources
 and verification tools. The installed skill stays at its existing local or global path.
@@ -238,11 +240,12 @@ examples:
 
 `sources` is required; tests/examples are optional lists of concrete files. The
 [format reference](skills/ai-design/reference/formats.md) defines the supported flat
-YAML syntax and unimplemented drafts. COMPONENTS.md and LAYOUTS.md contain display
+YAML syntax and unimplemented drafts. All three indexes contain display
 names, Purpose descriptions covering supported tasks, means and material distinctions
 for candidate discovery, and Contract links; identity/status are read from
-contracts. Each pattern section has its own id/status and stable anchor. IDs remain
-unique across all three groups. Empty groups are valid.
+contracts. IDs remain unique across all three groups. Empty groups are valid.
+Document-only patterns may have `sources: []` and be discoverable after selection
+and composition checks; they need no implementation of their own.
 
 Markdown links resolve from their containing file; frontmatter paths and operational
 paths in DESIGN.md resolve from the project root. Token catalogues retain their existing
@@ -280,7 +283,7 @@ See [the glossary](CONTEXT.md) and
 section order per group. Components describe API and behaviour; layouts describe API
 and composition; patterns describe structure, composition and verification.
 
-Check actual links, group format and index membership using both indexes and PATTERNS.md:
+Check actual links, group format and index membership using all three indexes:
 
 ```sh
 node skills/ai-design/scripts/check-contract.mjs --kind layout \
@@ -290,9 +293,8 @@ node skills/ai-design/scripts/check-contract.mjs --kind layout \
   fixtures/mini-ds/design-system/layouts/stack.md
 ```
 
-Use `--kind pattern` with the full `design-system/PATTERNS.md` to validate its sections
-and anchors. The structural checker verifies metadata, listed files, links, group
-placement and cross-group identity; it does not prove semantics. Ordinary authoring audits evidence
+Use `--kind pattern` with an individual `design-system/patterns/<name>.md` contract.
+The structural checker verifies metadata, listed files, links, group placement and cross-group identity; it does not prove semantics. Ordinary authoring audits evidence
 for public promises, suitable/unsuitable use and edge cases, with actual discovery for
 admission or changed selection rules. Existing focused tests/examples can supply evidence;
 missing support remains unverified. Ordinary admission requires proven promises and authority;

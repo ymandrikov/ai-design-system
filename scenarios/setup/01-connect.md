@@ -19,9 +19,9 @@
   Explain how these boundaries help prevent exceptions from becoming general rules.
 - Determine agent mode before changes. The fixture's AGENTS.md selects multiple
   agents; use it as canonical and create a relative CLAUDE.md symlink to it.
-  Use root DESIGN.md. Migrate existing component/layout contracts to
-  design-system/components/ and design-system/layouts/, with uppercase COMPONENTS.md
-  and LAYOUTS.md indexes. Merge pattern descriptions into design-system/PATTERNS.md.
+  Use root DESIGN.md. Migrate existing component/layout/pattern contracts to
+  design-system/components/, design-system/layouts/ and design-system/patterns/,
+  one entity per file, with uppercase COMPONENTS.md, LAYOUTS.md and PATTERNS.md indexes.
 - Move id/status into contract frontmatter and list actual root-relative source files.
   Update affected references while preserving public promises, code and token values.
 - Inspect useful existing pages without asking the user to choose one. Connection

@@ -10,7 +10,7 @@
   rule requiring role="status", but omit that attribute in its implementation.
   Run the test to establish the defect before dispatch; retain the failed result.
 - Add an existing pattern document describing a recipe using Stack and Button,
-  outside PATTERNS.md, with authoritative composition rules and concrete sources.
+  outside design-system/patterns/, with authoritative composition rules and concrete sources.
 - Record that browser verification is unavailable for this run. Keep existing
   deprecated entities deprecated; do not change their sources or promises.
 
@@ -24,7 +24,8 @@
 **Expected:**
 
 - Connect the project, enumerate owned components/layouts and existing patterns,
-  merge the existing pattern into PATTERNS.md and fix affected links.
+  move the existing pattern into design-system/patterns/, link it from PATTERNS.md
+  and fix affected references.
 - Choose and save a batch size without asking; continue beyond the first batch.
 - Produce structurally valid contracts and indexes, making documented existing
   entities discoverable, including Notice. Preserve deprecated status.

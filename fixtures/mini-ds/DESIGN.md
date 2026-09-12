@@ -8,7 +8,7 @@ mini-ds uses components, layouts and page patterns. Its browser preview is the d
 
 The [settings pages](product/settings-pages.tsx) demonstrate editing profile and
 notification preferences in named groups, with one save action per subject and
-separate destructive actions. The [settings pattern](design-system/PATTERNS.md#settings-page)
+separate destructive actions. The [settings pattern](design-system/patterns/settings-page.md)
 defines their required composition and exceptions. The [demo styles](demo/demo.css)
 define preview typography and surfaces; these are not rules for every product.
 
@@ -16,12 +16,12 @@ define preview typography and surfaces; these are not rules for every product.
 
 - Components: [inventory](design-system/COMPONENTS.md)
 - Layouts: [index](design-system/LAYOUTS.md)
-- Patterns: [full descriptions](design-system/PATTERNS.md)
+- Patterns: [index](design-system/PATTERNS.md)
 
 ## Contracts
 
 Contracts in `design-system/components/` and `design-system/layouts/` cover both
-bindings; `design-system/PATTERNS.md` holds the settings recipe. Frontmatter owns
+bindings; `design-system/patterns/settings-page.md` holds the settings recipe. Frontmatter owns
 id/status and file paths relative to this mini-ds root. Code stays in react/,
 web-components/ and product/. Public usage examples use paths relative to mini-ds
 unless an example explicitly states another base.
@@ -54,7 +54,7 @@ Public token catalogue: none. `styles.css` supplies fixture values; Stack expose
 
 ## Design reference
 
-`styles.css` defines fixture values. `product/settings-pattern.md` defines grouping,
+`styles.css` defines fixture values. `design-system/patterns/settings-page.md` defines grouping,
 order and relationships. Browser computed styles/bounding boxes verify actual layout;
 there is no external visual design reference or production backend.
 

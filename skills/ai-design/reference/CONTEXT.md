@@ -34,7 +34,7 @@ _Avoid_: Entity as an umbrella that silently includes tokens under UI contract a
 
 **Managed UI entity**:
 A UI entity included in the design system's governance through a contract and its
-component/layout index entry or pattern section with a contents link; being managed alone does not establish eligibility for new selection.
+component/layout/pattern index entry linking to its contract; being managed alone does not establish eligibility for new selection.
 
 **Component**:
 A reusable unit of UI with a public interface and observable promises.
@@ -144,7 +144,7 @@ _Avoid_: Inventory as a separate domain concept; it is an existing name for an i
 
 **Adoption**:
 Documenting an existing component, layout or pattern through an evidenced contract
-and a component/layout index entry or pattern section with a contents link; this alone does not admit it to new selection.
+and a component/layout/pattern index entry linking to its contract; this alone does not admit it to new selection.
 _Avoid_: Admission or product use as a synonym for adoption.
 
 **Admission**:

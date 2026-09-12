@@ -1,10 +1,10 @@
 # Author a consumer contract
 
 Enter from [craft](craft.md). Read [fixed formats](formats.md), DESIGN.md
-and the index's Contract link or PATTERNS.md section anchor. Store component/layout
+and the index's Contract link. Store component/layout/pattern
 contracts in their standard group directories. Maintain id, status and root-relative
 source/evidence paths in frontmatter; connect source files to the supported public
-bindings in Public API. Pattern sections contain their own identity and status.
+bindings in Public API or the pattern's Structure.
 Use actual paths instead of deriving them from an id. A document-only pattern needs
 no new code.
 
@@ -62,7 +62,7 @@ remains unverified. Browser-dependent promises need rendered/interactive evidenc
 need no new test or browser run merely because their wording was clarified.
 
 Align index summaries, actual Contract links and directly affected incoming contract
-references. Run structural validation with the entity's group, both indexes and the full pattern document:
+references. Run structural validation with the entity's group and all three indexes:
 
 ```sh
 node <ai-design-directory>/scripts/check-contract.mjs --kind <component|layout|pattern> \
@@ -70,9 +70,9 @@ node <ai-design-directory>/scripts/check-contract.mjs --kind <component|layout|p
   --inventory <design-system/PATTERNS.md> <contract-path>
 ```
 
-For `--kind pattern`, pass the entire PATTERNS.md as the contract path; it checks every
-pattern section, contents anchor and cross-group identity. Source paths resolve from
-the nearest ancestor DESIGN.md.
+For `--kind pattern`, pass the individual `design-system/patterns/<name>.md` contract.
+The checker validates its sections, metadata, index membership and cross-group identity.
+Source paths resolve from the nearest ancestor DESIGN.md.
 
 Record the command, result and output or evidence path. The checker validates
 structure/links/indexes, not semantic correctness. Fix structural errors and report

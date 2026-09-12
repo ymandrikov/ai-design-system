@@ -1,7 +1,7 @@
 # Set up the project
 
 Read [the shared model](model.md). Use its standard contract directories and uppercase
-index/pattern filenames for new and existing projects. Preserve implementation paths;
+index filenames for new and existing projects. Preserve implementation paths;
 DESIGN.md stays at the repository root.
 Setup connects sources and records missing capabilities. For a new system, the
 [craft workflow](craft.md) owns the requested design decisions and implementation;
@@ -144,11 +144,11 @@ Preserve existing design content and link authoritative sources. Record actual p
 commands and missing tools; source conflicts remain explicit. Existing profiles may
 supply facts, but DESIGN.md becomes the framework's entry point.
 
-Create or migrate COMPONENTS.md and LAYOUTS.md using [the index template](../assets/inventory.md).
-Move existing component/layout contracts into their respective group directories;
+Create or migrate COMPONENTS.md, LAYOUTS.md and PATTERNS.md using [the index template](../assets/inventory.md).
+Move existing component/layout/pattern contracts into their respective group directories;
 add [frontmatter](formats.md#contract-frontmatter) from evidenced identity, lifecycle
 and actual source files. Preserve valid public promises and eligibility during moves.
-Merge existing full pattern contracts into PATTERNS.md using [the pattern template](../assets/patterns.md).
+Store each pattern as a separate contract using [the pattern template](../assets/patterns.md).
 Update incoming links, index links, document-relative references and examples that
 resolve relative imports from the moved document. Keep root-relative code paths intact.
 IDs remain unique across components, layouts and patterns; report collisions before

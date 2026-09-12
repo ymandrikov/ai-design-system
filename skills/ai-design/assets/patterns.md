@@ -1,45 +1,43 @@
-# <Design system> patterns
+---
+id: pattern-id
+status: hidden
+sources: []
+---
 
-- [<Pattern name>](#pattern-id)
+# <Pattern name>
 
-<a id="pattern-id"></a>
-## <Pattern name>
-
-ID: pattern-id
-Status: hidden
-
-### Purpose
+## Purpose
 
 <End-user task and the recipe's role.>
 
-### When to use
+## When to use
 
 Use this pattern when all of these hold:
 
 - <One observable request criterion.>
 
-### When not to use
+## When not to use
 
 - <One disqualifier, or state that there are none.>
 
-### Structure
+## Structure
 
 <Required/optional regions, their order, linked contracts and a minimal composition.>
 
-### Composition
+## Composition
 
-#### Required
+### Required
 
 <Composition rules, consumer responsibilities and accessibility obligations.>
 
-#### Recommendations
+### Recommendations
 
 <Recommendations and when alternatives are reasonable.>
 
-#### Exceptions
+### Exceptions
 
 <Exact exception conditions, or None.>
 
-### Verification
+## Verification
 
 <Checks for a valid composition and a deliberate violation; link executable evidence when available.>

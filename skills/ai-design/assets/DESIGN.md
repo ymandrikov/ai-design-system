@@ -15,7 +15,7 @@ and scoped exceptions. Map local terminology to the framework glossary when need
 
 - Components: [index](design-system/COMPONENTS.md)
 - Layouts: [index](design-system/LAYOUTS.md)
-- Patterns: [full descriptions](design-system/PATTERNS.md)
+- Patterns: [index](design-system/PATTERNS.md)
 - Tokens: existing catalogue or definitions, with types, values, roles and constraints.
 - Themes and visual specifications: authoritative sources and how consumers use them.
 
@@ -24,9 +24,9 @@ UI eligibility statuses. Empty UI indexes are valid. A layout appears only in La
 
 ## Contracts and public use
 
-Component contracts live in `design-system/components/`, layouts in `design-system/layouts/`;
-`design-system/PATTERNS.md` holds full patterns. Apply this structure when connecting
-existing projects too. Contract frontmatter owns id/status and source/evidence paths
+Component contracts live in `design-system/components/`, layouts in `design-system/layouts/`
+and patterns in `design-system/patterns/`, each with its uppercase index. Apply this
+structure when connecting existing projects too. Contract frontmatter owns id/status and source/evidence paths
 relative to this project root; Markdown links resolve from their containing document.
 Name public imports/invocation for supported bindings and which product areas use them.
 Link project guidance for product views and component development. Link shared

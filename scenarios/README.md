@@ -223,7 +223,7 @@ command. It checks the target, local submission and a displaced-fieldset mutatio
 Keep the exact source of every controller-created helper and test in
 `<out>/checks/scripts/`, including its invocation and how it is placed in the verification
 copy. A log naming a helper left only in /tmp is insufficient. For contract validation,
-use the correct group and pass the component/layout indexes and PATTERNS.md together on
+use the correct group and pass all three UI indexes together on
 each invocation so duplicate ids/targets across indexes are checked. Treat an alternate
 component index as a separate configuration, not an additional simultaneous index.
 Inspect checker output as well as exit status; an empty CLI result does not prove that
