@@ -25,6 +25,8 @@
 - Inspect useful existing pages without asking the user to choose one. Connection
   does not require adoption, admission or analogous-page generation.
 - Record missing token catalogue/browser capabilities honestly; no invented commands.
+- Analyse repository skills during the survey without an analysis opt-in. When no
+  other repository skills are present, continue without a replacement question.
 - Connect both the open journal and archive through DESIGN.md. Preserve existing
   records; initialise a missing archive with a title and no historical recovery.
 - Ask "What next?" with four explicit selectable options in order: A — automatic
