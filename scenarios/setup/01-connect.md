@@ -17,8 +17,9 @@
 - At the first mention of an escape hatch, explain a controlled local exception with
   a required reason and explicit limits, preserving behaviour and accessibility.
   Explain how these boundaries help prevent exceptions from becoming general rules.
-- Use root DESIGN.md and the existing AGENTS.md or CLAUDE.md convention; create
-  AGENTS.md if neither exists. Migrate existing component/layout contracts to
+- Determine agent mode before changes. The fixture's AGENTS.md selects multiple
+  agents; use it as canonical and create a relative CLAUDE.md symlink to it.
+  Use root DESIGN.md. Migrate existing component/layout contracts to
   design-system/components/ and design-system/layouts/, with uppercase COMPONENTS.md
   and LAYOUTS.md indexes. Merge pattern descriptions into design-system/PATTERNS.md.
 - Move id/status into contract frontmatter and list actual root-relative source files.

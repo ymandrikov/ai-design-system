@@ -14,8 +14,10 @@
 **Expected:**
 
 - Infer craft despite missing DESIGN.md. Establish the requested token from the
-  explicit decision; use setup to create root DESIGN.md, AGENTS.md, empty UI
-  indexes and the open-gap journal within the new project.
+  explicit decision; classify the empty project as multiple-agent by default and use
+  setup to create root DESIGN.md, AGENTS.md, a relative CLAUDE.md symlink to AGENTS.md,
+  empty UI indexes and the open-gap journal. Use the available skill without installing
+  or copying it into the new project.
 - Link the real CSS definition and its role/constraints without inventing a
   duplicate token schema, visual direction, additional tokens or components.
 - Discovery can return the token, value and applicable role through the new

@@ -43,8 +43,9 @@ their reorganisation is separately agreed; report the deferred contract move. Co
 styles, tests, token catalogues and other existing sources keep their project paths.
 A contract id does not determine code paths or exports. Patterns can describe recipes
 without implementation files. New gap journals also live under design-system/.
-The ai-design package installs in `.agents/skills/ai-design/`; AGENTS.md or CLAUDE.md
-points to DESIGN.md and records the division of responsibilities below.
+Setup uses the existing repository-local or user-global ai-design installation.
+[Agent mode and instruction consolidation](setup.md#determine-the-agent-mode) select
+AGENTS.md or CLAUDE.md to point to DESIGN.md and record the responsibilities below.
 
 ## UI eligibility and gradual adoption
 
@@ -84,7 +85,8 @@ call ai-design, their expected results and where the project workflow resumes;
 ai-design's stage checks do not replace overall task completion checks.
 
 Keep existing project rules and process instructions at their authoritative locations
-and link them from DESIGN.md. Moving them requires a separately agreed reorganisation.
+and link them from DESIGN.md. Setup includes [agent instruction consolidation](setup.md#consolidate-agent-instructions);
+other moves require a separately agreed reorganisation.
 Markdown instructions define agent-executed behaviour: retaining their text alone
 does not preserve invocation, sequencing, approvals or completion checks. Use
 [skill reconciliation](setup.md#reconcile-repository-skills) during setup.

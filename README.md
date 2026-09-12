@@ -81,6 +81,14 @@ skills/ai-design/
 
 Ask `ai-design setup` to connect the project. It can discover and inspect
 pages automatically; no selected page, adoption or demonstration is required.
+Before changes, setup identifies Claude-only repositories; evidence of other agents
+or an unknown mode selects the shared AGENTS.md convention. Shared setup merges
+project-owned CLAUDE.md files into sibling AGENTS.md files and leaves relative
+CLAUDE.md symlinks, including in nested packages. A clean repository gets a root pair.
+Conflicting instructions require a decision before replacing the affected file.
+Claude-only projects retain their Claude-specific structure. Setup uses skills already
+installed in the repository or globally, without installing or moving them.
+See [agent mode and consolidation](skills/ai-design/reference/setup.md#determine-the-agent-mode).
 During setup it also analyses skills inside the repository for overlapping functions
 and conflicts with ai-design. Existing skills keep their entrypoints and overall
 processes; AGENTS.md or CLAUDE.md routes contract and design-system work, including
@@ -88,8 +96,9 @@ component/layout/pattern selection and reuse, through ai-design. Compatible over
 requires no replacement decision. Concrete conflicts lead to minimal rule or boundary
 edits; unresolved conflicts block only dependent actions. Replacement or consolidation
 requires an explicit request and a prior mapping of responsibilities, workflow and
-losses. Existing project rules stay at their sources, linked from DESIGN.md, unless
-their reorganisation is separately agreed. See [skill reconciliation](skills/ai-design/reference/setup.md#reconcile-repository-skills).
+losses. Apart from agent instruction consolidation, existing project rules stay at
+their sources, linked from DESIGN.md, unless their reorganisation is separately
+agreed. See [skill reconciliation](skills/ai-design/reference/setup.md#reconcile-repository-skills).
 
 After connection, setup asks "What next?" with four explicit options in order:
 
@@ -161,7 +170,6 @@ visual intent, shared rules, tokens, indexes, public usage and verification:
 
 ```text
 <repo_root>/
-  .agents/skills/ai-design/
   design-system/
     components/
       button.md
@@ -173,6 +181,7 @@ visual intent, shared rules, tokens, indexes, public usage and verification:
     gaps.md
     gaps-archive.md
   AGENTS.md
+  CLAUDE.md -> AGENTS.md
   DESIGN.md
 ```
 
@@ -180,7 +189,9 @@ Component and layout contracts live in their respective design-system directorie
 PATTERNS.md holds the contents and full descriptions of every pattern. This structure
 also applies when connecting an existing project: move contracts, merge pattern
 documents and update references. Implementation and token-source paths stay unchanged.
-AGENTS.md points to root DESIGN.md, which connects the sources and verification tools.
+The tree shows the shared agent convention; Claude-only projects use CLAUDE.md instead
+of the pair. The instruction file points to root DESIGN.md, which connects the sources
+and verification tools. The installed skill stays at its existing local or global path.
 
 Contract frontmatter owns the stable id, status and root-relative source/evidence paths:
 

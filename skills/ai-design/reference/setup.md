@@ -27,6 +27,9 @@ actual permissions and requirements.
 
 ## Survey the existing sources
 
+First [determine the repository's agent mode](#determine-the-agent-mode), before
+creating or changing files. Then continue the source survey below.
+
 Read repository instructions, existing DESIGN.md or legacy profile, UI libraries,
 token definitions, themes, design rules, public usage and verification commands.
 Find pages from the code when useful; a user-selected page is not required. Inspect
@@ -34,6 +37,49 @@ representative consumers to distinguish actual evidence from naming or popularit
 Report conflicting sources and unresolved normative choices without inventing new
 system rules. Complete when the available sources and gaps in
 project context are known; surveying pages does not authorise their adoption.
+
+### Determine the agent mode
+
+Use an explicit user-selected mode when supplied. Otherwise inspect project-owned
+agent instructions and configuration, including hidden directories and nested packages:
+
+- **Multiple agents:** any existing `.agents/` directory or `AGENTS.md`, or evidence
+  of another agent's configuration, selects this mode. This includes `.agents/`
+  created by an installer before setup.
+- **Claude-only:** `CLAUDE.md` or `.claude/` exists, with no evidence of other agents.
+- **Unknown:** use the multiple-agent mode, including when no repository skills or
+  agent instruction files exist. Missing evidence does not require a question.
+
+Exclude dependencies, third-party code and symlink targets outside the repository.
+Report the selected mode and its evidence. Setup uses the already installed ai-design
+package, whether repository-local or user-global; keep it and other skills at their
+actual locations. Global installations and the current agent do not determine the
+repository's mode. Setup neither installs nor relocates skills.
+
+### Consolidate agent instructions
+
+For Claude-only repositories, retain the Claude-specific structure and extend
+`CLAUDE.md` routing; create a root `CLAUDE.md` if missing. Keep setup's new agent
+instructions there, without creating `.agents/` or `AGENTS.md`.
+
+For multiple-agent repositories, use `AGENTS.md` as the canonical instruction file.
+At the root and beside every project-owned nested `CLAUDE.md`, merge its contents
+into the sibling `AGENTS.md`, then replace `CLAUDE.md` with a relative symlink to
+`AGENTS.md`. Create the root pair even when neither file exists. Preserve each file's
+directory scope, all unique instructions, invocation order and references; remove
+only exact duplicates and mark Claude-specific instructions as applying only to Claude.
+Preserve referenced instructions and repair affected links or imports.
+
+When instructions contradict each other, present the conflicting passages and settle
+the rule with the user before replacing that file; neither filename wins automatically.
+Continue independent connection work. Read and preserve existing symlink contents
+before changing links, normalise reverse links without cycles, and leave an already
+correct pair intact. Externally linked or unreadable instructions stay unchanged and
+are reported as unresolved. Confirm merged contents are saved before replacing a file.
+
+This consolidation is part of ordinary setup authority. Complete when every in-scope
+pair preserves its instructions and resolves to its canonical file, or report the
+specific pairs blocked by unresolved conflicts or unreadable sources.
 
 ## Reconcile repository skills
 
@@ -73,7 +119,8 @@ Preserve existing skills and processes by default under the
   and repair references before deleting anything. A request for automatic codebase
   migration alone does not request skill replacement or consolidation.
 
-Link existing project rules from DESIGN.md at their original locations; instruction
+Link existing project rules from DESIGN.md at their authoritative locations after
+[agent instruction consolidation](#consolidate-agent-instructions); other instruction
 transfer requires separately agreed reorganisation. Record unresolved conflicts and
 their affected operations in DESIGN.md. Continue independent connection work and block
 only dependent actions; retaining a skill or declining a proposed edit does not itself
@@ -116,14 +163,14 @@ it. Record absent token sources explicitly rather than inventing definitions.
 Use `design-system/gaps.md` for new journals with [the gap template](../assets/gap-ledger.md).
 Link the archive in DESIGN.md, using `design-system/gaps-archive.md` for a new one;
 initialise a missing archive with a title and no entries. Existing journals and archives can remain
-linked at their current paths. Extend the existing AGENTS.md or CLAUDE.md invocation
+linked at their current paths. Apply [agent instruction consolidation](#consolidate-agent-instructions)
+and extend the selected AGENTS.md or CLAUDE.md invocation
 routes within authorised setup scope with a DESIGN.md and `ai-design` pointer and the
 [division of responsibilities](model.md#authority-and-task-scope). Keep the project
 skill as the overall entrypoint; identify use for selection and reuse in product UI,
 craft for contracts and system development, and the results returned to the caller.
-Use the project's existing instruction-file convention; create AGENTS.md if neither
-file exists. Keep affected routes consistent when both exist. The installed package
-belongs in `.agents/skills/ai-design/`.
+Reference the installed package at its actual location; do not invent a repository-local
+copy for a globally installed skill.
 
 Complete when DESIGN.md reaches the real sources, indexes and available verification
 instructions, and missing capabilities are explicit. Check links from their containing
@@ -136,6 +183,7 @@ setup, plus root DESIGN.md and existing AGENTS.md and CLAUDE.md files in the aff
 area, even if setup did not edit them. Do not create absent instruction files for this check.
 Compare their contents with the actual project state and completed setup results:
 source and skill paths, links, configured commands, project/craft/use responsibilities,
+selected agent mode, canonical instruction files and relative symlink targets,
 preserved invocation routes and process checks, authoritative rule links and references
 affected by agreed moves or replacements. Check links
 from their containing files and operational paths from the repository root; existence
