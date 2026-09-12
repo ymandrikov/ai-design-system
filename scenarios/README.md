@@ -38,7 +38,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Page patterns and prescribed dependencies guide composition | discovery/22; build/02 |
 | Adoption, intended contracts, compatibility, lifecycle and gaps | authoring/01–08; gap-record/01–02 |
 | Root DESIGN.md connection without page adoption | setup/01 |
-| Repository skill overlap, replacement with instruction transfer and retained conflicts | setup/11 |
+| Repository workflow preservation, specialist routing, targeted conflicts and explicit consolidation | setup/11 |
 | Saved adoption scope, batch limits, continuation and separate API analysis | setup/03–05 |
 | Migration mode choice, admission without repairs, behaviour preservation, business-logic repairs and bounded escape hatches | setup/06–09 |
 | Verification refusal across migration modes, setup moves, gradual adoption and resume | setup/10 |

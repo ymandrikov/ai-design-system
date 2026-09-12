@@ -8,6 +8,8 @@ description: Create and maintain a design system and its components, or build an
 One entrypoint, two workflows with separate responsibilities. Read
 [the shared model](reference/model.md) once, then the procedure for the request.
 Load supporting references only when their stated condition applies.
+Within a project workflow, act as its design-system specialist under the
+[shared responsibility boundary](reference/model.md#authority-and-task-scope).
 
 ## Choose the workflow
 

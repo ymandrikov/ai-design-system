@@ -50,29 +50,35 @@ functionality and incompatible instructions. Ground conflicts in source passages
 a concrete affected operation, such as replacing DESIGN.md or bypassing component
 contracts. Judge fit for this project rather than general skill quality or popularity.
 
-For overlapping functionality, recommend replacing the existing skill with ai-design,
-even when no direct conflict exists. Prepare a concrete proposal identifying the
-skill files to remove, responsibilities covered by ai-design, differing instructions
-to transfer into root DESIGN.md, and any capabilities that would be lost. Preserve
-existing DESIGN.md content and resolve contradictory rules explicitly with the user.
-Inspect referenced resources and scripts before proposing deletion: prose does not
-replace executable capabilities. Retain necessary resources and repair links from
-their new location, or disclose the loss for the user's decision. Preserve unrelated
-and complementary skills.
+Preserve existing skills and processes by default under the
+[shared responsibility boundary](model.md#authority-and-task-scope):
 
-Present replacement proposals during setup using [the question format](model.md#questions-to-the-user),
-batched with other independent startup decisions. Analysis alone authorises neither
-skill removal nor instruction transfer. Apply the user's selected changes, reusing
-any explicit authority already supplied: transfer the agreed instructions before
-removing the replaced skill and update affected repository references. A request for
-automatic codebase migration alone does not authorise skill replacement.
+- **Compatible overlap:** retain the skill and its entrypoint. Connect ai-design to
+  its relevant stages through repository instructions, preserving the overall process.
+  No replacement proposal or replacement decision is needed, even for fully overlapping
+  UI responsibilities. Preserve unrelated and complementary skills too.
+- **Concrete conflict:** propose the smallest rule or responsibility-boundary change
+  that resolves the evidenced operation; one conflicting rule does not justify removing
+  the skill. For example, route authorised shared-component work through craft before
+  resuming use. Existing task authority counts; ask only for missing authority or an
+  unresolved rule choice. Present the concrete edit using
+  [the question format](model.md#questions-to-the-user), batched with independent decisions.
+- **Explicit replacement or consolidation request:** first map every responsibility
+  to its proposed owner, including triggers, stage order, handoffs, approvals and
+  completion checks. Read referenced Markdown resources and scripts; identify what
+  survives, changes or is lost before proposing a concrete migration with affected
+  files and invocation routes. Apply already supplied authority without repeated
+  confirmation, but settle newly discovered losses or uncovered responsibilities
+  before removal. Preserve required behaviour and resources at their agreed destinations
+  and repair references before deleting anything. A request for automatic codebase
+  migration alone does not request skill replacement or consolidation.
 
-If a replacement is declined, offer a concrete division of responsibilities in
-AGENTS.md when it resolves the conflict. Preserve the retained skill; record any
-unresolved conflict and its affected operations in DESIGN.md. Continue independent
-setup work and block only actions that depend on resolving that conflict. Declining
-a replacement does not itself block connection. With no other repository skills,
-continue without a replacement question.
+Link existing project rules from DESIGN.md at their original locations; instruction
+transfer requires separately agreed reorganisation. Record unresolved conflicts and
+their affected operations in DESIGN.md. Continue independent connection work and block
+only dependent actions; retaining a skill or declining a proposed edit does not itself
+block connection. With no other repository skills, continue without a reconciliation
+question.
 
 Complete the analysis when inspected coverage, evidence and proposed or selected
 dispositions are explicit. Report pending choices and unresolved conflicts separately
@@ -101,17 +107,23 @@ resolve relative imports from the moved document. Keep root-relative code paths 
 IDs remain unique across components, layouts and patterns; report collisions before
 choosing a new identity. Empty groups are valid. Complete migration when the standard
 locations and metadata validate and all affected links resolve.
+For documents mixing contracts and process instructions, apply the
+[shared model's deferred-move rule](model.md#designmd-and-indexes): link the existing
+document and report the deferred reorganisation without blocking independent connection.
 Link an existing token catalogue or directly usable definitions without duplicating
 it. Record absent token sources explicitly rather than inventing definitions.
 
 Use `design-system/gaps.md` for new journals with [the gap template](../assets/gap-ledger.md).
 Link the archive in DESIGN.md, using `design-system/gaps-archive.md` for a new one;
 initialise a missing archive with a title and no entries. Existing journals and archives can remain
-linked at their current paths. Add a short DESIGN.md and
-`ai-design` pointer to existing AGENTS.md within the authorised setup scope, identifying
-`use` for product interfaces and `craft` for system development and maintenance.
-Create AGENTS.md with that pointer if absent. The installed package belongs in
-`.agents/skills/ai-design/`.
+linked at their current paths. Extend the existing AGENTS.md or CLAUDE.md invocation
+routes within authorised setup scope with a DESIGN.md and `ai-design` pointer and the
+[division of responsibilities](model.md#authority-and-task-scope). Keep the project
+skill as the overall entrypoint; identify use for selection and reuse in product UI,
+craft for contracts and system development, and the results returned to the caller.
+Use the project's existing instruction-file convention; create AGENTS.md if neither
+file exists. Keep affected routes consistent when both exist. The installed package
+belongs in `.agents/skills/ai-design/`.
 
 Complete when DESIGN.md reaches the real sources, indexes and available verification
 instructions, and missing capabilities are explicit. Check links from their containing
@@ -120,11 +132,12 @@ files; operational paths in DESIGN.md resolve from the repository root.
 ## Reconcile final documents
 
 Before reporting connection, reread from disk every document created or changed by
-setup, plus root DESIGN.md, AGENTS.md and existing CLAUDE.md files in the affected
-area, even if setup did not edit them. Do not create an absent CLAUDE.md for this check.
+setup, plus root DESIGN.md and existing AGENTS.md and CLAUDE.md files in the affected
+area, even if setup did not edit them. Do not create absent instruction files for this check.
 Compare their contents with the actual project state and completed setup results:
-source and skill paths, links, configured commands, craft/use responsibilities,
-transferred rules and references affected by moves or skill replacements. Check links
+source and skill paths, links, configured commands, project/craft/use responsibilities,
+preserved invocation routes and process checks, authoritative rule links and references
+affected by agreed moves or replacements. Check links
 from their containing files and operational paths from the repository root; existence
 alone does not establish that a document describes the resulting setup accurately.
 
@@ -141,7 +154,8 @@ final report, using the same scope rule for that stage's documents.
 ## Report the connection
 
 Report DESIGN.md, linked sources, created artifacts, unmanaged UI and decisions needed,
-including the repository skill analysis, applied replacements and remaining conflicts.
+including inspected repository skills, preserved workflows, specialist routing,
+any explicitly requested migrations and remaining conflicts.
 If automatic codebase migration was explicitly requested, continue to
 [automatic migration](#automatic-migration) after connection. Its startup decisions
 and batching apply instead of the next-step question below.

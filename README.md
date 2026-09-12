@@ -82,12 +82,14 @@ skills/ai-design/
 Ask `ai-design setup` to connect the project. It can discover and inspect
 pages automatically; no selected page, adoption or demonstration is required.
 During setup it also analyses skills inside the repository for overlapping functions
-and conflicts with ai-design. Where functions overlap, it proposes replacing the
-existing skill with ai-design and transferring differing instructions into DESIGN.md.
-Each proposal identifies the files, transferred rules and any lost capabilities;
-changes require the user's choice. Retained skills can have their responsibilities
-clarified in AGENTS.md. Unresolved conflicts block only dependent actions, while
-independent connection work continues. See [skill reconciliation](skills/ai-design/reference/setup.md#reconcile-repository-skills).
+and conflicts with ai-design. Existing skills keep their entrypoints and overall
+processes; AGENTS.md or CLAUDE.md routes contract and design-system work, including
+component/layout/pattern selection and reuse, through ai-design. Compatible overlap
+requires no replacement decision. Concrete conflicts lead to minimal rule or boundary
+edits; unresolved conflicts block only dependent actions. Replacement or consolidation
+requires an explicit request and a prior mapping of responsibilities, workflow and
+losses. Existing project rules stay at their sources, linked from DESIGN.md, unless
+their reorganisation is separately agreed. See [skill reconciliation](skills/ai-design/reference/setup.md#reconcile-repository-skills).
 
 After connection, setup asks "What next?" with four explicit options in order:
 

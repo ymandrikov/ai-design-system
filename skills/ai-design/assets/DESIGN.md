@@ -7,8 +7,8 @@ Record absent sources/tools as `none`. Link definitions instead of duplicating v
 ## Intent and shared rules
 
 The end-user tasks, visual character and hierarchy the interface should support.
-State shared rules here or link their authoritative documents: grouping, composition,
-typography, accessibility and adaptation. Distinguish required rules, recommendations
+Link existing shared rules at their authoritative locations; state new rules here:
+grouping, composition, typography, accessibility and adaptation. Distinguish required rules, recommendations
 and scoped exceptions. Map local terminology to the framework glossary when needed.
 
 ## Design-system sources

@@ -37,12 +37,14 @@ status and stable anchor; links target that section. IDs are unique across all t
 groups. Empty indexes and a PATTERNS.md with only its title are valid.
 
 Setup moves existing UI contracts and indexes into this structure and merges pattern
-contracts into PATTERNS.md, updating incoming links and relative references. Code,
+contracts into PATTERNS.md, updating incoming links and relative references. Documents
+mixing contracts with process instructions stay linked at their existing paths until
+their reorganisation is separately agreed; report the deferred contract move. Code,
 styles, tests, token catalogues and other existing sources keep their project paths.
 A contract id does not determine code paths or exports. Patterns can describe recipes
 without implementation files. New gap journals also live under design-system/.
-The ai-design package installs in `.agents/skills/ai-design/`; root AGENTS.md points
-to DESIGN.md and the two workflows.
+The ai-design package installs in `.agents/skills/ai-design/`; AGENTS.md or CLAUDE.md
+points to DESIGN.md and records the division of responsibilities below.
 
 ## UI eligibility and gradual adoption
 
@@ -72,6 +74,20 @@ and discovery. Components may use shared design tokens internally; that use does
 expose an override unless their contract permits one.
 
 ## Authority and task scope
+
+ai-design integrates as a specialist in contracts and design-system work, including
+selection and reuse of components, layouts and patterns. An existing project skill
+keeps its entrypoint and ownership of the overall task: requirements, architecture,
+data, analytics, stage order, approvals and completion criteria. UI responsibilities
+alone do not make that skill redundant. Record in AGENTS.md or CLAUDE.md which stages
+call ai-design, their expected results and where the project workflow resumes;
+ai-design's stage checks do not replace overall task completion checks.
+
+Keep existing project rules and process instructions at their authoritative locations
+and link them from DESIGN.md. Moving them requires a separately agreed reorganisation.
+Markdown instructions define agent-executed behaviour: retaining their text alone
+does not preserve invocation, sequencing, approvals or completion checks. Use
+[skill reconciliation](setup.md#reconcile-repository-skills) during setup.
 
 Contracts state intended valid use; implementation and tests establish actual behaviour.
 A mismatch is a defect, not permission to weaken the contract. A design reference
