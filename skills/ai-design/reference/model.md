@@ -11,7 +11,9 @@ wording means an end-user task; a component that `owns` a property has a
 
 Read `DESIGN.md` at the target repository root. It explains design intent and shared
 rules, and links UI indexes, token definitions, themes, public usage, verification
-instructions. Operational paths in it resolve from that root; ordinary Markdown
+instructions. Standalone [codebase analysis](analyze.md#check-readiness) uses artifacts
+and indexes under `design-system/` as its prerequisite; DESIGN.md is optional for
+that procedure. Operational paths in it resolve from that root; ordinary Markdown
 links resolve relative to their containing file. Missing connections for existing
 sources route to [setup](setup.md). For a new system, [craft](craft.md) establishes
 the requested decisions and sources, then uses setup to connect them.

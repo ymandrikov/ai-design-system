@@ -55,8 +55,8 @@ gap is handed off to craft; it does not authorise shared component or rule chang
 When both workflows are authorised, complete the needed craft work and checks before
 resuming use, with separate results for system and product work.
 
-`ai-design setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
-connection and opt-in automatic migration, selection, review, gap recording and journal triage. Equivalent natural language requests
+`ai-design analyze`, `setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
+codebase analysis, connection and opt-in automatic migration, selection, review, gap recording and journal triage. Equivalent natural language requests
 also work. Standalone discovery stays read-only; selection and review end at their
 own result. All procedures are Markdown references loaded when needed, with one
 `SKILL.md`, shared templates and the existing contract checker:
@@ -67,6 +67,7 @@ skills/ai-design/
   reference/
     craft.md
     use.md
+    analyze.md
     discovery.md
     setup.md
     verify.md
@@ -76,6 +77,32 @@ skills/ai-design/
   assets/
   scripts/
 ```
+
+## Analyze reusable UI candidates
+
+Ask `ai-design analyze` to find component, layout and pattern candidates across the
+project's UI, or name an area to limit the analysis. It checks the artifacts and
+indexes under `design-system/`; missing indexes require setup first, while missing
+DESIGN.md alone does not block analysis. Empty index groups are valid.
+
+The [analysis procedure](skills/ai-design/reference/analyze.md) compares repeated
+fragments and local entities with existing capabilities, recommending reuse, extension,
+adoption, extraction or keeping code local. Candidates need an evidenced shared or
+independent responsibility; patterns additionally need a shared end-user task and
+composition rules. Similar appearance alone is insufficient.
+
+Results and progress live in `design-system/analysis.md`, with prioritized proposals,
+source and consumer evidence, boundaries, differences, benefits, risks and coverage.
+Analysis continues through the selected area without batch pauses, checking shared
+alternatives and relevant consumers outside it. Runtime checks are used when needed
+to substantiate a conclusion; unavailable evidence stays explicit. A partial survey
+is reported as partial, and finding no candidates is valid.
+
+Repeat runs update the same report, preserve decisions, mark implemented proposals
+with evidence and reconsider rejections only when their basis changes. Findings outside
+a scoped rerun remain marked as not rechecked. Analysis does not implement proposals
+or change contracts and indexes; only evidenced systemic shortfalls enter the gap
+journal. Selected proposals can proceed through craft and product reuse through use.
 
 ## Connect a project
 
