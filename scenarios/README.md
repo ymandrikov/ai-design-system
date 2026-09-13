@@ -51,6 +51,8 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Explicit migration and default decisions for component API extensions | authoring/10 |
 | Coherent component proposals and scoped delegation without repeated questions | authoring/11–12 |
 | Sufficient selection rules; strict authoring gates and deferred setup discovery | authoring/13; setup/07 |
+| Selection reasoning from six existing components, coherent legacy promises and independent product cases | setup/13 (external source snapshot) |
+| Copied and paraphrased criteria cannot establish discovery coverage | authoring/14 |
 | Contract-only selection with missing rules and misleading implementation evidence | discovery/27 |
 | Automatic craft routing with no pre-existing system | setup/02 |
 | Semantic token roles and theme alias values | discovery/23 |

@@ -2,7 +2,8 @@
 
 For migrations within setup, follow [setup discovery](setup.md#discovery-during-setup-migration)
 for timing, coverage, admission and completion instead of the per-batch rules below.
-Use the public-input isolation and result assessment here with setup’s saved scenarios.
+Use the scenario quality, public-input isolation and result assessment here with
+setup’s saved scenarios.
 Outside setup, the following strict rules apply.
 
 Discovery is mandatory for contract creation (including adoption and intended hidden
@@ -30,6 +31,7 @@ supply expected answers to the worker. A controller checks results, not prose st
 
 ## Prepare tasks before dispatch
 
+Apply [scenario quality](#scenario-quality) to every prepared request.
 For each affected entity, derive a must-fit request in a new supported context beyond
 its examples, and a nearby must-not-fit request from a real disqualifier. Neither
 request names the target. Choose the closest plausible confusion, not just an obvious
@@ -42,6 +44,28 @@ A general component's canonical example is not automatically a disqualifier.
 Record the expected decisions and deciding constraints separately from worker inputs.
 For a pattern/layout, also prepare a composition that violates one required rule;
 record which rule the verifier must reject. Prefer an actual project defect or boundary.
+
+## Scenario quality
+
+Start with a product situation: who is doing what, what the content represents,
+its surrounding context and the required interaction or outcome. Derive real cases
+from consumer tasks and product requirements; derive synthetic cases when those are
+absent and identify them as synthetic in the controller's evidence. Prepare these
+facts independently of the contract's wording and keep gate cases out of its examples.
+
+For a close comparison, hold the task/context steady and change the fact that should
+change the choice. For example, a saved item carries the text "Sync failed": compare
+a state marker beside its name with an explanation of the failure and recovery steps
+in the same location. The controller establishes the expected choice from this
+project's rules; this example sets no universal Badge policy.
+
+Before dispatch, save each case's origin, competing uses and deciding fact beside
+the separate expectations. A request must leave the component decision to discovery.
+Copying or paraphrasing a selection criterion, naming the desired presentation, or
+saying that the required recipe already calls for it does not exercise that decision.
+Shared domain words are fine; judge whether the request supplies a situation or the
+answer, not lexical similarity. Rewrite invalid cases before counting their coverage.
+A correct answer to an invalid case supplies no evidence of contract sufficiency.
 
 ## Discovery gate: run the actual procedure
 
@@ -68,7 +92,9 @@ For each case, connect request facts to the deciding contract or linked public r
 Use only read/search operations; the controller saves your response.
 ```
 
-Compare the actual selection, required questions and composition decisions with
+First check the cases against [scenario quality](#scenario-quality); a successful
+response cannot compensate for an invalid case. Then compare the actual selection,
+required questions and composition decisions with
 the prepared expectations. Must-fit selects the target under actual ranking after
 candidate contracts are compared; must-not-fit excludes it for the applicable clause.
 A correct id with an invented reason, a guess filling a missing rule, or reliance on

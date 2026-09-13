@@ -19,6 +19,11 @@ An intended promise is not evidence that its implementation already exists.
 
 For adoption, inspect code, styles, tests and actual consumers as evidence of public
 use and observable outcomes. Separate entity responsibilities from consumer choices.
+Before drafting selection prose, identify the user tasks represented by those consumers
+and the nearest plausible alternatives, including native content and parent-owned
+compositions. For each distinction, establish the deciding fact and its source or
+unresolved decision. Use this reasoning to write the promise, then audit it with
+[independent product situations](blind-gates.md#scenario-quality), not rewritten criteria.
 An emitted change event demonstrates notification, not a required save policy.
 Trace each promise and restriction to evidence or an explicit decision;
 report source contradictions and desired improvements separately. Incidental internal
@@ -26,6 +31,9 @@ acceptance need not become public API.
 Capture the resulting selection reasoning in the contract. A consumer cannot rely
 on the author's knowledge of the implementation or infer a restriction from the
 absence of other call sites.
+Apply [coherent public promises](formats.md#visual-sources-and-unresolved-decisions)
+when integrating old guides: reconcile their meaning, preserve concrete limitations
+and leave migration history in the journal.
 
 Clarification preserves valid calls, composition and observable promises. Reclassify
 as a contract change if meaning changes. Complete when the required sections describe
@@ -57,6 +65,10 @@ configuration or composition. An obvious mismatch alone does not test a disputed
 boundary. The [explanations](formats.md#detail-for-agent-decisions) are sufficient when
 these decisions follow without implementation knowledge, invented restrictions or
 treating examples as the only valid uses; report any missing basis through craft's gap process.
+Check both the scenarios' [quality](blind-gates.md#scenario-quality) and the contract's
+reasoning. For each close alternative, locate the deciding condition and explanation
+in the selection sections or a precise linked rule. An API type, a self-describing
+component name or a successful answer to a restated criterion is insufficient evidence.
 For patterns/layouts also check a deliberate violation of a
 required composition rule.
 

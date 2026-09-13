@@ -34,7 +34,7 @@
   message; PositionDots distinguishes location among peers from progress or required
   steps. Neither rough description is sufficient on its own.
 - Explain non-obvious boundaries or illustrate them with brief scenarios. Keep
-  normative rules in their governing sections and examples non-exhaustive. Do not
+  explanations/examples beside the conditions they clarify and examples non-exhaustive. Do not
   invent a numeric dot-count ceiling, particular screen requirement or bullet quota.
 - Treat consumer-provided names, navigation controls and summaries as composition
   obligations rather than rejecting a new composition because it has not been built.
@@ -48,6 +48,11 @@
 - Record actual answers and deciding clauses. A correct id with an invented reason
   fails; missing or failed required evidence leaves the audit incomplete. Independent
   consumption remains optional. Do not claim runtime or browser verification.
+- Reject copied or paraphrased selection criteria as gate requests, even if answers
+  match. Requests must describe independent product situations with a deciding fact.
+
+This scenario supplies intended semantics. Use setup/13-selection-from-sources.md
+to test discovering and reconciling that meaning during adoption from raw materials.
 
 Repeat with a fresh discovery worker unavailable. The author may finish the draft
 text, but must report the required audit as incomplete rather than replace it with

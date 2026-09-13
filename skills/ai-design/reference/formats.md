@@ -15,8 +15,9 @@ Add distinctions from alternatives, boundary cases, reasons for non-obvious limi
 and worked scenarios when they resolve ambiguity. A contract that already supports
 these decisions needs no expansion.
 
-Keep explanations in the relevant existing section, using subsections where useful;
-place selection scenarios in Purpose so the selection lists remain checkable criteria.
+Keep explanations and short scenarios beside the condition they clarify, using
+subsections where useful. A selection item may state one condition, explain why it
+matters and illustrate a nearby case; distinguish that explanation from a new condition.
 Explicitly distinguish requirements, recommendations and illustrative examples.
 Worked scenarios connect request facts to an applicable rule and then a decision.
 Examples illustrate the rules without adding restrictions or exhausting valid uses;
@@ -71,9 +72,10 @@ with an explicit schema/checker change when a concrete check needs them.
 
 ## Shared selection sections
 
-Write **When to use** and **When not to use** as bullet lists, with exactly one
-independently checkable criterion per item. Split independently applicable conditions
-into separate items; keep an alternative's link with the criterion it addresses.
+Write **When to use** and **When not to use** as bullet lists, with one independently
+checkable criterion per item and its explanation alongside it. Split independently
+applicable conditions into separate items; keep an alternative's link with the
+criterion it addresses. Supporting paragraphs and examples are allowed in these sections.
 Each criterion must identify an observable request fact and yield one interpretation.
 Define decision-changing bounds and terms from authoritative evidence or an explicit
 design decision. "Short", "compact" or "fits the screen" alone cannot decide a case;
@@ -88,6 +90,13 @@ Badge indistinguishable from ordinary text. A marker that annotates another item
 with its status, role or count supplies a meaningful boundary; standalone instructions
 and messages with a body test that boundary more closely than an action button does.
 These examples illustrate authoring quality, not rules for every project's Badge.
+
+Write the deciding distinction, not a request for an already chosen presentation:
+"needs dots", "needs a badge" or "needs a separator" leaves selection to the reader.
+For each plausible competing use found during authoring, explain which task, content
+relationship or interaction changes the choice and why. Put selection-changing facts
+here even when Public API also explains how to express the resulting composition;
+a precise link may supply the shared rule without duplicating it.
 
 **Purpose** describes the task/outcome and means, and the entity's role and guarantees
 in the system. Paragraph count is unrestricted. Use words a request can contain. No prescribed
@@ -185,6 +194,21 @@ violation that must be rejected, plus executable check commands/examples where c
 exists. Separate static relationships from browser behaviour and visual measurements.
 
 ## Visual sources and unresolved decisions
+
+Present one coherent public promise across the contract's sections. Merge relevant
+legacy guidance into its governing section, preserving requirements, recommendations
+and examples at their original force. Preserve meaning and authority, not duplicate
+"preserved guide" blocks for the consumer to reconcile. Move migration history and
+general verification caveats to the linked journal or shared rules. Keep concrete
+limitations, affected uses and unresolved conflicts visible at the relevant promise;
+moving history does not resolve a conflict or waive a requirement.
+
+Make consumer obligations specific and expressible through the documented API or
+surrounding composition. For example, a static separator's consumer preserves meaningful
+grouping; a navigation control's consumer supplies its destination and accessible name.
+A generic accessibility or styling checklist repeated for every entity cannot replace
+these obligations. If the API cannot meet a required obligation, name the dependency
+instead of instructing the consumer to supply an unsupported prop.
 
 Name the linked visual specification/token/implementation source in Public API,
 Composition or Verification where the consumer needs it. Document who owns spacing,

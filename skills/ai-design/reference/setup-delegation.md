@@ -58,6 +58,9 @@ for gradual migration, review before reporting completion of its selected scope.
 Give it the settled scope and decisions, source rules, resulting files and actual
 check evidence. Have it identify missing results, contradictory documents, scope
 violations and unsupported completion claims, with paths and evidence.
+Include the [ordinary contract audit](contract.md#ordinary-audit) and the actual
+[discovery scenario quality](blind-gates.md#scenario-quality): passing answers to
+restated criteria do not establish sufficient contracts or coverage.
 
 The main agent assesses findings against sources, fixes actionable in-scope omissions,
 reconciles changed documents and reruns invalidated enabled checks. Have a fresh

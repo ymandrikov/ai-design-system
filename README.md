@@ -345,6 +345,10 @@ The structural checker verifies metadata, listed files, links, group placement a
 cross-group identity; it does not prove semantics. Contracts serve agents choosing and composing
 UI without studying implementation. They explain each instance's meaning, relevant
 request facts and distinctions from nearby alternatives; length is not a quality target.
+Criteria may include explanations and examples beside the condition they clarify.
+Contracts integrate legacy promises into one public boundary, with specific limitations
+kept visible and migration history in linked records. Discovery checks use independent
+product situations; copying or paraphrasing criteria does not establish sufficient coverage.
 Ordinary authoring audits public promises, new suitable contexts, nearby unsuitable
 uses and edge cases. [Independent discovery](skills/ai-design/reference/blind-gates.md)
 is mandatory for contract creation and changes to selection, composition eligibility

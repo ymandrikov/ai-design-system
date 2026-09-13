@@ -35,6 +35,8 @@
   similar candidates; list uncovered entities. Run these against the whole public
   set in fresh independent context. No per-entity positive/negative pair is required,
   and batch completion alone never triggers an independent discovery run.
+  Copies or paraphrases of contract conditions do not count as coverage, even with
+  matching answers; inspect recorded origins and the facts distinguishing candidates.
 - Keep Notice's intended promise; link its failed test and defect from the contract.
   Record unavailable browser evidence separately. Do not weaken promises, change
   runtime code, hide Notice or claim the defect is repaired.

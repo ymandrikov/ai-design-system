@@ -56,6 +56,9 @@ components, layouts and patterns. Cover each such group with at least one reques
 that distinguishes candidates. Where real consumers or comparison groups are absent,
 derive synthetic requests from documented purposes and composition rules and label
 that coverage as synthetic. Record uncovered entities and the reduced coverage.
+Apply [scenario quality](blind-gates.md#scenario-quality) before counting coverage:
+use product situations and deciding differences, with their origins recorded outside
+the worker's inputs. A restated contract condition does not cover a comparison group.
 Setup does not require a must-fit/must-not-fit pair for every entity.
 
 Run the saved requests against the complete public set in a fresh independent context,
