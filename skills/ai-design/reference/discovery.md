@@ -23,6 +23,12 @@ required context, report what is missing and return [setup](setup.md) to the cal
 
 ## Start at the affected level
 
+Translate the developer's request into [purpose and intent](formats.md#purpose-and-intent)
+using the public inputs above. Treat a named component as a proposed solution and
+check it against the task. Explain a mismatch and select a suitable alternative;
+an explicit request for an exception follows the documented exception and decision
+rules rather than establishing ordinary eligibility.
+
 For a new screen, read PATTERNS.md and its candidate contracts first, then the
 layouts and components needed by viable patterns. Compare candidates at each level. For a local change,
 read the containing composition's constraints and start at the affected level.

@@ -70,6 +70,37 @@ with an explicit schema/checker change when a concrete check needs them.
 | layout | Purpose; When to use; When not to use; Public API; Composition; Accessibility |
 | pattern | Purpose; When to use; When not to use; Structure; Composition; Verification |
 
+## Purpose and intent
+
+**Intent** means the entity's purpose: the task it solves in the framework's
+language. Translate the developer's request into that language, then use the
+contract to select, configure and compose the entity. **Purpose** describes this
+task, its outcome and means, and the entity's role and guarantees in the system.
+Keep this meaning in Purpose and the applicable rules; no separate Goal or Intent
+contract sections are needed.
+
+Express the meaning of the action, data or composition. Use product concepts where
+they change the choice: a named resource that exists independently of the screen,
+for example, differs from an event or an editable property. General entities such
+as Button and Stack can use transferable concepts such as action, navigation,
+consequences, priority or sequence, without an exhaustive list of product locations.
+Describe their contribution at their own level of responsibility. Appearance or
+mechanics alone ("can be clicked", "shows rows") do not establish that purpose;
+adding a product name or example alone does not supply a deciding rule.
+
+Derive purpose from authoritative sources and evidenced uses. General wording is
+sufficient when it supports selection at the entity's level. If meaning or
+responsibility needed for that decision remains unknown, report the open question
+rather than inventing a product rationale. Selection and public-use rules must
+make the purpose actionable; examples illustrate those rules without limiting reuse.
+
+Use words a request can contain. Paragraph count is unrestricted; there is no
+prescribed English opener or id-to-name spelling rule. Index Purpose descriptions
+cover supported tasks, means and material distinctions from related entities.
+Derive them from the contract and check that no supported task would be missed
+through an omitted purpose. Include the detail needed for discovery; keep exact
+applicability conditions in the contract rather than duplicating selection rules.
+
 ## Shared selection sections
 
 Write **When to use** and **When not to use** as bullet lists, with one independently
@@ -97,15 +128,6 @@ For each plausible competing use found during authoring, explain which task, con
 relationship or interaction changes the choice and why. Put selection-changing facts
 here even when Public API also explains how to express the resulting composition;
 a precise link may supply the shared rule without duplicating it.
-
-**Purpose** describes the task/outcome and means, and the entity's role and guarantees
-in the system. Paragraph count is unrestricted. Use words a request can contain. No prescribed
-English opener or id-to-name spelling rule. Index Purpose descriptions support candidate
-discovery: cover the supported tasks, means and material distinctions from related
-components/layouts in words a request can contain. Derive them from the contract and
-check that none of its supported tasks would be missed through an omitted purpose.
-There is no fixed length; include the detail needed for discovery. Keep exact
-applicability conditions in the contract rather than duplicating selection rules.
 
 **When to use** introduces its list by stating whether all or any criteria must hold.
 Conditions describe request facts: user task, data or surrounding context. Consumer-supplied labels,

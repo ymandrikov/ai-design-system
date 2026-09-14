@@ -13,8 +13,9 @@ mismatch does not authorise repairing component internals or business logic.
 
 ## Write the promise
 
-For creation or a public change, describe intended valid use from the request and
-authoritative sources. Report new unresolved normative choices to the user.
+Establish [purpose and intent](formats.md#purpose-and-intent) before drafting the
+selection and public-use rules. For creation or a public change, describe intended
+valid use from the request and authoritative sources. Report new unresolved normative choices to the user.
 An intended promise is not evidence that its implementation already exists.
 
 For adoption, inspect code, styles, tests and actual consumers as evidence of public
@@ -60,8 +61,10 @@ use the project's implementation conventions for internal mechanics.
 
 Check a new suitable context beyond the documented examples, the nearest plausible
 unsuitable use (when the contract has a disqualifier) and a valid edge case. For each,
-connect request facts to the deciding contract clauses and the resulting selection,
-configuration or composition. An obvious mismatch alone does not test a disputed
+translate request facts into the entity's purpose and connect them to the deciding
+contract clauses and the resulting selection, configuration or composition. Check
+that the translation follows from the contract's meaning and responsibilities;
+mechanics or a product example alone are insufficient. An obvious mismatch alone does not test a disputed
 boundary. The [explanations](formats.md#detail-for-agent-decisions) are sufficient when
 these decisions follow without implementation knowledge, invented restrictions or
 treating examples as the only valid uses; report any missing basis through craft's gap process.
