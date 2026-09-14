@@ -63,8 +63,9 @@ Explicit migration exceptions remain visible in the evidence. A gap record alone
 does not permit another independent shared variant; choose an extension, a justified
 new entity or a bounded exception. Local composition within existing contracts is valid.
 
-`ai-design improve`, `analyze`, `setup`, `discovery`, `verify`, `gaps` and `triage` reach internal procedures for
-bounded system improvement, codebase analysis, connection and opt-in automatic migration,
+`ai-design improve`, `analyze`, `setup`, `migrate`, `discovery`, `verify`, `gaps`
+and `triage` reach internal procedures for bounded system improvement, codebase
+analysis, initial connection, migration,
 selection, review, gap recording and journal triage. Equivalent natural language requests
 also work. Standalone discovery stays read-only; selection and review end at their
 own result. All procedures are Markdown references loaded when needed, with one
@@ -80,6 +81,13 @@ skills/ai-design/
     analyze.md
     discovery.md
     setup.md
+    migrate.md
+    adoption.md
+    admission.md
+    completion.md
+    delegation.md
+    blind-gates.md
+    formats.md
     verify.md
     gaps.md
     triage.md
@@ -87,6 +95,12 @@ skills/ai-design/
   assets/
   scripts/
 ```
+
+These links have three distinct meanings. A rule link means the current procedure
+reads shared instructions. A call means it runs another procedure now and returns to
+the caller. A handoff stops the current procedure and reports work for a separately
+authorised workflow. Routes use direct Markdown links; there is no procedure registry
+or runtime marker.
 
 ## Improve an existing design system
 
@@ -118,9 +132,10 @@ coverage, deferred work and verification limits remain explicit.
 ## Analyze reusable UI candidates
 
 Ask `ai-design analyze` to find component, layout and pattern candidates across the
-project's UI, or name an area to limit the analysis. It checks the artifacts and
-indexes under `design-system/`; missing indexes require setup first, while missing
-DESIGN.md alone does not block analysis. Empty index groups are valid.
+project’s UI, or name an area to limit the analysis. It checks the artifacts and
+indexes under `design-system/`. Missing indexes stop affected analysis and are
+returned to the caller for restoration outside the framework; they do not invoke
+setup. Missing DESIGN.md alone does not block analysis. Empty index groups are valid.
 
 The [analysis procedure](skills/ai-design/reference/analyze.md) compares repeated
 fragments and local entities with existing capabilities, recommending reuse, extension,
@@ -143,8 +158,13 @@ journal. Selected proposals can proceed through craft and product reuse through 
 
 ## Connect a project
 
-Ask `ai-design setup` to connect the project. It can discover and inspect
-pages automatically; no selected page, adoption or demonstration is required.
+Ask `ai-design setup` explicitly for the project's initial connection. Setup is a
+one-time bootstrap: it can resume an unfinished connection, but completed setup is
+never invoked or read by craft, use, migrate or another work procedure. It can
+discover and inspect pages automatically; no selected page, adoption or demonstration
+is required. Setup-specific instructions live entirely in `setup.md`; the entrypoint
+only routes explicit connection requests there. Its entry guard returns an existing
+result on a repeat request. Shared rules and procedures contain no setup instructions.
 Before changes, setup identifies Claude-only repositories; evidence of other agents
 or an unknown mode selects the shared AGENTS.md convention. Shared setup merges
 project-owned CLAUDE.md files into sibling AGENTS.md files and leaves relative
@@ -164,7 +184,8 @@ losses. Apart from agent instruction consolidation, existing project rules stay 
 their sources, linked from DESIGN.md, unless their reorganisation is separately
 agreed. See [skill reconciliation](skills/ai-design/reference/setup.md#reconcile-repository-skills).
 
-After connection, setup asks "What next?" with four explicit options in order:
+Setup completes and reconciles the connection before it asks "What next?" with four
+explicit options in order:
 
 - **A. Automatic migration (recommended)** — complete the selected scope across all
   batches with saved progress and no repeated confirmation.
@@ -175,17 +196,23 @@ After connection, setup asks "What next?" with four explicit options in order:
 - **D. Stop here** — keep the completed connection.
 
 Choosing A leads to the migration-mode choice below, recommending mode 1; it does
-not select a mode automatically. Already supplied mode and verification decisions
-are reused, and the agent chooses an unspecified batch size itself.
-For B and C, the shared work list in `design-system/adoption.md` saves independent
+not select a mode automatically. It hands off to the standalone `migrate` procedure
+after connection; later migration failure or interruption never reopens setup. Already
+supplied mode and verification decisions are reused, and the agent chooses an
+unspecified batch size itself.
+For B, setup saves admission after ordinary audits and structural checks and independent
+discovery after the whole selected scope is ready; these conditions persist on resume
+without an origin label. For B and C, the shared work list in `design-system/adoption.md` saves independent
 progress and batch sizes. After listing the scope, the agent asks for a batch size
 unless already supplied, saved or delegated: 5 or 10 (recommended), or another positive integer.
 Ask to continue for the next batch, change the batch size, or explicitly request
 completion of every batch. See [gradual adoption](skills/ai-design/reference/adoption.md).
 
-Automatic migration is an opt-in stage of `ai-design setup`. Choose A after connection,
-explicitly ask setup to migrate automatically, or use equivalent natural language.
-Select an area or the whole codebase:
+## Migrate a connected project
+
+`ai-design migrate` owns automatic migration for a connected project, including a
+later request and resuming saved work. It uses concrete saved scope, admission and
+verification decisions without connection history. Select an area or the whole codebase:
 
 | Mode | Result |
 | --- | --- |
@@ -198,31 +225,35 @@ design-repair scope; all modes preserve internal component and business logic. E
 recommended choice without questions. Already supplied decisions are reused. For example:
 
 ```text
-Use ai-design setup to automatically migrate the whole codebase in mode 1.
+Use ai-design migrate to automatically migrate the whole codebase in mode 1.
 ```
 
-Before any migration checks, including setup link validation, the agent explains
+Before any migration checks, including connection link validation when migration
+immediately follows initial setup, the agent explains
 the applicable checks and waits for a run-or-skip choice alongside other startup
 decisions. An explicit or saved choice is reused across batches and resumptions.
 Skipping testing or verification applies in every mode, including gradual adoption:
-checks are skipped except mandatory [final document reconciliation](skills/ai-design/reference/setup.md#reconcile-final-documents),
-while authorised code repairs and documentation continue. Before reporting setup results,
+checks and evidence-gated admission are skipped except mandatory
+[document reconciliation](skills/ai-design/reference/completion.md#reconcile-final-documents),
+while authorised code repairs and documentation continue. Before reporting connection
+or migration results,
 the agent rereads all created or changed documents, DESIGN.md, AGENTS.md and existing
 CLAUDE.md files in the affected area and reconciles them with the actual project and
-setup results. Factual mismatches are corrected; unresolved rule conflicts are reported.
+migration or connection results. Factual mismatches are corrected; unresolved rule
+conflicts are reported.
 Documented implemented entities become `discoverable`, retaining existing `deprecated`
 status. Results are explicitly unverified, and the user accepts the risk of nonworking
-code. See [migration verification](skills/ai-design/reference/model.md#migration-verification).
+code. See [migration verification](skills/ai-design/reference/admission.md#migration-verification).
 
 The agent chooses an unspecified batch size, saves progress in `design-system/adoption.md`
 and continues through all batches without repeated confirmation. Blocked items remain
 explicit while independent work proceeds. New design rules need authoritative sources
 or delegated decision authority. Modes 1 and 2 can reuse or create a bounded escape
 hatch for a concrete need, preserving project exception-approval conditions.
-See [automatic migration](skills/ai-design/reference/setup.md#automatic-migration) for scope and completion.
+See [automatic migration](skills/ai-design/reference/migrate.md) for scope and completion.
 
-After the selected setup or migration scope and its final checks are complete, the
-agent [removes execution-only artifacts](skills/ai-design/reference/setup.md#clean-up-completed-work)
+After the selected connection or migration scope and its final checks are complete, the
+agent [removes execution-only artifacts](skills/ai-design/reference/completion.md#clean-up-completed-work)
 before reporting: completed plans, temporary copies, one-off scripts and fully
 superseded files. Lasting rules, decisions, limitations and required evidence remain
 reachable; unfinished work retains its continuation state. No separate setup-history
@@ -235,6 +266,22 @@ verification are separate results; availability does not certify correctness.
 Defects outside those modes' repair authority do not block documentation completion.
 Mode 1 still requires completing its exception changes; mode 2 remains partially
 complete while required repairs or enabled verification are blocked.
+
+[Admission and check timing](skills/ai-design/reference/admission.md#select-the-applicable-policy)
+is shared by craft, adoption and migrate. Ordinary craft and gradual adoption without
+saved whole-set conditions run strict checks for each batch before admission. Every
+automatic migration, and gradual adoption whose authorised plan records whole-set
+conditions, first admits complete existing contracts after ordinary audits and
+structural checks, then runs independent discovery after the selected set is ready.
+These concrete conditions persist on resume. Modes 1 and 3 may document runtime
+limits, while mode 2 must complete its authorised repairs.
+
+Missing project context does not call setup. Context restoration belongs outside the
+framework: the affected procedure stops and returns the exact missing facts to its
+caller. Analyze remains available without root DESIGN.md when the required indexes
+are present. Crafting a new system from scratch can establish design intent from
+authoritative sources and explicit decisions; it cannot call setup. An initial
+connection still requires an explicit setup request.
 
 [The DESIGN.md template](skills/ai-design/assets/DESIGN.md) connects
 visual intent, shared rules, tokens, indexes, public usage and verification:
@@ -360,17 +407,16 @@ Ordinary authoring audits public promises, new suitable contexts, nearby unsuita
 uses and edge cases. [Independent discovery](skills/ai-design/reference/blind-gates.md)
 is mandatory for contract creation and changes to selection, composition eligibility
 or index routing, using one fresh agent per authoring batch with only public inputs.
-Outside setup, admission requires current passing discovery evidence.
-[Setup migrations](skills/ai-design/reference/setup.md#discovery-during-setup-migration)
+Ordinary admission requires current passing discovery evidence for each authoring
+batch. [Automatic migrations and gradual initial adoption](skills/ai-design/reference/admission.md#whole-set-migration-discovery)
 finish the whole selected contract set and admit documented existing entities first,
 then run independent discovery over saved project scenarios and confusing alternatives.
 Ordinary author audits remain required; reduced coverage and uncovered entities are
-recorded. Blocked contracts defer the check; failed checks leave setup incomplete
+recorded. Blocked contracts defer the check; failed checks leave migration incomplete
 without reversing admission. Existing focused tests/examples
 can supply runtime evidence; missing support remains unverified.
 Ordinary admission requires proven promises and authority;
-[automatic migration in modes 1 and 3](skills/ai-design/reference/setup.md#admission-without-repairs) and
-[migration without verification](skills/ai-design/reference/model.md#migration-verification)
+[automatic migration in modes 1 and 3 and migration without verification](skills/ai-design/reference/admission.md#migration-verification)
 explicitly admit documented existing entities with recorded verification limits.
 Independent consumption/composition supplements
 that audit when requested by the task or DESIGN.md policy. Craft includes component

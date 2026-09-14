@@ -36,6 +36,9 @@
 - The request already supplies relative importance. Report a contract-rule gap to
   the caller rather than asking the user to repeat that fact or reading code to
   reconstruct a policy. Preserve the valid component decisions meanwhile.
+- Discovery remains read-only and does not write the gap journal. This request does
+  not authorise the caller to record the gap; return it for a separately authorised
+  gaps call.
 - Inspect tool traces: read no component implementation, private stylesheet, tests,
   demo or consumer code to settle selection. Choosing the right id using those clues
   still fails. Public contract examples are permitted; linked implementation is not.

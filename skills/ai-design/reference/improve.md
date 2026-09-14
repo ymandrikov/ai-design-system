@@ -2,8 +2,8 @@
 
 Survey the existing system, implement evidenced improvements to its presentation,
 composition and documentation, and verify the result. Read [the shared model](model.md)
-and root DESIGN.md. Missing connections are a [setup](setup.md) prerequisite:
-report what is missing and end this invocation without starting setup or migration.
+and root DESIGN.md. Apply [missing-context handling](model.md#missing-project-context)
+when required connections are missing; report them and end this invocation.
 Creating a system belongs to a separate [craft](craft.md) task.
 
 ## Preserve the boundary

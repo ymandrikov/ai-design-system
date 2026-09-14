@@ -1,8 +1,8 @@
 # Build product UI
 
 Read [the shared model](model.md) and the
-root DESIGN.md. Missing context routes to [setup](setup.md); continue UI
-work after the required sources are connected. Read a supplied design reference
+root DESIGN.md. Apply [missing-context handling](model.md#missing-project-context)
+when required inputs are missing; resume dependent UI work after external restoration. Read a supplied design reference
 before selecting the structure.
 Apply the [design-only boundary](model.md#design-only-change-boundary) to changes:
 compose public capabilities and edit related CSS, markup and design settings while

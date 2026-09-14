@@ -1,6 +1,6 @@
 ---
 name: ai-design
-description: Organise and maintain a consistent design system through contracts, discovery, reuse and verification. Handles design-only component and consumer changes, setup, adoption and migration, analysis, gaps and triage; component internals and business logic remain project-owned.
+description: Organise and maintain a consistent design system through contracts, discovery, reuse and verification. Handles design-only component and consumer changes, initial setup, adoption and migration, analysis, gaps and triage; component internals and business logic remain project-owned.
 ---
 
 # AI design
@@ -39,7 +39,7 @@ failed discovery. Keep unrelated system work outside the task.
 
 ## Standalone procedures
 
-Explicit `ai-design improve`, `analyze`, `setup`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
+Explicit `ai-design improve`, `analyze`, `setup`, `migrate`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
 language requests, reach the matching procedure directly. These are internal Markdown
 instructions, not additional skills. End at that procedure's result; standalone
 selection or review does not start implementation. Improve performs its bounded
@@ -50,11 +50,21 @@ system changes; its stricter scope remains in force when calling craft.
 | Improve the existing system, or resume saved improvements, preserving logic and allowing scoped consumer design changes | [improve](reference/improve.md); one survey pass, permitted edits and verification with saved progress |
 | Analyze the codebase for component, layout or pattern extraction, consolidation or reuse candidates | [analyze](reference/analyze.md); saved recommendations, with readiness determined by design-system artifacts and indexes |
 | Select components, layouts, patterns or tokens; advise how to organise or adapt a composition; assess system coverage | [discovery](reference/discovery.md), read/search only; return the recommendation without writing files |
-| Connect existing sources, complete missing project context or explicitly migrate a codebase automatically | [setup](reference/setup.md); automatic migration is an opt-in stage that coordinates craft and use; creation of a missing system belongs to craft |
+| Explicitly request project connection or its continuation | [setup](reference/setup.md) |
+| Automatically migrate a connected project, or resume a saved automatic migration | [migrate](reference/migrate.md); owns migration modes, batches and completion |
 | Check an interface or component against its contracts and design sources | [verify](reference/verify.md) |
-| Record a systemic shortfall or inspect the basis for a design choice | [gaps](reference/gaps.md); resolving a system gap belongs to craft |
+| Record or assess a systemic shortfall | [gaps](reference/gaps.md); resolving a system gap belongs to craft |
 | Review open gaps, clean the journal or archive and recommend next work | [triage](reference/triage.md); journal/archive maintenance and recommendations |
 
-Procedures call each other through their file links. Follow the selected procedure's
-scope even when the host exposes broader tools; read-only discovery never inherits
-the caller's permission to write.
+## Follow links by purpose
+
+- **Read a rule:** consult the named section when its condition applies; this does
+  not execute its containing procedure. Reuse already-read unchanged rules.
+- **Run a procedure:** perform the named step within the caller's scope and return
+  its result to that caller. A called section does not start the rest of its workflow.
+- **Hand off work:** return the result, missing inputs or required next stage.
+  Execute that stage only under existing authority or a new authorised request.
+
+Read-only discovery keeps its own scope when called by a writable workflow.
+Missing context and handoffs do not expand authority; useful calls with returns
+remain valid, without recursively restarting their callers.

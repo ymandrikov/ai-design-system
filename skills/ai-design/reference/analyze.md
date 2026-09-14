@@ -12,11 +12,11 @@ Inspect `design-system/COMPONENTS.md`, `LAYOUTS.md`, `PATTERNS.md` and their lin
 contracts at the target project root. Present, readable indexes with reachable
 artifacts establish connection for this procedure; empty groups are valid.
 Read DESIGN.md when available for additional sources and policies. Its absence alone
-does not require setup or block analysis, including gap recording within this procedure.
+does not block analysis, including gap recording within this procedure.
 
-If the required indexes are missing or unreadable, report which ones and return
-[setup](setup.md) as the prerequisite. End this invocation without creating a system
-or an analysis report. A broken individual entry is a coverage/evidence limit: report
+If the required indexes are missing or unreadable, report which ones under
+[missing-context handling](model.md#missing-project-context). Their restoration belongs
+to the project process. End this invocation without creating a system or an analysis report. A broken individual entry is a coverage/evidence limit: report
 it and continue independent analysis without treating the entry as an unmanaged alternative.
 Use a journal path established by existing project instructions or DESIGN.md; otherwise
 use an existing unambiguous journal under `design-system/` or the default `design-system/gaps.md`.
@@ -75,7 +75,7 @@ For each candidate, compare existing system capabilities before recommending:
 
 Inspect hidden/deprecated entities to understand overlap and history, but do not
 recommend them for new use without a separate craft availability decision. Check the
-[basis for choices](gaps.md#check-the-basis-for-choices) before proposing shared rules.
+[basis for choices](formats.md#check-the-basis-for-choices) before proposing shared rules.
 Observed variants are evidence of current behavior, not authority to normalize them.
 Record the missing decision instead of inventing a standard or silently choosing one.
 

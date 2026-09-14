@@ -20,7 +20,8 @@ as archives, outside the current run's inputs.
 ## Scenario format and coverage
 
 Each scenario names the ai-design Skill, Design, Request and human-readable Expected
-criteria. Route optionally selects craft, use or a standalone procedure; omit it to
+criteria. Route optionally selects craft, use or a standalone procedure such as
+setup or migrate; omit it to
 test automatic routing from the request.
 A Reference optionally narrows the scenario to one supporting procedure of that skill.
 Apply any controller-only Preparation in a scenario before dispatch.
@@ -41,17 +42,19 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Composition advice, nested layouts, permitted-class recipes and proposed local spacing | discovery/24–26 |
 | Adoption, intended contracts, compatibility, lifecycle and gaps | authoring/01–08; gap-record/01–02 |
 | Root DESIGN.md connection without page adoption | setup/01 |
+| One-time setup, exact missing-context returns and standalone migration resume | setup/repeat-connection-route, setup/missing-context-return, setup/standalone-migration-resume |
 | Completion cleanup, lasting evidence and independent unfinished work | setup/14 |
-| Setup delegation, file ownership, failure recovery and independent final review | setup/12 |
+| Setup/migration delegation, file ownership, failure recovery and independent final review | setup/12 |
 | Repository workflow preservation, specialist routing, targeted conflicts and explicit consolidation | setup/11 |
-| Saved adoption scope, batch limits, continuation and separate API analysis | setup/03–05 |
+| Saved admission/check conditions without origin labels, batch limits, continuation and separate API analysis | setup/03–05 |
 | Migration modes, admission without repairs, design-only repairs, preserved logic and bounded escape hatches | setup/06–09 |
 | Verification refusal across migration modes, setup moves, gradual adoption and resume | setup/10 |
 | Automatic use routing and system-gap handoff | build/03 |
+| Read-only missing-basis discovery followed by caller-authorised gap recording | gap-record/missing-basis-handoff |
 | Component implementation and admission authority in craft | authoring/09 |
 | Explicit migration and default decisions for component API extensions | authoring/10 |
 | Coherent component proposals and scoped delegation without repeated questions | authoring/11–12 |
-| Sufficient selection rules; strict authoring gates and deferred setup discovery | authoring/13; setup/07 |
+| Sufficient selection rules, strict authoring gates and deferred whole-set migration discovery | authoring/13; setup/07 |
 | Selection reasoning from six existing components, coherent legacy promises and independent product cases | setup/13 (external source snapshot) |
 | Copied and paraphrased criteria cannot establish discovery coverage | authoring/14 |
 | Contract-only selection with missing rules and misleading implementation evidence | discovery/27 |

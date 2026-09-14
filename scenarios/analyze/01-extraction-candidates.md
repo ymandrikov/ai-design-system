@@ -41,8 +41,10 @@
 **Variants:**
 
 - **Natural-language routing:** Omit Route and use the same Request; reach analyze.
-- **Setup required:** Remove `design-system/` too. Report the missing prerequisites
-  and direct the caller to setup; do not invent a system or an analysis report.
+- **Missing indexes:** Remove `design-system/` too. Report the exact missing
+  prerequisites to the caller and stop affected analysis. Context restoration is
+  outside the framework; do not invoke or read setup, invent a system or write an
+  analysis report.
 - **Empty indexes:** Use present but empty COMPONENTS.md, LAYOUTS.md and PATTERNS.md
   with no contracts. Analyze product sources without requiring catalogue population.
 - **Single use:** Add one local composite owning focus restoration, keyboard handling

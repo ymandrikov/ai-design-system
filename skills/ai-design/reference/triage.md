@@ -59,7 +59,7 @@ Distinguish work ready for craft from work awaiting an answer or verification. A
 When a new rule or another decision is needed, prepare a concrete question,
 alternatives and a recommended decision with reasons. Keep the gap open and
 continue the other entries. Observed variants do not establish normative authority;
-apply [the basis for choices](gaps.md#check-the-basis-for-choices). Honour decisions
+apply [the basis for choices](formats.md#check-the-basis-for-choices). Honour decisions
 already supplied; leave an interview or rule change to the next requested stage.
 
 Recommend an order using consequences first: violated required promises and blocked

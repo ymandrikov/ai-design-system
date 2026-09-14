@@ -1,40 +1,55 @@
 # Independent contract gates
 
-For migrations within setup, follow [setup discovery](setup.md#discovery-during-setup-migration)
-for timing, coverage, admission and completion instead of the per-batch rules below.
-Use the scenario quality, public-input isolation and result assessment here with
-setup’s saved scenarios.
-Outside setup, the following strict rules apply.
+Read [admission policy](admission.md#select-the-applicable-policy) to determine which
+gates apply and whether discovery runs per authoring batch or over the whole migration
+area. An explicit verification refusal skips these gates. Admission and completion
+are decided by that policy; this document supplies task preparation, isolation and
+result assessment. For whole-set work, start at [migration discovery](#whole-set-migration-discovery).
 
-Discovery is mandatory for contract creation (including adoption and intended hidden
-contracts) and changes to selection, composition eligibility or index routing.
-Admission requires passing evidence for the current contracts and competing candidates;
-reuse it while those inputs and relevant rules remain unchanged. Typographical or
-other clarifications that preserve these decisions need no new discovery gate.
-Connection-only setup needs no gate unless it creates or changes those boundaries.
-
-Independent consumption/composition is additional: run it after creation or affected
-public-use edits only when the task or DESIGN.md requires that check. Optional setup
-demonstrations follow the last section. These checks supplement ordinary author audits.
-
-Use one fresh subagent or independent session for the discovery requests in each
-authoring batch, with the current skill files and only the public inputs below.
-Use a separate fresh context for optional consumption. The author's own reasoning is
-not independent evidence. If unavailable, record not run; keep the required audit and
-dependent admission incomplete. A failed discovery gate also blocks contract completion.
-The runtime-evidence exception in [automatic modes 1 and 3](setup.md#admission-without-repairs)
-does not waive discovery. An explicit [migration verification refusal](model.md#migration-verification)
-still takes precedence; report skipped evidence under that rule.
+Use one fresh subagent or independent session for discovery requests in each required
+set, with only the public inputs below. Use a separate fresh context for optional
+consumption. The author's reasoning is not independent evidence. Return failed or
+unavailable checks explicitly to the caller; never substitute a self-review.
 The controller saves prompts, complete answers, generated artifacts and executable
 results in the provided evidence directory outside the product copy when supplied. Do not
 supply expected answers to the worker. A controller checks results, not prose style.
-After completed setup or migration, apply [completion cleanup](setup.md#clean-up-completed-work)
-to execution-only artifacts; retain evidence needed by current contracts and continuing work.
+Return execution artifacts to the caller for its cleanup; identify evidence needed
+by current contracts and continuing work.
+
+## Whole-set migration discovery
+
+Called at the end of authoring the complete selected area by automatic migration,
+or gradual adoption with saved whole-set conditions, as selected by
+[admission policy](admission.md#whole-set-migration-discovery). This procedure returns
+evidence and blockers; the caller owns migration completion. Ordinary author audits
+and structural checks remain part of authoring when verification is enabled.
+
+If any selected contract is blocked, finish independent work and save blockers;
+defer this gate until the whole selected set and its indexes are ready. Discovery
+for actual consumer updates may run earlier against ready eligible contracts.
+
+Before dispatch, save a coverage list of real page scenarios and groups of similar
+components, layouts and patterns. Cover each such group with at least one request
+that distinguishes candidates. Where real consumers or comparison groups are absent,
+derive synthetic requests from documented purposes and composition rules and label
+that coverage as synthetic. Record uncovered entities and the reduced coverage.
+Apply [scenario quality](#scenario-quality) before counting coverage:
+use product situations and deciding differences, with their origins recorded outside
+the worker's inputs. A restated contract condition does not cover a comparison group.
+Whole-set coverage does not require a must-fit/must-not-fit pair for every entity.
+
+Run the saved requests against the complete public set in a fresh independent context,
+using [the discovery gate's public inputs and result assessment](#discovery-gate-run-the-actual-procedure).
+Keep expected answers outside worker inputs. Correct discovered contract errors and
+rerun affected cases in fresh context against final inputs. Retain failures and return
+evidence or unavailable checks to the caller, which applies the
+[admission and completion policy](admission.md#select-the-applicable-policy). Reuse
+evidence only while its inputs and relevant rules remain unchanged.
 
 ## Prepare tasks before dispatch
 
 Apply [scenario quality](#scenario-quality) to every prepared request.
-For each affected entity, derive a must-fit request in a new supported context beyond
+For ordinary per-batch gates, derive a must-fit request for each affected entity in a new supported context beyond
 its examples, and a nearby must-not-fit request from a real disqualifier. Neither
 request names the target. Choose the closest plausible confusion, not just an obvious
 mismatch; include a native alternative or no managed match where relevant. If the
@@ -146,12 +161,3 @@ tasks, and passing applicable executable checks. Classify failures as contract,
 implementation, test expectation or decision; route contract changes to craft
 and component fixes to the project process, then rerun affected gates on final artifacts.
 An unavailable check is not run, not pass. Record each applicable gate with raw evidence.
-
-## Optional setup demonstration
-
-When an analogous-page demonstration is requested, use an existing page found during
-setup or named by the task. Give a fresh worker an analogous request, root DESIGN.md
-and public sources in an isolated copy. Run build with actual discovery, then verify
-the resulting page and a deliberate composition violation. Save requests, artifacts,
-commands and available browser evidence. Report demonstration limits separately from
-the completed connection; this does not authorise admission of unadmitted entities.

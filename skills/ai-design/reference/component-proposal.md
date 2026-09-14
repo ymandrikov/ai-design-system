@@ -8,7 +8,7 @@ are sufficient to start.
 
 Inspect the brief, DESIGN.md, relevant contracts, implementation and consumers first.
 Reuse established rules and explicit decisions. Treat examples as evidence of use;
-check the [basis for choices](gaps.md#check-the-basis-for-choices) before making them
+check the [basis for choices](formats.md#check-the-basis-for-choices) before making them
 rules. Separate desired behaviour from observed and verified implementation.
 
 Present a coherent proposed public boundary: purpose, selection conditions, public

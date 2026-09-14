@@ -53,8 +53,10 @@
 - **CSS changes interaction:** Add a defect whose repair requires changing which
   controls can receive pointer input. Defer the interaction change despite its CSS
   location; the boundary follows effects, not file extensions.
-- **Missing connection:** Remove DESIGN.md and the indexes. Report setup as the
-  prerequisite; do not create a system, migrate consumers or edit agent instructions.
+- **Missing connection:** Remove DESIGN.md and the indexes. Return those exact missing
+  facts to the caller and stop affected improvement work. Context restoration is
+  outside the framework; do not invoke or read setup, create a system, migrate
+  consumers or edit agent instructions.
 - **No findings:** Use a connected system with no supported opportunities. Save
   coverage and return no findings, without manufacturing changes or gaps.
 
