@@ -395,8 +395,8 @@ node skills/ai-design/scripts/check-contract.mjs --kind layout \
 ```
 
 Use `--kind pattern` with an individual `design-system/patterns/<name>.md` contract.
-The structural checker verifies metadata, listed files, links, group placement and
-cross-group identity; it does not prove semantics. Contracts serve agents choosing and composing
+The checker verifies metadata, listed files, links, group placement, cross-group identity
+and source freshness; it does not prove semantics. Contracts serve agents choosing and composing
 UI without studying implementation. They explain each instance's meaning, relevant
 request facts and distinctions from nearby alternatives; length is not a quality target.
 Criteria may include explanations and examples beside the condition they clarify.
@@ -448,6 +448,69 @@ and after archiving. It removes all entries whose current version is saved in Gi
 retains uncommitted records and replaces incoming links with verified commit permalinks.
 See [archive cleanup](skills/ai-design/reference/archive-cleanup.md) for retention
 when history or link replacement is unavailable. Cleanup creates no commits.
+
+### Source freshness
+
+Contracts with nonempty `sources` require a `sourcesHash` frontmatter field. It records
+the explicitly listed paths and file contents at the last review. Missing or different
+hashes fail the check with exit code 1 and require another source-to-contract review.
+Comments, formatting and shared styles count as changes; source-list ordering does not.
+Tests, previews and unlisted dependencies are excluded. `sources: []` skips the hash
+check and does not establish implementation readiness.
+
+After reviewing the contract against its sources and resolving or recording findings,
+the reviewing agent normally updates the hash explicitly:
+
+```sh
+node skills/ai-design/scripts/check-contract.mjs --update-sources-hash \
+  --kind layout fixtures/mini-ds/design-system/layouts/stack.md
+```
+
+The command preserves the contract text and refuses updates when validation fails.
+If the promises remain correct, only the hash needs to change. A matching hash means
+the listed sources are unchanged; it does not certify the promises. Ordinary checks
+and CI never update hashes. See the [hash format](skills/ai-design/reference/formats.md#contract-frontmatter).
+
+### Pre-commit hook example
+
+For a consumer project with `DESIGN.md` and `design-system/` at its Git root, create
+`.githooks/pre-commit` with the following contents. Adjust `checker` to the installed
+skill's script path. Node.js must be available on `PATH`.
+
+```sh
+#!/bin/sh
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+checker="$PWD/skills/ai-design/scripts/check-contract.mjs"
+contract_snapshot=$(mktemp -d)
+trap 'rm -rf "$contract_snapshot"' EXIT
+# ponytail: export the full index; narrow the snapshot if repository size makes this slow.
+git checkout-index --all --prefix="$contract_snapshot/"
+cd "$contract_snapshot"
+for kind in component layout pattern; do
+  for contract in design-system/"${kind}s"/*.md; do
+    [ -e "$contract" ] || continue
+    node "$checker" --kind "$kind" \
+      --inventory design-system/COMPONENTS.md \
+      --inventory design-system/LAYOUTS.md \
+      --inventory design-system/PATTERNS.md "$contract"
+  done
+done
+```
+
+Enable it locally (integrate with an existing hook instead of replacing its setup):
+
+```sh
+chmod +x .githooks/pre-commit
+git config --local core.hooksPath .githooks
+```
+
+The hook checks all contracts in a temporary copy of the Git index, including contracts
+whose shared sources changed. Unstaged edits cannot hide a stale staged hash. It leaves
+the index and working files untouched and never refreshes hashes. After review, stage
+the updated contract together with its sources and retry the commit.
+This uses Git's native [hooks](https://git-scm.com/docs/githooks) and
+[index export](https://git-scm.com/docs/git-checkout-index#_examples).
 
 ## Fixtures and scenarios
 

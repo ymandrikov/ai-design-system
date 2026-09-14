@@ -1,4 +1,5 @@
 ---
+sourcesHash: eff5315e7ce05ea120c98810bbc414bced30e2a8eb14ab5fe8f00fe5d57a7887
 id: button
 status: discoverable
 sources:

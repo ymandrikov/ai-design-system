@@ -1,4 +1,5 @@
 ---
+sourcesHash: 559ac392e8e5c8ad68c540bca660a28316c2fcb9c8d10ead5a2b6ffa3b68ad99
 id: stack
 status: discoverable
 sources:

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { mkdtempSync, mkdirSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
@@ -30,7 +30,7 @@ function contract(overrides = {}) {
     ...overrides,
   };
   return (
-    "---\nid: x\nstatus: discoverable\nsources:\n  - src/X.tsx\n---\n\n# X\n\n" +
+    "---\nid: x\nstatus: discoverable\nsources:\n  - src/X.tsx\nsourcesHash: 73cf4109454c8080c7bb25cf1bd17907605cd48aa18b4eec622efcaf579b91b1\n---\n\n# X\n\n" +
     HEADINGS.filter((h) => sections[h] !== null)
       .map((h) => `## ${h}\n\n${sections[h]}`)
       .join("\n\n") +
@@ -275,6 +275,86 @@ const checker = resolve("skills/ai-design/scripts/check-contract.mjs");
 const cli = (args) => spawnSync(process.execPath, [checker, ...args], { encoding: "utf8" });
 
 describe("check-contract CLI", () => {
+  it("requires review of source changes and updates only on explicit request", () => {
+    const { path, write } = project();
+    const original = contract().replace(/^sourcesHash:.*\n/m, "")
+      .replace("---\n\n#", "tests:\n  - test.ts\nexamples:\n  - preview.ts\n---\n\n#");
+    write("test.ts", "test");
+    write("preview.ts", "preview");
+    writeFileSync(path, original);
+    expect(cli([path]).status).toBe(1);
+    expect(cli([path]).stdout).toContain("contract review required");
+    expect(readFileSync(path, "utf8")).toBe(original);
+    expect(cli(["--update-sources-hash", path]).status).toBe(0);
+    const reviewed = readFileSync(path, "utf8");
+    expect(reviewed.replace(/^sourcesHash:.*\n/m, "")).toBe(original);
+    expect(cli([path]).status).toBe(0);
+    write("test.ts", "changed test");
+    write("preview.ts", "changed preview");
+    write("unlisted.ts", "unlisted source");
+    expect(cli([path]).status).toBe(0);
+    write("src/X.tsx", "export const X = null; // comment change\n");
+    expect(cli([path]).status).toBe(1);
+    expect(readFileSync(path, "utf8")).toBe(reviewed);
+    expect(cli(["--update-sources-hash", path]).status).toBe(0);
+    expect(cli([path]).status).toBe(0);
+    expect(readFileSync(path, "utf8")).not.toBe(reviewed);
+  });
+
+  it("tracks source membership, paths and styles independently of list order", () => {
+    const { path, write } = project();
+    write("styles.css", "button { color: red; }");
+    const added = contract().replace("  - src/X.tsx", "  - src/X.tsx\n  - styles.css");
+    writeFileSync(path, added);
+    expect(cli([path]).status).toBe(1);
+    expect(cli(["--update-sources-hash", path]).status).toBe(0);
+    const reviewed = readFileSync(path, "utf8");
+    writeFileSync(path, reviewed.replace("  - src/X.tsx\n  - styles.css", "  - styles.css\n  - src/X.tsx"));
+    expect(cli([path]).status).toBe(0);
+    write("styles.css", "button { color: blue; }");
+    expect(cli([path]).status).toBe(1);
+    write("styles.css", "button { color: red; }");
+    writeFileSync(path, reviewed.replace("  - styles.css\n", ""));
+    expect(cli([path]).status).toBe(1);
+    write("src/Renamed.tsx", "export const X = null;");
+    writeFileSync(path, reviewed.replace("src/X.tsx", "src/Renamed.tsx"));
+    expect(cli([path]).status).toBe(1);
+  });
+
+  it("preserves CRLF and body text when replacing a hash, and skips empty sources", () => {
+    const { path } = project();
+    const original = (contract() + "\nsourcesHash: this is body text\n").replaceAll("\n", "\r\n");
+    writeFileSync(path, original);
+    expect(cli(["--update-sources-hash", path]).status).toBe(0);
+    expect(readFileSync(path, "utf8")).toBe(original);
+    const empty = contract().replace("sources:\n  - src/X.tsx", "sources: []").replace(/^sourcesHash:.*\n/m, "");
+    writeFileSync(path, empty);
+    expect(cli([path]).status).toBe(0);
+    expect(cli(["--update-sources-hash", path]).status).toBe(0);
+    expect(readFileSync(path, "utf8")).toBe(empty);
+  });
+
+  it("refuses to update hashes for invalid contracts or unresolved sources", () => {
+    const { path, root } = project();
+    const outside = project();
+    symlinkSync(join(outside.root, "src/X.tsx"), join(root, "outside.ts"));
+    for (const invalid of [
+      contract().replace("src/X.tsx", "missing.ts"),
+      contract().replace("src/X.tsx", "../outside.ts"),
+      contract().replace("src/X.tsx", "outside.ts"),
+      contract().replace("## Purpose", "## Wrong"),
+      contract().replace(/^sourcesHash:.*/m, "sourcesHash: invalid"),
+    ]) {
+      writeFileSync(path, invalid);
+      expect(cli(["--update-sources-hash", path]).status).toBe(1);
+      expect(readFileSync(path, "utf8")).toBe(invalid);
+    }
+    rmSync(path);
+    symlinkSync(outside.path, path);
+    expect(cli(["--update-sources-hash", path]).status).toBe(1);
+    expect(readFileSync(outside.path, "utf8")).toBe(contract());
+  });
+
   it("validates contracts and rejects invalid arguments through a symlinked directory", () => {
     const { root, path, write } = project();
     symlinkSync(dirname(checker), join(root, "scripts"), "dir");
@@ -305,6 +385,39 @@ describe("check-contract CLI", () => {
       expect(result.stderr).toContain("usage:");
     },
   );
+});
+
+it("runs the README pre-commit hook against staged sources and contracts", () => {
+  const { path, root, write } = project();
+  const hook = readFileSync("README.md", "utf8")
+    .match(/### Pre-commit hook example[\s\S]*?```sh\n([\s\S]*?)\n```/)[1];
+  write("skills/ai-design/scripts/check-contract.mjs", readFileSync(checker, "utf8"));
+  const hookPath = write(".githooks/pre-commit", hook);
+  const git = (args) => {
+    const result = spawnSync("git", args, { cwd: root, encoding: "utf8" });
+    expect(result.status, result.stderr).toBe(0);
+    return result.stdout;
+  };
+  const runHook = () => spawnSync("sh", [hookPath], { cwd: root, encoding: "utf8" });
+  git(["init", "--quiet"]);
+  git(["add", "."]);
+  expect(runHook().status).toBe(0);
+  write("src/X.tsx", "export const X = 1;");
+  expect(runHook().status).toBe(0); // Unstaged sources are not being committed.
+  git(["add", "src/X.tsx"]);
+  const stale = runHook();
+  expect(stale.status).toBe(1);
+  expect(stale.stdout).toContain("contract review required");
+  expect(cli(["--update-sources-hash", path]).status).toBe(0);
+  expect(runHook().status).toBe(1); // An unstaged hash must not clear the failure.
+  git(["add", "design-system"]);
+  const staged = git(["ls-files", "--stage"]);
+  const reviewed = readFileSync(path, "utf8");
+  expect(runHook().status).toBe(0);
+  expect(git(["ls-files", "--stage"])).toBe(staged);
+  expect(readFileSync(path, "utf8")).toBe(reviewed);
+  git(["rm", "--cached", "src/X.tsx"]);
+  expect(runHook().status).toBe(1);
 });
 
 

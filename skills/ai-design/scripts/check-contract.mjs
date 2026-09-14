@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, realpathSync, statSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync, realpathSync, statSync, writeFileSync } from "node:fs";
 import { basename, dirname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -136,7 +137,7 @@ function frontmatter(markdown) {
         metadata[field].push(scalar(item[1].trim()));
         continue;
       }
-      const property = line.match(/^(id|status|sources|tests|examples):(?:\s+(.*))?$/);
+      const property = line.match(/^(id|status|sources|sourcesHash|tests|examples):(?:\s+(.*))?$/);
       if (!property) throw new Error("expected a supported field or two-space block list item");
       field = property[1];
       if (Object.hasOwn(metadata, field)) throw new Error(`duplicate frontmatter field: ${field}`);
@@ -145,6 +146,9 @@ function frontmatter(markdown) {
     } catch (error) { problems.push(`frontmatter: ${error.message}`); field = undefined; }
   }
   problems.push(...identityProblems(metadata));
+  if (metadata.sourcesHash !== undefined && !/^[a-f0-9]{64}$/.test(metadata.sourcesHash)) {
+    problems.push("sourcesHash must be a lowercase SHA-256 hex digest");
+  }
   for (const key of PATH_FIELDS) {
     if (key !== "sources" && !Object.hasOwn(metadata, key)) continue;
     if (!Array.isArray(metadata[key])) problems.push(`${key} must be a list of paths`);
@@ -208,7 +212,7 @@ function inventoryEntries(markdown) {
   return entries;
 }
 
-export function checkContractFile(path, { inventoryPath, inventoryPaths = [], kind = "component" } = {}) {
+export function checkContractFile(path, { inventoryPath, inventoryPaths = [], kind = "component", updateSourcesHash = false } = {}) {
   const file = resolve(path);
   const markdown = readFileSync(file, "utf8");
   const resolveLink = (target) => resolvesLink(file, target);
@@ -216,6 +220,7 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
   const root = projectRoot(file);
   if (!root) problems.push("cannot locate project root: missing DESIGN.md");
   else {
+    if (!realpathSync(file).startsWith(realpathSync(root) + sep)) problems.push("contract file resolves outside project root");
     const location = relative(root, file).split(sep).join("/");
     const expected = `design-system/${kind}s/`;
     if (!location.startsWith(expected)) problems.push(`contract must be located in ${expected}`);
@@ -260,6 +265,22 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
     }
   }
   if (indexes.length && !paths.has(file)) problems.push("inventory has no entry for this contract");
+  const { metadata } = frontmatter(markdown);
+  if (problems.length === 0 && metadata.sources.length > 0) {
+    const sha256 = (value) => createHash("sha256").update(value).digest("hex");
+    const sources = [...new Set(metadata.sources)].sort().map((path) => [path, sha256(readFileSync(resolve(root, path)))]);
+    const hash = sha256(JSON.stringify(sources));
+    if (updateSourcesHash) {
+      const newline = markdown.includes("\r\n") ? "\r\n" : "\n";
+      const updated = markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?=\r?\n|$)/, (block) =>
+        metadata.sourcesHash === undefined
+          ? block.replace(/^---\r?\n/, `---${newline}sourcesHash: ${hash}${newline}`)
+          : block.replace(/^sourcesHash:[^\r\n]*/m, `sourcesHash: ${hash}`));
+      if (updated !== markdown) writeFileSync(file, updated);
+    } else if (metadata.sourcesHash !== hash) {
+      problems.push(`contract review required: sourcesHash ${metadata.sourcesHash === undefined ? "is missing" : "does not match sources"}; after review, run --update-sources-hash`);
+    }
+  }
   return problems;
 }
 
@@ -268,6 +289,7 @@ if (process.argv[1] && existsSync(process.argv[1]) && realpathSync(process.argv[
   const inventoryPaths = [];
   const files = [];
   let kind = "component";
+  let updateSourcesHash = false;
   try {
     for (let i = 0; i < args.length; i++) {
       const arg = args[i];
@@ -276,6 +298,8 @@ if (process.argv[1] && existsSync(process.argv[1]) && realpathSync(process.argv[
         if (!value || value.startsWith("--")) throw new Error(`${arg} requires a value`);
         if (arg === "--inventory") inventoryPaths.push(value);
         else kind = value;
+      } else if (arg === "--update-sources-hash") {
+        updateSourcesHash = true;
       } else if (arg.startsWith("--")) {
         throw new Error(`unknown option: ${arg}`);
       } else files.push(arg);
@@ -284,14 +308,14 @@ if (process.argv[1] && existsSync(process.argv[1]) && realpathSync(process.argv[
     if (!files.length) throw new Error("no contract files supplied");
   } catch (error) {
     console.error(error.message);
-    console.error("usage: check-contract [--inventory <index.md>]... [--kind component|layout|pattern] <contract.md> [...]");
+    console.error("usage: check-contract [--inventory <index.md>]... [--kind component|layout|pattern] [--update-sources-hash] <contract.md> [...]");
     process.exit(2);
   }
   let failed = false;
   for (const file of files) {
     let problems;
     try {
-      problems = checkContractFile(file, { inventoryPaths, kind });
+      problems = checkContractFile(file, { inventoryPaths, kind, updateSourcesHash });
     } catch (error) {
       problems = [error.message];
     }

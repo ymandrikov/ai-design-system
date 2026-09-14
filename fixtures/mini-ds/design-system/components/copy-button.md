@@ -1,4 +1,5 @@
 ---
+sourcesHash: 8f273cabb7fd100863d2fffe3c8395b5ef4999705a6b69a645225ac6042de378
 id: copy-button
 status: discoverable
 sources:

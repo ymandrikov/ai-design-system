@@ -56,6 +56,15 @@ symlinks; absolute paths, URLs, globs, fragments and `.`/`..` segments are inval
 Tests and examples point to existing evidence files, not commands or proof of passing.
 Check listed files exist. Ordinary Markdown links remain relative to their document.
 
+For nonempty `sources`, `sourcesHash` records the source snapshot at the last contract
+review as a lowercase SHA-256 hex digest. The checker hashes the JSON array of
+`[path, SHA-256(file bytes)]` pairs, with unique paths sorted lexicographically.
+Only listed sources participate, including styles; tests/examples and unlisted imports
+are excluded. Formatting and comments count as changes. A missing or mismatched hash
+requires [another contract review](contract.md#ordinary-audit). Matching hashes establish
+unchanged listed sources, not semantic correctness or runtime readiness. With
+`sources: []`, hash comparison and updates are skipped; omit `sourcesHash`.
+
 The standalone checker accepts flat YAML: plain or quoted strings, two-space block
 lists as above, and `[]` for an empty list. Use those forms; nested objects, aliases,
 multiline values and populated inline lists are outside this format. Quote strings

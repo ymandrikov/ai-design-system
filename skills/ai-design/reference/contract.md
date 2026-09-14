@@ -93,7 +93,13 @@ remains unverified. Browser-dependent promises need rendered/interactive evidenc
 need no new test or browser run merely because their wording was clarified.
 
 Align index summaries, actual Contract links and directly affected incoming contract
-references. Run structural validation with the entity's group and all three indexes:
+references. When `sourcesHash` is missing or stale, complete the source-to-contract
+review above, resolve or record its findings and limitations, then run the command
+below with `--update-sources-hash` for that reviewed contract. The reviewing agent
+normally records this snapshot; a hash-only update is valid when the promises remain
+unchanged. Refresh it only after review, never merely to clear a failing check.
+
+Run validation with the entity's group and all three indexes:
 
 ```sh
 node <ai-design-directory>/scripts/check-contract.mjs --kind <component|layout|pattern> \
@@ -102,11 +108,12 @@ node <ai-design-directory>/scripts/check-contract.mjs --kind <component|layout|p
 ```
 
 For `--kind pattern`, pass the individual `design-system/patterns/<name>.md` contract.
-The checker validates its sections, metadata, index membership and cross-group identity.
+The checker validates its sections, metadata, index membership, cross-group identity
+and source snapshot.
 Source paths resolve from the nearest ancestor DESIGN.md.
 
 Record the command, result and output or evidence path. The checker validates
-structure/links/indexes, not semantic correctness. Fix structural errors and report
+structure/links/indexes and source freshness, not semantic correctness. Fix structural errors and report
 semantic contradictions, failing or unavailable checks to the caller. Complete the
 audit when each affected public promise has evidence or an explicit limitation and
 the applicable [policy conditions](admission.md#select-the-applicable-policy) are met.
