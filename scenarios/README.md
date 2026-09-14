@@ -41,6 +41,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Composition advice, nested layouts, permitted-class recipes and proposed local spacing | discovery/24–26 |
 | Adoption, intended contracts, compatibility, lifecycle and gaps | authoring/01–08; gap-record/01–02 |
 | Root DESIGN.md connection without page adoption | setup/01 |
+| Completion cleanup, lasting evidence and independent unfinished work | setup/14 |
 | Setup delegation, file ownership, failure recovery and independent final review | setup/12 |
 | Repository workflow preservation, specialist routing, targeted conflicts and explicit consolidation | setup/11 |
 | Saved adoption scope, batch limits, continuation and separate API analysis | setup/03–05 |

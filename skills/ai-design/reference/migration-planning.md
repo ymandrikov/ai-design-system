@@ -90,3 +90,6 @@ the resulting files and evidence, remaining work and blockers. Declare the plan
 complete only when every task satisfies the selected mode's completion rules;
 otherwise report it as partially complete. Preserve the distinction between
 completed work and verified behaviour when checks were skipped.
+Keep the plan and assessment through final checks, then apply
+[completion cleanup](setup.md#clean-up-completed-work) before the final report.
+Completed planning history is temporary; partial plans remain available for continuation.

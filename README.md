@@ -221,6 +221,13 @@ or delegated decision authority. Modes 1 and 2 can reuse or create a bounded esc
 hatch for a concrete need, preserving project exception-approval conditions.
 See [automatic migration](skills/ai-design/reference/setup.md#automatic-migration) for scope and completion.
 
+After the selected setup or migration scope and its final checks are complete, the
+agent [removes execution-only artifacts](skills/ai-design/reference/setup.md#clean-up-completed-work)
+before reporting: completed plans, temporary copies, one-off scripts and fully
+superseded files. Lasting rules, decisions, limitations and required evidence remain
+reachable; unfinished work retains its continuation state. No separate setup-history
+archive is created, and paused or blocked work keeps its execution materials.
+
 Automatic migration in modes 1 and 3 makes documented existing entities `discoverable`, retaining
 `deprecated` status where already set. Known defects and unverified promises are linked
 from contracts and considered during selection. Documentation completion and runtime

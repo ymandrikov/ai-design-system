@@ -24,6 +24,9 @@ and separate migration and API-analysis progress. Record recommendations, eviden
 blockers and the next batch there. Preserve existing contract lifecycle statuses when
 updating the list. The work list does not grant eligibility;
 contract metadata and indexes remain authoritative.
+Keep this execution state while work remains; apply
+[completion cleanup](setup.md#clean-up-completed-work) after the selected scope's
+final checks, preserving independent unfinished work and transferring lasting results.
 
 Complete the list before starting the first batch. On continuation, read saved
 progress and reconcile source changes, preserving prior results. An empty list is
@@ -54,7 +57,9 @@ After one batch, report completed work, blockers and remaining work, then wait f
 continuation. An explicit request to finish everything authorises successive batches
 without repeated confirmation; save progress after each. Stop when the selected step
 is complete or only blocked work remains. Requesting contracts for all entities sets
-the list's scope; it alone does not override the one-batch default.
+the list's scope; it alone does not override the one-batch default. When the entire
+selected step is complete, apply [completion cleanup](setup.md#clean-up-completed-work)
+before its final report; an intermediate batch or blocked stop retains resume materials.
 
 ## Migrate contracts and admit
 

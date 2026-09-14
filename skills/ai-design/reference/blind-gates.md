@@ -28,6 +28,8 @@ still takes precedence; report skipped evidence under that rule.
 The controller saves prompts, complete answers, generated artifacts and executable
 results in the provided evidence directory outside the product copy when supplied. Do not
 supply expected answers to the worker. A controller checks results, not prose style.
+After completed setup or migration, apply [completion cleanup](setup.md#clean-up-completed-work)
+to execution-only artifacts; retain evidence needed by current contracts and continuing work.
 
 ## Prepare tasks before dispatch
 
