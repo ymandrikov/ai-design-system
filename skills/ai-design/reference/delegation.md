@@ -1,11 +1,10 @@
-# Delegate setup work
+# Delegate the selected work
 
 Use available, permitted subagents automatically for substantial independent work
-during connection and automatic or gradual setup migration. Keep small or inseparable
+within the caller's authorised scope. Keep small or inseparable
 work with the main agent. Respect runtime permissions, user restrictions and capacity;
-without execution subagents, continue sequentially. Repository
-[agent mode](setup.md#determine-the-agent-mode) selects instruction-file conventions,
-not subagent availability. Delegation preserves setup scope, migration mode, batch
+without execution subagents, continue sequentially. Use established project instructions.
+Delegation preserves the caller's scope, applicable migration mode, batch
 limits, continuation rules and the saved verification choice.
 
 ## Assign independent work
@@ -38,7 +37,7 @@ Integrate shared-document updates and perform applicable enabled checks against 
 combined result; repeat evidence invalidated by subsequent edits. A worker's success
 report alone is insufficient. With verification skipped, limit acceptance to source,
 scope and progress reconciliation and mandatory
-[final document reconciliation](setup.md#reconcile-final-documents); retain the saved
+[final document reconciliation](completion.md#reconcile-final-documents); retain the saved
 unverified status without running skipped audits under another name.
 
 On failure or interruption, continue independent work and pause dependent tasks.
@@ -53,24 +52,24 @@ against current files before dispatch.
 
 When verification is enabled, use a fresh subagent that did not author the work for
 one final read-only consistency review after integration and document reconciliation.
-For connection followed by an authorised migration, review the resulting migration;
-for gradual migration, review before reporting completion of its selected scope.
-Give it the settled scope and decisions, source rules, resulting files and actual
+Review the selected scope against the caller's requirements before it reports completion.
+For migration that changes contract boundaries, include the
+[ordinary contract audit](contract.md#ordinary-audit) and
+[scenario quality](blind-gates.md#scenario-quality). Give the reviewer the settled scope
+and decisions, source rules, resulting files, caller-specific requirements and actual
 check evidence. Have it identify missing results, contradictory documents, scope
 violations and unsupported completion claims, with paths and evidence.
-Include the [ordinary contract audit](contract.md#ordinary-audit) and the actual
-[discovery scenario quality](blind-gates.md#scenario-quality): passing answers to
-restated criteria do not establish sufficient contracts or coverage.
+Passing answers to restated criteria do not establish sufficient contracts or coverage.
 
 The main agent assesses findings against sources, fixes actionable in-scope omissions,
 reconciles changed documents and reruns invalidated enabled checks. Have a fresh
 review context check affected findings against the corrected final files. Unresolved
 findings remain explicit blockers. If an independent reviewer is unavailable, finish
-independent work and report verification and setup completion pending; sequential
+independent work and report verification and the calling operation's completion pending; sequential
 execution does not substitute for independent evidence.
 
-This review is separate from [independent discovery](setup.md#discovery-during-setup-migration):
-preserve its fresh context, public-only inputs and whole-set timing. A reviewer with
+This review is separate from [independent discovery](admission.md#whole-set-migration-discovery):
+preserve its fresh context, public-only inputs and policy-selected timing. A reviewer with
 implementation access cannot supply that evidence. An explicit verification refusal
-skips both independent checks under [migration verification](model.md#migration-verification),
+skips both independent checks under [migration verification](admission.md#migration-verification),
 while mandatory final document reconciliation still runs.

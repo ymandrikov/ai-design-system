@@ -8,8 +8,8 @@
 
 **Expected:**
 
-- Route to setup’s automatic migration stage, inspect real sources and save the
-  discovered scope.
+- The fixture is already connected, so route directly to standalone migrate, inspect
+  real sources and save the discovered scope. Do not invoke or read setup.
 - Use an available question tool permitted in the current mode; otherwise use the
   separate numbered text format with options and a recommendation.
 - Ask for the missing mode in the startup round, offering in order:
@@ -23,7 +23,7 @@
   explain an escape hatch as a controlled local exception with a required reason
   and explicit limits, preserving behaviour and accessibility. Explain how those
   boundaries help keep local exceptions from silently becoming general rules.
-- In that same round explain applicable verification, including setup structure/link
+- In that same round explain applicable verification, including structure/link
   checks, offer run or skip, and recommend running it. Wait before any verification;
   source inspection and the saved work list can proceed.
 - The word automatically authorises continuation, not delegation of mode choice.
@@ -32,14 +32,15 @@
   existing contract promises and lifecycle statuses while awaiting answers.
 - Do not replace the request with standalone escape-hatch analysis or claim completion.
 
-**Independent variant — choose the setup offer:** Start from a connected fixture
+**Independent variant — choose the setup offer:** Start immediately after completed
+initial connection
 and save verification enabled in `design-system/adoption.md`. Replace the Request with:
 
 > Connection is complete. For "What next?" you offered A — automatic migration
 > (recommended), B — gradual adoption, C — API and consumer analysis, D — stop here.
 > I choose A.
 
-Treat A as explicit automatic-migration opt-in. Ask only for the missing migration
+Treat A as a handoff to standalone migrate. Ask only for the missing migration
 mode, offering all three and recommending mode 1. Reuse saved verification; do not
 repeat the next-step question, ask permission to start, ask for batch size, or choose
 mode 1 on the user's behalf. Source inspection and the work list may proceed while

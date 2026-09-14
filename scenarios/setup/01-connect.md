@@ -40,4 +40,6 @@
 - If the available question tool cannot show all four options, use the separate
   text question format rather than omitting an option.
 - Finish connection without starting a follow-up or requiring an answer for connection
-  completion. Defer migration-mode and batch-size questions until a step is chosen.
+  completion. Reconcile connection documents before the offer. Defer migration-mode
+  and batch-size questions until a step is chosen; a later next-step failure cannot
+  reopen or invalidate the completed connection.

@@ -1,7 +1,7 @@
-# Delegate setup while preserving correctness
+# Delegate automatic migration while preserving correctness
 
 **Skill:** ai-design
-**Route:** setup
+**Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
 
@@ -13,14 +13,15 @@
 
 **Request:**
 
-> Connect this project and automatically migrate all existing components, layouts
+> Automatically migrate all existing components, layouts
 > and patterns in mode 3, contracts only. Run applicable verification. Continue
 > through all batches. Correctness is more important than speed.
 
 **Expected:**
 
-- Automatically delegate substantial independent survey/authoring tasks without
-  asking for an execution-mode choice. Determine repository agent mode separately.
+- Recognise the existing connection and enter migrate without invoking or reading
+  setup. Automatically delegate substantial independent survey/authoring tasks
+  without asking for an execution-mode choice.
 - Give workers authoritative inputs, applicable procedures, mode, verification
   choice, explicit file ownership, completed dependencies and acceptance criteria.
 - Keep shared documents, indexes, journals and user questions with the main agent.
@@ -47,7 +48,9 @@
 - Explicitly skip verification in the request. Workers inherit that choice; skip
   independent reviews and audits, retain unverified status, and still reconcile
   final documents without blocking completion on the skipped checks.
-- Request connection only. Delegate only worthwhile connection work; run final review
-  without starting migration or requiring a page-adoption demonstration.
-- Request gradual setup migration with batch size 1. Dispatch only the current
-  batch and pause afterwards; run final whole-set checks at their prescribed point.
+- Change Route to setup and request initial connection only. Delegate only worthwhile
+  connection work; run final review without starting migration or requiring a
+  page-adoption demonstration.
+- Change Route to craft and request gradual migration with saved whole-set admission
+  and discovery conditions, no origin label, and batch size 1. Dispatch only the current batch and pause afterwards; run final
+  whole-set checks at their prescribed point.

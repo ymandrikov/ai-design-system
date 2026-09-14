@@ -7,14 +7,12 @@ using project conventions: CSS, markup and public design settings may change;
 component internals and business logic remain project-owned. Related consumer design
 changes use the separate [use workflow](use.md).
 
-For an existing system with missing connections, follow [setup](setup.md). To create
-a system from scratch, inspect the project and the requested scope first. Establish
-design intent and needed rules from the brief, authoritative sources and explicit
-decisions; resolve material missing choices before implementing dependent work.
-Use setup to connect those decisions and sources through DESIGN.md and indexes,
-then create the requested capabilities here. Empty indexes are valid while building;
-absence of a pre-existing system does not prevent craft. Setup supplies connections,
-not invented design rules or an unrelated component catalogue.
+Apply [missing-context handling](model.md#missing-project-context) when required
+connections are absent. For a new system, inspect the brief, project and requested
+scope; establish design intent and needed rules from authoritative sources and
+explicit decisions. Return missing prerequisites to the caller. Continue independent
+proposal work; dependent authoring resumes when required context exists. Empty
+indexes are valid; a pre-existing catalogue is unnecessary.
 
 ## Identify the change
 
@@ -28,15 +26,13 @@ dismissed entry needs no system repair; report its disposition and any remaining
 work. Keep unrelated entries outside this review and resolve missing decisions
 before dependent edits.
 
-For explicitly requested automatic codebase migration, [setup’s automatic migration stage](setup.md#automatic-migration) owns
-the scope, mode, repair authority and continuation; return there after each
-craft result. Its admission exception takes precedence for modes 1 and 3.
-In any migration, [migration verification](model.md#migration-verification) governs
-skipped audits, admission and completion while preserving authorised repairs.
-For adding contracts across existing components/layouts/patterns or a separate escape-hatch analysis,
-follow [gradual adoption](adoption.md) for the list, batch limits and completion rules.
-Return here for each migration item's contract, audit and admission; an analysis-only
-request ends with saved recommendations.
+An explicit automatic migration request enters [migrate](migrate.md), which owns
+scope, mode, batching and completion. When called for one migration item, return
+its result to that caller instead of starting another migration. For an explicit
+gradual contract migration or escape-hatch analysis, call [adoption](adoption.md)
+for the work list and batches; analysis-only work ends with recommendations.
+Read [admission policy](admission.md) when authoring contracts or deciding eligibility;
+use the caller's saved context and verification choice rather than selecting a new policy.
 
 Find authoritative definitions and affected references through DESIGN.md and indexes.
 For a UI entity, distinguish creation, adoption, design repair, contract
@@ -70,14 +66,13 @@ otherwise unknown design default or migration decision.
 ## Edit and audit
 
 Before turning observed variants into contract or design rules, check their basis
-using [choice gaps](gaps.md#check-the-basis-for-choices).
+using [the basis rule](formats.md#check-the-basis-for-choices).
 Record unsupported choices or rule replacements instead of normalising them.
 
 For UI contracts, follow [contract authoring](contract.md) and the standard structure
 in [the model](model.md). Metadata for all three groups belongs in contract frontmatter.
-New/adopted entities start hidden
-until ordinary admission, [automatic admission in modes 1 and 3](setup.md#admission-without-repairs)
-or [migration admission without verification](model.md#migration-verification).
+Set eligibility using the
+[selected admission policy](admission.md#select-the-applicable-policy).
 Update directly invalidated contract references and index
 summaries within scope. Preserve a disqualifier when only its suggested alternative
 has retired; report an uncovered need if no replacement fits.
@@ -133,12 +128,9 @@ affected browser promises. Keep documentation-only requests documentation-only.
 Document-only patterns need no implementation. Complete the implementation audit
 when affected promises have evidence or an explicit failed/unverified result.
 
-Use the ordinary audits and mandatory independent discovery specified by
-[contract authoring](contract.md#ordinary-audit). Follow [independent gates](blind-gates.md)
-for batch dispatch, evidence and failure handling, subject to
-[setup migration’s discovery exception](setup.md#discovery-during-setup-migration)
-when this work is part of setup. Run independent consumption as well
-when the task or DESIGN.md requires it; that additional check remains optional otherwise.
+Run the [ordinary contract audit](contract.md#ordinary-audit). Use the applicable
+[independent gate method](blind-gates.md) at the timing selected by admission policy;
+return per-item evidence to a migration caller that owns whole-set discovery.
 
 Repair design drift within the authorised craft scope; otherwise record
 the remaining defect. A contract is not weakened to hide a defect. Craft owns the
@@ -149,20 +141,9 @@ agreement between implementation and public promises, including their evidence.
 Present the concrete changes, affected consumers, migration needs and audit evidence
 before asking about unresolved normative rules, admission, breaking changes or
 retirement. Existing explicit authority counts. Independent migrations stay outside
-scope. A request to add a component to the design system includes admission after
-successful checks, unless the request or project policy limits that authority.
-Draft creation and ordinary documentation alone do not imply admission; explicit
-[automatic migration in modes 1 and 3](setup.md#admission-without-repairs) includes admission
-with recorded verification limits, as does
-[migration without verification](model.md#migration-verification) in every mode.
-[Setup migration](setup.md#discovery-during-setup-migration) also admits complete
-existing contracts before its final independent discovery. For other work, admit only when public promises
-are evidenced, selection/composition checks
-pass and the decision is authorised; all applicable independent gates must also pass.
-An intended contract awaiting implementation remains hidden and its support
-unverified. A document-only pattern needs no implementation of its own; `sources: []`
-does not prevent admission after its selection, composition and dependency checks pass.
-Documentation can be complete without claiming runtime readiness.
+scope. Apply [admission policy](admission.md#select-the-applicable-policy) to the actual
+scope and evidence before changing eligibility. Report document completion separately
+from runtime readiness and return any unresolved decision to the caller.
 
 ## Resolve gaps and report
 

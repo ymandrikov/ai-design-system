@@ -101,6 +101,40 @@ Derive them from the contract and check that no supported task would be missed
 through an omitted purpose. Include the detail needed for discovery; keep exact
 applicability conditions in the contract rather than duplicating selection rules.
 
+## Check the basis for choices
+
+When choosing API values, comparing visual variants or extracting shared UI, check
+the basis for the affected decisions in applicable public rules. Discovery uses its
+[public selection inputs](discovery.md); authoring, refactoring and verification also
+inspect directly affected consumers. Extraction includes every consumer being consolidated. This is not a
+whole-product audit. Uses are comparable when they serve the same user task under
+conditions material to the decision, such as input method or available space for
+density. Page names and entity types alone do not justify a difference.
+
+A choice needs an applicable rule, explicitly permitted freedom within a defined
+scope, or an authorised exception. Missing, ambiguous or contradictory guidance is
+a system gap, including unclear conditions for allowing differences. When the rule
+exists but a material fact of the request is unknown, ask for that fact instead.
+Permitted freedom needs no approval for each individual choice.
+
+Existing calls, API value lists and individual mockups demonstrate use; they do not
+alone establish permission to vary. When creating or changing a normative rule,
+identify a pre-existing authoritative source or an explicit decision. A rule
+just written from observed implementation cannot independently justify that same
+implementation. Inspect the prior rule when replacing it; record an unsupported
+replacement as drift rather than claiming that no rule ever existed.
+
+During refactoring, existing appearance may remain as temporary compatibility with
+an explicit link to the open gap, not as a newly established standard. New uses
+follow the applicable standard or permitted freedom. If neither provides a basis,
+prepare a concrete proposal and obtain the decision before implementing the
+dependent part; independent work can continue. Recording a gap grants no exception.
+
+Resolve a choice gap only after establishing the standard, selection conditions or
+explicitly permitted freedom and verifying affected contracts and consumers against
+that decision. Adding a prop, documenting current calls or passing technical tests
+alone does not establish the missing basis.
+
 ## Shared selection sections
 
 Write **When to use** and **When not to use** as bullet lists, with one independently

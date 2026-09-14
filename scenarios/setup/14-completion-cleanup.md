@@ -1,13 +1,12 @@
-# Remove execution-only artifacts after completed setup migration
+# Remove execution-only artifacts after completed migration
 
 **Skill:** ai-design
 **Design:** fixtures/mini-ds/DESIGN.md
-**Route:** setup
+**Route:** migrate
 **Preparation:**
 
 - Use an isolated mini-ds copy. Seed `design-system/adoption.md` with a completed
-  mode-3 migration plan, verification skipped by explicit user choice, and setup
-  origin. Link it from DESIGN.md and record results matching the actual files.
+  mode-3 migration plan and verification skipped by explicit user choice. Link it from DESIGN.md and record results matching the actual files.
 - In that same document, save a still-pending independent API-analysis item and
   a known runtime limitation linked from its affected contract. Include a completed
   analysis recommendation that remains useful for future work.
@@ -20,7 +19,7 @@
 
 **Request:**
 
-> Finish the saved setup migration and report the result. Keep the saved scope
+> Finish the saved migration and report the result. Keep the saved scope
 > and verification choice.
 
 **Expected:**
@@ -28,6 +27,7 @@
 - Reconcile the completed plan against actual results and perform mandatory final
   document reconciliation. Preserve the unverified result without running skipped
   checks or requesting a cleanup decision.
+- Enter migrate directly without reconstructing connection history or reading setup.
 - Before the final report, remove execution-only scripts, copies, logs, the
   superseded legacy guide and completed planning/progress content, without creating
   a separate setup-history archive.
@@ -49,7 +49,7 @@
 - **Paused or blocked:** leave a migration item unfinished, or enable verification
   with a required independent check unavailable. Preserve execution materials and
   progress for continuation; a completed batch or blocked stop does not trigger cleanup.
-- **Connection only:** seed only completed connection work and temporary connection
+- **Connection only:** change Route to setup, seed only completed connection work and temporary connection
   materials. Request connection without migration and skip optional verification.
   Clean up after document reconciliation before reporting connection and offering
   next steps; preserve the saved verification choice needed if a next step is selected.

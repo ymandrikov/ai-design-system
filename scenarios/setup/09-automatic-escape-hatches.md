@@ -26,6 +26,8 @@
 
 **Expected:**
 
+- Route directly to migrate because the fixture is already connected. Do not invoke
+  or read setup despite the legacy “migrate to ai-design-system” wording.
 - Select mode 1 through explicit delegation; save that decision, choose an
   unspecified batch size and continue without a mode or business-logic question.
 - Reconcile the work list while preserving independent API-analysis evidence.

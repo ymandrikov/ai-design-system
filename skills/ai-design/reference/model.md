@@ -25,8 +25,6 @@ recommendations and documented freedom remain distinct from requirements.
   design drift and retain unresolved promises without weakening them.
 - Record gaps and bounded exceptions, triage their original expectations and maintain
   verifiable history. Recording a gap alone permits no bypass.
-- Connect project sources and agent instructions, reconcile existing skills and keep
-  their project responsibilities reachable.
 - Plan and execute design-system work with its defined scope, modes, batches,
   verification decisions, saved progress and completion criteria.
 
@@ -67,9 +65,8 @@ rules, and links UI indexes, token definitions, themes, public usage, verificati
 instructions. Standalone [codebase analysis](analyze.md#check-readiness) uses artifacts
 and indexes under `design-system/` as its prerequisite; DESIGN.md is optional for
 that procedure. Operational paths in it resolve from that root; ordinary Markdown
-links resolve relative to their containing file. Missing connections for existing
-sources route to [setup](setup.md). For a new system, [craft](craft.md) establishes
-the requested decisions and sources, then uses setup to connect them.
+links resolve relative to their containing file. Missing required context follows the [handling rule below](#missing-project-context).
+For a new system, [craft](craft.md) can establish requested design decisions.
 
 New and connected projects use this contract structure:
 
@@ -91,18 +88,10 @@ Read identity and eligibility from the linked contract, not the index label. Lay
 appear only in LAYOUTS.md; patterns appear only in PATTERNS.md. IDs are unique across
 all three groups. Empty indexes are valid.
 
-Setup moves existing UI contracts and indexes into this structure, updating incoming
-links and relative references. For a mixed legacy document, always move its contract
-content into the appropriate file under `design-system/`. Leave only information and
-instructions outside the contract's responsibility at the original path. Preserve
-their meaning and invocation; update incoming links to the appropriate destination
-and link the retained source where relevant, without duplicating contract rules. Code,
-styles, tests, token catalogues and other existing sources keep their project paths.
-A contract id does not determine code paths or exports. Patterns can describe recipes
-without implementation files. New gap journals also live under design-system/.
-Setup uses the existing repository-local or user-global ai-design installation.
-[Agent mode and instruction consolidation](setup.md#determine-the-agent-mode) select
-AGENTS.md or CLAUDE.md to point to DESIGN.md and record the responsibilities below.
+Code, styles, tests, token catalogues and other existing sources keep their project
+paths. A contract id does not determine code paths or exports. Patterns can describe
+recipes without implementation files. New gap journals also live under design-system/.
+Use the established project instructions and their responsibility boundaries.
 
 ## UI eligibility and gradual adoption
 
@@ -118,12 +107,23 @@ not unmanaged escape routes. Unknown status is excluded. Discovery lists only el
 candidates; an explicit request for an excluded entity gets a separate availability
 explanation. Quoting the word "toggle" in a rejection is not selecting an unmanaged Toggle.
 
-[Setup migration](setup.md#discovery-during-setup-migration) admits complete existing
-contracts before independent discovery. [Automatic migration in modes 1 and 3](setup.md#admission-without-repairs) and
-[migration without verification](#migration-verification) admit documented
-existing entities with recorded defects or verification limits. `discoverable`
-permits comparison; it does not certify runtime promises. Read linked limitations
-when selecting and verify the promises required by the consuming interface.
+When authoring, changing eligibility or migrating, read [admission policy](admission.md)
+for the applicable evidence and timing. Product selection reads the actual status and
+linked limitations; discoverable does not certify runtime promises. Verify the
+promises required by the consuming interface.
+
+## Missing project context
+
+A missing DESIGN.md, required index, source connection or other prerequisite is a
+context defect. Name the missing inputs and return the restoration need to the user
+or project process outside ai-design. Do not recreate missing context or invent
+sources. Pause only work that depends on it; continue independent authorised work.
+After the project restores the inputs, resume the affected procedure.
+
+Standalone analysis retains its own [artifact-based readiness](analyze.md#check-readiness):
+DESIGN.md is optional when its required indexes and artifacts are available. Ordinary
+maintenance of valid contracts, indexes and links remains within authorised craft;
+this rule concerns recovery of missing required project context.
 
 ## Token scope
 
@@ -138,16 +138,14 @@ ai-design integrates as a specialist in contracts and design-system work, includ
 selection and reuse of components, layouts and patterns. An existing project skill
 keeps its entrypoint and ownership of the overall task: requirements, architecture,
 data, analytics, stage order, approvals and completion criteria. UI responsibilities
-alone do not make that skill redundant. Record in AGENTS.md or CLAUDE.md which stages
-call ai-design, their expected results and where the project workflow resumes;
+alone do not make that skill redundant. Follow the stages, expected results and
+return points established in AGENTS.md or CLAUDE.md;
 ai-design's stage checks do not replace overall task completion checks.
 
 Keep existing project rules and process instructions at their authoritative locations
-and link them from DESIGN.md. Setup includes [agent instruction consolidation](setup.md#consolidate-agent-instructions);
-other moves require a separately agreed reorganisation.
-Markdown instructions define agent-executed behaviour: retaining their text alone
-does not preserve invocation, sequencing, approvals or completion checks. Use
-[skill reconciliation](setup.md#reconcile-repository-skills) during setup.
+and use their links from DESIGN.md. Moving them requires a separately agreed project
+reorganisation. Preserve their established invocation, sequencing, approvals and
+completion checks as well as their text.
 
 Contracts state intended valid use; implementation and tests establish actual behaviour.
 A mismatch is a defect, not permission to weaken the contract. A design reference
@@ -175,47 +173,6 @@ system's presentation, structure and documentation. Its boundary preserves busin
 logic and component internals, including when a defect is found. Related consumer
 presentation may change within scope; changes requiring excluded logic remain project
 work. These limits remain in force in called procedures and every migration mode.
-
-## Migration verification
-
-For automatic migration, gradual contract adoption and contract moves during setup,
-settle verification before the first check, including connection/link validation.
-Inspect sources and configured commands first. Explain the applicable structural/link,
-contract/selection, test/build, behavioural/browser and visual checks, including
-required independent gates and unavailable capabilities. Explain that [final document reconciliation](setup.md#reconcile-final-documents)
-is mandatory during setup. Offer to run or skip the remaining verification,
-recommend running it, and wait for the user's choice. Batch this with
-other missing startup decisions using [the question format](#questions-to-the-user).
-Surveying sources and saving the work list can proceed meanwhile.
-
-Reuse an explicit choice or the saved choice for this migration without asking again.
-Save it in `design-system/adoption.md` with the migration progress; an explicit new
-choice replaces it. Automation or delegation of mode/batch size alone does not decide
-verification. A saved refusal also applies on resume and after a mode change.
-
-An explicit request to skip testing or verification takes precedence over check
-requirements throughout setup, adoption, craft, use and their supporting procedures,
-in every migration mode, except setup's mandatory
-[final document reconciliation](setup.md#reconcile-final-documents), which always runs.
-With that choice, read sources, tests and consumers to
-understand and perform the work, but skip the remaining verification: tests, builds, structural
-and link validators, contract/selection audits, browser/visual checks and independent
-gates. Do not run checks under another name or require them for completion.
-
-Keep the selected scope, including authorised implementation and consumer repairs,
-escape hatches, contracts, indexes, supporting documents, links and progress. A refusal
-does not change the selected mode's repair, scope or exception authority.
-Make newly documented implemented entities `discoverable` immediately;
-preserve existing `deprecated` status and keep unimplemented drafts hidden. This
-exception overrides evidence-gated admission and structural-validation prerequisites.
-
-Record skipped checks as `unverified — skipped by user choice` in progress and reports,
-and link limitations from the affected contracts. Preserve earlier evidence with its
-scope; changed promises are not covered by stale results. Work may finish with
-verification explicitly unverified; skipped checks alone are not blockers. Keep real
-unresolved decisions and unfinished repairs explicit, and leave gaps requiring proof
-open. Report that the user accepted the risk of nonworking code by choosing migration
-without verification; `discoverable` and completed work do not certify correctness.
 
 ## Questions to the user
 

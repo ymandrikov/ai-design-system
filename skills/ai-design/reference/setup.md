@@ -1,25 +1,32 @@
 # Set up the project
 
+On a request to migrate an already connected project, hand off to [migrate](migrate.md)
+without repeating connection work.
+
+Run only for explicitly requested initial connection. Resume an unfinished initial
+connection as the same operation. If connection is already complete, report that
+result without rerunning connection work.
+Use existing documents and task history as evidence, without a new completion marker.
+When prior completion is uncertain, report the uncertainty instead of treating
+missing files as permission to repeat setup. Recovery belongs to the project process.
+
 Read [the shared model](model.md). Use its standard contract directories and uppercase
 index filenames for new and existing projects. Preserve implementation paths;
-DESIGN.md stays at the repository root.
-Setup connects sources and records missing capabilities. For a new system, the
-[craft workflow](craft.md) owns the requested design decisions and permitted design changes;
-connect its established sources as they become available. Missing sources may be
-recorded as absent, and empty indexes are valid.
-For an explicit request to migrate automatically, setup also owns the
-[automatic migration stage](#automatic-migration), including its mode, authority and
-continuation. A connection-only request ends after reporting the connection.
+DESIGN.md stays at the repository root. Connect established sources and record absent
+capabilities. For a new system, [craft](craft.md) owns requested design decisions;
+pass uncovered decisions to that authorised stage. Empty indexes are valid.
+Connection-only work ends with the connection result. Explicit migration requests
+are handed to [migrate](migrate.md) after connection completes.
 
-For connection and subsequent automatic or gradual migration, follow
-[setup delegation](setup-delegation.md) to distribute substantial independent work
+For connection, run
+[delegation](delegation.md) to distribute substantial independent work
 when subagents are available and permitted. Correctness takes precedence over speed.
 
 Use plain language in the user's language throughout setup questions, explanations
 and reports. Briefly explain each new technical term at its first mention, beside
 the decision or result it describes. For example, introduce a contract as documented
 rules for using a component, and ask "What may I change during migration?" when
-presenting the modes below; describe each option by its practical effect.
+gathering migration decisions for the handoff; describe each option by its practical effect.
 
 At the first mention of an escape hatch, before a migration-mode choice or an
 analysis offer, briefly explain it as a controlled local exception to design-system
@@ -28,49 +35,6 @@ accessibility. Explain that these boundaries help keep a local exception from
 silently becoming a general rule and the design system from drifting. Use
 [craft's exception rules](craft.md#design-public-apis-and-escape-hatches) for its
 actual permissions and requirements.
-
-## Discovery during setup migration
-
-This rule applies to automatic and gradual migrations within setup, including resumed
-setup migrations. Record that origin in `design-system/adoption.md`. It overrides
-per-batch independent discovery and discovery-gated admission in the supporting
-craft, contract and adoption procedures; work outside setup keeps their strict gates.
-Connection without creating or changing contract boundaries needs no discovery gate.
-
-First finish all contracts in the selected migration area and reconcile their indexes.
-Keep ordinary author audits and structural checks: selection rules, public API,
-behaviour, accessibility and composition obligations must support use without missing
-normative decisions. Headings or abbreviated drafts alone do not establish readiness.
-Make fully documented existing entities `discoverable` before independent discovery;
-preserve `deprecated` status and keep unimplemented drafts hidden. Project approval
-conditions still apply. Track runtime defects and required repairs separately; this
-status does not certify correctness or waive the selected mode's repair obligations.
-
-Batches organise authoring and progress, not independent discovery. If any contract
-is blocked, finish independent work, save the blockers and defer the independent check
-until the whole selected set is ready. Discovery to select components for actual
-consumer updates may run earlier once the needed contracts are ready.
-
-Before dispatch, save a coverage list of real page scenarios and groups of similar
-components, layouts and patterns. Cover each such group with at least one request
-that distinguishes candidates. Where real consumers or comparison groups are absent,
-derive synthetic requests from documented purposes and composition rules and label
-that coverage as synthetic. Record uncovered entities and the reduced coverage.
-Apply [scenario quality](blind-gates.md#scenario-quality) before counting coverage:
-use product situations and deciding differences, with their origins recorded outside
-the worker's inputs. A restated contract condition does not cover a comparison group.
-Setup does not require a must-fit/must-not-fit pair for every entity.
-
-Run the saved requests against the complete public set in a fresh independent context,
-using [the discovery gate's public inputs and result assessment](blind-gates.md#discovery-gate-run-the-actual-procedure).
-Keep expected answers outside worker inputs. Correct discovered contract errors and
-rerun affected cases in fresh context against final inputs; retain failures and keep
-`discoverable` status. A failed or unavailable check leaves setup verification and
-completion pending, rather than reversing admission. Reuse evidence only while its
-inputs and relevant rules remain unchanged.
-
-The saved [migration verification choice](model.md#migration-verification) takes
-precedence: an explicit refusal retains its existing audit and completion exceptions.
 
 ## Survey the existing sources
 
@@ -180,11 +144,16 @@ from the completed connection; do not claim compatibility beyond the inspected s
 
 ## Connect the project
 
-Before migration checks, settle [migration verification](model.md#migration-verification).
-Its saved choice governs optional connection checks and subsequent migration checks;
-[final document reconciliation](#reconcile-final-documents) is always required.
-For an explicitly requested automatic migration, gather its missing boundary decisions
-in that same round before connection checks; for gradual adoption, include batch size.
+Before the first connection check, inspect configured commands, explain the applicable
+link, structure and instruction checks and unavailable capabilities, then offer to run
+or skip verification, recommending run. Wait for the choice; source survey may continue.
+Reuse an explicit or saved choice. Save it in DESIGN.md for this operation and the
+selected next-step handoff; do not apply it to unrelated later work. A refusal skips
+validators, audits, tests, builds, browser checks, demonstrations and independent review;
+report the result as unverified. [Final document reconciliation](completion.md#reconcile-final-documents)
+remains mandatory. Refusal changes neither scope nor authority.
+For an explicitly requested migration, gather its missing boundary and verification
+decisions in that same round; for gradual adoption, include batch size.
 
 Use [the DESIGN.md template](../assets/DESIGN.md) to create or complete root DESIGN.md.
 Preserve existing design content and link authoritative sources. Record actual paths,
@@ -199,10 +168,11 @@ Store each pattern as a separate contract using [the pattern template](../assets
 Update incoming links, index links, document-relative references and examples that
 resolve relative imports from the moved document. Keep root-relative code paths intact.
 IDs remain unique across components, layouts and patterns; report collisions before
-choosing a new identity. Empty groups are valid. Complete migration when the standard
-locations and metadata validate and all affected links resolve.
+choosing a new identity. Empty groups are valid. Complete these moves when the standard
+locations and metadata are correct and all affected links resolve, applying the saved
+verification choice to validation.
 For documents mixing contracts and process instructions, apply the
-[shared model's split rule](model.md#designmd-and-indexes): always move the contract
+[contract structure](model.md#designmd-and-indexes): always move the contract
 content into `design-system/` and leave only the non-contract information and
 instructions at the old path. Preserve their invocation and references; route each
 incoming link to the content it needs. Mixed content is not a reason to defer the
@@ -219,6 +189,8 @@ routes within authorised setup scope with a DESIGN.md and `ai-design` pointer an
 [division of responsibilities](model.md#authority-and-task-scope). Keep the project
 skill as the overall entrypoint; identify use for selection and reuse in product UI,
 craft for contracts and system development, and the results returned to the caller.
+Record the calling stages and where the project workflow resumes, preserving its
+overall approvals and completion criteria.
 Reference the installed package at its actual location; do not invent a repository-local
 copy for a globally installed skill.
 
@@ -226,83 +198,27 @@ Complete when DESIGN.md reaches the real sources, indexes and available verifica
 instructions, and missing capabilities are explicit. Check links from their containing
 files; operational paths in DESIGN.md resolve from the repository root.
 
-## Reconcile final documents
-
-Before reporting connection, reread from disk every surviving document created or changed by
-setup, plus root DESIGN.md and existing AGENTS.md and CLAUDE.md files in the affected
-area, even if setup did not edit them. Do not create absent instruction files for this check.
-Compare their contents with the actual project state and completed setup results:
-source and skill paths, links, configured commands, project/craft/use responsibilities,
-selected agent mode, canonical instruction files and relative symlink targets,
-preserved invocation routes and process checks, authoritative rule links and references
-affected by agreed moves or replacements. Check links
-from their containing files and operational paths from the repository root; existence
-alone does not establish that a document describes the resulting setup accurately.
-
-Correct factual mismatches within setup scope and reread the corrected files. Preserve
-unrelated instructions; record contradictory rules and ask for unresolved normative
-decisions rather than choosing a new rule. This reconciliation runs in every setup,
-including when testing or verification is skipped; it is a mandatory exception to
-[migration verification](model.md#migration-verification). Complete when every in-scope
-document has been reconciled and actionable mismatches are corrected. Report coverage
-and any unreadable files or unresolved conflicts explicitly, without claiming those
-parts are reconciled. Repeat after automatic migration changes documents before its
-final report, using the same scope rule for that stage's documents. Account for deleted
-documents by reconciling their incoming references and any transferred content.
-
-## Clean up completed work
-
-After the entire selected connection or migration scope meets its completion rules,
-including final document reconciliation and enabled final checks, automatically clean
-up before the final report. When connection continues into an authorised migration,
-defer cleanup until that migration completes. A batch boundary, pause, blocker or
-pending required check is not completion: retain progress and execution materials
-needed to resume. An explicit verification refusal permits cleanup after mandatory
-document reconciliation, preserving the unverified result.
-
-Inspect artifacts and their references by continuing purpose, not filename or age.
-Remove completed plans and progress, one-off migration scripts, temporary copies,
-scratch outputs, logs and reviewer responses used only to execute this work. Include
-older documents and scripts fully superseded by the authorised setup or migration.
-Keep contracts, indexes, active instructions, working tests, examples and evidence
-needed to support current contract claims, decisions or limitations, even if created
-during setup. Cleanup does not authorise unrelated skill or workflow replacement.
-
-Before deleting a file or section, transfer its still-useful rules, decisions,
-recommendations, known defects and verification limits to the appropriate permanent
-documents: DESIGN.md, contracts, authoritative rules or the existing gap journal.
-Preserve required supporting evidence and repair incoming links, imports and command
-references to the retained content. Keep unresolved defects and skipped checks explicit;
-cleanup neither closes gaps nor turns an unverified result into a verified one.
-
-Treat `design-system/adoption.md` as execution state. Once its completed plan and
-assessment have served final checks, remove them under this rule. Preserve independent
-unfinished migration or API analysis with its inputs, evidence, decisions and next
-action; completing one step does not start or discard the other. Delete the file and
-its DESIGN.md link only when no continuing work remains and lasting results have been
-transferred. Preserve the verification choice in DESIGN.md for the setup next-step
-handoff when removing the progress file, and reuse it if a next step is selected.
-Requirements to save execution history apply while the work or its checks need it;
-do not create a separate archive merely to retain completed setup or migration history.
-
-After cleanup, reconcile surviving documents and affected references again. Rerun
-only enabled checks invalidated by the changes, respecting the saved verification
-choice. Complete when disposable artifacts are removed, lasting information remains
-reachable and continuation state is intact. Retain artifacts whose purpose cannot be
-established and report that unresolved cleanup alongside removed and retained paths.
-
 ## Report the connection
 
-Apply [the final independent review](setup-delegation.md#review-the-final-result)
-before reporting completion, then [clean up completed work](#clean-up-completed-work);
-for an authorised migration continuing in this run, perform both after migration instead.
+For reconciliation, include the selected agent mode, canonical instruction files,
+relative symlink targets, source and installed-skill paths, preserved project entrypoints,
+stage order, approvals and completion checks. Supply these requirements to
+[delegation](delegation.md#review-the-final-result) as well. Connection without changed
+contract boundaries requires no contract discovery gate.
+Run [final document reconciliation](completion.md#reconcile-final-documents), then
+[the final independent review](delegation.md#review-the-final-result) when enabled,
+and [completion cleanup](completion.md#clean-up-completed-work). Report connection
+complete only when its own required work is complete. Retain materials needed by
+an already selected migration, without making migration completion a setup condition.
+Preserve the verification choice in DESIGN.md for the next-step handoff even when
+cleaning up execution files; once selected, save it with that migration's progress.
 
 Report DESIGN.md, linked sources, created artifacts, unmanaged UI and decisions needed,
 including inspected repository skills, preserved workflows, specialist routing,
 any explicitly requested migrations and remaining conflicts.
-If automatic codebase migration was explicitly requested, continue to
-[automatic migration](#automatic-migration) after connection. Its startup decisions
-and batching apply instead of the next-step question below.
+If automatic codebase migration was explicitly requested, hand off to
+[migrate](migrate.md) after connection. Its startup decisions and batching apply
+instead of the next-step question below.
 For a connection-only request, ask "What next?" using
 [the question format](model.md#questions-to-the-user), with these four explicit
 options in this order:
@@ -317,155 +233,26 @@ options in this order:
 
 Automatic migration must be a selectable option, not a note below the question.
 Connection is complete without an answer; start further work only when selected.
-Choosing A explicitly opts into [automatic migration](#automatic-migration). Ask
-for its missing mode next, recommending mode 1; selecting A alone does not choose
-the mode. Reuse an already supplied mode and verification choice, and ask for any
-missing verification choice in that same startup round. Choose an unspecified batch
-size automatically and continue all batches under that stage's rules.
-Choosing B or C starts the corresponding [gradual adoption](adoption.md) step
-without renewed permission; follow its [batch size selection](adoption.md#choose-the-batch-size)
-before processing. Choosing D ends setup.
+Choosing A explicitly authorises [migrate](migrate.md); transfer the selected scope
+and existing decisions there. That procedure owns any missing mode/verification
+choices and automatic batches. Selecting A alone does not choose its mode.
+Choosing B or C hands off to the corresponding [adoption](adoption.md) step
+without renewed permission. Before B starts, save the selected scope, verification
+choice and these admission conditions in `design-system/adoption.md`: admit fully
+documented existing entities after ordinary author audits and structural checks;
+run independent discovery after the whole selected set is ready. Apply the
+[verification-refusal exception](admission.md#migration-verification) when selected.
+These concrete conditions persist on resume; no origin label is needed. Adoption
+owns work-list enumeration and batch-size selection. Choosing D ends setup.
 Adoption and admission are separate; connection requires neither. For an analogous-page
-demonstration requested by the task or project policy, follow
-[the optional setup demonstration](blind-gates.md#optional-setup-demonstration).
+demonstration requested by the task or project policy, use [the demonstration below](#optional-setup-demonstration).
 Its absence does not make ordinary setup incomplete.
 
-## Automatic migration
+## Optional setup demonstration
 
-Run this setup stage only when automatic codebase migration is explicitly requested,
-including equivalent natural language. Ordinary connection, product work and gradual
-adoption do not start it. Reuse the survey and connections above and
-[adoption](adoption.md#save-the-work-list) for the saved work list.
-
-### Establish the boundaries
-
-Inspect repository instructions, DESIGN.md, authoritative rules, implementations
-and actual consumers before asking for decisions. Use the requested area; an explicit
-whole-codebase request covers the whole project. Report the discovered scope.
-
-| Mode | Authorised work |
-| --- | --- |
-| 1 — Contracts and escape hatches without behaviour changes (recommended) | Contracts and supporting documents, plus bounded local exceptions. API and consumer edits may connect an exception while preserving existing appearance and observable behaviour; no standalone repairs. |
-| 2 — Contracts, escape hatches and design repairs | Mode 1 plus design-only CSS, markup and public-parameter repairs, including related consumer presentation within the selected area. Preserve component internals and business logic. Apply ordinary admission checks. |
-| 3 — Contracts only | Component, layout and existing pattern contracts, indexes, DESIGN.md and supporting links, journals and progress. Runtime code stays unchanged. |
-
-Include any missing [verification choice](model.md#migration-verification) in this
-startup round; an earlier setup choice already settles it.
-Reuse explicit answers and saved decisions for this migration. If the mode is
-missing, present the three options in the order above using
-[the question format](model.md#questions-to-the-user). Recommend **mode 1**.
-All modes retain the [design-only boundary](model.md#design-only-change-boundary);
-none authorises internal component or business-logic changes.
-Explicit delegation to choose permits mode 1 without questions; a request for
-automation alone is not that delegation. Wait for required
-answers before dependent edits; the survey and work list can proceed meanwhile.
-
-Mode 1 may replace an existing styling override with a documented escape hatch
-that produces the same appearance and behaviour. Record defects that require repairs
-without fixing them. Mode 2 can restore a missing accessible label or correct a
-consumer spacing setting against its contract. A missing domain validation or broken
-interaction algorithm remains project-owned work even when evidenced by a failing
-check. Record that defect without weakening the intended promise. Preserve unaffected
-behaviour and honour explicitly narrower scope.
-
-Modes 1 and 2 authorise their permitted craft changes and migration of their affected
-product consumers. Inspect all callers before changing a shared API or appearance.
-Preserve compatibility with consumers outside the selected area; if this cannot be
-done, block the change pending a scope decision. Keep unrelated redesign outside
-the migration. New normative rules require authoritative sources or explicit
-delegation from the user; observed behaviour alone does not establish a
-standard. Record conflicts and unresolved decisions instead of weakening promises.
-
-Complete this step when mode, area, any explicit restrictions and verification choice
-are settled and saved.
-
-### Execute and resume
-
-Before the first batch, follow [migration planning](migration-planning.md) to complete
-and link the shared work list and execution plan in `design-system/adoption.md`.
-Include project-owned components, layouts and existing patterns; in modes 1 and 2 also list affected
-consumer locations and change dependencies. Pages are consumers, not automatically
-new patterns. Group supported bindings and process dependencies first.
-
-Save the mode, area, explicit restrictions, verification choice and any delegated
-normative authority in `design-system/adoption.md`. Track documentation, admission, repairs and verification
-separately, with evidence, exceptions, blockers and the next work. Preserve independent
-API-analysis results; using escape hatches does not require a separate analysis campaign.
-
-Use an explicit batch size, otherwise a saved migration size, otherwise choose a
-suitable positive size (10 is a starting point). Save it without asking. Automatic
-migration authorises every batch: save each item's result and each batch's progress,
-then continue without confirmation. Count attempted blocked items toward batch size.
-On resume, reconcile sources and saved decisions, updating affected tasks through
-[migration planning](migration-planning.md); recheck only invalidated results.
-Revisit blockers only when their missing decision or evidence changes. A mode change
-retains prior evidence but reopens obligations newly required by that mode.
-
-For each entity, follow [contract authoring](contract.md) and the applicable
-[craft audits](craft.md#edit-and-audit), subject to the saved
-[verification choice](model.md#migration-verification). A refusal uses that rule's
-admission and completion exceptions in every mode. Otherwise modes 1 and 3 use the
-admission rule below. In modes 1 and 2, complete permitted craft changes before updating consumers
-through [use](use.md); when verification is enabled, follow
-**craft → checks → use → checks**, verifying both the capability and its resulting use.
-Existing authority settles the scope of those
-consumer updates; unresolved API defaults or normative decisions remain blockers.
-Use supported APIs within the selected mode's behaviour boundary; mode 2 also repairs
-violations. In modes 1 and 2, use an escape hatch only
-for an evidenced local need, following [craft's exception rules](craft.md#design-public-apis-and-escape-hatches)
-and [exception recording](gaps.md#record-exceptions). Reuse a suitable mechanism;
-otherwise create only its permitted design portion. Both modes require a non-empty
-reason, explicit limits and the project's approval conditions and behaviour/accessibility
-guarantees. Any missing internal enforcement logic remains a project dependency;
-leave dependent exception work unfinished instead of shipping an unrestricted bypass.
-Add mechanisms only where needed.
-
-### Admission without repairs
-
-For modes 1 and 3, completing a structurally valid contract and index entry for an existing
-entity includes making it `discoverable` under [setup discovery](#discovery-during-setup-migration),
-even when a behavioural/visual check fails or evidence is unavailable. Preserve existing
-`deprecated` status. This is an explicit
-exception to ordinary evidence-gated admission, not a claim of runtime readiness.
-Keep unimplemented drafts outside this exception. An unresolved normative choice
-still blocks the dependent contract decision; document the settled parts meanwhile.
-Ordinary contract completeness remains required. Independent discovery follows the
-whole-set setup procedure above; a failed or unavailable gate leaves verification
-and setup completion pending, while documented entities retain admission.
-
-Run applicable checks and record their actual outcomes. Keep the intended promises;
-link known defects and unverified promises from the relevant existing contract
-sections to the journal or saved evidence. Do not add a new contract format or hide
-documented entities merely because those checks could not pass. Consumers must
-consider these limitations during discovery and verify the promises they rely on.
-Mandatory project approval conditions still apply; report a policy conflict as a
-blocker instead of silently declaring admission or changing the policy.
-
-### Validate plan completion
-
-After the batches finish, follow [plan completion validation](migration-planning.md#validate-plan-completion)
-to reconcile the plan with actual results and save the assessment in
-`design-system/adoption.md`. Complete any actionable omissions before the final report;
-if only blocked work remains, record the partial result.
-
-### Complete and report
-
-Before reporting, complete [final document reconciliation](#reconcile-final-documents)
-for documents changed by migration and apply
-[the final independent review](setup-delegation.md#review-the-final-result).
-When the selected scope is complete, [clean up completed work](#clean-up-completed-work)
-before the final report; preserve continuation materials for a partial result.
-Stop when every in-scope item has its mode's
-result or only blocked work remains.
-An empty scope is a completed result. Report the mode, area and explicit restrictions,
-documentation and eligibility, repairs and exceptions, static/behavioural/
-visual evidence, and one consolidated list of remaining blockers and decisions.
-With verification skipped, apply [migration verification](model.md#migration-verification)
-for completion and report the unverified result separately from completed repairs.
-In modes 1 and 3, defects requiring repairs outside the mode do not block documentation
-completion; report failed or unverified runtime promises separately. In mode 1,
-unfinished exception changes or failed/unavailable enabled checks of those changes
-still block completion. Mode 2 remains partially complete while required repairs or
-enabled verification are blocked. Unresolved requirements and mandatory approvals
-remain blockers in every mode. An exception records a local deviation; close
-a gap only under [the existing resolution rules](gaps.md#record-and-resolve).
+When an analogous-page demonstration is requested, use an existing page found during
+setup or named by the task. Give a fresh worker an analogous request, root DESIGN.md
+and public sources in an isolated copy. Run build with actual discovery, then verify
+the resulting page and a deliberate composition violation. Save requests, artifacts,
+commands and available browser evidence. Report demonstration limits separately from
+the completed connection; this does not authorise admission of unadmitted entities.

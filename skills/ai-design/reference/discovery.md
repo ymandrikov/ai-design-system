@@ -19,7 +19,8 @@ appearance or the entity's name. Distinguish that gap from a missing request fac
 which needs a question only when it could change the decision.
 Read [the shared vocabulary and project rules](model.md) once per
 conversation, then root DESIGN.md and any supplied design reference. Without the
-required context, report what is missing and return [setup](setup.md) to the caller.
+required context, apply [missing-context handling](model.md#missing-project-context)
+and return the missing inputs to the caller without writing files.
 
 ## Start at the affected level
 
@@ -86,7 +87,7 @@ A design reference that contradicts a required rule needs that decision unless a
 documented exception applies. A reference selecting a valid preference needs none.
 
 For API values and visual variants, check the
-[basis for choices](gaps.md#check-the-basis-for-choices).
+[basis for choices](formats.md#check-the-basis-for-choices).
 Return a missing or conflicting basis to the caller for gap recording and any required
 decision; discovery remains read-only. An accepted value alone does not settle
 the choice. A correct component id justified by an invented rule is still a failed

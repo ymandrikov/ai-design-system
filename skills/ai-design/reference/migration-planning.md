@@ -3,8 +3,8 @@
 Plan the design-system migration and its evidence. Write the plan in
 `design-system/adoption.md`, extending the [saved work list](adoption.md#save-the-work-list)
 with tasks and steps. The plan and execution progress share this document.
-[Automatic migration](setup.md#automatic-migration) owns scope, authority, batching,
-resume and completion; [migration verification](model.md#migration-verification)
+[Automatic migration](migrate.md) owns scope, authority, batching,
+resume and completion; [migration verification](admission.md#migration-verification)
 owns the saved run-or-skip choice.
 Use the [design-only boundary](model.md#design-only-change-boundary) in every mode.
 Internal component and business-logic work remains an explicit project dependency,
@@ -26,7 +26,7 @@ and boundaries clear; migration does not itself justify restructuring the codeba
 
 ## Define tasks and steps
 
-Give each task an independently assessable result. Include its necessary setup,
+Give each task an independently assessable result. Include its necessary preparation,
 configuration and documentation in that task. Split tasks where a reviewer could
 accept one result while rejecting the other, rather than separating technical layers.
 Order dependencies before the tasks that consume them.
@@ -91,5 +91,5 @@ complete only when every task satisfies the selected mode's completion rules;
 otherwise report it as partially complete. Preserve the distinction between
 completed work and verified behaviour when checks were skipped.
 Keep the plan and assessment through final checks, then apply
-[completion cleanup](setup.md#clean-up-completed-work) before the final report.
+[completion cleanup](completion.md#clean-up-completed-work) before the final report.
 Completed planning history is temporary; partial plans remain available for continuation.

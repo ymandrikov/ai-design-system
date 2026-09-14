@@ -1,7 +1,7 @@
 # Complete contracts-only migration despite recorded runtime limitations
 
 **Skill:** ai-design
-**Route:** setup
+**Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
 
@@ -16,16 +16,16 @@
 
 **Request:**
 
-> Use ai-design setup to automatically migrate the whole codebase in mode 3,
+> Use ai-design migrate to automatically migrate the whole codebase in mode 3,
 > contracts only. Finish
 > everything without changing runtime code. Browser verification is unavailable.
 > Run the applicable available verification checks.
 
 **Expected:**
 
-- Connect the project, enumerate owned components/layouts and existing patterns,
-  move the existing pattern into design-system/patterns/, link it from PATTERNS.md
-  and fix affected references.
+- Enter migrate directly without invoking or reading setup. Enumerate owned components,
+  layouts and existing patterns, move the existing pattern into design-system/patterns/,
+  link it from PATTERNS.md and fix affected references.
 - Choose and save a batch size without asking; continue beyond the first batch.
 - Produce structurally valid contracts and indexes, making documented existing
   entities discoverable before independent discovery, including Notice. Preserve
@@ -47,16 +47,17 @@
   explicit rather than inventing rules to finish the list.
 
 Repeat with the independent discovery worker unavailable. Finish the settled document
-work and retain discoverable status; record verification and setup completion as
+work and retain discoverable status; record verification and migration completion as
 pending. The author's own reasoning does not replace independent evidence.
 
 Repeat with one contract blocked by a missing normative decision: finish independent
 work and save progress, but defer discovery of the whole set until it is resolved.
 Repeat with a discovery failure: repair the contract and rerun affected cases in a
-fresh context without reverting discoverable status or claiming setup complete early.
+fresh context without reverting discoverable status or claiming migration complete early.
 Repeat with no real consumers or similar candidate groups: save synthetic scenarios
 from contract purposes and composition rules, label the coverage and still run discovery.
-Repeat as gradual setup migration across multiple batches and a resumed session:
-retain the setup origin and defer the independent check until the whole area is ready.
+Repeat as gradual migration across multiple batches and a resumed session: save
+admission after ordinary audits and structural checks, and independent discovery
+after the whole area is ready. Preserve these conditions without any origin label.
 In modes 1 and 2, allow discovery for actual page updates once needed contracts are
 ready; this does not count as the final independent check or waive required repairs.

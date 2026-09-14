@@ -109,10 +109,14 @@
   them. Present both passages and request a decision before replacing CLAUDE.md;
   neither filename takes priority. Continue independent connection work and report
   the unresolved pair without claiming full consolidation.
-- **Existing links and repeat setup:** Prepare a correct CLAUDE.md -> AGENTS.md pair
-  and a nested reverse AGENTS.md -> CLAUDE.md pair. Preserve contents and normalise
-  the reverse pair without cycles. Repeating setup must retain canonical files and
-  working relative links without duplicating instructions or moving skills.
+- **Existing links:** Prepare a correct CLAUDE.md -> AGENTS.md pair and a nested
+  reverse AGENTS.md -> CLAUDE.md pair. Preserve contents and normalise the reverse
+  pair without cycles during the initial connection.
+- **Repeat setup:** Start from the completed result of the base scenario and repeat
+  the same connection request. Report the existing completed connection without
+  rerunning connection work, reconciling skills again, duplicating
+  instructions, moving skills or recreating execution state. An uncertain history
+  must be reported rather than inferred from a new registry or completion marker.
 - **External or unreadable instructions:** Link a nested CLAUDE.md outside the target
   repository and make another instruction file unreadable to the worker. Leave these
   sources and links unchanged, report the coverage limits and continue independent

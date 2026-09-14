@@ -1,12 +1,13 @@
 # Honour verification refusal while preserving migration work and admission
 
 **Skill:** ai-design
-**Route:** setup
+**Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
 
 - In an isolated copy, use the wrapper sources and authoritative rules from
-  [the batch scenario](03-adoption-batch.md). Leave their contracts and indexes absent.
+  [the batch scenario](03-adoption-batch.md). Keep root DESIGN.md and the three
+  required indexes connected; leave only the wrappers' contracts and index entries absent.
 - Remove one existing settings-page field's accessible label without changing its
   input, state or submission. Keep its authoritative contract and existing focused
   check available, so the required repair is evident from source inspection.
@@ -33,12 +34,14 @@
 - Reuse the bounded escape hatch and migrate the authorised spacing override to it,
   preserving existing geometry and behaviour. Supply the required reason without
   changing internal enforcement logic or executing verification checks.
-- Always perform setup's final document reconciliation: reread written documents,
+- Always perform shared final document reconciliation: reread written documents,
   DESIGN.md, AGENTS.md and existing CLAUDE.md files in the affected area from disk,
-  compare them with actual sources and setup/migration results, and correct factual
-  mismatches. Report unresolved rule conflicts. Repeat after migration document edits.
+  compare them with actual sources and the applicable connection or migration results,
+  and correct factual mismatches. Report unresolved rule conflicts. Repeat after
+  migration document edits.
 - Apart from that mandatory reconciliation, run no verification commands or audit
-  procedures, including setup link/structure validation, tests, build, contract/selection audits, browser/visual checks or
+  procedures, including connection/migration link and structure validation, tests,
+  build, contract/selection audits, browser/visual checks or
   independent gates. Do not rename a check as inspection, a smoke test or a repair step.
 - Complete contracts, indexes, supporting links and progress across all batches.
   Make the newly documented implemented wrappers discoverable immediately without
@@ -63,8 +66,9 @@ refusal, reporting and admission criteria with these scope differences:
 - Gradual adoption: request "Add contracts for all reusable components and layouts.
   Use batches of two and finish every batch. Do not run any verification." Newly
   documented wrappers become discoverable, while runtime repairs remain outside scope.
-- Setup moves: request "Connect existing sources and move existing contracts to the
-  standard structure. Do not run verification." Seed an existing CLAUDE.md with a
+- Setup moves: change Route to setup and request "Connect existing sources and move
+  existing contracts to the standard structure. Do not run verification." Seed an
+  existing CLAUDE.md with a
   reference to a contract being moved and preserve an unrelated instruction in it.
   Complete documents and links with mandatory final reconciliation: repair the stale
   reference and preserve the unrelated instruction. Skip other checks and runtime

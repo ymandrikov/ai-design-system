@@ -1,8 +1,11 @@
 # Author a consumer contract
 
-Enter from [craft](craft.md). Read [fixed formats](formats.md), DESIGN.md
+Called by [craft](craft.md) or a migration procedure; return authoring results to
+that caller. Read [fixed formats](formats.md), DESIGN.md
 and the index's Contract link. Store component/layout/pattern
-contracts in their standard group directories. Maintain id, status and root-relative
+contracts in their standard group directories. Before any audit, read the caller's
+[admission and verification policy](admission.md) and reuse its saved choice.
+Maintain id, status and root-relative
 source/evidence paths in frontmatter; connect source files to the supported public
 bindings in Public API or the pattern's Structure.
 Use actual paths instead of deriving them from an id. A document-only pattern needs
@@ -75,15 +78,13 @@ component name or a successful answer to a restated criterion is insufficient ev
 For patterns/layouts also check a deliberate violation of a
 required composition rule.
 
-For migration within setup, defer independent discovery and use
-[setup’s coverage and admission rules](setup.md#discovery-during-setup-migration);
-ordinary author audits above still apply. Outside setup, run the mandatory [independent discovery gate](blind-gates.md) for contract creation,
-including adoption and intended hidden contracts, and changes to selection, composition
-eligibility or index routing. It runs the actual discovery procedure once per authoring
-batch in fresh context; the author's ordinary audit cannot replace it. Admission needs
-current passing discovery evidence. Clarification with no eligibility/routing change
-needs only affected ordinary checks. Independent consumption remains optional unless
-the task or DESIGN.md requires it.
+Read [admission policy](admission.md#select-the-applicable-policy) before deciding
+which independent checks apply. Run the [independent discovery gate](blind-gates.md)
+for ordinary per-batch authoring when required. For whole-set migration, return the
+ordinary audit and structural results to the migration caller, which owns the final
+[whole-set check](blind-gates.md#whole-set-migration-discovery). This changes timing,
+not the ordinary audit above. Independent consumption remains conditional on the
+policy, task and project requirements.
 
 Use existing tests, examples and focused public-use checks as evidence where they
 prove the current promises; inspect their actual results. Missing runtime evidence
@@ -106,8 +107,9 @@ Source paths resolve from the nearest ancestor DESIGN.md.
 
 Record the command, result and output or evidence path. The checker validates
 structure/links/indexes, not semantic correctness. Fix structural errors and report
-semantic contradictions, failing or unavailable checks to craft. Complete the
+semantic contradictions, failing or unavailable checks to the caller. Complete the
 audit when each affected public promise has evidence or an explicit limitation and
-any required independent discovery has passed, subject to an explicit
-[migration verification refusal](model.md#migration-verification).
-Craft owns admission and coordinates the applicable independent gates.
+the applicable [policy conditions](admission.md#select-the-applicable-policy) are met.
+For a deferred whole-set gate, return authoring results without claiming that gate passed.
+The caller owns admission and coordinates the applicable independent gates under
+the selected policy.

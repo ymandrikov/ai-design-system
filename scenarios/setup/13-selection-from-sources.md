@@ -1,7 +1,7 @@
 # Derive six consumer contracts from existing source material
 
 **Skill:** ai-design
-**Route:** setup
+**Route:** migrate
 **Design:** prepared-project/DESIGN.md
 **Preparation:**
 
@@ -32,7 +32,7 @@
 
 **Request:**
 
-> Use ai-design setup to migrate only these existing components into consumer
+> Use ai-design migrate to migrate only these existing components into consumer
 > contracts: Badge, DotIndicator, Loading, TooltipWrapper, Divider and CardPanel
 > (including its exported CardContent binding). Use mode 3, contracts only, and
 > finish the selected scope without changing runtime code. Choose the batch size.
@@ -45,6 +45,7 @@
 
 **Expected:**
 
+- Enter standalone migrate directly from the explicit migration request. Do not invoke or read setup.
 - Author all six contracts from source evidence. Meaningful selection distinctions
   appear beside the applicable criteria or in precise linked public rules; an API
   inventory or a repeated "needs this component" condition does not suffice.
@@ -70,7 +71,7 @@
 - Integrate relevant old promises at their original force. Keep concrete defects and
   unresolved choices next to affected uses, with detailed evidence/history in the
   journal. Repeated generic caveats or copied guide blocks are not reconciliation.
-- Follow current setup timing, scope and verification rules. Defensible unresolved
+- Follow current whole-set migration timing, scope and verification rules. Defensible unresolved
   decisions may leave affected work pending; do not force admission/completion or
   waive discovery to achieve six passing labels. Report unavailable runtime checks.
 - Inspect authored gate inputs and raw answers, not just pass totals. Product cases
