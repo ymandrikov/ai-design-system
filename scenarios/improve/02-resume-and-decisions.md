@@ -17,33 +17,40 @@
 
 **Request:**
 
-> Continue improve from the saved progress. Run applicable checks and finish all
-> independent work. Leave logic and consumers unchanged. Nobody can answer new
-> design questions in this run.
+> Continue improve from the saved progress. Leave logic and consumers unchanged.
 
 **Expected:**
 
-- Reconcile saved progress with actual sources, correct the regressed index and
-  inspect the pending areas. Saved completion alone is not current evidence.
+- Reconcile saved progress with actual sources, identify the regressed index and
+  inspect pending areas. Saved completion alone is not current evidence.
 - Preserve the rejected proposal and reason. Keep the accepted API simplification
-  deferred for a separate task because its consumer migration exceeds this request's scope.
-- Present both independent design questions together with concrete recommendations;
-  leave dependent edits pending and finish independent improvements.
-- Update the same improvements report with coverage, source-linked results,
-  unresolved decisions and next steps. Reuse existing gap/analysis records and
-  retain their original expectations rather than creating a second backlog.
-- End after the saved pass and verification. Repair regressions caused by permitted
-  changes, but do not start another whole-system search or ask for batch continuation.
-- Distinguish completed survey and permitted changes from pending decisions,
-  deferred work and verification limits; preserve logic and consumer files.
+  deferred because consumer migration exceeds this request's scope.
+- Present the survey, both independent design-rule questions with recommendations,
+  coverage and limitations in the conversation.
+- Leave all files unchanged, including the existing improvements report and gaps.
+  Saved decisions do not bypass the post-survey choice for this run.
+- Ask one action question for the whole result: save in a document or implement.
+
+**Follow-up branches:**
+
+- **Save in a document:** Update the existing improvements report with current
+  coverage, source-linked findings and proposals, preserving decisions, reasons and
+  original gap expectations. Do not correct the index or implement proposals.
+- **Implement:** Correct the regressed index and verify eligible changes. Leave
+  dependent design changes pending if their answers remain unavailable; finish
+  independent permitted work. Return results and verification limits in the
+  conversation, leaving the saved improvements report unchanged unless requested.
+- **Implementation with design answers:** Supply answers to both visual-rule questions
+  with the implementation choice. Reuse them without asking again and perform the
+  eligible system-only changes and checks. Consumer migration remains deferred.
 
 **Variants:**
 
-- **Answers supplied:** Supply concrete answers to both visual-rule questions,
-  authorising their system-only presentation changes while preserving interaction.
-  Reuse the answers, perform eligible changes and checks in the same run, and do
-  not ask again. The accepted consumer migration remains deferred.
-- **Scoped continuation:** Limit this run to layouts. Retain component and pattern
-  findings as not rechecked; inspect relevant consumers without modifying them.
-- **Unavailable area:** Make one pending source unreadable. Continue independent
-  work and retain partial coverage instead of claiming the pass is complete.
+- **Scoped continuation:** Limit this run to layouts. Keep saved component/pattern
+  findings as not rechecked; read relevant consumers without changing them.
+- **Unavailable area:** Make a pending source unreadable. Inspect independent areas
+  and report partial coverage. Do not claim the survey is complete.
+
+After implementation, repair regressions caused by permitted changes without starting
+another whole-system search. Distinguish survey coverage, changes, pending decisions,
+deferred work and verification limits.

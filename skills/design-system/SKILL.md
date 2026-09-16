@@ -22,7 +22,7 @@ capability does not expand it.
 | Requested result | Read and follow |
 | --- | --- |
 | Add external component sources to the project, or document a manual addition | [craft external-component adoption](reference/craft.md#adopt-locally-added-external-components) in the same task |
-| Survey and improve design-system consistency, including related consumer presentation while preserving logic | [improve](reference/improve.md); bounded system improvement through craft |
+| Survey and improve design-system consistency, including related consumer presentation while preserving logic | [improve](reference/improve.md); read-only survey, then one choice to document or implement |
 | Create or maintain components' design, layouts, patterns, contracts, tokens, rules or availability; fix a design-system gap | [craft](reference/craft.md) |
 | Build or change a product interface by selecting and composing the system's public capabilities | [use](reference/use.md) |
 
@@ -48,12 +48,12 @@ failed discovery. Keep unrelated system work outside the task.
 Explicit `design-system improve`, `analyze`, `setup`, `migrate`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
 language requests, reach the matching procedure directly. These are internal Markdown
 instructions, not additional skills. End at that procedure's result; standalone
-selection or review does not start implementation. Improve performs its bounded
+selection or review does not start implementation. Improve presents its survey before offering documentation or bounded
 system changes; its stricter scope remains in force when calling craft.
 
 | Request or workflow condition | Read and follow |
 | --- | --- |
-| Improve the existing system, or resume saved improvements, preserving logic and allowing scoped consumer design changes | [improve](reference/improve.md); one survey pass, permitted edits and verification with saved progress |
+| Improve the existing system, or resume saved improvements, preserving logic and allowing scoped consumer design changes | [improve](reference/improve.md); one read-only survey pass, then document or implement and verify |
 | Analyze the codebase for component, layout or pattern extraction, consolidation or reuse candidates | [analyze](reference/analyze.md); saved recommendations, with readiness determined by design-system artifacts and indexes |
 | Select components, layouts, patterns or tokens; advise how to organise or adapt a composition; assess system coverage | [discovery](reference/discovery.md), read/search only; return the recommendation without writing files |
 | Explicitly request project connection or its continuation | [setup](reference/setup.md) |

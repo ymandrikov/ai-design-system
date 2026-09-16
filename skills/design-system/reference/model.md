@@ -170,11 +170,12 @@ Preserve independent legacy violations and unrelated gaps; report them separatel
 subject to the [contrast scope](verify.md#contrast-scope) exception.
 Honour explicit scope and decisions already given in the current task.
 
-[Improve](improve.md) coordinates a bounded survey and craft work on an existing
-system's presentation, structure and documentation. Its boundary preserves business
-logic and component internals, including when a defect is found. Related consumer
-presentation may change within scope; changes requiring excluded logic remain project
-work. These limits remain in force in called procedures and every migration mode.
+[Improve](improve.md) starts with a read-only survey of an existing system and presents
+the result before one choice to document it or perform bounded craft work. Its boundary
+preserves business logic and component internals, including when a defect is found.
+Related consumer presentation may change within scope; changes requiring excluded logic
+remain project work. These limits remain in force in called procedures and every
+migration mode.
 
 ## Questions to the user
 

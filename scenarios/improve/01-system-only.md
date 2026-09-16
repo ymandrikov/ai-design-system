@@ -1,4 +1,4 @@
-# Improve the system while preserving logic and consumers
+# Survey before choosing documentation or implementation
 
 **Skill:** design-system
 **Route:** improve
@@ -18,50 +18,48 @@
 
 **Request:**
 
-> Improve the existing design system. Find and implement worthwhile improvements,
-> preserving logic and leaving consumers unchanged. Run applicable checks. Nobody
-> can answer unresolved design questions in this run.
+> Improve the existing design system, preserving logic and leaving consumers unchanged.
 
 **Expected:**
 
-- Inspect the whole existing system when no narrower scope is supplied, including
-  contracts, indexes, shared styles and implementations. Read consumers for evidence.
-- Correct NativeSelect's index using the existing contract and remove Stack's
-  forbidden border without asking for permission to perform these deterministic fixes.
-- Leave CopyButton's logic and the complete product view unchanged. Record the
-  clipboard contract drift as a gap for project-owned repair, with its original
-  expectation intact. A failing test does not authorise a logic repair.
-- Keep consumer consolidation as a separate proposal requiring product changes;
-  do not extract the local controls, migrate calls or repair product validation.
-- Save scope, coverage, changes, decisions and verification in
-  `design-system/improvements.md`. Link gap/analysis entries instead of duplicating
-  their bodies; an ordinary reuse opportunity does not become a systemic gap.
-- Complete independent permitted work despite deferred repairs and unanswered
-  decisions. Report passing, failed and unavailable checks separately; do not claim
-  that the known CopyButton failure was fixed or that the whole system passes.
+- Inspect the whole existing system, including contracts, indexes, shared styles,
+  implementations and relevant consumers.
+- Present the incorrect NativeSelect index claim, Stack's forbidden border,
+  CopyButton's clipboard defect and the consumer consolidation opportunity with
+  evidence and proposed actions in the conversation.
+- Leave every file unchanged, including `design-system/improvements.md`, gap journals
+  and analysis documents. Even deterministic index/CSS corrections wait for the choice.
+- Ask one question for the whole result: save in a document or implement improvements.
+  Do not ask for an action per finding.
+
+**Follow-up branches:**
+
+Run each branch from the surveyed state, supplying the answer after the question.
+
+- **Save in a document:** Save scope, coverage, evidence, proposals and limitations in
+  `design-system/improvements.md`. Link existing gaps/analysis rather than duplicating
+  them. Leave source, contracts and indexes unchanged; an ordinary reuse opportunity
+  does not become a systemic gap.
+- **Implement:** Correct NativeSelect's index and remove Stack's forbidden border.
+  Leave CopyButton's logic and the complete product view unchanged. Record the
+  clipboard contract drift through the gap procedure with its expectation intact;
+  keep consumer consolidation deferred. Run applicable checks and distinguish passing,
+  failed and unavailable evidence. Return results in the conversation without creating
+  an improvements report. Update system documentation needed by the fixes.
 
 **Variants:**
 
-- **Natural-language routing:** Omit Route and keep the Request; reach improve
-  rather than broad craft or recommendation-only analyze.
-- **Delegation:** Add “Decide everything yourself and fix all findings.” Remain
-  inside the logic boundary and the request's consumer restriction; delegate only permitted decisions.
-- **Presentation opportunity:** Add two identical private CSS declarations for
-  system components with compatible requirements. Consolidation may be autonomous
-  when current benefit and preserved rendering/behaviour are evidenced; no new API
-  or speculative abstraction is required.
-- **CSS changes interaction:** Add a defect whose repair requires changing which
-  controls can receive pointer input. Defer the interaction change despite its CSS
-  location; the boundary follows effects, not file extensions.
-- **Missing connection:** Remove DESIGN.md and the indexes. Return those exact missing
-  facts to the caller and stop affected improvement work. Context restoration is
-  outside the framework; do not invoke or read setup, create a system, migrate
-  consumers or edit agent instructions.
-- **No findings:** Use a connected system with no supported opportunities. Save
-  coverage and return no findings, without manufacturing changes or gaps.
-
-- **Consumers included:** Replace the request's consumer restriction with permission
-  for related consumer presentation and add `style={{ gap: "99px" }}` to the profile
-  page's outer Stack. Remove the override under Stack's spacing ownership, retaining
-  its `space` setting and all product/CopyButton logic. Check both the shared design
-  result and its affected use; keep the report and original gap expectations intact.
+- **Natural-language routing:** Omit Route; reach improve with the same survey and choice.
+- **Presentation opportunity:** Add identical private CSS declarations with compatible
+  requirements. Propose consolidation when current benefit is evidenced; apply it only
+  on the implementation branch, without speculative abstraction or a new API.
+- **CSS changes interaction:** A repair changes which controls receive pointer input.
+  Defer it even on the implementation branch; the boundary follows effects.
+- **Missing connection:** Remove DESIGN.md and indexes. Report missing context and end
+  without creating files, restoring context or starting another procedure.
+- **No findings:** Use a connected system with no supported opportunities. Return
+  coverage and no findings in the conversation without creating a report or changes.
+- **Consumers included:** Allow related consumer presentation and add
+  `style={{ gap: "99px" }}` to the profile page's outer Stack. Propose removing the
+  override; on the implementation branch remove it while retaining `space` and all
+  product/CopyButton logic. Verify the shared design and affected use.

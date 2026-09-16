@@ -63,7 +63,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Semantic token roles and theme alias values | discovery/23 |
 | Gap triage, archive cleanup, priorities, decisions and resolvability | triage/01–04 |
 | Reusable UI analysis, artifact prerequisites, full coverage and preserved decisions on rerun | analyze/01–02 |
-| Scoped improvement, preserved logic, consumer limits and permitted design changes, bounded passes and saved decisions | improve/01–02 |
+| Read-only improvement survey, whole-result document/implement choice, preserved logic and saved decisions | improve/01–02 |
 
 These are scenario coverage, not a claim that every model has passed. Production setup, unmanaged product fallback and deprecated migration still need model runs.
 Fixture tests alone do not establish agent selection or browser correctness.
