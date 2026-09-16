@@ -16,6 +16,11 @@ indexes are valid; a pre-existing catalogue is unnecessary.
 
 ## Identify the change
 
+For external component sources added locally, follow
+[external-component adoption](#adopt-locally-added-external-components). This includes
+an authorised addition by the agent and a request to document a manual addition;
+it does not start gradual batching or whole-codebase migration.
+
 When the user asks to fix a design-system gap, automatically follow [triage](triage.md)
 for the requested entry and directly related duplicates before planning the repair.
 For an unrecorded gap, first use [gap recording](gaps.md) to capture the request,
@@ -62,6 +67,45 @@ both decisions are settled. Migration concerns uses of the changed component onl
 extending other components requires its own scope. Do not repeat questions whose
 answers are already determined; technical compatibility alone does not settle an
 otherwise unknown design default or migration decision.
+
+## Adopt locally added external components
+
+Read the shared model and project DESIGN.md as for other craft work. When an agent
+adds external sources (for example through shadcn), create their contracts and update
+indexes in that same task, even without a separate contract request. After a manual
+addition, do this on request. Follow the project's installation procedure; this
+workflow needs no file watcher or installer hook.
+
+Inspect the actual added and changed files, their exports, source documentation,
+tests and consumers. Cover local component sources and project-owned wrappers;
+exclude direct library imports. Do not create wrappers just to include dependencies.
+Include all added public supporting UI entities needed for the result. Describe
+parts of a compound component in its common contract; private helpers and utilities
+receive no contracts. Classify independent components, layouts and patterns under
+the existing definitions. Update affected existing contracts when sources changed,
+preserving identity and deprecated status.
+
+Compare each addition with existing capabilities. Document evidenced selection
+boundaries for distinct entities. For an indistinguishable duplicate, propose a
+primary component and ask the user to choose; keep the new duplicate hidden until
+that choice is settled. Preserve existing consumers and availability meanwhile;
+their replacement or migration requires its own authority.
+
+Author standard contracts through [contract authoring](contract.md), using the local
+implementation, source documentation and project rules. Reconcile contradictions
+explicitly. API values and examples alone do not establish selection rules. Batch
+missing normative decisions with concrete recommendations, retain known promises
+and specific unresolved choices, and continue independent work. Contract generation
+does not authorise component redesign, implementation repairs or consumer changes.
+
+Apply [external-addition admission](admission.md#external-addition-admission): publish
+the contract and regenerate indexes before checks, except for unresolved duplicates.
+Then run the ordinary audits and applicable project checks through
+[edit and audit](#edit-and-audit), recording defects and unavailable evidence at the
+affected promises. Report document coverage, eligibility, check outcomes and remaining
+decisions separately. Complete when all in-scope contracts and indexes are reconciled,
+material decisions are settled and applicable checks have reported outcomes; failed
+or unavailable runtime checks remain limitations, not grounds to hide the component.
 
 ## Edit and audit
 

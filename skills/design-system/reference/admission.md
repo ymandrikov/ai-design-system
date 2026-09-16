@@ -18,6 +18,7 @@ without that requirement, their absence never blocks admission or completion.
 
 | Context | Admission with verification enabled | Completion |
 | --- | --- | --- |
+| Locally added external components under [external-addition admission](#external-addition-admission) | Publish as discoverable immediately with the contract, before checks; unresolved duplicates remain hidden. | Reconciled contracts/indexes and explicit check outcomes; unresolved normative decisions remain pending. Failed or unavailable runtime checks are recorded limitations. |
 | Ordinary craft and gradual adoption without saved whole-set conditions | Admit after authorised public promises and ordinary selection/composition checks pass. New/adopted entities remain hidden until then. | Applicable ordinary checks and any explicitly required independent checks pass. |
 | Automatic migration, or gradual adoption with saved whole-set conditions | Fully documented existing entities become discoverable after ordinary author audits and structural checks. Selected repair obligations remain. | Mode-specific work and applicable checks complete. Explicitly required discovery/review failures leave completion pending without reversing admission. |
 | Automatic modes 1 and 3 | Migration admission also applies when runtime checks fail or are unavailable; contracts remain complete and linked to defects and limitations. | Out-of-mode repairs do not block documentation completion. Mode 1 still requires its authorised exception changes and enabled checks. |
@@ -35,6 +36,25 @@ contract decisions in every mode; settle what is known meanwhile. Mandatory proj
 approval conditions continue to apply; report conflicts rather than silently changing
 policy. A request to add an entity includes admission after successful checks unless
 explicitly restricted. Draft creation or ordinary documentation alone grants no admission.
+
+## External-addition admission
+
+[External-component adoption](craft.md#adopt-locally-added-external-components) includes
+admission authority without a separate confirmation. For implemented local additions,
+set discoverable and regenerate indexes when writing the contract, before checks.
+This overrides ordinary craft's check-gated admission, including when the request is
+to document a manual external addition. Preserve explicit narrower scope and project
+approval conditions, existing deprecated status and hidden unimplemented drafts.
+An unresolved duplicate remains hidden until the user settles the primary choice.
+
+Run applicable ordinary checks after publication. Failures or unavailable evidence
+do not delay or revoke availability; keep the intended promises and record their
+specific defects and verification limits in the contract and response. Missing
+normative choices remain explicit and block dependent decisions, not publication of
+the known contract. Never invent rules or claim those decisions are complete.
+Consumers still check suitability and required promises; discoverable is not a claim
+of working behaviour. This exception does not apply to ordinary new-component craft,
+direct library imports or an unrelated migration.
 
 ## Whole-set migration discovery
 

@@ -102,6 +102,20 @@ the caller. A handoff stops the current procedure and reports work for a separat
 authorised workflow. Routes use direct Markdown links; there is no procedure registry
 or runtime marker.
 
+## Add external components
+
+When an agent adds external component sources locally, for example through shadcn,
+it also creates their contracts and updates indexes in the same task. After a manual
+addition, ask the agent to add those components to the design system. This covers
+local sources and project-owned wrappers, not direct library imports.
+
+[External-component adoption](skills/design-system/reference/craft.md#adopt-locally-added-external-components)
+includes public supporting entities, groups compound parts in their parent's contract,
+and updates contracts for changed sources. Components become discoverable immediately;
+checks follow and record defects without hiding them. An indistinguishable duplicate
+stays hidden until the primary component is chosen. Missing design rules are discussed;
+contract generation does not authorise runtime repairs or consumer migration.
+
 ## Improve an existing design system
 
 Ask `design-system improve` to survey the existing system, implement evidenced improvements

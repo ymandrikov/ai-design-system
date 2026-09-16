@@ -52,6 +52,7 @@ formats and APIs remain fixed; free-form evaluation applies to agent reports.
 | Automatic use routing and system-gap handoff | build/03 |
 | Read-only missing-basis discovery followed by caller-authorised gap recording | gap-record/missing-basis-handoff |
 | Component implementation and admission authority in craft | authoring/09 |
+| Local external additions, immediate availability, duplicate decisions and verification limits | authoring/15 |
 | Explicit migration and default decisions for component API extensions | authoring/10 |
 | Coherent component proposals and scoped delegation without repeated questions | authoring/11–12 |
 | Sufficient selection rules, ordinary authoring checks and explicitly requested whole-set discovery | authoring/13; setup/07 |

@@ -17,7 +17,9 @@ migrate; that call does not start gradual batching or API analysis.
 ## Save the work list
 
 Inspect source exports, implementations and consumers to enumerate all project-owned
-reusable components, layouts and existing patterns in scope, including wrappers around dependencies.
+reusable components, layouts and existing patterns in scope, including locally copied
+external sources and wrappers around dependencies. External origin alone does not
+exclude project-owned source or change this migration's admission policy.
 Exclude private implementation details, pages and unwrapped third-party components;
 record ambiguous candidates with the classification question still open. Group
 bindings of the same entity together and order dependencies before their consumers.

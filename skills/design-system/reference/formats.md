@@ -293,4 +293,5 @@ verifiable promises; apply the [contrast scope](verify.md#contrast-scope) during
 Use native elements, attributes and anatomy where needed for invocation, forms,
 composition, events or accessibility. Keep internal DOM dumps out of contracts.
 Report unresolved normative choices to [craft](craft.md) rather than filling a contract with
-placeholders. Draft work with unresolved choices is incomplete and not admitted.
+placeholders. Draft work with unresolved choices is incomplete; eligibility follows
+[admission policy](admission.md), including its external-addition exception.
