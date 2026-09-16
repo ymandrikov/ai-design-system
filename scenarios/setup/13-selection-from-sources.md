@@ -1,6 +1,6 @@
 # Derive six consumer contracts from existing source material
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** migrate
 **Design:** prepared-project/DESIGN.md
 **Preparation:**
@@ -11,7 +11,7 @@
   repository and exact revision; the initial regression uses `1f667b9` from rememba-app.
   This is an external-source scenario: if that input is unavailable, report not run.
 - Export tracked `src/` and `package.json` from that revision into `prepared-project/`.
-  Include the current ai-design package under `skills/ai-design/`. Start with empty
+  Include the current design-system package under `skills/design-system/`. Start with empty
   component/layout/pattern indexes, an empty gap journal and a minimal DESIGN.md
   linking those indexes, `src/components/COMPONENTS.md`, `src/screen/SCREENS.md` and
   `src/designSystem.css`. Identify guides as authoritative public rules and source
@@ -32,7 +32,7 @@
 
 **Request:**
 
-> Use ai-design migrate to migrate only these existing components into consumer
+> Use design-system migrate to migrate only these existing components into consumer
 > contracts: Badge, DotIndicator, Loading, TooltipWrapper, Divider and CardPanel
 > (including its exported CardContent binding). Use mode 3, contracts only, and
 > finish the selected scope without changing runtime code. Choose the batch size.

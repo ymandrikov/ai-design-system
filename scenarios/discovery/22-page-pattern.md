@@ -1,6 +1,6 @@
 # Discover a page pattern and its fixed composition
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

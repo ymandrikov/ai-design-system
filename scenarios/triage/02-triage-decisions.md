@@ -1,6 +1,6 @@
 # Prioritise gaps and prepare a decision
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:** In the isolated copy, replace the gap journal with these entries.
 Their Source and Need are supplied request facts, not proof of a design rule.

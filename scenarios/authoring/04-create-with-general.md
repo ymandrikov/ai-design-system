@@ -1,6 +1,6 @@
 # Author a specialised contract without narrowing its competitor
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

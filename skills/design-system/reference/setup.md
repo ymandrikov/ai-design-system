@@ -62,7 +62,7 @@ agent instructions and configuration, including hidden directories and nested pa
   agent instruction files exist. Missing evidence does not require a question.
 
 Exclude dependencies, third-party code and symlink targets outside the repository.
-Report the selected mode and its evidence. Setup uses the already installed ai-design
+Report the selected mode and its evidence. Setup uses the already installed design-system
 package, whether repository-local or user-global; keep it and other skills at their
 actual locations. Global installations and the current agent do not determine the
 repository's mode. Setup neither installs nor relocates skills.
@@ -101,7 +101,7 @@ supporting instructions. Keep discovery inside the repository, including symlink
 targets; report externally linked or unreadable skills as outside the inspected
 coverage. Global and session/plugin skill catalogues are outside this analysis.
 
-Compare actual instructions, triggers and responsibilities with ai-design's setup,
+Compare actual instructions, triggers and responsibilities with design-system's setup,
 craft, use and supporting procedures. Distinguish complementary guidance, overlapping
 functionality and incompatible instructions. Ground conflicts in source passages and
 a concrete affected operation, such as replacing DESIGN.md or bypassing component
@@ -110,7 +110,7 @@ contracts. Judge fit for this project rather than general skill quality or popul
 Preserve existing skills and processes by default under the
 [shared responsibility boundary](model.md#authority-and-task-scope):
 
-- **Compatible overlap:** retain the skill and its entrypoint. Connect ai-design to
+- **Compatible overlap:** retain the skill and its entrypoint. Connect design-system to
   its relevant stages through repository instructions, preserving the overall process.
   No replacement proposal or replacement decision is needed, even for fully overlapping
   UI responsibilities. Preserve unrelated and complementary skills too.
@@ -187,7 +187,7 @@ Link the archive in DESIGN.md, using `design-system/gaps-archive.md` for a new o
 initialise a missing archive with a title and no entries. Existing journals and archives can remain
 linked at their current paths. Apply [agent instruction consolidation](#consolidate-agent-instructions)
 and extend the selected AGENTS.md or CLAUDE.md invocation
-routes within authorised setup scope with a DESIGN.md and `ai-design` pointer and the
+routes within authorised setup scope with a DESIGN.md and `design-system` pointer and the
 [division of responsibilities](model.md#authority-and-task-scope). Keep the project
 skill as the overall entrypoint; identify use for selection and reuse in product UI,
 craft for contracts and system development, and the results returned to the caller.

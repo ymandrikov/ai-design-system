@@ -1,6 +1,6 @@
 # Default to escape hatches without changing behaviour or waiving approval
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
 

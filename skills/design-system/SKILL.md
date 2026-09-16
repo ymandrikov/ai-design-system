@@ -1,9 +1,9 @@
 ---
-name: ai-design
+name: design-system
 description: Organise and maintain a consistent design system through contracts, discovery, reuse and verification. Handles design-only component and consumer changes, initial setup, adoption and migration, analysis, gaps and triage; component internals and business logic remain project-owned.
 ---
 
-# AI design
+# Design system
 
 One entrypoint, two workflows with separate responsibilities. The framework governs
 design-system work and its checks; implementation and engineering test methods follow
@@ -15,7 +15,7 @@ Within a project workflow, act as its design-system specialist under the
 
 ## Choose the workflow
 
-Accept explicit `ai-design craft <request>` and `ai-design use <request>`, or infer
+Accept explicit `design-system craft <request>` and `design-system use <request>`, or infer
 the workflow from the requested result. An explicit mode sets the scope; a missing
 capability does not expand it.
 
@@ -39,7 +39,7 @@ failed discovery. Keep unrelated system work outside the task.
 
 ## Standalone procedures
 
-Explicit `ai-design improve`, `analyze`, `setup`, `migrate`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
+Explicit `design-system improve`, `analyze`, `setup`, `migrate`, `discovery`, `verify`, `gaps` or `triage`, and equivalent natural
 language requests, reach the matching procedure directly. These are internal Markdown
 instructions, not additional skills. End at that procedure's result; standalone
 selection or review does not start implementation. Improve performs its bounded

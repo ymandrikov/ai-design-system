@@ -1,6 +1,6 @@
 # Exact task outranks a viable broader category
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**

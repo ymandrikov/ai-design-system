@@ -1,4 +1,4 @@
-# Validate ai-design with other agents
+# Validate design-system with other agents
 
 Scenarios test decisions and resulting UI, not the wording of an agent's response.
 These repository validation procedures do not prescribe a consuming project's
@@ -19,7 +19,7 @@ as archives, outside the current run's inputs.
 
 ## Scenario format and coverage
 
-Each scenario names the ai-design Skill, Design, Request and human-readable Expected
+Each scenario names the design-system Skill, Design, Request and human-readable Expected
 criteria. Route optionally selects craft, use or a standalone procedure such as
 setup or migrate; omit it to
 test automatic routing from the request.
@@ -108,13 +108,13 @@ Preparation and Expected criteria stay outside the worker's prompt and accessibl
 Fill this prompt and save the exact dispatched prompt:
 
 For a Reference scenario, replace the first instruction with
-`Read <copy>/skills/ai-design/SKILL.md for context, then follow <copy>/<reference> for this request only.`
+`Read <copy>/skills/design-system/SKILL.md for context, then follow <copy>/<reference> for this request only.`
 This tests the procedure without requiring an unrelated full UI build.
-For a Route scenario, include `Use ai-design <route> for this request.` after reading
+For a Route scenario, include `Use design-system <route> for this request.` after reading
 the entrypoint. With no Route or Reference, let the entrypoint choose from the Request.
 
 ```text
-Read and follow <copy>/skills/ai-design/SKILL.md.
+Read and follow <copy>/skills/design-system/SKILL.md.
 Design: <copy>/<design>.
 Work inside <copy>. You may also write gate prompts, complete answers,
 scratch artifacts and executable logs to <run>/evidence/<id>, and your
@@ -132,7 +132,7 @@ Before finishing, save your complete final response verbatim to the result file.
 For discovery, use this separate prompt:
 
 ```text
-Read <copy>/skills/ai-design/SKILL.md and follow ai-design discovery.
+Read <copy>/skills/design-system/SKILL.md and follow design-system discovery.
 Design: <copy>/<design>.
 This task is the discovery stage: return a selection/composition decision in the
 conversation. The Request describes the intended UI; implementation belongs to the

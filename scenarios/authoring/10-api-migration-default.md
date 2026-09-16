@@ -1,6 +1,6 @@
 # Agree migration and defaults before extending a component API
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

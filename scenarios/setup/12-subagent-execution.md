@@ -1,6 +1,6 @@
 # Delegate automatic migration while preserving correctness
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

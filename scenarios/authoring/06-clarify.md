@@ -1,6 +1,6 @@
 # Clarify wording without changing valid calls
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

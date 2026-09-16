@@ -1,6 +1,6 @@
 # Turn a need into a component proposal
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

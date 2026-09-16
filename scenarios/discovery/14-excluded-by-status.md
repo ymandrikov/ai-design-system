@@ -1,6 +1,6 @@
 # The only fitting entry is hidden
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**

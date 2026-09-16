@@ -1,6 +1,6 @@
 # Craft establishes a new system before explicit connection
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/seed-system/DESIGN.md (does not exist yet)
 **Request:**
 

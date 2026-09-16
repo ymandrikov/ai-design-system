@@ -1,6 +1,6 @@
 # Return missing context without starting setup
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** use
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

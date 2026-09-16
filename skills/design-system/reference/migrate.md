@@ -1,6 +1,6 @@
 # Migrate the design system
 
-Run on an explicit automatic migration request, including `ai-design migrate` or
+Run on an explicit automatic migration request, including `design-system migrate` or
 equivalent natural language, an authorised handoff, or a saved migration resume.
 
 Read [the shared model](model.md), DESIGN.md and the saved migration state. Apply

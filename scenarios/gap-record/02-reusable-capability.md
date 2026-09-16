@@ -1,8 +1,8 @@
 # Record a reusable missing capability
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** use
-**Reference:** skills/ai-design/reference/gaps.md
+**Reference:** skills/design-system/reference/gaps.md
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**
 

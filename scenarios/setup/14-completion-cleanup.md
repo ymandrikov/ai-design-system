@@ -1,6 +1,6 @@
 # Remove execution-only artifacts after completed migration
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 **Route:** migrate
 **Preparation:**

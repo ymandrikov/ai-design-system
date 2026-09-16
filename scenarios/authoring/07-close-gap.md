@@ -1,6 +1,6 @@
 # Retain a gap when runtime evidence is missing
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:** In the isolated copy, append an open gap titled "Copy action not found"

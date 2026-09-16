@@ -1,6 +1,6 @@
 # Clear committed archive history without losing fresh records or links
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** triage
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:** Use isolated copies with their own Git history. Keep the open
@@ -13,7 +13,7 @@ the committed records to construct separate 499-line and exactly 500-line cases.
 
 **Request:**
 
-> Run ai-design triage.
+> Run design-system triage.
 
 **Expected:**
 

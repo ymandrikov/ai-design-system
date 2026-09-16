@@ -1,6 +1,6 @@
 # The task wins over the means, then the API decides
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

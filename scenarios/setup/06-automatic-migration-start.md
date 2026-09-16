@@ -1,6 +1,6 @@
 # Ask for migration boundaries without asking for batch size
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**
 

@@ -1,6 +1,6 @@
 # Resume automatic migration without reopening setup
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

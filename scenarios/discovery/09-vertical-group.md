@@ -1,6 +1,6 @@
 # A vertical group
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

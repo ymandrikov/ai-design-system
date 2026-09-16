@@ -1,6 +1,6 @@
 # Narrow a contract's description
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

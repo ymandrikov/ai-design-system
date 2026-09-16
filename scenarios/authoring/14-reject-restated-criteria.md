@@ -1,7 +1,7 @@
 # Reject successful answers to restated criteria as sufficiency evidence
 
-**Skill:** ai-design
-**Reference:** skills/ai-design/reference/blind-gates.md
+**Skill:** design-system
+**Reference:** skills/design-system/reference/blind-gates.md
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**
 

@@ -1,6 +1,6 @@
 # Find reusable UI candidates without starting implementation
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** analyze
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

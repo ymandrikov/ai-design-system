@@ -1,6 +1,6 @@
 # Keep missing selection rules visible despite implementation clues
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

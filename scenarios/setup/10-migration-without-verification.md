@@ -1,6 +1,6 @@
 # Honour verification refusal while preserving migration work and admission
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

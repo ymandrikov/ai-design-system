@@ -1,6 +1,6 @@
 # Ignore an unmanaged implementation
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

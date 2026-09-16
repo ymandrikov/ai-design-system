@@ -1,6 +1,6 @@
 # Assess intervention without changing priority or authority
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 
 **Preparation:** In the isolated copy, retain the existing journal entries unchanged

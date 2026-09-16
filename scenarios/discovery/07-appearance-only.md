@@ -1,6 +1,6 @@
 # A widget name without intent
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

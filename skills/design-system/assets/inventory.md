@@ -4,8 +4,8 @@ Generate COMPONENTS.md, LAYOUTS.md and PATTERNS.md from Markdown contracts in
 `design-system/components/`, `layouts/` and `patterns/`, including subdirectories:
 
 ```sh
-node <ai-design-directory>/scripts/generate-indexes.mjs <project-root>
-node <ai-design-directory>/scripts/generate-indexes.mjs --check <project-root>
+node <design-system-directory>/scripts/generate-indexes.mjs <project-root>
+node <design-system-directory>/scripts/generate-indexes.mjs --check <project-root>
 ```
 
 The project root contains DESIGN.md. Run generation after creating, moving, removing

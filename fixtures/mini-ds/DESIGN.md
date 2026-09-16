@@ -69,5 +69,5 @@ basis. Resolution requires demonstrating the original expectation.
 The person running the skill owns normative choices and lifecycle decisions.
 Honour explicit decisions already given in the task.
 
-Follow ai-design's mandatory independent discovery checks. Independent consumption
+Follow design-system's mandatory independent discovery checks. Independent consumption
 and setup demonstrations are optional unless explicitly requested.

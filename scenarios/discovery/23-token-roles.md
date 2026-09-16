@@ -1,6 +1,6 @@
 # Select token roles without treating them as UI entities
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**

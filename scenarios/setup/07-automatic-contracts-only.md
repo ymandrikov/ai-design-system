@@ -1,6 +1,6 @@
 # Complete contracts-only migration despite recorded runtime limitations
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
@@ -16,7 +16,7 @@
 
 **Request:**
 
-> Use ai-design migrate to automatically migrate the whole codebase in mode 3,
+> Use design-system migrate to automatically migrate the whole codebase in mode 3,
 > contracts only. Finish
 > everything without changing runtime code. Browser verification is unavailable.
 > Run the applicable available verification checks.

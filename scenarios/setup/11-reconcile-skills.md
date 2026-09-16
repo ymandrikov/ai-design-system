@@ -1,12 +1,12 @@
-# Preserve repository workflows while connecting ai-design as a specialist
+# Preserve repository workflows while connecting design-system as a specialist
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** setup
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
 
 - Treat the isolated mini-ds directory as the target repository. Install the current
-  ai-design package in its `.agents/skills/ai-design/` directory.
+  design-system package in its `.agents/skills/design-system/` directory.
 - Add `.agents/skills/build-screen/SKILL.md` with frontmatter naming the skill and
   describing the full screen-building process. Require these stages in order:
   clarify requirements and obtain approval; decide architecture and data flow; select
@@ -26,7 +26,7 @@
 
 **Request:**
 
-> Connect this repository's existing design system to ai-design. Run the applicable
+> Connect this repository's existing design system to design-system. Run the applicable
 > verification checks. No codebase migration is requested.
 
 **Expected:**
@@ -37,10 +37,10 @@
 - Identify compatible overlap from actual instructions. Preserve build-screen and its
   supporting files without offering replacement or asking for a replacement decision.
 - Extend AGENTS.md routing: build-screen still owns screen requests and the full process;
-  ai-design handles contract/system work and selection and reuse of components, layouts
+  design-system handles contract/system work and selection and reuse of components, layouts
   and patterns. Make the specialist stage's result and return to build-screen explicit.
   Requirements approval, architecture/data, analytics, stories/tests and final readiness
-  remain reachable in their original order; ai-design UI checks do not complete the screen.
+  remain reachable in their original order; design-system UI checks do not complete the screen.
 - Preserve motion and readiness rules at their original locations and link relevant
   project rules from DESIGN.md. Copying their text into DESIGN.md and deleting the
   original invocation or stages fails, even though no executable scripts exist.
@@ -57,19 +57,19 @@
   Await unresolved rule choices, record the affected operations in DESIGN.md and finish
   independent connection work without claiming the conflict is resolved.
 - **Accepted targeted correction:** Use the conflicting-rule preparation and append:
-  "Change only the shared-component rule to follow ai-design craft and its checks
+  "Change only the shared-component rule to follow design-system craft and its checks
   before continuing screen composition. Preserve the rest of build-screen."
   Apply that correction and corresponding routing without another confirmation;
   preserve unrelated process stages and rule locations.
 - **Existing craft authority:** Add a compatible rule permitting shared-component
   development when needed, subject to project contracts and checks. Route it through
   craft before use under that existing authority. Do not invent a conflict or require
-  renewed permission merely because two ai-design workflows are involved.
+  renewed permission merely because two design-system workflows are involved.
 - **Explicit consolidation:** Append: "I want to consolidate build-screen into
-  ai-design and remove the old skill. Propose the migration first."
+  design-system and remove the old skill. Propose the migration first."
   Map triggers, every process stage, approvals, supporting rules and readiness checks
   to proposed owners before recommending concrete edits. Expose responsibilities
-  ai-design does not cover and any changed or lost behaviour; Markdown-only stages count.
+  design-system does not cover and any changed or lost behaviour; Markdown-only stages count.
   Keep files and routes intact pending the migration decision. A DESIGN.md text dump
   without reachable process stages is not an equivalent replacement.
 - **Declined conflict correction:** Use the conflicting-rule preparation and append:
@@ -85,7 +85,7 @@
   CLAUDE.md and no `.agents/`, AGENTS.md or other-agent configuration anywhere in the
   target. Keep CLAUDE.md canonical and extend its route without creating `.agents/`
   or AGENTS.md or moving any skills.
-- **Global installation, unknown mode:** Make ai-design available from outside the
+- **Global installation, unknown mode:** Make design-system available from outside the
   target repository; prepare no repository skills, agent instruction files or agent
   configuration. Default to multiple agents and create root AGENTS.md with a relative
   CLAUDE.md symlink. Use the actual installed skill; do not create a local package or

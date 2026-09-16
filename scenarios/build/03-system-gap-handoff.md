@@ -1,6 +1,6 @@
 # Infer use and hand a system gap to craft
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**
 

@@ -25,9 +25,9 @@ function headingAnchors(markdown) {
 }
 
 it("ships one self-contained skill with reachable procedures and scenario routes", () => {
-  const root = resolve("skills/ai-design");
+  const root = resolve("skills/design-system");
   const files = readdirSync("skills", { recursive: true });
-  expect(files.filter((file) => file.endsWith("SKILL.md"))).toEqual(["ai-design/SKILL.md"]);
+  expect(files.filter((file) => file.endsWith("SKILL.md"))).toEqual(["design-system/SKILL.md"]);
 
   const instructions = ["SKILL.md", ...readdirSync(join(root, "reference"))
     .filter((file) => file.endsWith(".md")).map((file) => `reference/${file}`)];
@@ -59,7 +59,7 @@ it("ships one self-contained skill with reachable procedures and scenario routes
   for (const file of scenarioFiles("scenarios")) {
     const source = readFileSync(file, "utf8");
     const skill = source.match(/\*\*Skill:\*\* (.+)/)?.[1];
-    expect(skill, file).toBe("ai-design");
+    expect(skill, file).toBe("design-system");
     const route = source.match(/\*\*Route:\*\* (.+)/)?.[1];
     if (route) expect(existsSync(join(root, "reference", `${route}.md`)), file).toBe(true);
     const reference = source.match(/\*\*Reference:\*\* (.+)/)?.[1];

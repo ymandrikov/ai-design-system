@@ -1,6 +1,6 @@
 # Author an intended contract without implementing a component
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

@@ -1,6 +1,6 @@
 # Archive a gap after proving token discoverability
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/tie-ds/DESIGN.md
 **Preparation:** In the isolated copy's design-system/gaps.md, add "Field-group spacing

@@ -1,6 +1,6 @@
 # Connect without mandatory page adoption
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** setup
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

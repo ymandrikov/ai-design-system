@@ -1,6 +1,6 @@
 # Analyse escape hatches independently of contract migration
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

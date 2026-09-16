@@ -1,6 +1,6 @@
 # Compose an analogous page from the managed pattern
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** use
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

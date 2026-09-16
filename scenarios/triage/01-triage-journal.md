@@ -1,6 +1,6 @@
 # Triage a mixed journal without repairing the system
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** triage
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:** In the isolated copy, keep the existing Toggle gap and append
@@ -18,7 +18,7 @@ Source and Need as supplied request facts; leave the system artifacts unchanged.
 
 **Request:**
 
-> Run ai-design triage on the open gap journal. Update the journal and recommend
+> Run design-system triage on the open gap journal. Update the journal and recommend
 > next steps. Browser access is unavailable in this run.
 
 **Expected:**

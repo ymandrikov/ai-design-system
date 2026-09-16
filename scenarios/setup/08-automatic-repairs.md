@@ -1,6 +1,6 @@
 # Repair design defects while preserving internal and business logic
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** migrate
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

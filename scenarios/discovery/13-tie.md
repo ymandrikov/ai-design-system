@@ -1,6 +1,6 @@
 # Two valid choices differ only by preference
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**

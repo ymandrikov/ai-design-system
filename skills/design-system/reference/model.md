@@ -1,6 +1,6 @@
 # Design-system project boundary
 
-ai-design organises and maintains a design system through contracts and workflows.
+design-system organises and maintains a design system through contracts and workflows.
 Its primary responsibility is consistency over time. The framework governs
 design-system work; the project supplies implementation conventions and engineering
 test procedures. Required contract rules and workflow checks remain binding;
@@ -46,7 +46,7 @@ inconsistent partial change.
 The framework does not choose application architecture, dependencies, source-file
 trees or engineering test methods. Follow the project's established procedures for
 implementation and engineering evidence. The same agent may perform separately
-authorised project work under those instructions; ai-design governs its design-system
+authorised project work under those instructions; design-system governs its design-system
 contribution and does not supply authority for business-logic changes.
 
 ## Shared vocabulary
@@ -118,7 +118,7 @@ promises required by the consuming interface.
 
 A missing DESIGN.md, required index, source connection or other prerequisite is a
 context defect. Name the missing inputs and return the restoration need to the user
-or project process outside ai-design. Do not recreate missing context or invent
+or project process outside design-system. Do not recreate missing context or invent
 sources. Pause only work that depends on it; continue independent authorised work.
 After the project restores the inputs, resume the affected procedure.
 
@@ -136,13 +136,13 @@ expose an override unless their contract permits one.
 
 ## Authority and task scope
 
-ai-design integrates as a specialist in contracts and design-system work, including
+design-system integrates as a specialist in contracts and design-system work, including
 selection and reuse of components, layouts and patterns. An existing project skill
 keeps its entrypoint and ownership of the overall task: requirements, architecture,
 data, analytics, stage order, approvals and completion criteria. UI responsibilities
 alone do not make that skill redundant. Follow the stages, expected results and
 return points established in AGENTS.md or CLAUDE.md;
-ai-design's stage checks do not replace overall task completion checks.
+design-system's stage checks do not replace overall task completion checks.
 
 Keep existing project rules and process instructions at their authoritative locations
 and use their links from DESIGN.md. Moving them requires a separately agreed project
@@ -178,7 +178,7 @@ work. These limits remain in force in called procedures and every migration mode
 
 ## Questions to the user
 
-Across all ai-design procedures, use the host's available question/ask-user tool
+Across all design-system procedures, use the host's available question/ask-user tool
 when permitted in the current mode. Use its native fields for the question, options,
 consequences and recommendation. Use the user's language without emoji.
 If no permitted question tool can present all required options, ask in a separate conversation message

@@ -1,6 +1,6 @@
 # Record a missing choice basis after read-only discovery returns
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
 

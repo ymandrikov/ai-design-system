@@ -1,6 +1,6 @@
 # Preserve analysis decisions during a scoped rerun
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** analyze
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

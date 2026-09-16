@@ -1,6 +1,6 @@
 # Resume bounded improvements and preserve decisions
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** improve
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

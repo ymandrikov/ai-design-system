@@ -1,6 +1,6 @@
 # Adapt a pattern expressed through permitted classes
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/tie-ds/DESIGN.md
 

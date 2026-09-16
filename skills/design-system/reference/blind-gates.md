@@ -87,7 +87,7 @@ A correct answer to an invalid case supplies no evidence of contract sufficiency
 ## Discovery gate: run the actual procedure
 
 Give the worker an isolated copy containing DESIGN.md, all three UI indexes, their
-linked contracts and the batch’s hidden contracts, required public rules/token definitions and the current ai-design
+linked contracts and the batch’s hidden contracts, required public rules/token definitions and the current design-system
 skill. Keep competing candidates present. Omit component implementations, private
 styles, tests, previews, consumer code and authoring history; source/evidence links
 in the copied contracts are references, not additional permitted inputs. Keep expected
@@ -102,7 +102,7 @@ Dispatch all unnamed requests for the batch together, with neutral case ids and 
 must-fit/must-not-fit labels. The worker decides each request separately:
 
 ```text
-Read <copy>/skills/ai-design/SKILL.md and follow ai-design discovery.
+Read <copy>/skills/design-system/SKILL.md and follow design-system discovery.
 Design: <DESIGN.md in copy>.
 Requests: <case ids and unnamed tasks>.
 Read only the supplied copy. Return the full discovery response in the conversation.

@@ -3,7 +3,7 @@ import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, symlinkSync,
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
-import { checkContract, checkContractFile } from "../skills/ai-design/scripts/check-contract.mjs";
+import { checkContract, checkContractFile } from "../skills/design-system/scripts/check-contract.mjs";
 
 const HEADINGS = [
   "When to use",
@@ -310,7 +310,7 @@ describe("checkContractFile", () => {
   });
 });
 
-const checker = resolve("skills/ai-design/scripts/check-contract.mjs");
+const checker = resolve("skills/design-system/scripts/check-contract.mjs");
 const cli = (args) => spawnSync(process.execPath, [checker, ...args], { encoding: "utf8" });
 
 describe("check-contract CLI", () => {
@@ -430,7 +430,7 @@ it("runs the README pre-commit hook against staged sources and contracts", () =>
   const { path, root, write } = project();
   const hook = readFileSync("README.md", "utf8")
     .match(/### Pre-commit hook example[\s\S]*?```sh\n([\s\S]*?)\n```/)[1];
-  write("skills/ai-design/scripts/check-contract.mjs", readFileSync(checker, "utf8"));
+  write("skills/design-system/scripts/check-contract.mjs", readFileSync(checker, "utf8"));
   const hookPath = write(".githooks/pre-commit", hook);
   const git = (args) => {
     const result = spawnSync("git", args, { cwd: root, encoding: "utf8" });
@@ -478,7 +478,7 @@ it("validates fixture contracts through all three indexes", () => {
   })).toEqual([]);
 });
 
-const generator = resolve("skills/ai-design/scripts/generate-indexes.mjs");
+const generator = resolve("skills/design-system/scripts/generate-indexes.mjs");
 const generate = (root, ...args) => spawnSync(process.execPath, [generator, ...args, root], { encoding: "utf8" });
 
 describe("generate-indexes CLI", () => {

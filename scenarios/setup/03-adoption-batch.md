@@ -1,6 +1,6 @@
 # Enumerate the full scope and ask for the batch size
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** setup
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

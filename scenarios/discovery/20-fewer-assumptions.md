@@ -1,6 +1,6 @@
 # Prefer the viable candidate without an unknown size limit
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**

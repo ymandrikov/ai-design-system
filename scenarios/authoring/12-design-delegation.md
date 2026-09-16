@@ -1,6 +1,6 @@
 # Complete an intended contract with delegated design decisions
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

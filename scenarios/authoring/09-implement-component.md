@@ -1,6 +1,6 @@
 # Craft includes implementation and evidenced admission
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/mini-ds/DESIGN.md
 **Request:**

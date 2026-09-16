@@ -1,6 +1,6 @@
 # Ask before implementing a conditional choice
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** use
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**

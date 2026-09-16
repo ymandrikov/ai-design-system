@@ -104,7 +104,7 @@ unchanged. Refresh it only after review, never merely to clear a failing check.
 Run validation with the entity's group and all three indexes:
 
 ```sh
-node <ai-design-directory>/scripts/check-contract.mjs --kind <component|layout|pattern> \
+node <design-system-directory>/scripts/check-contract.mjs --kind <component|layout|pattern> \
   --inventory <components-index> --inventory <layouts-index> \
   --inventory <design-system/PATTERNS.md> <contract-path>
 ```

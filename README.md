@@ -7,7 +7,7 @@ The project keeps its code, bindings, styles and tools; root DESIGN.md connects 
 
 Read [CONTEXT.md](CONTEXT.md) when discussing or changing domain terms. It is the
 canonical glossary, exposed at the repository root by a symlink to the copy packaged
-with `ai-design`. [Project boundary rules](skills/ai-design/reference/model.md)
+with `design-system`. [Project boundary rules](skills/design-system/reference/model.md)
 describe how those terms map to project artifacts and workflows.
 
 The framework governs design-system contracts, selection, reuse, checks, lifecycle,
@@ -16,7 +16,7 @@ including related consumer presentation within scope. Component internals, busin
 logic, application architecture and source-file organisation remain project-owned.
 Engineering checks follow the project's established procedures; the framework defines
 the design-system outcomes they must establish. See the
-[responsibilities and design-only boundary](skills/ai-design/reference/model.md#responsibilities).
+[responsibilities and design-only boundary](skills/design-system/reference/model.md#responsibilities).
 
 ## Installation
 
@@ -24,7 +24,7 @@ You need Node.js with npm, Git, and a coding agent that supports skills.
 From the root of the project where you want to use the skill, run:
 
 ```sh
-npx skills add ymandrikov/ai-design-system --skill ai-design
+npx skills add ymandrikov/ai-design-system --skill design-system
 ```
 
 Select your coding agent in the installer. Installation is project-local by default;
@@ -34,23 +34,23 @@ add `--global` to make the skill available across your projects. See the
 Then ask your agent to connect an existing design system:
 
 ```text
-Use ai-design setup to connect this project's design system.
+Use design-system setup to connect this project's design system.
 ```
 
-If the project does not have a design system yet, ask `ai-design craft` to create
+If the project does not have a design system yet, ask `design-system craft` to create
 one. See [Connect a project](#connect-a-project) for the resulting structure.
 
 ## Workflows
 
-The single [ai-design skill](skills/ai-design/SKILL.md) routes to two workflows:
+The single [design-system skill](skills/design-system/SKILL.md) routes to two workflows:
 
-- `ai-design use` discovers an appropriate composition, implements product
+- `design-system use` discovers an appropriate composition, implements product
   UI through public APIs and verifies the affected relationships and behaviour.
-- `ai-design craft` develops and maintains reusable components, layouts, patterns,
+- `design-system craft` develops and maintains reusable components, layouts, patterns,
   contracts, rules and tokens, and verifies readiness for new selection. It follows
   the project's implementation conventions and can create a system from scratch.
 
-Craft's [proposal discussion](skills/ai-design/reference/component-proposal.md)
+Craft's [proposal discussion](skills/design-system/reference/component-proposal.md)
 turns a need and optional mockup into a component, layout or pattern proposal. Users can accept,
 amend or delegate choices; questions focus on material decisions still needing input.
 
@@ -63,7 +63,7 @@ Explicit migration exceptions remain visible in the evidence. A gap record alone
 does not permit another independent shared variant; choose an extension, a justified
 new entity or a bounded exception. Local composition within existing contracts is valid.
 
-`ai-design improve`, `analyze`, `setup`, `migrate`, `discovery`, `verify`, `gaps`
+`design-system improve`, `analyze`, `setup`, `migrate`, `discovery`, `verify`, `gaps`
 and `triage` reach internal procedures for bounded system improvement, codebase
 analysis, initial connection, migration,
 selection, review, gap recording and journal triage. Equivalent natural language requests
@@ -72,7 +72,7 @@ own result. All procedures are Markdown references loaded when needed, with one
 `SKILL.md`, shared templates and the existing contract checker:
 
 ```text
-skills/ai-design/
+skills/design-system/
   SKILL.md
   reference/
     craft.md
@@ -104,9 +104,9 @@ or runtime marker.
 
 ## Improve an existing design system
 
-Ask `ai-design improve` to survey the existing system, implement evidenced improvements
+Ask `design-system improve` to survey the existing system, implement evidenced improvements
 and verify the result. An unspecified scope covers the whole system; name a component,
-package or area to narrow it. The [improve procedure](skills/ai-design/reference/improve.md)
+package or area to narrow it. The [improve procedure](skills/design-system/reference/improve.md)
 coordinates existing craft, analysis, gap and verification procedures.
 
 Improve changes system presentation, composition and documentation, including related
@@ -131,13 +131,13 @@ coverage, deferred work and verification limits remain explicit.
 
 ## Analyze reusable UI candidates
 
-Ask `ai-design analyze` to find component, layout and pattern candidates across the
+Ask `design-system analyze` to find component, layout and pattern candidates across the
 project’s UI, or name an area to limit the analysis. It checks the artifacts and
 indexes under `design-system/`. Missing indexes stop affected analysis and are
 returned to the caller for restoration outside the framework; they do not invoke
 setup. Missing DESIGN.md alone does not block analysis. Empty index groups are valid.
 
-The [analysis procedure](skills/ai-design/reference/analyze.md) compares repeated
+The [analysis procedure](skills/design-system/reference/analyze.md) compares repeated
 fragments and local entities with existing capabilities, recommending reuse, extension,
 adoption, extraction or keeping code local. Candidates need an evidenced shared or
 independent responsibility; patterns additionally need a shared end-user task and
@@ -158,7 +158,7 @@ journal. Selected proposals can proceed through craft and product reuse through 
 
 ## Connect a project
 
-Ask `ai-design setup` explicitly for the project's initial connection. Setup is a
+Ask `design-system setup` explicitly for the project's initial connection. Setup is a
 one-time bootstrap: it can resume an unfinished connection, but completed setup is
 never invoked or read by craft, use, migrate or another work procedure. It can
 discover and inspect pages automatically; no selected page, adoption or demonstration
@@ -172,17 +172,17 @@ CLAUDE.md symlinks, including in nested packages. A clean repository gets a root
 Conflicting instructions require a decision before replacing the affected file.
 Claude-only projects retain their Claude-specific structure. Setup uses skills already
 installed in the repository or globally, without installing or moving them.
-See [agent mode and consolidation](skills/ai-design/reference/setup.md#determine-the-agent-mode).
+See [agent mode and consolidation](skills/design-system/reference/setup.md#determine-the-agent-mode).
 During setup it also analyses skills inside the repository for overlapping functions
-and conflicts with ai-design. Existing skills keep their entrypoints and overall
+and conflicts with design-system. Existing skills keep their entrypoints and overall
 processes; AGENTS.md or CLAUDE.md routes contract and design-system work, including
-component/layout/pattern selection and reuse, through ai-design. Compatible overlap
+component/layout/pattern selection and reuse, through design-system. Compatible overlap
 requires no replacement decision. Concrete conflicts lead to minimal rule or boundary
 edits; unresolved conflicts block only dependent actions. Replacement or consolidation
 requires an explicit request and a prior mapping of responsibilities, workflow and
 losses. Apart from agent instruction consolidation, existing project rules stay at
 their sources, linked from DESIGN.md, unless their reorganisation is separately
-agreed. See [skill reconciliation](skills/ai-design/reference/setup.md#reconcile-repository-skills).
+agreed. See [skill reconciliation](skills/design-system/reference/setup.md#reconcile-repository-skills).
 
 Setup completes and reconciles the connection before it asks "What next?" with four
 explicit options in order:
@@ -206,11 +206,11 @@ without an origin label. For B and C, the shared work list in `design-system/ado
 progress and batch sizes. After listing the scope, the agent asks for a batch size
 unless already supplied, saved or delegated: 5 or 10 (recommended), or another positive integer.
 Ask to continue for the next batch, change the batch size, or explicitly request
-completion of every batch. See [gradual adoption](skills/ai-design/reference/adoption.md).
+completion of every batch. See [gradual adoption](skills/design-system/reference/adoption.md).
 
 ## Migrate a connected project
 
-`ai-design migrate` owns automatic migration for a connected project, including a
+`design-system migrate` owns automatic migration for a connected project, including a
 later request and resuming saved work. It uses concrete saved scope, admission and
 verification decisions without connection history. Select an area or the whole codebase:
 
@@ -225,7 +225,7 @@ design-repair scope; all modes preserve internal component and business logic. E
 recommended choice without questions. Already supplied decisions are reused. For example:
 
 ```text
-Use ai-design migrate to automatically migrate the whole codebase in mode 1.
+Use design-system migrate to automatically migrate the whole codebase in mode 1.
 ```
 
 Before any migration checks, including connection link validation when migration
@@ -234,7 +234,7 @@ the applicable checks and waits for a run-or-skip choice alongside other startup
 decisions. An explicit or saved choice is reused across batches and resumptions.
 Skipping testing or verification applies in every mode, including gradual adoption:
 checks and evidence-gated admission are skipped except mandatory
-[document reconciliation](skills/ai-design/reference/completion.md#reconcile-final-documents),
+[document reconciliation](skills/design-system/reference/completion.md#reconcile-final-documents),
 while authorised code repairs and documentation continue. Before reporting connection
 or migration results,
 the agent rereads all created or changed documents, DESIGN.md, AGENTS.md and existing
@@ -243,17 +243,17 @@ migration or connection results. Factual mismatches are corrected; unresolved ru
 conflicts are reported.
 Documented implemented entities become `discoverable`, retaining existing `deprecated`
 status. Results are explicitly unverified, and the user accepts the risk of nonworking
-code. See [migration verification](skills/ai-design/reference/admission.md#migration-verification).
+code. See [migration verification](skills/design-system/reference/admission.md#migration-verification).
 
 The agent chooses an unspecified batch size, saves progress in `design-system/adoption.md`
 and continues through all batches without repeated confirmation. Blocked items remain
 explicit while independent work proceeds. New design rules need authoritative sources
 or delegated decision authority. Modes 1 and 2 can reuse or create a bounded escape
 hatch for a concrete need, preserving project exception-approval conditions.
-See [automatic migration](skills/ai-design/reference/migrate.md) for scope and completion.
+See [automatic migration](skills/design-system/reference/migrate.md) for scope and completion.
 
 After the selected connection or migration scope and its final checks are complete, the
-agent [removes execution-only artifacts](skills/ai-design/reference/completion.md#clean-up-completed-work)
+agent [removes execution-only artifacts](skills/design-system/reference/completion.md#clean-up-completed-work)
 before reporting: completed plans, temporary copies, one-off scripts and fully
 superseded files. Lasting rules, decisions, limitations and required evidence remain
 reachable; unfinished work retains its continuation state. No separate setup-history
@@ -267,7 +267,7 @@ Defects outside those modes' repair authority do not block documentation complet
 Mode 1 still requires completing its exception changes; mode 2 remains partially
 complete while required repairs or enabled verification are blocked.
 
-[Admission and check timing](skills/ai-design/reference/admission.md#select-the-applicable-policy)
+[Admission and check timing](skills/design-system/reference/admission.md#select-the-applicable-policy)
 is shared by craft, adoption and migrate. Ordinary craft and gradual adoption without
 saved whole-set conditions run strict checks for each batch before admission. Every
 automatic migration, and gradual adoption whose authorised plan records whole-set
@@ -283,7 +283,7 @@ are present. Crafting a new system from scratch can establish design intent from
 authoritative sources and explicit decisions; it cannot call setup. An initial
 connection still requires an explicit setup request.
 
-[The DESIGN.md template](skills/ai-design/assets/DESIGN.md) connects
+[The DESIGN.md template](skills/design-system/assets/DESIGN.md) connects
 visual intent, shared rules, tokens, indexes, public usage and verification:
 
 ```text
@@ -337,7 +337,7 @@ examples:
 
 `id`, `description`, `status` and `sources` are required; tests/examples are
 optional lists of concrete files. The
-[format reference](skills/ai-design/reference/formats.md) defines the supported flat
+[format reference](skills/design-system/reference/formats.md) defines the supported flat
 YAML syntax, multiline descriptions and unimplemented drafts. The entire former
 Purpose section lives in `description`; contracts have five H2 sections. The three
 generated indexes contain only discoverable contracts: H1 names, full descriptions
@@ -383,19 +383,19 @@ managed candidate fits, with limited verification explicitly reported. Reuse alo
 does not adopt it into the design system.
 
 See [the glossary](CONTEXT.md) and
-[authority rules](skills/ai-design/reference/model.md).
+[authority rules](skills/design-system/reference/model.md).
 
 ## Contracts and evidence
 
-[Fixed formats](skills/ai-design/reference/formats.md) define one
+[Fixed formats](skills/design-system/reference/formats.md) define one
 section order per group. Components describe API and behaviour; layouts describe API
 and composition; patterns describe structure, composition and verification.
 
 Regenerate indexes after changing contracts, including status changes:
 
 ```sh
-node skills/ai-design/scripts/generate-indexes.mjs <project-root>
-node skills/ai-design/scripts/generate-indexes.mjs --check <project-root>
+node skills/design-system/scripts/generate-indexes.mjs <project-root>
+node skills/design-system/scripts/generate-indexes.mjs --check <project-root>
 ```
 
 Generation replaces all three standard indexes; edit contracts instead. `--check`
@@ -405,7 +405,7 @@ in any status stop generation before writing. Discovery remains read-only.
 Check actual links, group format and index membership using all three indexes:
 
 ```sh
-node skills/ai-design/scripts/check-contract.mjs --kind layout \
+node skills/design-system/scripts/check-contract.mjs --kind layout \
   --inventory fixtures/mini-ds/design-system/COMPONENTS.md \
   --inventory fixtures/mini-ds/design-system/LAYOUTS.md \
   --inventory fixtures/mini-ds/design-system/PATTERNS.md \
@@ -422,11 +422,11 @@ Contracts integrate legacy promises into one public boundary, with specific limi
 kept visible and migration history in linked records. Discovery checks use independent
 product situations; copying or paraphrasing criteria does not establish sufficient coverage.
 Ordinary authoring audits public promises, new suitable contexts, nearby unsuitable
-uses and edge cases. [Independent discovery](skills/ai-design/reference/blind-gates.md)
+uses and edge cases. [Independent discovery](skills/design-system/reference/blind-gates.md)
 is mandatory for contract creation and changes to selection, composition eligibility
 or index routing, using one fresh agent per authoring batch with only public inputs.
 Ordinary admission requires current passing discovery evidence for each authoring
-batch. [Automatic migrations and gradual initial adoption](skills/ai-design/reference/admission.md#whole-set-migration-discovery)
+batch. [Automatic migrations and gradual initial adoption](skills/design-system/reference/admission.md#whole-set-migration-discovery)
 finish the whole selected contract set and admit documented existing entities first,
 then run independent discovery over saved project scenarios and confusing alternatives.
 Ordinary author audits remain required; reduced coverage and uncovered entities are
@@ -434,7 +434,7 @@ recorded. Blocked contracts defer the check; failed checks leave migration incom
 without reversing admission. Existing focused tests/examples
 can supply runtime evidence; missing support remains unverified.
 Ordinary admission requires proven promises and authority;
-[automatic migration in modes 1 and 3 and migration without verification](skills/ai-design/reference/admission.md#migration-verification)
+[automatic migration in modes 1 and 3 and migration without verification](skills/design-system/reference/admission.md#migration-verification)
 explicitly admit documented existing entities with recorded verification limits.
 Independent consumption/composition supplements
 that audit when requested by the task or DESIGN.md policy. Craft includes component
@@ -451,20 +451,20 @@ journal holds only open entries without mandatory categories. Closed entries mov
 in full to the archive linked from DESIGN.md, by default `design-system/gaps-archive.md`,
 with a closure date, disposition and basis. Resolved entries retain the resolution
 and verification evidence; dismissed entries retain the reason; merged duplicates
-link to the retained entry. See [archiving](skills/ai-design/reference/gaps.md#archive-an-entry).
+link to the retained entry. See [archiving](skills/design-system/reference/gaps.md#archive-an-entry).
 
-`ai-design triage` checks the open journal against related system sources, merges
+`design-system triage` checks the open journal against related system sources, merges
 duplicates without losing expectations, and archives erroneous or already-resolved
 entries with evidence. It recommends a work order and next steps, separating work
 ready for craft from pending facts or decisions. Triage updates the journal and archive;
 repairs and a system-wide search for new gaps require separate scope.
 New gaps and entries reviewed during triage or repair receive an
-[A/B/C resolvability assessment](skills/ai-design/reference/gaps.md#assess-resolvability),
+[A/B/C resolvability assessment](skills/design-system/reference/gaps.md#assess-resolvability),
 separate from priority and repair authority. Existing journals need no bulk update.
 Archive cleanup runs on explicit request or at 500 lines, checked at triage entry
 and after archiving. It removes all entries whose current version is saved in Git,
 retains uncommitted records and replaces incoming links with verified commit permalinks.
-See [archive cleanup](skills/ai-design/reference/archive-cleanup.md) for retention
+See [archive cleanup](skills/design-system/reference/archive-cleanup.md) for retention
 when history or link replacement is unavailable. Cleanup creates no commits.
 
 ### Source freshness
@@ -480,14 +480,14 @@ After reviewing the contract against its sources and resolving or recording find
 the reviewing agent normally updates the hash explicitly:
 
 ```sh
-node skills/ai-design/scripts/check-contract.mjs --update-sources-hash \
+node skills/design-system/scripts/check-contract.mjs --update-sources-hash \
   --kind layout fixtures/mini-ds/design-system/layouts/stack.md
 ```
 
 The command preserves the contract text and refuses updates when validation fails.
 If the promises remain correct, only the hash needs to change. A matching hash means
 the listed sources are unchanged; it does not certify the promises. Ordinary checks
-and CI never update hashes. See the [hash format](skills/ai-design/reference/formats.md#contract-frontmatter).
+and CI never update hashes. See the [hash format](skills/design-system/reference/formats.md#contract-frontmatter).
 
 ### Pre-commit hook example
 
@@ -499,7 +499,7 @@ skill's script path. Node.js must be available on `PATH`.
 #!/bin/sh
 set -eu
 cd "$(git rev-parse --show-toplevel)"
-checker="$PWD/skills/ai-design/scripts/check-contract.mjs"
+checker="$PWD/skills/design-system/scripts/check-contract.mjs"
 contract_snapshot=$(mktemp -d)
 trap 'rm -rf "$contract_snapshot"' EXIT
 # ponytail: export the full index; narrow the snapshot if repository size makes this slow.
@@ -563,4 +563,4 @@ optional scope. For example: `feat: add a component` or `docs: clarify setup`.
 
 Framework-specific bindings, CSS, lifecycle machinery and tools stay project-owned.
 This repository carries selection, composition, system development, contract authoring
-and verification protocols. See the [project boundary rules](skills/ai-design/reference/model.md).
+and verification protocols. See the [project boundary rules](skills/design-system/reference/model.md).

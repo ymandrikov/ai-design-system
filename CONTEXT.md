@@ -1,1 +1,1 @@
-skills/ai-design/reference/CONTEXT.md
+skills/design-system/reference/CONTEXT.md

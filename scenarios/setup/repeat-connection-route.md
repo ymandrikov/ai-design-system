@@ -1,6 +1,6 @@
 # Do not rerun a completed initial connection
 
-**Skill:** ai-design
+**Skill:** design-system
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**
 
@@ -10,7 +10,7 @@
 
 **Request:**
 
-> Use ai-design setup to connect this project again. If it is already connected,
+> Use design-system setup to connect this project again. If it is already connected,
 > leave it as it is and report the existing result.
 
 **Expected:**

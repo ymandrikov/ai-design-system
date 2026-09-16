@@ -1,6 +1,6 @@
 # Improve the system while preserving logic and consumers
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** improve
 **Design:** fixtures/mini-ds/DESIGN.md
 **Preparation:**

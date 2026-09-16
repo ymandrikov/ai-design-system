@@ -1,6 +1,6 @@
 # Propose local spacing when the selection rule is missing
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** discovery
 **Design:** fixtures/mini-ds/DESIGN.md
 

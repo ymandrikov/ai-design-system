@@ -1,6 +1,6 @@
 # Author contracts that distinguish nearby uses without implementation knowledge
 
-**Skill:** ai-design
+**Skill:** design-system
 **Route:** craft
 **Design:** fixtures/tie-ds/DESIGN.md
 **Request:**
