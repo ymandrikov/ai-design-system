@@ -1,4 +1,4 @@
-# No Purpose line describes the element
+# No description line describes the element
 
 **Skill:** ai-design
 **Route:** discovery

@@ -1,19 +1,17 @@
 ---
 id: multi-pick
+description: |-
+  MultiPick lets the user pick one or more options from a list of any
+  length by typing to filter it.
+
+  The system owns MultiPick so that every typed single choice in the product has
+  the same filtering, highlighting and listbox semantics. The consumer supplies
+  the options and the label; the filtering and the roles are the system's.
 status: hidden
 sources: []
 ---
 
 # MultiPick
-
-## Purpose
-
-MultiPick lets the user pick one or more options from a list of any
-length by typing to filter it.
-
-The system owns MultiPick so that every typed single choice in the product has
-the same filtering, highlighting and listbox semantics. The consumer supplies
-the options and the label; the filtering and the roles are the system's.
 
 ## When to use
 

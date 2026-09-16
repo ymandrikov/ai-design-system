@@ -6,7 +6,7 @@
 **Preparation:** In the isolated copy, retain the existing journal entries unchanged
 and append the following entries with Source, Need, Actual result, Expected result
 and Evidence from this table. Give Routing summary a stale Assessment of C.
-In COMPONENTS.md, replace NativeSelect's Purpose with a claim that it supports
+In COMPONENTS.md, replace NativeSelect's description with a claim that it supports
 multiple values. Its contract remains authoritative and unchanged.
 Add two dated notes linked from DESIGN.md: both report that an existing density
 decision was made, but one says compact and the other regular; neither supersedes

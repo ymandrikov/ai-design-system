@@ -92,8 +92,10 @@ remains unverified. Browser-dependent promises need rendered/interactive evidenc
 [UI verification](verify.md). Unchanged evidenced promises
 need no new test or browser run merely because their wording was clarified.
 
-Align index summaries, actual Contract links and directly affected incoming contract
-references. When `sourcesHash` is missing or stale, complete the source-to-contract
+Regenerate [indexes](../assets/inventory.md) from the current contracts and align
+directly affected incoming contract references. Run the generator with `--check`
+to verify index freshness and id uniqueness across every status.
+When `sourcesHash` is missing or stale, complete the source-to-contract
 review above, resolve or record its findings and limitations, then run the command
 below with `--update-sources-hash` for that reviewed contract. The reviewing agent
 normally records this snapshot; a hash-only update is valid when the promises remain

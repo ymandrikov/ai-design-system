@@ -33,7 +33,7 @@ Update evidence and the next step directly, without asking for each journal edit
   missing request fact to clarification. Dismissal is not a demonstrated repair.
 - Resolve an already-fixed gap only after demonstrating all its original
   expectations. Discoverability requires actual selection; implementation or a
-  matching Purpose alone is insufficient. Apply the resolution requirements in
+  matching description alone is insufficient. Apply the resolution requirements in
   [gap recording](gaps.md), including the basis for choice gaps.
 - Retain unresolved or uncertain entries with the remaining failure, missing
   facts or verification limit. Missing evidence is not evidence of an erroneous

@@ -1,9 +1,9 @@
 # Fixed contract formats
 
 Component, layout and pattern contracts use YAML frontmatter, an H1 name, then exactly the
-six H2 headings below in order, with nonempty sections. H3 headings may organise
+five H2 headings below in order, with nonempty sections. H3 headings may organise
 sections. Group follows the standard directory and its index linked from DESIGN.md.
-COMPONENTS.md, LAYOUTS.md and PATTERNS.md use the shared [index template](../assets/inventory.md).
+COMPONENTS.md, LAYOUTS.md and PATTERNS.md are generated using the shared [index format](../assets/inventory.md).
 
 ## Detail for agent decisions
 
@@ -28,6 +28,9 @@ state any normative condition in the section that governs it.
 ```yaml
 ---
 id: button
+description: >-
+  Invoke one immediate action or navigate to one destination
+  through a native button or link.
 status: discoverable
 sources:
   - src/components/Button.tsx
@@ -39,10 +42,11 @@ examples:
 ---
 ```
 
-`id`, `status` and `sources` are required; `tests` and `examples` are optional.
+`id`, `description`, `status` and `sources` are required; `tests` and `examples` are optional.
 IDs use letters, digits, underscores and hyphens, start with a letter or digit, and
-cannot be `none`. Status is `hidden`, `discoverable` or `deprecated`. Keep these
-metadata values only here; indexes refer to the contract instead of copying them.
+cannot be `none`. Status is `hidden`, `discoverable` or `deprecated`. Identity and status
+live only here. Indexes copy the full `description`;
+its nonempty string is required for every status.
 `sources` lists implementation files for every supported binding and the styles
 that define the entity. Native/CSS-only entities may list just their stylesheet.
 For an intended contract awaiting implementation, use `sources: []`, keep it hidden
@@ -66,8 +70,11 @@ unchanged listed sources, not semantic correctness or runtime readiness. With
 `sources: []`, hash comparison and updates are skipped; omit `sourcesHash`.
 
 The standalone checker accepts flat YAML: plain or quoted strings, two-space block
-lists as above, and `[]` for an empty list. Use those forms; nested objects, aliases,
-multiline values and populated inline lists are outside this format. Quote strings
+lists as above, and `[]` for an empty list. Use those forms; nested objects, aliases and
+populated inline lists are outside this format. For `description`, also accept
+two-space-indented `>-` (folded) and `|-` (literal) blocks. Use `|-` when
+preserving paragraph breaks, lists or other Markdown from an existing Purpose section.
+Other block styles and indentation indicators are outside this format. Quote strings
 containing YAML punctuation; double quotes use JSON escapes. Add new metadata fields
 with an explicit schema/checker change when a concrete check needs them.
 
@@ -75,9 +82,9 @@ with an explicit schema/checker change when a concrete check needs them.
 
 | Group | Section headings in order (H2 for all groups) |
 | --- | --- |
-| component | Purpose; When to use; When not to use; Public API; Behaviour and states; Accessibility |
-| layout | Purpose; When to use; When not to use; Public API; Composition; Accessibility |
-| pattern | Purpose; When to use; When not to use; Structure; Composition; Verification |
+| component | When to use; When not to use; Public API; Behaviour and states; Accessibility |
+| layout | When to use; When not to use; Public API; Composition; Accessibility |
+| pattern | When to use; When not to use; Structure; Composition; Verification |
 
 ## Purpose and intent
 
@@ -85,8 +92,9 @@ with an explicit schema/checker change when a concrete check needs them.
 language. Translate the developer's request into that language, then use the
 contract to select, configure and compose the entity. **Purpose** describes this
 task, its outcome and means, and the entity's role and guarantees in the system.
-Keep this meaning in Purpose and the applicable rules; no separate Goal or Intent
-contract sections are needed.
+Store the entire purpose in frontmatter `description`, with no `## Purpose` section.
+Keep the applicable selection and public-use rules in their governing sections.
+No separate Goal or Intent contract sections are needed.
 
 Express the meaning of the action, data or composition. Use product concepts where
 they change the choice: a named resource that exists independently of the screen,
@@ -104,10 +112,11 @@ rather than inventing a product rationale. Selection and public-use rules must
 make the purpose actionable; examples illustrate those rules without limiting reuse.
 
 Use words a request can contain. Paragraph count is unrestricted; there is no
-prescribed English opener or id-to-name spelling rule. Index Purpose descriptions
+prescribed English opener or id-to-name spelling rule. Descriptions
 cover supported tasks, means and material distinctions from related entities.
-Derive them from the contract and check that no supported task would be missed
-through an omitted purpose. Include the detail needed for discovery; keep exact
+Check that no supported task would be missed through an omitted purpose.
+Indexes copy the full description mechanically; do not maintain a separate summary.
+Include the detail needed for discovery; keep exact
 applicability conditions in the contract rather than duplicating selection rules.
 
 ## Check the basis for choices

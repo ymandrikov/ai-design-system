@@ -6,7 +6,7 @@
 **Preparation:**
 
 - Use `fixtures/mini-ds/` as the target project root.
-- Change NativeSelect's index Purpose to claim multiple selection; leave its
+- Change NativeSelect's index description to claim multiple selection; leave its
   single-selection contract and implementation unchanged.
 - Add `border: 1px solid black` to the shared Stack CSS rule. Its contract still
   explicitly says that Stack paints no surface or border.

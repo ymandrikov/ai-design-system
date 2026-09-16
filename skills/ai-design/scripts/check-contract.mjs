@@ -5,7 +5,6 @@ import { basename, dirname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const HEADINGS = [
-  "Purpose",
   "When to use",
   "When not to use",
   "Public API",
@@ -15,8 +14,8 @@ export const HEADINGS = [
 
 export const FORMATS = {
   component: HEADINGS,
-  layout: ["Purpose", "When to use", "When not to use", "Public API", "Composition", "Accessibility"],
-  pattern: ["Purpose", "When to use", "When not to use", "Structure", "Composition", "Verification"],
+  layout: ["When to use", "When not to use", "Public API", "Composition", "Accessibility"],
+  pattern: ["When to use", "When not to use", "Structure", "Composition", "Verification"],
 };
 
 export function checkContract(markdown, { resolveLink = () => true, kind = "component" } = {}) {
@@ -55,7 +54,7 @@ export function checkContract(markdown, { resolveLink = () => true, kind = "comp
     problems.push("Accessibility must contain the H3 subsections Provided by the component and Required of consumers");
   }
 
-  for (const target of localLinks(markdown)) {
+  for (const target of localLinks(withoutCode(`${parsed.metadata.description ?? ""}\n${markdown}`))) {
     if (!resolveLink(target)) problems.push(`relative link does not resolve: ${target}`);
   }
   return problems;
@@ -113,13 +112,14 @@ function identityProblems({ id, status }) {
   ];
 }
 
-function frontmatter(markdown) {
-  const match = markdown.replaceAll("\r\n", "\n").match(/^---\n([\s\S]*?)\n---(?:\n|$)/);
+export function frontmatter(markdown) {
+  markdown = markdown.replaceAll("\r\n", "\n");
+  const match = markdown.match(/^---\n([\s\S]*?)\n---(?:\n|$)/);
   if (!match) return { metadata: {}, body: markdown, problems: ["missing frontmatter"] };
   const metadata = {};
   const problems = [];
   let field;
-  // ponytail: flat YAML strings and block lists only; use a YAML library if nested metadata is needed.
+  // ponytail: flat YAML with two-space description blocks; use a YAML library if nested metadata is needed.
   const scalar = (value) => {
     if (value.startsWith('"')) return JSON.parse(value);
     if (value.startsWith("'")) {
@@ -129,7 +129,9 @@ function frontmatter(markdown) {
     if (/^[!&*>{[|@`]|: | #/.test(value)) throw new Error("unsupported YAML scalar");
     return value;
   };
-  for (const line of match[1].split("\n")) {
+  const lines = match[1].split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     if (!line.trim() || /^\s*#/.test(line)) continue;
     try {
       const item = line.match(/^  - (.+)$/);
@@ -137,15 +139,39 @@ function frontmatter(markdown) {
         metadata[field].push(scalar(item[1].trim()));
         continue;
       }
-      const property = line.match(/^(id|status|sources|sourcesHash|tests|examples):(?:\s+(.*))?$/);
+      const property = line.match(/^(id|description|status|sources|sourcesHash|tests|examples):(?:\s+(.*))?$/);
       if (!property) throw new Error("expected a supported field or two-space block list item");
       field = property[1];
       if (Object.hasOwn(metadata, field)) throw new Error(`duplicate frontmatter field: ${field}`);
       const value = property[2]?.trim() ?? "";
+      if (field === "description" && [">-", "|-"].includes(value)) {
+        const block = [];
+        while (i + 1 < lines.length && (!lines[i + 1].trim() || lines[i + 1].startsWith("  "))) {
+          block.push(lines[++i].slice(2));
+        }
+        while (block.at(-1) === "") block.pop();
+        metadata[field] = block.map((line, index) => {
+          if (index === block.length - 1) return line;
+          const next = block[index + 1];
+          const ordinary = line && !/^\s/.test(line);
+          const nextOrdinary = next && !/^\s/.test(next);
+          const separator = value === ">-" && ordinary
+            ? (nextOrdinary ? " " : next === "" ? "" : "\n") : "\n";
+          return line + separator;
+        }).join("");
+        continue;
+      }
+      if (field === "description" && /^(?:null|~|true|false|\[\]|[-+]?\d+(?:\.\d+)?)$/i.test(value)) {
+        metadata[field] = null;
+        continue;
+      }
       metadata[field] = PATH_FIELDS.includes(field) && (value === "" || value === "[]") ? [] : scalar(value);
     } catch (error) { problems.push(`frontmatter: ${error.message}`); field = undefined; }
   }
   problems.push(...identityProblems(metadata));
+  if (typeof metadata.description !== "string" || !metadata.description.trim()) {
+    problems.push("description must be a nonempty string");
+  }
   if (metadata.sourcesHash !== undefined && !/^[a-f0-9]{64}$/.test(metadata.sourcesHash)) {
     problems.push("sourcesHash must be a lowercase SHA-256 hex digest");
   }
@@ -198,11 +224,11 @@ function inventoryEntries(markdown) {
     } else if (/^\S/.test(line)) {
       current = undefined;
     } else if (current) {
-      const property = line.match(/^\s+- (ID|Status|Purpose|Contract):\s*(.*)$/);
+      const property = line.match(/^  - (ID|Status|Description|Contract):\s*(.*)$/);
       if (property) {
         field = property[1];
         current[field] = property[2];
-      } else if (/^\s+- /.test(line)) {
+      } else if (/^  - /.test(line)) {
         field = undefined;
       } else if (field && line.trim()) {
         current[field] += ` ${line.trim()}`;
@@ -245,7 +271,7 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
     for (const entry of inventoryEntries(withoutCode(text))) {
       const context = `${index}: ${entry.name}`;
       for (const key of ["ID", "Status"]) if (entry[key] !== undefined) problems.push(`${context}: ${key} belongs in contract frontmatter`);
-      if (!entry.Purpose?.trim()) problems.push(`${context}: missing Purpose`);
+      if (!entry.Description?.trim()) problems.push(`${context}: missing Description`);
       const links = localLinks(entry.Contract ?? "");
       if (links.length !== 1) { problems.push(`${context}: Contract must contain one local Markdown link`); continue; }
       const target = linkPath(dirname(index), links[0]);
@@ -254,6 +280,7 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
         const result = frontmatter(readFileSync(target, "utf8"));
         problems.push(...result.problems.map((p) => `${context}: ${p}`));
         addId(result.metadata.id);
+        if (result.metadata.status !== "discoverable") problems.push(`${context}: only discoverable contracts belong in indexes`);
         const group = basename(index) === "PATTERNS.md" ? "patterns" : basename(index) === "LAYOUTS.md" ? "layouts" : "components";
         const targetRoot = projectRoot(target);
         if (targetRoot && !relative(targetRoot, target).split(sep).join("/").startsWith(`design-system/${group}/`)) {
@@ -264,8 +291,8 @@ export function checkContractFile(path, { inventoryPath, inventoryPaths = [], ki
       paths.add(target);
     }
   }
-  if (indexes.length && !paths.has(file)) problems.push("inventory has no entry for this contract");
   const { metadata } = frontmatter(markdown);
+  if (indexes.length && metadata.status === "discoverable" && !paths.has(file)) problems.push("inventory has no entry for this contract");
   if (problems.length === 0 && metadata.sources.length > 0) {
     const sha256 = (value) => createHash("sha256").update(value).digest("hex");
     const sources = [...new Set(metadata.sources)].sort().map((path) => [path, sha256(readFileSync(resolve(root, path)))]);

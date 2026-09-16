@@ -15,7 +15,7 @@ demonstrating the original expected result.
 - **UI need:** A control that turns email notifications on or off, saving
   the change immediately when the user flips it.
 - **Suggestion received:** Candidates: none; Choice: nothing fits.
-- **Expected result:** A discoverable component whose Purpose sentence
+- **Expected result:** A discoverable component whose description
   states that the user turns one setting on or off.
 - **Evidence:** Request as phrased: "add a control that turns email
   notifications on or off. The change saves immediately when the user flips

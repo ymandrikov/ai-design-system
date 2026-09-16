@@ -1,14 +1,12 @@
 ---
 id: pattern-id
+description: |-
+  <End-user task and the recipe's role.>
 status: hidden
 sources: []
 ---
 
 # <Pattern name>
-
-## Purpose
-
-<End-user task and the recipe's role.>
 
 ## When to use
 

@@ -1,6 +1,14 @@
 ---
 sourcesHash: 9d9ac175737d49cb21f0350bffdde3bde7328d0ee43605385b86787b6e79e0d6
 id: native-select
+description: |-
+  NativeSelect lets the user pick one option from a short, fixed list with the
+  platform's own select control.
+
+  The system owns NativeSelect so that a short single choice in a form is
+  always the platform's control. The popup, the keyboard behaviour and the
+  mobile picker come from the platform, and no consumer builds a custom picker
+  for a list the platform already handles.
 status: discoverable
 sources:
   - react/native-select.tsx
@@ -12,16 +20,6 @@ examples:
 ---
 
 # NativeSelect
-
-## Purpose
-
-NativeSelect lets the user pick one option from a short, fixed list with the
-platform's own select control.
-
-The system owns NativeSelect so that a short single choice in a form is
-always the platform's control. The popup, the keyboard behaviour and the
-mobile picker come from the platform, and no consumer builds a custom picker
-for a list the platform already handles.
 
 ## When to use
 

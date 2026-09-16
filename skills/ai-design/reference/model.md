@@ -81,12 +81,14 @@ design-system/
 ```
 
 Each component/layout/pattern has one Markdown contract in its group directory. Its
-frontmatter owns the stable id, status and code/evidence paths; see [formats](formats.md).
-The three indexes contain display names, Purpose descriptions sufficient for candidate
-discovery (see [formats](formats.md#shared-selection-sections)) and Contract links.
-Read identity and eligibility from the linked contract, not the index label. Layouts
-appear only in LAYOUTS.md; patterns appear only in PATTERNS.md. IDs are unique across
-all three groups. Empty indexes are valid.
+frontmatter owns the stable id, description, status and code/evidence paths; see [formats](formats.md).
+The three generated indexes contain only `discoverable` contracts: H1 display names,
+full frontmatter descriptions and Contract links, sorted by id. See the
+[index generation rules](../assets/inventory.md). Identity and eligibility remain
+owned by the contract. Layouts appear only in LAYOUTS.md; patterns only in PATTERNS.md.
+IDs are unique across all contracts in all three groups, including hidden and deprecated.
+Empty indexes are valid. A contract in its standard group directory establishes managed
+membership; absence from an index does not establish unmanaged status.
 
 Code, styles, tests, token catalogues and other existing sources keep their project
 paths. A contract id does not determine code paths or exports. Patterns can describe
@@ -100,7 +102,7 @@ Use the established project instructions and their responsibility boundaries.
 | discoverable | Eligible for comparison by contract. Verify actual implementation before claiming completion. |
 | hidden | Managed but not admitted; excluded from new selection and fallback. |
 | deprecated | Excluded from new selection and fallback. Preserve existing calls outside the task; follow documented migration guidance within it. |
-| unmanaged | No entry in its component/layout/pattern index. Product build may inspect code/tests/consumers as a fallback after managed discovery finds no fit; report limited verification. This does not adopt it. |
+| unmanaged | No contract in the standard component/layout/pattern directories. Product build may inspect code/tests/consumers as a fallback after managed discovery finds no fit; report limited verification. This does not adopt it. |
 
 Malformed entries, missing contracts and contradictory guidance are system defects,
 not unmanaged escape routes. Unknown status is excluded. Discovery lists only eligible

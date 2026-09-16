@@ -160,8 +160,10 @@ Preserve existing design content and link authoritative sources. Record actual p
 commands and missing tools; source conflicts remain explicit. Existing profiles may
 supply facts, but DESIGN.md becomes the framework's entry point.
 
-Create or migrate COMPONENTS.md, LAYOUTS.md and PATTERNS.md using [the index template](../assets/inventory.md).
+Generate COMPONENTS.md, LAYOUTS.md and PATTERNS.md from the migrated contracts using
+[the index command](../assets/inventory.md).
 Move existing component/layout/pattern contracts into their respective group directories;
+move the entire Purpose into frontmatter `description`, remove the Purpose section, and
 add [frontmatter](formats.md#contract-frontmatter) from evidenced identity, lifecycle
 and actual source files. Preserve valid public promises and eligibility during moves.
 Store each pattern as a separate contract using [the pattern template](../assets/patterns.md).

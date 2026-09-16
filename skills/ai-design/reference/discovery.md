@@ -46,12 +46,12 @@ requested element, inherited obligation and affected token role is accounted for
 
 ## Find candidates
 
-Read the relevant indexes. For each entry whose Purpose
+Read the relevant indexes. For each entry whose Description
 covers the task or a broader category, follow its Contract link and read the
 frontmatter to establish id and status.
 Shortlist only discoverable entities, including eligible entities named by the request,
 widget/context language or shortlisted contracts. Read every shortlisted contract
-in full, including linked composition obligations. The index summary
+in full, including linked composition obligations. The generated description
 routes; it does not add requirements, metadata authority or visual values.
 
 Read linked known defects and verification limits as well. A discoverable entity
@@ -64,6 +64,9 @@ When-not-to-use clause rejects it, and its API/Structure and required compositio
 can express the stated request. An explicit conflict with a required When-to-use
 condition rejects it. Unknown facts leave a conditional candidate, not a rejection.
 
+Before treating an entity absent from the index as unmanaged, check the standard
+contract directories for its contract and actual status. A discoverable contract
+missing from its index is stale context to report to the caller, not an unmanaged fallback.
 Code does not grant managed eligibility. Hidden/deprecated entities stay out of
 Candidates and Choice, including through pattern dependencies. Missing/broken
 contracts are defects. An explicit request for an excluded entity gets a separate

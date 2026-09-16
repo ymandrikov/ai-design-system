@@ -149,7 +149,7 @@ from runtime readiness and return any unresolved decision to the caller.
 
 Only resolve gaps within the task's stated scope. Rerun the original request and
 verify every Expected result, including discoverability, behaviour and composition
-when required. Hidden adoption or matching Purpose alone cannot close a discovery
+when required. Hidden adoption or matching description alone cannot close a discovery
 gap. After proof, [archive the full entry](gaps.md#archive-an-entry) as Resolved and
 report the evidence. Otherwise leave it open with the remaining limitation.
 For new systemic gaps, use [gap recording](gaps.md).

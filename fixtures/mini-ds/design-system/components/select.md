@@ -1,6 +1,14 @@
 ---
 sourcesHash: da40e90446887850f7b392e57620fd9c692d3e63b249e14b7608e588d21a53b1
 id: select
+description: |-
+  Select lets the user pick one option from a moderate list by typing to
+  filter and choosing a match.
+
+  The system owns Select so that every filtered single choice in the product
+  has the same combobox behaviour and semantics. The consumer supplies the
+  options and the label; the filtering, the highlighted option and the
+  listbox roles are the system's.
 status: discoverable
 sources:
   - react/select.tsx
@@ -14,16 +22,6 @@ examples:
 ---
 
 # Select
-
-## Purpose
-
-Select lets the user pick one option from a moderate list by typing to
-filter and choosing a match.
-
-The system owns Select so that every filtered single choice in the product
-has the same combobox behaviour and semantics. The consumer supplies the
-options and the label; the filtering, the highlighted option and the
-listbox roles are the system's.
 
 ## When to use
 

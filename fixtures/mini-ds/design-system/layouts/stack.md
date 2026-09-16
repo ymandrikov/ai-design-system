@@ -1,6 +1,13 @@
 ---
 sourcesHash: 559ac392e8e5c8ad68c540bca660a28316c2fcb9c8d10ead5a2b6ffa3b68ad99
 id: stack
+description: |-
+  Stack arranges its children in one vertical flow with one consistent space
+  between adjacent children.
+
+  The system owns Stack so that every vertical group in the product has one
+  rhythm and no child carries outer margins of its own. Stack paints nothing: a surface, a border or an inset around the group is its
+  host's job.
 status: discoverable
 sources:
   - react/stack.tsx
@@ -12,15 +19,6 @@ examples:
 ---
 
 # Stack
-
-## Purpose
-
-Stack arranges its children in one vertical flow with one consistent space
-between adjacent children.
-
-The system owns Stack so that every vertical group in the product has one
-rhythm and no child carries outer margins of its own. Stack paints nothing: a surface, a border or an inset around the group is its
-host's job.
 
 ## When to use
 

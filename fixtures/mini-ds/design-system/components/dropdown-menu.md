@@ -1,6 +1,14 @@
 ---
 sourcesHash: efbf1448702efb6aab5346eb1742a58540a80e47dfc73e1acdd57e377fd0aff6
 id: dropdown-menu
+description: |-
+  DropdownMenu lets the user open a short list of commands or destinations
+  from one trigger.
+
+  The system owns DropdownMenu so that every command menu in the product has
+  the same menu semantics, focus movement and keyboard behaviour. The consumer
+  supplies the trigger and the items; a menu never carries a form value, so a
+  value chosen through one is not something the system supports.
 status: discoverable
 sources:
   - react/dropdown-menu.tsx
@@ -14,16 +22,6 @@ examples:
 ---
 
 # DropdownMenu
-
-## Purpose
-
-DropdownMenu lets the user open a short list of commands or destinations
-from one trigger.
-
-The system owns DropdownMenu so that every command menu in the product has
-the same menu semantics, focus movement and keyboard behaviour. The consumer
-supplies the trigger and the items; a menu never carries a form value, so a
-value chosen through one is not something the system supports.
 
 ## When to use
 

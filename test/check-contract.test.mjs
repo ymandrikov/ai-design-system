@@ -6,7 +6,6 @@ import { spawnSync } from "node:child_process";
 import { checkContract, checkContractFile } from "../skills/ai-design/scripts/check-contract.mjs";
 
 const HEADINGS = [
-  "Purpose",
   "When to use",
   "When not to use",
   "Public API",
@@ -20,7 +19,6 @@ const PURPOSE_SENTENCE = "X lets the user do one job with one call.";
 
 function contract(overrides = {}) {
   const sections = {
-    Purpose: `${PURPOSE_SENTENCE}\n\nThe system owns X so that the job is done the same way everywhere.`,
     "When to use": "Use it when all of these hold:\n\n- One.\n- Two.",
     "When not to use": "- Do not use it for the other job.",
     "Public API": "### React\n\n`<X />`",
@@ -30,7 +28,7 @@ function contract(overrides = {}) {
     ...overrides,
   };
   return (
-    "---\nid: x\nstatus: discoverable\nsources:\n  - src/X.tsx\nsourcesHash: 73cf4109454c8080c7bb25cf1bd17907605cd48aa18b4eec622efcaf579b91b1\n---\n\n# X\n\n" +
+    `---\nid: x\ndescription: ${JSON.stringify(overrides.description ?? PURPOSE_SENTENCE)}\nstatus: discoverable\nsources:\n  - src/X.tsx\nsourcesHash: 73cf4109454c8080c7bb25cf1bd17907605cd48aa18b4eec622efcaf579b91b1\n---\n\n# X\n\n` +
     HEADINGS.filter((h) => sections[h] !== null)
       .map((h) => `## ${h}\n\n${sections[h]}`)
       .join("\n\n") +
@@ -61,30 +59,60 @@ describe("checkContract", () => {
     expect(checkContract(contract().replace("id: x", "id: x\nid: y")).some((p) => p.includes("duplicate"))).toBe(true);
   });
 
-  it("requires the six H2 headings in order", () => {
+  it("preserves plain numeric ids while rejecting non-string descriptions", () => {
+    expect(checkContract(contract().replace("id: x", "id: 123"))).toEqual([]);
+    for (const value of ["42", "true", "false", "null", "[]"]) {
+      expect(checkContract(contract().replace(/^description:.*$/m, `description: ${value}`)))
+        .toContain("description must be a nonempty string");
+      expect(checkContract(contract({ description: value }))).toEqual([]);
+    }
+  });
+
+  it("requires the five H2 headings in order", () => {
     const swapped = contract().replace("## When to use", "## TMP").replace("## When not to use", "## When to use").replace("## TMP", "## When not to use");
     expect(checkContract(swapped)).toContain(
-      "H2 headings must be exactly, in order: Purpose, When to use, When not to use, Public API, Behaviour and states, Accessibility",
+      "H2 headings must be exactly, in order: When to use, When not to use, Public API, Behaviour and states, Accessibility",
     );
   });
 
   it("rejects a missing heading", () => {
     expect(checkContract(contract({ Accessibility: null }))).toContain(
-      "H2 headings must be exactly, in order: Purpose, When to use, When not to use, Public API, Behaviour and states, Accessibility",
+      "H2 headings must be exactly, in order: When to use, When not to use, Public API, Behaviour and states, Accessibility",
     );
   });
 
   it("rejects an empty section", () => {
-    expect(checkContract(contract({ Purpose: "" }))).toContain("section is empty: Purpose");
+    expect(checkContract(contract({ "Public API": "" }))).toContain("section is empty: Public API");
   });
 
-  it("accepts nonempty Purpose without prescribing paragraph count", () => {
-    expect(checkContract(contract({ Purpose: PURPOSE_SENTENCE }))).toEqual([]);
-    expect(checkContract(contract({ Purpose: `${PURPOSE_SENTENCE}\n\nRole.\n\nExtra.` }))).toEqual([]);
+  it("accepts nonempty description without prescribing paragraph count", () => {
+    expect(checkContract(contract({ description: PURPOSE_SENTENCE }))).toEqual([]);
+    expect(checkContract(contract({ description: `${PURPOSE_SENTENCE}\n\nRole.\n\nExtra.` }))).toEqual([]);
   });
 
   it("accepts a task statement without a prescribed English opener", () => {
-    expect(checkContract(contract({ Purpose: "Does one job.\n\nRole." }))).toEqual([]);
+    expect(checkContract(contract({ description: "Does one job.\n\nRole." }))).toEqual([]);
+  });
+
+  it("requires a nonempty description for every status", () => {
+    for (const status of ["discoverable", "hidden", "deprecated"]) {
+      const text = contract().replace("status: discoverable", `status: ${status}`);
+      for (const value of ["", '""', "[]", "null"]) {
+        expect(checkContract(text.replace(/^description:.*$/m, `description: ${value}`)))
+          .toContain("description must be a nonempty string");
+      }
+      expect(checkContract(text.replace(/^description:.*\n/m, "")))
+        .toContain("description must be a nonempty string");
+    }
+  });
+
+  it("accepts multiline descriptions and checks their links", () => {
+    const text = contract().replace(/^description:.*$/m,
+      "description: >-\n  One task\n  with one call.\n\n  See [rules](./rules.md).");
+    expect(checkContract(text)).toEqual([]);
+    expect(checkContract(text.replaceAll("\n", "\r\n"))).toEqual([]);
+    expect(checkContract(text, { resolveLink: () => false }))
+      .toContain("relative link does not resolve: ./rules.md");
   });
 
   it("requires explicit all/any selection logic in When to use", () => {
@@ -165,7 +193,7 @@ function project() {
 }
 
 function entry(path) {
-  return `- **Action Button**\n  - Purpose: A short routing summary.\n  - Contract: [contract](${path})\n`;
+  return `- **Action Button**\n  - Description: A short routing summary.\n  - Contract: [contract](${path})\n`;
 }
 
 function pattern(id = "settings") {
@@ -199,6 +227,17 @@ describe("checkContractFile", () => {
     expect(checkContractFile(other, { inventoryPath })).toEqual([]);
   });
 
+  it("keeps hidden and deprecated managed without index entries and rejects their inclusion", () => {
+    const { path, inventoryPath, write } = project();
+    for (const status of ["hidden", "deprecated"]) {
+      writeFileSync(path, contract().replace("status: discoverable", `status: ${status}`));
+      write("design-system/COMPONENTS.md", "# Components\n");
+      expect(checkContractFile(path, { inventoryPath })).toEqual([]);
+      write("design-system/COMPONENTS.md", entry("components/Action%20Button.md"));
+      expect(checkContractFile(path, { inventoryPath }).some((p) => p.includes("only discoverable"))).toBe(true);
+    }
+  });
+
   it("reads metadata from contracts and detects duplicate ids and targets", () => {
     const { path, inventoryPath, write } = project();
     write("design-system/components/other.md", contract().replace("status: discoverable", "status: ready"));
@@ -218,7 +257,7 @@ describe("checkContractFile", () => {
     const inventoryPath = write("design-system/COMPONENTS.md", entry("missing.md") + "  - Status: hidden\n- **incomplete**\n");
     const problems = checkContractFile(path, { inventoryPath });
     expect(problems.some((p) => p.includes("does not resolve: missing.md"))).toBe(true);
-    expect(problems.some((p) => p.includes("incomplete") && p.includes("Purpose"))).toBe(true);
+    expect(problems.some((p) => p.includes("incomplete") && p.includes("Description"))).toBe(true);
     expect(problems.some((p) => p.includes("incomplete") && p.includes("Contract"))).toBe(true);
     expect(problems.some((p) => p.includes("Status belongs in contract frontmatter"))).toBe(true);
   });
@@ -255,7 +294,7 @@ describe("checkContractFile", () => {
     const { write } = project();
     const path = write("design-system/patterns/settings.md", pattern().replace("sources: []", "sources: []\nexamples:\n  - missing.tsx"));
     expect(checkContractFile(path, { kind: "pattern" })).toContain("examples file does not resolve: missing.tsx");
-    const combined = write("design-system/PATTERNS.md", "# Patterns\n\n- [Settings](#settings)\n\n<a id=\"settings\"></a>\n## Settings\n\nID: settings\nStatus: discoverable\n" + pattern().slice(pattern().indexOf("## Purpose")).replace(/^(#{2,}) /gm, "$1# "));
+    const combined = write("design-system/PATTERNS.md", "# Patterns\n\n- [Settings](#settings)\n\n<a id=\"settings\"></a>\n## Settings\n\nID: settings\nStatus: discoverable\n" + pattern().slice(pattern().indexOf("## When to use")).replace(/^(#{2,}) /gm, "$1# "));
     const problems = checkContractFile(combined, { kind: "pattern" });
     expect(problems).toContain("missing frontmatter");
     expect(problems).toContain("contract must be located in design-system/patterns/");
@@ -342,7 +381,7 @@ describe("check-contract CLI", () => {
       contract().replace("src/X.tsx", "missing.ts"),
       contract().replace("src/X.tsx", "../outside.ts"),
       contract().replace("src/X.tsx", "outside.ts"),
-      contract().replace("## Purpose", "## Wrong"),
+      contract().replace("## When to use", "## Wrong"),
       contract().replace(/^sourcesHash:.*/m, "sourcesHash: invalid"),
     ]) {
       writeFileSync(path, invalid);
@@ -426,8 +465,7 @@ it("validates fixture contracts through all three indexes", () => {
     const base = `fixtures/${ds}/design-system`;
     const indexes = [`${base}/COMPONENTS.md`, `${base}/LAYOUTS.md`, `${base}/PATTERNS.md`];
     for (const file of readdirSync(`${base}/components`)) {
-      const inventoryPaths = file === "country-picker.md"
-        ? ["fixtures/tie-ds/ranking-inventory.md", ...indexes.slice(1)] : indexes;
+      const inventoryPaths = indexes;
       expect(checkContractFile(`${base}/components/${file}`, { inventoryPaths }), file).toEqual([]);
     }
   }
@@ -438,4 +476,64 @@ it("validates fixture contracts through all three indexes", () => {
   expect(checkContractFile(`${base}/layouts/stack.md`, {
     kind: "layout", inventoryPaths: ["COMPONENTS.md", "LAYOUTS.md", "PATTERNS.md"].map((f) => `${base}/${f}`),
   })).toEqual([]);
+});
+
+const generator = resolve("skills/ai-design/scripts/generate-indexes.mjs");
+const generate = (root, ...args) => spawnSync(process.execPath, [generator, ...args, root], { encoding: "utf8" });
+
+describe("generate-indexes CLI", () => {
+  it("generates sorted discoverable indexes, preserves descriptions and detects drift without writing", () => {
+    const { root, path, write, inventoryPath } = project();
+    write("design-system/components/nested/first.md", contract().replace("id: x", "id: a")
+      .replace("# X", "# First").replace(/^description:.*$/m,
+        "description: >-\n  First line\n  continues.\n\n  Second paragraph."));
+    write("design-system/components/hidden.md", contract().replace("id: x", "id: h").replace("status: discoverable", "status: hidden"));
+    write("design-system/components/old.md", contract().replace("id: x", "id: old").replace("status: discoverable", "status: deprecated"));
+    write("design-system/patterns/settings.md", pattern());
+    writeFileSync(path, contract().replace(/^description:.*$/m, 'description: |-\n  Full **purpose**.\n\n  - Status: explanation, not metadata.\n\n  See [First](nested/first.md#when-to-use).'));
+    expect(generate(root).status).toBe(0);
+    const index = readFileSync(inventoryPath, "utf8");
+    expect(index.indexOf("**First**")).toBeLessThan(index.indexOf("**X**"));
+    expect(index).toContain("Description: First line continues.\n    Second paragraph.");
+    expect(index).toContain("Description: Full **purpose**.\n\n    - Status: explanation, not metadata.\n\n    See [First](components/nested/first.md#when-to-use).");
+    expect(index).toContain("(components/Action%20Button.md)");
+    expect(checkContractFile(path, { inventoryPath })).toEqual([]);
+    expect(index).not.toMatch(/hidden\.md|old\.md/);
+    expect(readFileSync(join(root, "design-system/PATTERNS.md"), "utf8")).toContain("**Settings**");
+    expect(generate(root, "--check").status).toBe(0);
+    writeFileSync(path, readFileSync(path, "utf8").replace("status: discoverable", "status: hidden"));
+    expect(generate(root, "--check").status).toBe(1);
+    expect(readFileSync(inventoryPath, "utf8")).toBe(index);
+    expect(generate(root).status).toBe(0);
+    expect(readFileSync(inventoryPath, "utf8")).not.toContain("**X**");
+  });
+
+  it("creates empty indexes and checks missing indexes without writing", () => {
+    const { root } = project();
+    rmSync(join(root, "design-system"), { recursive: true });
+    expect(generate(root, "--check").status).toBe(1);
+    expect(() => readFileSync(join(root, "design-system/COMPONENTS.md"))).toThrow();
+    expect(generate(root).status).toBe(0);
+    expect(generate(root, "--check").status).toBe(0);
+  });
+
+  it("rejects symlinked output files without overwriting their targets", () => {
+    const { root, path, inventoryPath } = project();
+    const original = readFileSync(path, "utf8");
+    rmSync(inventoryPath);
+    symlinkSync(path, inventoryPath);
+    expect(generate(root).status).toBe(1);
+    expect(readFileSync(path, "utf8")).toBe(original);
+  });
+
+  it("rejects invalid metadata and duplicate hidden ids before overwriting any index", () => {
+    const { root, write, inventoryPath } = project();
+    const before = readFileSync(inventoryPath, "utf8");
+    const invalid = write("design-system/patterns/invalid.md", pattern().replace("status: discoverable", "status: typo"));
+    expect(generate(root).status).toBe(1);
+    expect(readFileSync(inventoryPath, "utf8")).toBe(before);
+    writeFileSync(invalid, pattern("x").replace("status: discoverable", "status: hidden"));
+    expect(generate(root).stderr).toContain("duplicate contract id: x");
+    expect(readFileSync(inventoryPath, "utf8")).toBe(before);
+  });
 });

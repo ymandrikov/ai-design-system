@@ -1,4 +1,4 @@
-# Narrow a contract's Purpose
+# Narrow a contract's description
 
 **Skill:** ai-design
 **Route:** craft

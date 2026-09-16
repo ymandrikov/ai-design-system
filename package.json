@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
+    "generate-indexes": "node skills/ai-design/scripts/generate-indexes.mjs",
     "check-contract": "node skills/ai-design/scripts/check-contract.mjs",
     "demo": "esbuild fixtures/mini-ds/demo/index.ts --bundle --outfile=fixtures/mini-ds/demo/dist/index.js --format=esm --jsx=automatic"
   },

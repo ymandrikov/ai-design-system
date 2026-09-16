@@ -1,5 +1,9 @@
 ---
 id: settings-page
+description: |-
+  Settings page groups related editable preferences with one save action and separates destructive actions from routine changes.
+
+  The product owns this pattern so agents preserve field relationships, submission boundaries and action placement while composing different settings pages.
 status: discoverable
 sources: []
 tests:
@@ -9,12 +13,6 @@ examples:
 ---
 
 # Settings page
-
-## Purpose
-
-Settings page groups related editable preferences with one save action and separates destructive actions from routine changes.
-
-The product owns this pattern so agents preserve field relationships, submission boundaries and action placement while composing different settings pages.
 
 ## When to use
 

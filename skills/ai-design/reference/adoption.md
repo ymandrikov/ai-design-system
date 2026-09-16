@@ -74,7 +74,7 @@ scope; otherwise use ordinary per-batch admission. Run [delegation](delegation.m
 migration work when available; preserve the current batch boundary.
 
 For each migration item, follow [craft](craft.md#edit-and-audit) to author or complete
-its contract and index entry and run the applicable audits. A request for this migration,
+its contract, regenerate indexes for its actual status and run the applicable audits. A request for this migration,
 including an authorised handoff, includes admission authority for entities
 that pass, subject to project policy and any explicitly narrower request; reuse that
 authority for each batch.

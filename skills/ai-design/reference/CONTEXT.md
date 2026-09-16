@@ -33,8 +33,8 @@ design tokens are separate domain objects.
 _Avoid_: Entity as an umbrella that silently includes tokens under UI contract and eligibility rules.
 
 **Managed UI entity**:
-A UI entity included in the design system's governance through a contract and its
-component/layout/pattern index entry linking to its contract; being managed alone does not establish eligibility for new selection.
+A UI entity included in the design system's governance through a contract in its
+standard component/layout/pattern directory; being managed alone does not establish eligibility for new selection.
 
 **Component**:
 A reusable unit of UI with a public interface and observable promises.
@@ -71,7 +71,8 @@ The outcome the end user needs to achieve.
 _Avoid_: The entire interface request, including its presentation constraints, as a synonym for intent.
 
 **Purpose**:
-The task a component, layout or pattern serves and its role in the design system.
+The task a component, layout or pattern serves and its role in the design system,
+stored in the contract’s frontmatter `description`.
 _Avoid_: A candidate's name or visual resemblance as sufficient evidence of purpose.
 
 **Request fact**:
@@ -139,12 +140,14 @@ Changes to the end-user journey or mandatory composition belong to patterns and 
 **Index**:
 A directory that helps consumers find managed UI entities or design tokens and reach
 their authoritative descriptions: UI contracts or token definitions.
-UI and token indexes may expose different information without sharing eligibility statuses.
+UI indexes are generated from discoverable contracts and contain their full descriptions.
+Hidden and deprecated entities remain managed outside these indexes. Token indexes
+retain their own format and eligibility rules.
 _Avoid_: Inventory as a separate domain concept; it is an existing name for an index.
 
 **Adoption**:
 Documenting an existing component, layout or pattern through an evidenced contract
-and a component/layout/pattern index entry linking to its contract; this alone does not admit it to new selection.
+in its standard group directory; this alone does not admit it to new selection.
 _Avoid_: Admission or product use as a synonym for adoption.
 
 **Admission**:

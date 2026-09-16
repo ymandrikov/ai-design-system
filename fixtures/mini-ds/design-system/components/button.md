@@ -1,6 +1,14 @@
 ---
 sourcesHash: eff5315e7ce05ea120c98810bbc414bced30e2a8eb14ab5fe8f00fe5d57a7887
 id: button
+description: |-
+  Button lets the user invoke one immediate action or go to one destination
+  with a native button or link.
+
+  The system owns Button so that every action and every button-styled link in
+  the product shares one activation model. Each instance is a native `button`
+  or `a[href]`, so the platform owns focus, activation, form submission and
+  navigation, and no consumer re-implements them.
 status: discoverable
 sources:
   - react/button.tsx
@@ -12,16 +20,6 @@ examples:
 ---
 
 # Button
-
-## Purpose
-
-Button lets the user invoke one immediate action or go to one destination
-with a native button or link.
-
-The system owns Button so that every action and every button-styled link in
-the product shares one activation model. Each instance is a native `button`
-or `a[href]`, so the platform owns focus, activation, form submission and
-navigation, and no consumer re-implements them.
 
 ## When to use
 

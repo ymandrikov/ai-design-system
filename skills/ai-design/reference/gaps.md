@@ -64,7 +64,7 @@ code. Priority remains governed by [triage](triage.md#recommend-the-next-work).
 Reuse a matching open entry or add one per independent cause. Preserve the request,
 actual result, original Expected result and reproducible evidence: source paths,
 deciding clauses, failed checks or measurements. State what must become possible,
-including discoverability when needed. Categories are optional. A matching Purpose
+including discoverability when needed. Categories are optional. A matching description
 sentence alone does not demonstrate resolution.
 
 Record without asking. After saving, report each added or supplemented gap to the

@@ -9,12 +9,12 @@
 > item, with neutral and error variants and React/native markup usage. Its
 > implementation will be a separate project task. I approve these intended rules
 > and future admission once the public promises are evidenced. Author the contract
-> and index entry now using ordinary quality mode.
+> and regenerate indexes now using ordinary quality mode.
 
 **Expected:**
 
 - Create the Badge contract under design-system/components/ with id, hidden status
-  and sources: [] in frontmatter; add its link and Purpose summary to COMPONENTS.md.
+  and sources: [] in frontmatter; keep it out of COMPONENTS.md until admission.
 - Keep component code, styles and demos unchanged; report the missing implementation
   evidence and do not admit it merely because future admission is authorised.
 - Run structural validation and ordinary public-use checks. Run mandatory independent

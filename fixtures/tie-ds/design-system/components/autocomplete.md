@@ -1,19 +1,17 @@
 ---
 id: autocomplete
+description: |-
+  Autocomplete lets the user pick one option from a list of any length by typing
+  to filter it, with the list shown in a popup.
+
+  The system owns Autocomplete so that every typed single choice in the product has
+  the same filtering, highlighting and listbox semantics. The consumer supplies
+  the options and the label; the filtering and the roles are the system's.
 status: discoverable
 sources: []
 ---
 
 # Autocomplete
-
-## Purpose
-
-Autocomplete lets the user pick one option from a list of any length by typing
-to filter it, with the list shown in a popup.
-
-The system owns Autocomplete so that every typed single choice in the product has
-the same filtering, highlighting and listbox semantics. The consumer supplies
-the options and the label; the filtering and the roles are the system's.
 
 ## When to use
 

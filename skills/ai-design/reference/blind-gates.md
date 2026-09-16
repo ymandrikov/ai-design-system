@@ -87,14 +87,15 @@ A correct answer to an invalid case supplies no evidence of contract sufficiency
 ## Discovery gate: run the actual procedure
 
 Give the worker an isolated copy containing DESIGN.md, all three UI indexes, their
-linked contracts, required public rules/token definitions and the current ai-design
+linked contracts and the batch’s hidden contracts, required public rules/token definitions and the current ai-design
 skill. Keep competing candidates present. Omit component implementations, private
 styles, tests, previews, consumer code and authoring history; source/evidence links
 in the copied contracts are references, not additional permitted inputs. Keep expected
 answers outside the worker's inputs. Validate structure and source links on the
 author's full copy, not this reduced one.
 For hidden new contracts or admission, set proposed discoverable status only in the
-gate copy. Label the result proposed-selection evidence; it authorises neither source
+gate copy, then regenerate its indexes before dispatch. Label the result proposed-selection
+evidence; it authorises neither source
 status changes nor runtime-readiness claims. Already admitted entities keep actual status.
 
 Dispatch all unnamed requests for the batch together, with neutral case ids and no

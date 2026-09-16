@@ -26,7 +26,7 @@ UI eligibility statuses. Empty UI indexes are valid. A layout appears only in La
 
 Component contracts live in `design-system/components/`, layouts in `design-system/layouts/`
 and patterns in `design-system/patterns/`, each with its uppercase index. Apply this
-structure when connecting existing projects too. Contract frontmatter owns id/status and source/evidence paths
+structure when connecting existing projects too. Contract frontmatter owns id/description/status and source/evidence paths
 relative to this project root; Markdown links resolve from their containing document.
 Name public imports/invocation for supported bindings and which product areas use them.
 Link project guidance for product views and component development. Link shared

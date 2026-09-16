@@ -1,18 +1,16 @@
 ---
 id: country-picker
+description: |-
+  CountryPicker lets the user pick one country by typing to filter a supplied
+  country list, with the list shown in a popup.
+
+  The system owns CountryPicker so country fields use a consistent single
+  selection model. The consumer supplies the country list and form field name.
 status: discoverable
 sources: []
 ---
 
 # CountryPicker
-
-## Purpose
-
-CountryPicker lets the user pick one country by typing to filter a supplied
-country list, with the list shown in a popup.
-
-The system owns CountryPicker so country fields use a consistent single
-selection model. The consumer supplies the country list and form field name.
 
 ## When to use
 

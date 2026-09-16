@@ -316,11 +316,14 @@ The tree shows the shared agent convention; Claude-only projects use CLAUDE.md i
 of the pair. The instruction file points to root DESIGN.md, which connects the sources
 and verification tools. The installed skill stays at its existing local or global path.
 
-Contract frontmatter owns the stable id, status and root-relative source/evidence paths:
+Contract frontmatter owns the stable id, description, status and root-relative source/evidence paths:
 
 ```yaml
 ---
 id: button
+description: >-
+  Invoke one immediate action or navigate to one destination
+  through a native button or link.
 status: discoverable
 sources:
   - src/components/Button.tsx
@@ -332,12 +335,14 @@ examples:
 ---
 ```
 
-`sources` is required; tests/examples are optional lists of concrete files. The
+`id`, `description`, `status` and `sources` are required; tests/examples are
+optional lists of concrete files. The
 [format reference](skills/ai-design/reference/formats.md) defines the supported flat
-YAML syntax and unimplemented drafts. All three indexes contain display
-names, Purpose descriptions covering supported tasks, means and material distinctions
-for candidate discovery, and Contract links; identity/status are read from
-contracts. IDs remain unique across all three groups. Empty groups are valid.
+YAML syntax, multiline descriptions and unimplemented drafts. The entire former
+Purpose section lives in `description`; contracts have five H2 sections. The three
+generated indexes contain only discoverable contracts: H1 names, full descriptions
+and Contract links, sorted by id. Identity/status are read from contracts.
+IDs remain unique across all three groups. Empty groups are valid.
 Document-only patterns may have `sources: []` and be discoverable after selection
 and composition checks; they need no implementation of their own.
 
@@ -370,7 +375,9 @@ Required rules, recommendations and documented exceptions are distinct. Contract
 who owns spacing, grouping, adaptation and accessibility; linked specifications,
 tokens or implementation supply visual values without duplicating them.
 
-Only `discoverable` entities enter managed selection. `hidden` and `deprecated` cannot
+A contract in its standard group directory makes an entity managed, even when
+hidden or deprecated and absent from the generated indexes. Only `discoverable`
+entities enter managed selection. `hidden` and `deprecated` cannot
 enter new use through fallback. Unmanaged code may be investigated and reused when no
 managed candidate fits, with limited verification explicitly reported. Reuse alone
 does not adopt it into the design system.
@@ -383,6 +390,17 @@ See [the glossary](CONTEXT.md) and
 [Fixed formats](skills/ai-design/reference/formats.md) define one
 section order per group. Components describe API and behaviour; layouts describe API
 and composition; patterns describe structure, composition and verification.
+
+Regenerate indexes after changing contracts, including status changes:
+
+```sh
+node skills/ai-design/scripts/generate-indexes.mjs <project-root>
+node skills/ai-design/scripts/generate-indexes.mjs --check <project-root>
+```
+
+Generation replaces all three standard indexes; edit contracts instead. `--check`
+reports missing or stale indexes without writing. Invalid metadata or duplicate ids
+in any status stop generation before writing. Discovery remains read-only.
 
 Check actual links, group format and index membership using all three indexes:
 

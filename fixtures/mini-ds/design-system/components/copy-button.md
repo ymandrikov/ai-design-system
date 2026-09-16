@@ -1,6 +1,14 @@
 ---
 sourcesHash: 8f273cabb7fd100863d2fffe3c8395b5ef4999705a6b69a645225ac6042de378
 id: copy-button
+description: |-
+  CopyButton lets the user copy one known string to the clipboard with one
+  activation, confirmed in place.
+
+  The system owns CopyButton so that every copy control in the product writes
+  the clipboard and confirms success the same way. The consumer supplies the
+  value and the label; the clipboard call, the confirmation and its
+  announcement are the system's.
 status: discoverable
 sources:
   - react/copy-button.tsx
@@ -14,16 +22,6 @@ examples:
 ---
 
 # CopyButton
-
-## Purpose
-
-CopyButton lets the user copy one known string to the clipboard with one
-activation, confirmed in place.
-
-The system owns CopyButton so that every copy control in the product writes
-the clipboard and confirms success the same way. The consumer supplies the
-value and the label; the clipboard call, the confirmation and its
-announcement are the system's.
 
 ## When to use
 
