@@ -9,7 +9,7 @@
   indexes. Add two documented project-owned wrappers whose contract work is unfinished.
 - Seed `design-system/adoption.md` with an interrupted automatic mode-3 migration,
   batch size one, verification enabled, admission after ordinary audits and structural
-  checks, and independent discovery after the whole selected scope. Include no
+  checks, and explicitly user-requested independent discovery after the whole selected scope. Include no
   connection history. Mark the first
   wrapper complete and the second pending; link the file from DESIGN.md.
 

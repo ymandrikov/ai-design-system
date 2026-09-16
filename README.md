@@ -200,8 +200,9 @@ not select a mode automatically. It hands off to the standalone `migrate` proced
 after connection; later migration failure or interruption never reopens setup. Already
 supplied mode and verification decisions are reused, and the agent chooses an
 unspecified batch size itself.
-For B, setup saves admission after ordinary audits and structural checks and independent
-discovery after the whole selected scope is ready; these conditions persist on resume
+For B, setup saves admission after ordinary audits and structural checks. Independent
+discovery is required only by an explicit request or project policy, after the whole
+selected scope is ready; these conditions persist on resume
 without an origin label. For B and C, the shared work list in `design-system/adoption.md` saves independent
 progress and batch sizes. After listing the scope, the agent asks for a batch size
 unless already supplied, saved or delegated: 5 or 10 (recommended), or another positive integer.
@@ -255,7 +256,7 @@ See [automatic migration](skills/design-system/reference/migrate.md) for scope a
 After the selected connection or migration scope and its final checks are complete, the
 agent [removes execution-only artifacts](skills/design-system/reference/completion.md#clean-up-completed-work)
 before reporting: completed plans, temporary copies, one-off scripts and fully
-superseded files. Lasting rules, decisions, limitations and required evidence remain
+superseded files. Lasting rules, decisions, limitations and existing project references remain
 reachable; unfinished work retains its continuation state. No separate setup-history
 archive is created, and paused or blocked work keeps its execution materials.
 
@@ -272,7 +273,8 @@ is shared by craft, adoption and migrate. Ordinary craft and gradual adoption wi
 saved whole-set conditions run strict checks for each batch before admission. Every
 automatic migration, and gradual adoption whose authorised plan records whole-set
 conditions, first admits complete existing contracts after ordinary audits and
-structural checks, then runs independent discovery after the selected set is ready.
+structural checks. Independent discovery runs after the selected set is ready only
+when explicitly requested or required by project policy.
 These concrete conditions persist on resume. Modes 1 and 3 may document runtime
 limits, while mode 2 must complete its authorised repairs.
 
@@ -316,7 +318,7 @@ The tree shows the shared agent convention; Claude-only projects use CLAUDE.md i
 of the pair. The instruction file points to root DESIGN.md, which connects the sources
 and verification tools. The installed skill stays at its existing local or global path.
 
-Contract frontmatter owns the stable id, description, status and root-relative source/evidence paths:
+Contract frontmatter owns the stable id, description, status and root-relative source, test and example paths:
 
 ```yaml
 ---
@@ -385,7 +387,7 @@ does not adopt it into the design system.
 See [the glossary](CONTEXT.md) and
 [authority rules](skills/design-system/reference/model.md).
 
-## Contracts and evidence
+## Contracts and verification
 
 [Fixed formats](skills/design-system/reference/formats.md) define one
 section order per group. Components describe API and behaviour; layouts describe API
@@ -423,16 +425,16 @@ kept visible and migration history in linked records. Discovery checks use indep
 product situations; copying or paraphrasing criteria does not establish sufficient coverage.
 Ordinary authoring audits public promises, new suitable contexts, nearby unsuitable
 uses and edge cases. [Independent discovery](skills/design-system/reference/blind-gates.md)
-is mandatory for contract creation and changes to selection, composition eligibility
-or index routing, using one fresh agent per authoring batch with only public inputs.
-Ordinary admission requires current passing discovery evidence for each authoring
-batch. [Automatic migrations and gradual initial adoption](skills/design-system/reference/admission.md#whole-set-migration-discovery)
-finish the whole selected contract set and admit documented existing entities first,
-then run independent discovery over saved project scenarios and confusing alternatives.
-Ordinary author audits remain required; reduced coverage and uncovered entities are
-recorded. Blocked contracts defer the check; failed checks leave migration incomplete
-without reversing admission. Existing focused tests/examples
-can supply runtime evidence; missing support remains unverified.
+and final independent review run only when explicitly requested or required by project
+policy. Ordinary verification does not enable them, and unavailable reviewers do not
+block ordinary completion. Requested discovery uses fresh public-only contexts per
+ordinary authoring batch, or after the complete selected migration set is ready.
+[Automatic migrations and gradual adoption with saved conditions](skills/design-system/reference/admission.md#whole-set-migration-discovery)
+admit documented existing entities after ordinary audits and structural checks.
+A failed explicitly required independent check leaves migration incomplete without
+reversing admission. Existing focused tests/examples can establish runtime behaviour;
+missing support remains unverified. Report check outcomes briefly in the response;
+no separate evidence files, logs, screenshots, transcripts or archives are required.
 Ordinary admission requires proven promises and authority;
 [automatic migration in modes 1 and 3 and migration without verification](skills/design-system/reference/admission.md#migration-verification)
 explicitly admit documented existing entities with recorded verification limits.

@@ -6,8 +6,8 @@
 **Preparation:**
 
 - Use an isolated mini-ds copy and the wrapper preparation from 03-adoption-batch.md.
-- Enable execution subagents and fresh review contexts. Retain dispatch inputs,
-  worker changes, failures and review evidence for assessment.
+- Enable execution subagents and fresh review contexts. Assess actual worker changes
+  and results in the conversation without requiring an execution archive.
 - Include independent component groups and a pattern depending on their contracts.
   Keep runtime and authoritative rules unchanged.
 
@@ -15,7 +15,8 @@
 
 > Automatically migrate all existing components, layouts
 > and patterns in mode 3, contracts only. Run applicable verification. Continue
-> through all batches. Correctness is more important than speed.
+> through all batches. Run independent discovery after the whole set is ready and
+> a final independent consistency review. Correctness is more important than speed.
 
 **Expected:**
 
@@ -41,7 +42,7 @@
 - Have a worker report success while omitting an assigned contract section. The
   main agent must detect the omission from files and repair it before acceptance.
 - Seed a stale shared index link after integration but before final review. Require
-  correction and fresh evidence for the final files, not acceptance of an old report.
+  correction and a fresh check of the final files, not acceptance of an old report.
 - Disable execution subagents but retain fresh independent review sessions. Execute
   sequentially and preserve required independent checks. With all independent
   contexts unavailable, save completed work but leave verification/completion pending.
@@ -49,8 +50,10 @@
   independent reviews and audits, retain unverified status, and still reconcile
   final documents without blocking completion on the skipped checks.
 - Change Route to setup and request initial connection only. Delegate only worthwhile
-  connection work; run final review without starting migration or requiring a
+  connection work; run final review only if explicitly requested, without starting migration or requiring a
   page-adoption demonstration.
-- Change Route to craft and request gradual migration with saved whole-set admission
+- Omit the independent-check request and disable review contexts: finish ordinary
+  checks and document reconciliation without blocking completion or creating evidence files.
+- Change Route to craft and request gradual migration with explicitly requested whole-set admission
   and discovery conditions, no origin label, and batch size 1. Dispatch only the current batch and pause afterwards; run final
   whole-set checks at their prescribed point.

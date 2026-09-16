@@ -128,9 +128,10 @@ affected browser promises. Keep documentation-only requests documentation-only.
 Document-only patterns need no implementation. Complete the implementation audit
 when affected promises have evidence or an explicit failed/unverified result.
 
-Run the [ordinary contract audit](contract.md#ordinary-audit). Use the applicable
-[independent gate method](blind-gates.md) at the timing selected by admission policy;
-return per-item evidence to a migration caller that owns whole-set discovery.
+Run the [ordinary contract audit](contract.md#ordinary-audit). Use the
+[independent gate method](blind-gates.md) only when explicitly requested or required
+by project policy, at the timing selected by admission policy. Return check results
+in the response to the caller.
 
 Repair design drift within the authorised craft scope; otherwise record
 the remaining defect. A contract is not weakened to hide a defect. Craft owns the

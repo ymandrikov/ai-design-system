@@ -13,7 +13,8 @@
   on missing browser evidence. Do not supply invented verification results.
 - Save the user's choice to run migration verification in `adoption.md`, plus these
   conditions: admit complete existing contracts after ordinary audits and structural
-  checks; run independent discovery after the whole selected scope is ready.
+  checks; the user explicitly requested independent discovery after the whole selected
+  scope is ready.
   Include no connection history or origin label.
 
 **Request:**
@@ -41,6 +42,6 @@
 
 **Independent variant — ordinary gradual adoption:** Omit the saved admission and
 whole-set discovery conditions, retaining the scope and run-verification choice.
-Apply strict ordinary admission and independent discovery per batch before admitting
-new entities. A batch size, continuation request or implementation's existence alone
+Apply ordinary admission checks before admitting new entities; do not run independent
+discovery without an explicit request or project requirement. A batch size, continuation request or implementation's existence alone
 does not grant whole-set admission. Do not ask where the migration originated.

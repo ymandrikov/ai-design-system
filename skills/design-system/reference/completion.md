@@ -38,26 +38,27 @@ Inspect artifacts and their references by continuing purpose, not filename or ag
 Remove completed plans and progress, one-off migration scripts, temporary copies,
 scratch outputs, logs and reviewer responses used only to execute this work. Include
 older documents and scripts fully superseded within the authorised scope.
-Keep contracts, indexes, active instructions, working tests, examples and evidence
-needed to support current contract claims, decisions or limitations, even if created
-during this work. Cleanup does not authorise unrelated skill or workflow replacement.
+Keep contracts, indexes, active instructions, working tests, examples and
+meaningful source references, decisions and limitations. Preserve pre-existing user
+materials outside the calling scope; a filename containing evidence is not a deletion rule. Cleanup does not authorise unrelated skill or workflow
+replacement.
 
 Before deleting a file or section, transfer its still-useful rules, decisions,
 recommendations, known defects and verification limits to the appropriate permanent
 documents: DESIGN.md, contracts, authoritative rules or the existing gap journal.
-Preserve required supporting evidence and repair incoming links, imports and command
+Repair incoming links, imports and command
 references to the retained content. Keep unresolved defects and skipped checks explicit;
 cleanup neither closes gaps nor turns an unverified result into a verified one.
 
 Treat `design-system/adoption.md` as execution state. Once its completed plan and
 assessment have served final checks, remove them under this rule. Preserve independent
-unfinished migration or API analysis with its inputs, evidence, decisions and next
+unfinished migration or API analysis with its inputs, findings, decisions and next
 action; completing one step does not start or discard the other. Delete the file and
 its DESIGN.md link only when no continuing work remains and lasting results have been
 transferred. Preserve decisions needed by any authorised handoff at the destination
 specified by the caller before removing their execution file.
-Requirements to save execution history apply while the work or its checks need it;
-do not create a separate archive merely to retain completed execution history.
+Keep only the continuation state needed to resume unfinished work; no execution
+history archive is required.
 
 After cleanup, reconcile surviving documents and affected references again. Rerun
 only enabled checks invalidated by the changes, respecting the saved verification

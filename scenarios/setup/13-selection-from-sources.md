@@ -19,15 +19,15 @@
 - Keep previously generated contracts, installed skills, migration outputs and review
   history out of the copy. Do not supply rewritten purposes or future selection rules.
   The six names in the Request establish migration scope, not the intended criteria.
-- Archive the exact prepared source, skill, request and preparation commands in the
-  current run so its evidence can be reconstructed without the external checkout.
-- Before seeing worker contracts, save separate controller requests covering all six
+- Keep the prepared source available to the evaluator until this run completes;
+  no source or execution archive is required.
+- Before seeing worker contracts, prepare separate controller requests covering all six
   targets with concrete product situations and close competing uses. Derive their
   expected decisions or unresolved choices from the raw source/public rules. Include
   native content and parent-owned compositions, not only other managed components.
   Keep these requests and expectations outside the author's inputs. After authoring,
   run the requests against the final public copy with a fresh discovery worker in
-  addition to evaluating the author's own required evidence. This extra run belongs
+  addition to evaluating the author's ordinary checks. This extra run belongs
   to the repository regression, not the production setup procedure.
 
 **Request:**
@@ -73,8 +73,8 @@
   journal. Repeated generic caveats or copied guide blocks are not reconciliation.
 - Follow current whole-set migration timing, scope and verification rules. Defensible unresolved
   decisions may leave affected work pending; do not force admission/completion or
-  waive discovery to achieve six passing labels. Report unavailable runtime checks.
-- Inspect authored gate inputs and raw answers, not just pass totals. Product cases
+  skip applicable checks to achieve six passing labels. Report unavailable runtime checks.
+- Inspect the controller's withheld requests and discovery responses directly. Product cases
   must leave a choice to discovery, document their origins/deciding differences and
   cover nearby alternatives. Copies and paraphrases of criteria are invalid coverage.
 - Evaluate the controller's withheld requests independently against final contracts.
@@ -82,4 +82,4 @@
   guessing missing rules or treating an otherwise decidable request as unknowable fails.
 
 This complements authoring/13-selection-sufficiency.md, whose input already supplies
-intended semantics. Report authoring, authored-gate and withheld-case outcomes separately.
+intended semantics. Report authoring and withheld-case outcomes separately.

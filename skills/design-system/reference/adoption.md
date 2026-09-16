@@ -81,11 +81,11 @@ authority for each batch.
 It does not settle new normative choices or authorise unrelated implementation changes.
 
 After authoring the whole area, run [whole-set discovery](blind-gates.md#whole-set-migration-discovery)
-when selected by policy and enabled. Complete admission and migration only under
+only if explicitly requested or required by project policy and verification is enabled. Complete admission and migration only under
 the [applicable policy](admission.md#select-the-applicable-policy), retaining the
 separate document-only result where requested. Before final completion, run
-[document reconciliation](completion.md#reconcile-final-documents), the enabled
-[final review](delegation.md#review-the-final-result), then the existing cleanup step.
+[document reconciliation](completion.md#reconcile-final-documents), any explicitly requested
+or project-required enabled [final review](delegation.md#review-the-final-result), then the existing cleanup step.
 A partial batch or failed migration keeps its continuation state and unresolved work.
 
 ## Analyse APIs and escape hatches
@@ -106,6 +106,6 @@ Save recommendations in the work list and link systemic findings to the gap jour
 an evidenced finding that no change is needed also completes analysis of an item.
 Record unavailable evidence as unfinished analysis with a reason.
 
-Complete an analysis item when its findings are supported by saved evidence. Implementation
+Complete an analysis item when its findings are supported by inspected sources and actual check results. Implementation
 of recommendations is a separate craft step requiring that scope; analysis alone
 does not change APIs, consumers or contract promises.

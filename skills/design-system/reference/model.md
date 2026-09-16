@@ -81,7 +81,7 @@ design-system/
 ```
 
 Each component/layout/pattern has one Markdown contract in its group directory. Its
-frontmatter owns the stable id, description, status and code/evidence paths; see [formats](formats.md).
+frontmatter owns the stable id, description, status and code, test and example paths; see [formats](formats.md).
 The three generated indexes contain only `discoverable` contracts: H1 display names,
 full frontmatter descriptions and Contract links, sorted by id. See the
 [index generation rules](../assets/inventory.md). Identity and eligibility remain
@@ -208,7 +208,11 @@ the task is clear and authorised. Silence is not an answer or delegation.
 
 ## Reports
 
-Report decisions, material assumptions and evidence clearly. Labels shown by the
+Report decisions, material assumptions and actual check results clearly. Return check
+outcomes briefly in the response; the skill requires no separate evidence files, logs,
+screenshots, transcripts or execution archives. Keep meaningful source/test references,
+decisions and limitations in their existing documents. Honour explicit user or project
+requirements for additional deliverables. Labels shown by the
 workflow procedures are convenient examples; equivalent prose or tables are valid
 for reports. User questions follow the format above.
 Do not manufacture fields, alternatives or explanations just to fill a template.

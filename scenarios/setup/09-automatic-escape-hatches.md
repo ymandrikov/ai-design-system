@@ -13,7 +13,7 @@
 - Provide an existing project mechanism enforcing a non-empty reason and limiting
   the exception to spacing. Add one ordinary incorrect consumer
   configuration whose correction through Stack's public API would change its visible
-  spacing. Record its defect and current rendering as preparation evidence.
+  spacing. Inspect its defect and current rendering before dispatch.
 - Seed adoption.md with an independent completed API-analysis result and evidence,
   plus a migration item blocked on that second view's missing approval.
 

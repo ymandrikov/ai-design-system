@@ -34,8 +34,7 @@ Preserve existing deprecated uses outside
 scope and report affected migration guidance. Inspect unmanaged fallbacks against
 their code, tests and consumers; report the limits without inventing a contract.
 
-Run the relevant test/composition commands from DESIGN.md, recording each command,
-working directory, exit result and evidence path or output. For each affected entity
+Run the relevant test/composition commands from DESIGN.md, reporting each command and result briefly in the response. For each affected entity
 report `Contract check: <id> — valid|invalid` with a reason for invalid use. For a
 pattern/layout include its required composition rules, not just component API calls.
 
@@ -64,7 +63,7 @@ For each affected reference element or contracted region, check presence, select
 entity, required composition, measured values and states. Report a match count when
 there is a reference and one row per deviation:
 
-| Element | Expected | Actual | Cause | Evidence / gap |
+| Element | Expected | Actual | Cause | Result / gap |
 | --- | --- | --- | --- | --- |
 
 Causes distinguish product defects/decisions, selection assumptions, contract drift,
@@ -94,13 +93,13 @@ behavioural and accessibility checks remain in scope.
 
 ## Report and gap gate
 
-Report static, behavioural and visual outcomes separately, with evidence and limits.
+Report static, behavioural and visual outcomes separately, with check results and limits.
 The following labels are illustrative; equivalent prose or a table is sufficient:
 
 ```text
-Static: pass|fail|unverified|not applicable — <evidence>
-Behavioural: pass|fail|unverified|not applicable — <evidence>
-Visual: pass|fail|unverified|not applicable — <evidence>
+Static: pass|fail|unverified|not applicable — <result and reason>
+Behavioural: pass|fail|unverified|not applicable — <result and reason>
+Visual: pass|fail|unverified|not applicable — <result and reason>
 ```
 
 Use `not applicable` only when the task changes no property of that kind; a missing

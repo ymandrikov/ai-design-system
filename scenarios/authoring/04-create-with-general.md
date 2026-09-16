@@ -14,6 +14,5 @@
 
 - Create an intended IconButton contract under design-system/ and a hidden entry.
 - Preserve Button, implementations and previews. No new runtime implementation route.
-- Check structural and suitable/unsuitable/edge uses, including mandatory independent
-  discovery against proposed status in a public-input copy. Keep Button present as a
-  competitor. Identify missing runtime evidence and leave the entity unadmitted.
+- Check structural and suitable/unsuitable/edge uses against Button as a competitor.
+  Do not run independent discovery without an explicit request or project requirement. Identify missing runtime evidence and leave the entity unadmitted.

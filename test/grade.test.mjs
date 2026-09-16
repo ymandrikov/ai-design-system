@@ -20,7 +20,7 @@ function run(files) {
 }
 
 const artifacts = { "result.md": "Use **Select** for one country. Alternative: none.\n", changes: "" };
-const assessment = (verdict = "pass") => JSON.stringify({ verdict, reason: "The contract supports this selection.", evidence: ["s.result.md", "s.changes"] });
+const assessment = (verdict = "pass") => JSON.stringify({ verdict, reason: "The contract supports this selection." });
 
 it("collects grades and reports missing arguments through a symlinked entry point", () => {
   run({ ...artifacts, "assessment.json": assessment() });
@@ -40,8 +40,9 @@ it("collects the independent assessment without parsing the worker's wording", (
   expect(run({ ...artifacts, "result.md": "Выбираю Select.\n", "assessment.json": assessment() }).verdict).toBe("pass");
 });
 
-it("does not infer a verdict from a worker's success claim or old keyword evidence", () => {
-  expect(run({ ...artifacts, "tests.txt": "150 passed", "check.txt": "pass" }).verdict).toBe("unverified");
+it("reports not run without an assessment even when worker outputs exist", () => {
+  expect(run({}).verdict).toBe("not run");
+  expect(run({ ...artifacts, "tests.txt": "150 passed", "check.txt": "pass" }).verdict).toBe("not run");
 });
 
 it("preserves a semantic rejection and an evaluator's uncertainty", () => {
@@ -49,15 +50,24 @@ it("preserves a semantic rejection and an evaluator's uncertainty", () => {
   expect(run({ ...artifacts, "assessment.json": assessment("unverified") }).verdict).toBe("unverified");
 });
 
-it("requires actual run artifacts and the evaluator's cited evidence", () => {
-  expect(run({ "assessment.json": assessment() }).verdict).toBe("not run");
-  expect(run({ "result.md": "Use Select", "assessment.json": assessment() }).verdict).toBe("unverified");
-  const missing = JSON.stringify({ verdict: "pass", reason: "Tests passed", evidence: ["missing.tests.txt"] });
-  expect(run({ ...artifacts, "assessment.json": missing }).verdict).toBe("unverified");
+it("accepts every supported verdict without attached files", () => {
+  for (const verdict of ["pass", "fail", "unverified"]) {
+    const result = run({ "assessment.json": assessment(verdict) });
+    expect(result.verdict).toBe(verdict);
+    expect(result.lines).toEqual(["The contract supports this selection."]);
+  }
+});
+
+it("ignores legacy evidence and other extra fields", () => {
+  for (const evidence of [["missing.tests.txt"], null, "old format"]) {
+    const record = JSON.stringify({ verdict: "pass", reason: "Checked selection", evidence, model: "old" });
+    expect(run({ "assessment.json": record }).verdict).toBe("pass");
+  }
 });
 
 it("reports incomplete assessment records without crashing or inventing a verdict", () => {
-  for (const record of ["{", "null", "{}", '{"verdict":"pass"}', assessment("maybe")]) {
+  for (const record of ["{", "null", "{}", "[]", "42", '{"verdict":"pass"}',
+    '{"verdict":"pass","reason":"  "}', '{"verdict":"pass","reason":42}', assessment("maybe")]) {
     expect(run({ ...artifacts, "assessment.json": record }).verdict).toBe("unverified");
   }
 });

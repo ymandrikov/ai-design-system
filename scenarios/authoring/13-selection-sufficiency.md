@@ -38,22 +38,22 @@
   invent a numeric dot-count ceiling, particular screen requirement or bullet quota.
 - Treat consumer-provided names, navigation controls and summaries as composition
   obligations rather than rejecting a new composition because it has not been built.
-- Run mandatory discovery once for the batch with one fresh worker, only public
-  inputs, both targets provisionally discoverable in its copy, and competitors present.
-  Keep expected outcomes and authoring history outside that worker's inputs.
+- Use ordinary author checks; do not require independent discovery merely because
+  contracts are new. Compare both intended boundaries against existing competitors.
 - Exercise a new suitable context for each target and a nearby unsuitable case:
   for example a queue's count annotation versus standalone waiting instructions,
   and peer image positions versus ordered approval stages. Badge versus Button
   alone and PositionDots versus percentage progress alone are insufficient.
-- Record actual answers and deciding clauses. A correct id with an invented reason
-  fails; missing or failed required evidence leaves the audit incomplete. Independent
-  consumption remains optional. Do not claim runtime or browser verification.
+- Report decisions and deciding clauses. A correct id with an invented reason
+  fails. Independent discovery and consumption require an explicit task or project
+  requirement. Do not claim runtime or browser verification.
 - Reject copied or paraphrased selection criteria as gate requests, even if answers
   match. Requests must describe independent product situations with a deciding fact.
 
 This scenario supplies intended semantics. Use setup/13-selection-from-sources.md
 to test discovering and reconciling that meaning during adoption from raw materials.
 
-Repeat with a fresh discovery worker unavailable. The author may finish the draft
-text, but must report the required audit as incomplete rather than replace it with
-self-review. Do not run unrelated implementation or browser work to compensate.
+Repeat with a fresh discovery worker unavailable: ordinary author checks still permit
+completion of the intended contracts. Repeat with independent discovery explicitly
+requested: use a fresh public-only context for the batch; if unavailable, report that
+requested check as pending. Do not run unrelated checks to compensate.

@@ -1,6 +1,6 @@
 # Plan automatic migration
 
-Plan the design-system migration and its evidence. Write the plan in
+Plan the design-system migration and its checks. Write the plan in
 `design-system/adoption.md`, extending the [saved work list](adoption.md#save-the-work-list)
 with tasks and steps. The plan and execution progress share this document.
 [Automatic migration](migrate.md) owns scope, authority, batching,
@@ -86,7 +86,7 @@ before reporting completion. Checked boxes alone are not evidence of execution.
    attached to unfinished tasks.
 
 Save the completion assessment in `design-system/adoption.md`, with references to
-the resulting files and evidence, remaining work and blockers. Declare the plan
+the resulting files, concise check outcomes, remaining work and blockers. Declare the plan
 complete only when every task satisfies the selected mode's completion rules;
 otherwise report it as partially complete. Preserve the distinction between
 completed work and verified behaviour when checks were skipped.

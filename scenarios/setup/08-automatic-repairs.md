@@ -7,7 +7,7 @@
 
 - In an isolated copy, remove the accessible label from one existing settings-page
   field without changing its input, state, submission or authoritative contract.
-  Save the failing focused composition check as preparation evidence.
+  Run the focused composition check to confirm the prepared defect.
 - Add a product form and authoritative rule requiring a domain validation condition
   before saving (reject an empty name). Implement saving without that condition,
   with a test exposing the mismatch and a passing case for saving a valid name.

@@ -11,7 +11,7 @@ Compare contracts, then choose. An omitted fact is unknown, not false.
 For managed UI selection, use the request, DESIGN.md's public rules, supplied design
 references, indexes, contracts and their linked public dependencies. Component
 implementations, private styles, tests, previews and existing call sites are not
-selection inputs; frontmatter source/evidence paths serve authoring and verification.
+selection inputs; frontmatter source, test and example paths serve authoring and verification.
 Public token definitions remain inputs to token selection even when stored in CSS.
 The deciding rule must be available in a contract or a linked public rule. When it
 is missing, return the contract gap to the caller rather than inferring it from code,

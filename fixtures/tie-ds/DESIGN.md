@@ -57,5 +57,5 @@ basis. Resolution requires demonstrating the original expectation.
 
 Ask the person running the skill.
 
-Follow design-system's mandatory independent discovery checks. Independent consumption
-and setup demonstrations are optional unless explicitly requested.
+Follow design-system's ordinary checks. Independent discovery, consumption, final
+review and setup demonstrations run only when explicitly requested by the task.

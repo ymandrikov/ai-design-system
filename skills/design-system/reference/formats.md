@@ -57,7 +57,7 @@ it needs no implementation of its own. Empty sources never establish runtime rea
 All path fields are lists of concrete files relative to the project root containing
 DESIGN.md, using forward slashes. Paths stay inside the project, including through
 symlinks; absolute paths, URLs, globs, fragments and `.`/`..` segments are invalid.
-Tests and examples point to existing evidence files, not commands or proof of passing.
+Tests and examples point to existing project files, not commands or proof of passing.
 Check listed files exist. Ordinary Markdown links remain relative to their document.
 
 For nonempty `sources`, `sourcesHash` records the source snapshot at the last contract
@@ -247,7 +247,7 @@ a suggested example from an invariant. **Accessibility** follows component owner
 ## Pattern
 
 Use [the pattern contract template](../assets/patterns.md) for one file in
-`design-system/patterns/`. Keep identity, status and source/evidence paths in
+`design-system/patterns/`. Keep identity, status and source, test and example paths in
 [frontmatter](#contract-frontmatter). PATTERNS.md links to each contract using the
 shared index format. Link executable examples and checks from Structure or Verification
 and list their files in the corresponding frontmatter fields when available.

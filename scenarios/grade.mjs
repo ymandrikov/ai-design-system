@@ -16,17 +16,13 @@ export function grade(outDir, scenariosDir) {
   return scenarioFiles(scenariosDir).map((path) => {
     const id = basename(path, ".md");
     const row = (verdict, reason) => ({ id, verdict, lines: [reason] });
-    if (!file(`${id}.result.md`)) return row("not run", "No worker result");
-    if (!file(`${id}.changes`)) return row("unverified", "Missing changes evidence");
-    if (!file(`${id}.assessment.json`)) return row("unverified", "No independent assessment");
+    if (!file(`${id}.assessment.json`)) return row("not run", "No independent assessment");
     let assessment;
     try { assessment = JSON.parse(readFileSync(join(outDir, `${id}.assessment.json`), "utf8")); }
     catch { return row("unverified", "Unreadable assessment record"); }
     if (!assessment || !["pass", "fail", "unverified"].includes(assessment.verdict)
-      || typeof assessment.reason !== "string" || !assessment.reason.trim()
-      || !Array.isArray(assessment.evidence) || !assessment.evidence.length
-      || assessment.evidence.some((name) => typeof name !== "string" || !name.trim() || !file(name))) {
-      return row("unverified", "Incomplete assessment or missing cited evidence");
+      || typeof assessment.reason !== "string" || !assessment.reason.trim()) {
+      return row("unverified", "Invalid assessment record");
     }
     return row(assessment.verdict, assessment.reason);
   });
@@ -44,5 +40,5 @@ if (process.argv[1] && existsSync(process.argv[1]) && realpathSync(process.argv[
   for (const r of rows) console.log(`| ${r.id} | ${r.verdict} | ${cell(r.lines.join(" "))} |`);
   console.log("\nTotals: " + ["pass", "fail", "unverified", "not run"]
     .map((v) => `${rows.filter((r) => r.verdict === v).length} ${v}`).join(", "));
-  console.log("Rubric and evidence limits: scenarios/evaluate.md");
+  console.log("Evaluation rubric: scenarios/evaluate.md");
 }

@@ -6,7 +6,7 @@
 **Request:**
 
 > Review the quality of these proposed discovery cases against tie-ds. For this
-> review only, assume independent execution and full result recording are available;
+> review only, assume independent execution and its results are available;
 > assess the cases themselves, not missing execution records. Each proposed answer
 > correctly cites its candidate contract. Can these cases establish sufficient
 > selection coverage? Assess each separately. Do not edit contracts or run new gates.

@@ -25,7 +25,7 @@
 - Complete and reconcile the initial connection, then treat the explicit contract
   request as selection of gradual adoption. Save the concrete admission conditions
   (complete existing contracts after ordinary audits and structural checks) and
-  discovery timing (after the whole selected scope) in the existing plan, without
+  any explicitly requested or project-required discovery timing in the existing plan, without
   an origin label. Offer API analysis separately without running it.
 - Save and link `design-system/adoption.md` with the complete owned scope, including
   the 12 wrappers, unmanaged Toggle and Stack. Group bindings of the same entity;
@@ -38,7 +38,6 @@
   validation, offer run or skip, and recommend running verification. Wait for the
   choice before any checks, including connection checks; reading sources is allowed.
 - Wait for the answer before processing migration items; neither silence nor the
-  word "all" supplies a size or authorises unlimited batches. Use the whole-set
-  saved whole-set migration gate only after every selected contract is ready; do not run a
-  per-batch independent gate. Leave API-analysis size unset and do not claim migration
+  word "all" supplies a size or authorises unlimited batches. Ordinary verification does not request an independent gate; do not run one
+  without an explicit request or project requirement. Leave API-analysis size unset and do not claim migration
   checks or admission before processing.
