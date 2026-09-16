@@ -40,7 +40,8 @@ pattern can describe a recipe without introducing a component.
 Link the established project testing and preview procedures, including their actual
 commands and working directories where useful. State accessibility and browser support
 policy and authoritative visual sources. The framework checks contract promises and
-composition using those procedures; missing evidence remains explicitly unverified.
+composition using those procedures, respecting the user’s verification choice.
+Report actual results; briefly mention unavailable requested checks in the conversation.
 
 ## Gaps and decisions
 

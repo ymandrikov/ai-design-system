@@ -244,17 +244,14 @@ immediately follows initial setup, the agent explains
 the applicable checks and waits for a run-or-skip choice alongside other startup
 decisions. An explicit or saved choice is reused across batches and resumptions.
 Skipping testing or verification applies in every mode, including gradual adoption:
-checks and evidence-gated admission are skipped except mandatory
-[document reconciliation](skills/design-system/reference/completion.md#reconcile-final-documents),
-while authorised code repairs and documentation continue. Before reporting connection
-or migration results,
-the agent rereads all created or changed documents, DESIGN.md, AGENTS.md and existing
-CLAUDE.md files in the affected area and reconciles them with the actual project and
-migration or connection results. Factual mismatches are corrected; unresolved rule
-conflicts are reported.
+checks, evidence-gated admission and separate final document reconciliation are skipped,
+while authorised code repairs and documentation continue. Documents and affected links
+are updated as part of the work. Skipped or unavailable checks create no status labels,
+contract/progress entries, risk-acceptance notices or completion blockers. If a requested
+check cannot run, the agent briefly says so in the conversation without claiming it passed.
+Real defects, unresolved decisions and unfinished work remain explicit.
 Documented implemented entities become `discoverable`, retaining existing `deprecated`
-status. Results are explicitly unverified, and the user accepts the risk of nonworking
-code. See [migration verification](skills/design-system/reference/admission.md#migration-verification).
+status. See [migration verification](skills/design-system/reference/admission.md#migration-verification).
 
 The agent chooses an unspecified batch size, saves progress in `design-system/adoption.md`
 and continues through all batches without repeated confirmation. Blocked items remain
@@ -271,7 +268,7 @@ reachable; unfinished work retains its continuation state. No separate setup-his
 archive is created, and paused or blocked work keeps its execution materials.
 
 Automatic migration in modes 1 and 3 makes documented existing entities `discoverable`, retaining
-`deprecated` status where already set. Known defects and unverified promises are linked
+`deprecated` status where already set. Known defects are linked
 from contracts and considered during selection. Documentation completion and runtime
 verification are separate results; availability does not certify correctness.
 Defects outside those modes' repair authority do not block documentation completion.
@@ -443,7 +440,7 @@ ordinary authoring batch, or after the complete selected migration set is ready.
 admit documented existing entities after ordinary audits and structural checks.
 A failed explicitly required independent check leaves migration incomplete without
 reversing admission. Existing focused tests/examples can establish runtime behaviour;
-missing support remains unverified. Report check outcomes briefly in the response;
+unavailable requested checks are mentioned briefly in the response. Report actual check outcomes;
 no separate evidence files, logs, screenshots, transcripts or archives are required.
 Ordinary admission requires proven promises and authority;
 [automatic migration in modes 1 and 3 and migration without verification](skills/design-system/reference/admission.md#migration-verification)

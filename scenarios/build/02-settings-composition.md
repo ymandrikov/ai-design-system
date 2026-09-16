@@ -20,4 +20,4 @@
 
 - Independently execute a minimal check that the **new contact page exists**, contains its heading/introduction, labelled required email field in the Contact group, final save action and feedback, with no destructive section. Run the project composition checker on the target and its surrounding composition.
 - Submit a distinct email and assert it appears in the page’s feedback without a network request. Use assertions that fail the command, not just printed pass/fail strings. Assert that a deliberately broken required relationship is rejected; testing only pre-existing pages is insufficient.
-- Inspect actual generated code and the recorded commands, exit codes and full output. Accept the requested browser limitation; DOM tests establish only their exercised properties, and browser-dependent behaviour/visuals remain unverified.
+- Inspect actual generated code and the recorded commands, exit codes and full output. Accept the requested browser limitation; DOM tests establish only their exercised properties. Do not claim browser-dependent behaviour or visuals were verified or add verification labels or contract records.

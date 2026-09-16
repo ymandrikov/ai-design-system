@@ -24,9 +24,9 @@
 
 **Expected:**
 
-- Reconcile the completed plan against actual results and perform mandatory final
-  document reconciliation. Preserve the unverified result without running skipped
-  checks or requesting a cleanup decision.
+- Reuse the saved verification choice and completed work. Omit separate final document
+  reconciliation and skipped checks without requesting a cleanup decision or adding
+  verification labels or records.
 - Enter migrate directly without reconstructing connection history or reading setup.
 - Before the final report, remove execution-only scripts, copies, logs, the
   superseded legacy guide and completed planning/progress content, without creating
@@ -38,7 +38,7 @@
   its inputs, decisions and next action. Do not start that analysis merely to delete
   the file. Keep lasting tests, examples, pre-existing user materials and the mixed guide's
   active instructions regardless of their age or creation during setup.
-- Reconcile the surviving documents after cleanup, including affected links, and
+- Update affected links as part of cleanup without a separate reconciliation pass;
   report what was removed and what remains for continuing work.
 
 **Independent variants:**
@@ -46,11 +46,11 @@
 - **No remaining work:** omit the pending analysis. Transfer lasting results, delete
   `adoption.md` and remove its obsolete DESIGN.md link; do not recreate it to report
   completion or archive the completed plan.
-- **Paused or blocked:** leave a migration item unfinished, or enable verification
-  with an explicitly requested independent check unavailable. Preserve execution materials and
+- **Paused or blocked:** leave a migration item unfinished or an actual check failure
+  unresolved. Preserve execution materials and
   progress for continuation; a completed batch or blocked stop does not trigger cleanup.
 - **Connection only:** change Route to setup and seed completed connection work,
-  temporary copies and a useful verification limitation linked from a contract.
+  temporary copies and a known runtime defect linked from a contract.
   Include pre-existing user evidence outside scope. Request connection without
   migration and skip optional verification. Transfer the limitation to a permanent
   document, repair its incoming link and clean temporary materials before reporting

@@ -45,10 +45,11 @@
   correction and a fresh check of the final files, not acceptance of an old report.
 - Disable execution subagents but retain fresh independent review sessions. Execute
   sequentially and preserve required independent checks. With all independent
-  contexts unavailable, save completed work but leave verification/completion pending.
+  contexts unavailable, briefly report the unavailable requested checks and finish
+  completed work without verification labels or completion blockers.
 - Explicitly skip verification in the request. Workers inherit that choice; skip
-  independent reviews and audits, retain unverified status, and still reconcile
-  final documents without blocking completion on the skipped checks.
+  independent reviews, audits and separate final document reconciliation. Update
+  documents during work; create no unverified labels or completion blockers.
 - Change Route to setup and request initial connection only. Delegate only worthwhile
   connection work; run final review only if explicitly requested, without starting migration or requiring a
   page-adoption demonstration.

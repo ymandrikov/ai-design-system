@@ -34,12 +34,9 @@
 - Reuse the bounded escape hatch and migrate the authorised spacing override to it,
   preserving existing geometry and behaviour. Supply the required reason without
   changing internal enforcement logic or executing verification checks.
-- Always perform shared final document reconciliation: reread written documents,
-  DESIGN.md, AGENTS.md and existing CLAUDE.md files in the affected area from disk,
-  compare them with actual sources and the applicable connection or migration results,
-  and correct factual mismatches. Report unresolved rule conflicts. Repeat after
-  migration document edits.
-- Apart from that mandatory reconciliation, run no verification commands or audit
+- Update affected documents and links during the work; omit separate final document
+  reconciliation and post-cleanup rechecks. Keep discovered rule conflicts explicit.
+- Run no verification commands or audit
   procedures, including connection/migration link and structure validation, tests,
   build, contract/selection audits, browser/visual checks or
   independent gates. Do not rename a check as inspection, a smoke test or a repair step.
@@ -47,10 +44,9 @@
   Make the newly documented implemented wrappers discoverable immediately without
   structural validation or admission evidence. Preserve deprecated status and keep
   the unimplemented draft hidden.
-- Mark affected checks and promises unverified due to user choice, link limitations
-  from contracts and report the user's acceptance of the risk of nonworking code.
-  Leave the defect gap open without proof; distinguish a performed repair from a
-  verified repair. Skipped checks alone do not block migration completion.
+- Add no unverified labels, skipped-check entries, contract limitations or
+  risk-acceptance notices. Leave the known defect gap open without proof; do not claim
+  the repair was verified. Skipped checks alone do not block migration completion.
 - Preserve the selected mode's repair, scope and exception-approval boundaries. The refusal
   authorises neither unrelated changes nor weaker behaviour/accessibility promises.
 
@@ -70,11 +66,11 @@ refusal, reporting and admission criteria with these scope differences:
   existing contracts to the standard structure. Do not run verification." Seed an
   existing CLAUDE.md with a
   reference to a contract being moved and preserve an unrelated instruction in it.
-  Complete documents and links with mandatory final reconciliation: repair the stale
-  reference and preserve the unrelated instruction. Skip other checks and runtime
+  Repair the affected reference while moving the contract and preserve the unrelated
+  instruction. Skip separate reconciliation, other checks and runtime
   repairs; do not start whole-codebase adoption.
 - Resume and mode change: save mode 1, batch size two and verification skipped by
   explicit user choice in adoption.md, with wrappers still pending. Request "Resume
   migration in mode 2 and finish all batches."
-  Reuse the refusal without asking, perform mandatory final document reconciliation,
-  skip other checks and perform the label repair.
+  Reuse the refusal without asking, skip verification and separate final document
+  reconciliation, and perform the label repair.

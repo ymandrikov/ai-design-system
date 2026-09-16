@@ -18,14 +18,16 @@ without that requirement, their absence never blocks admission or completion.
 
 | Context | Admission with verification enabled | Completion |
 | --- | --- | --- |
-| Locally added external components under [external-addition admission](#external-addition-admission) | Publish as discoverable immediately with the contract, before checks; unresolved duplicates remain hidden. | Reconciled contracts/indexes and explicit check outcomes; unresolved normative decisions remain pending. Failed or unavailable runtime checks are recorded limitations. |
+| Locally added external components under [external-addition admission](#external-addition-admission) | Publish as discoverable immediately with the contract, before checks; unresolved duplicates remain hidden. | Reconciled contracts/indexes and explicit check outcomes; unresolved normative decisions remain pending. Actual failures remain explicit; unavailable checks follow the shared verification rule. |
 | Ordinary craft and gradual adoption without saved whole-set conditions | Admit after authorised public promises and ordinary selection/composition checks pass. New/adopted entities remain hidden until then. | Applicable ordinary checks and any explicitly required independent checks pass. |
 | Automatic migration, or gradual adoption with saved whole-set conditions | Fully documented existing entities become discoverable after ordinary author audits and structural checks. Selected repair obligations remain. | Mode-specific work and applicable checks complete. Explicitly required discovery/review failures leave completion pending without reversing admission. |
-| Automatic modes 1 and 3 | Migration admission also applies when runtime checks fail or are unavailable; contracts remain complete and linked to defects and limitations. | Out-of-mode repairs do not block documentation completion. Mode 1 still requires its authorised exception changes and enabled checks. |
-| Explicit verification refusal in migration or gradual adoption | Newly documented implemented entities become discoverable without check prerequisites under the refusal rule below. | Authorised work and mandatory document reconciliation complete; results remain explicitly unverified. |
+| Automatic modes 1 and 3 | Migration admission also applies when runtime checks fail or are unavailable; contracts remain complete and linked to known defects. | Out-of-mode repairs do not block documentation completion. Mode 1 still requires its authorised exception changes and enabled checks. |
+| Explicit verification refusal in migration or gradual adoption | Newly documented implemented entities become discoverable without check prerequisites under the refusal rule below. | Authorised work complete under the shared verification rule. |
 
-Mode 2 retains its required design repairs and enabled verification; blocked repairs
-or checks leave it partially complete. Empty scopes are valid completed results.
+Apply the [shared verification rule](model.md#skipped-and-unavailable-verification)
+before all admission and completion conditions in this file. Mode 2 retains its required
+design repairs and enabled verification; unfinished repairs or actual check failures
+leave it partially complete. Empty scopes are valid completed results.
 
 Preserve existing deprecated status and keep unimplemented drafts hidden in every
 row. Preserve existing eligibility during document moves. A document-only pattern
@@ -49,7 +51,8 @@ An unresolved duplicate remains hidden until the user settles the primary choice
 
 Run applicable ordinary checks after publication. Failures or unavailable evidence
 do not delay or revoke availability; keep the intended promises and record their
-specific defects and verification limits in the contract and response. Missing
+specific defects in the contract and response. Unavailable checks follow the
+[shared verification rule](model.md#skipped-and-unavailable-verification). Missing
 normative choices remain explicit and block dependent decisions, not publication of
 the known contract. Never invent rules or claim those decisions are complete.
 Consumers still check suitability and required promises; discoverable is not a claim
@@ -86,8 +89,8 @@ For automatic migration and gradual contract adoption, settle verification befor
 the first check, including link validation.
 Inspect sources and configured commands first. Explain the applicable structural/link,
 contract/selection, test/build, behavioural/browser and visual checks, including
-any task- or project-required independent gates and unavailable capabilities. Explain that [final document reconciliation](completion.md#reconcile-final-documents)
-is mandatory. Offer to run or skip the remaining verification,
+any task- or project-required independent gates, final document reconciliation
+and unavailable capabilities. Offer to run or skip verification,
 recommend running it, and wait for the user's choice. Batch this with
 other missing startup decisions using [the question format](model.md#questions-to-the-user).
 Surveying sources and saving the work list can proceed meanwhile.
@@ -99,8 +102,8 @@ verification. A saved refusal also applies on resume and after a mode change.
 
 An explicit request to skip testing or verification takes precedence over check
 requirements throughout the authorised work and its supporting procedures,
-in every migration mode, except the mandatory
-[final document reconciliation](completion.md#reconcile-final-documents), which always runs.
+in every migration mode, including
+[final document reconciliation](completion.md#reconcile-final-documents).
 With that choice, read sources, tests and consumers to
 understand and perform the work, but skip the remaining verification: tests, builds, structural
 and link validators, contract/selection audits, browser/visual checks and independent
@@ -113,10 +116,7 @@ Make newly documented implemented entities `discoverable` immediately;
 preserve existing `deprecated` status and keep unimplemented drafts hidden. This
 exception overrides evidence-gated admission and structural-validation prerequisites.
 
-Record skipped checks as `unverified — skipped by user choice` in progress and reports,
-and link limitations from the affected contracts. Preserve earlier check conclusions with their
-scope; changed promises are not covered by stale results. Work may finish with
-verification explicitly unverified; skipped checks alone are not blockers. Keep real
-unresolved decisions and unfinished repairs explicit, and leave gaps requiring proof
-open. Report that the user accepted the risk of nonworking code by choosing migration
-without verification; `discoverable` and completed work do not certify correctness.
+Follow the [shared verification rule](model.md#skipped-and-unavailable-verification)
+for reporting and completion. Preserve earlier check conclusions with their scope;
+changed promises are not covered by stale results. Keep real unresolved decisions
+and unfinished repairs explicit, and leave known defect gaps requiring proof open.

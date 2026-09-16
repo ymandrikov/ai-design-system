@@ -9,7 +9,8 @@ reports findings and records applicable gaps without starting implementation.
 The framework determines the contract and design-system conditions to verify.
 Follow the project's established testing and preview procedures for engineering
 evidence; do not introduce a separate testing methodology. When verifying migration work, read and apply the saved
-[verification choice](admission.md#migration-verification).
+[verification choice](admission.md#migration-verification). In every workflow, apply
+the [shared verification rule](model.md#skipped-and-unavailable-verification).
 
 ## Static verification
 
@@ -50,12 +51,11 @@ contracts and visual sources. Include relevant supported themes, contexts and de
 tolerances. Record commands or observations and their results. When a required
 procedure or environment is unavailable, continue independent checks and name the
 missing evidence.
-Browser absence does not prevent static work, but leaves these properties unverified.
+Browser absence does not prevent static work or completion; do not claim browser evidence.
 Unit DOM output alone is not rendered layout or interactive-browser evidence.
 
-Complete when each affected observable promise has passing evidence or an explicit
-failed/unverified result. With no visual reference, verify documented layout and
-behaviour; mark undefined visual comparisons unverified rather than invent values.
+Complete when enabled, available checks have outcomes. With no visual reference,
+verify documented layout and behaviour without inventing comparison values.
 
 ## Reconcile
 
@@ -67,9 +67,9 @@ there is a reference and one row per deviation:
 | --- | --- | --- | --- | --- |
 
 Causes distinguish product defects/decisions, selection assumptions, contract drift,
-system limitations and unavailable tooling. Missing evidence is unverified; it is not
-a matching element. With no reference, name the documented promises checked and leave
-undefined visual comparisons unverified. Do not fabricate a reference match count.
+system limitations. Omit unavailable comparisons; they are not matching elements or
+deviations. With no reference, name the documented promises checked. Do not fabricate
+a reference match count or imply coverage of omitted comparisons.
 
 ## Contrast scope
 
@@ -86,32 +86,25 @@ background, opacity or token role. A direct contrast audit or an explicit task,
 project or contract contrast requirement remains applicable. Report a conflict with
 that requirement once; honour an already accepted exception without reopening it.
 
-Excluded contrast is outside the task's verification scope, not failed or unverified
-work blocking completion. Omit it from routine reports; never describe an excluded
+Excluded contrast is outside the task's verification scope and does not block
+completion. Omit it from routine reports; never describe an excluded
 check as passed or imply that all contrast was verified. Other applicable visual,
 behavioural and accessibility checks remain in scope.
 
 ## Report and gap gate
 
-Report static, behavioural and visual outcomes separately, with check results and limits.
-The following labels are illustrative; equivalent prose or a table is sufficient:
-
-```text
-Static: pass|fail|unverified|not applicable — <result and reason>
-Behavioural: pass|fail|unverified|not applicable — <result and reason>
-Visual: pass|fail|unverified|not applicable — <result and reason>
-```
-
-Use `not applicable` only when the task changes no property of that kind; a missing
-tool is `unverified`. Include the reconciliation match count when a reference exists
-and one row per deviation. Existing independent violations are incidental findings,
+Report actual static, behavioural and visual check outcomes briefly in the conversation.
+Omit skipped checks and empty result categories. Briefly mention any requested check
+that could not run, without status labels or contract/progress records. Include the
+reconciliation match count when a reference exists and comparisons ran, and one row
+per observed deviation. Existing independent violations are incidental findings,
 subject to the [contrast scope](#contrast-scope) exception.
 
 For a reusable system limitation, contract drift, contradictory guidance or design
 conflict read and follow [gap recording](gaps.md),
 then report `Gap gate: recorded — <title>`
-or `Gap gate: none`. Complete means no failed applicable checks; fully verified UI
-also requires no unverified affected visual or behavioural property. Documentation
-work can finish with runtime checks not applicable. Contracts and shared code stay
+or `Gap gate: none`. Actual applicable check failures remain explicit. Claim full UI
+verification only when all affected visual and behavioural properties have evidence.
+Skipped or unavailable checks alone do not block completion. Contracts and shared code stay
 unchanged here; return design defects to the authorised workflow and internal-logic
 defects to project development.

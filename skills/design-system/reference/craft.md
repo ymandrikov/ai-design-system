@@ -100,12 +100,12 @@ does not authorise component redesign, implementation repairs or consumer change
 
 Apply [external-addition admission](admission.md#external-addition-admission): publish
 the contract and regenerate indexes before checks, except for unresolved duplicates.
-Then run the ordinary audits and applicable project checks through
-[edit and audit](#edit-and-audit), recording defects and unavailable evidence at the
-affected promises. Report document coverage, eligibility, check outcomes and remaining
+Then run enabled ordinary audits and applicable project checks through
+[edit and audit](#edit-and-audit), recording discovered defects at the
+affected promises. Apply the [shared verification rule](model.md#skipped-and-unavailable-verification). Report document coverage, eligibility, check outcomes and remaining
 decisions separately. Complete when all in-scope contracts and indexes are reconciled,
-material decisions are settled and applicable checks have reported outcomes; failed
-or unavailable runtime checks remain limitations, not grounds to hide the component.
+material decisions are settled and enabled, available checks have reported outcomes;
+runtime check failures remain defects, not grounds to hide the component.
 
 ## Edit and audit
 
@@ -170,7 +170,7 @@ before changing shared behaviour. Verify public use, relevant states, accessibil
 and composition with focused project checks; use [verification](verify.md) for
 affected browser promises. Keep documentation-only requests documentation-only.
 Document-only patterns need no implementation. Complete the implementation audit
-when affected promises have evidence or an explicit failed/unverified result.
+when enabled, available checks have outcomes; report actual failures.
 
 Run the [ordinary contract audit](contract.md#ordinary-audit). Use the
 [independent gate method](blind-gates.md) only when explicitly requested or required
@@ -201,7 +201,7 @@ For new systemic gaps, use [gap recording](gaps.md).
 
 Report changed artifacts, compatibility, public-use evidence, affected consumers,
 gaps and unresolved decisions. Separate static, behavioural and visual results;
-a missing check is unverified, not pass.
+follow the [shared verification rule](model.md#skipped-and-unavailable-verification).
 When consumer changes are in scope, continue through [use](use.md) after craft's
 checks, then verify the affected composition. Earlier component evidence alone does
 not prove the correctness of its new use.

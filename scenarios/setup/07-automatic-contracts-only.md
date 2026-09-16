@@ -35,9 +35,9 @@
   discovery or final review merely because verification is enabled. Report outcomes
   in the response without creating evidence files or archives.
 - Keep Notice's intended promise; link its failed test and defect from the contract.
-  Record unavailable browser evidence separately. Do not weaken promises, change
+  Briefly mention unavailable requested browser checks in the conversation. Do not weaken promises, change
   runtime code, hide Notice or claim the defect is repaired.
-- Distinguish completed documentation from failed/unverified runtime promises.
+- Distinguish completed documentation from actual runtime failures; add no verification labels for unavailable checks.
   Exclude private helpers and unwrapped dependencies; pages do not become patterns
   just because migration surveyed them.
 - Save per-item results and next-work state. Leave unresolved normative decisions

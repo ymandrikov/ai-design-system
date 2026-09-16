@@ -50,7 +50,7 @@ its nonempty string is required for every status.
 `sources` lists implementation files for every supported binding and the styles
 that define the entity. Native/CSS-only entities may list just their stylesheet.
 For an intended contract awaiting implementation, use `sources: []`, keep it hidden
-and report implementation as unverified. A document-only pattern can use `sources: []`
+and report implementation as pending. A document-only pattern can use `sources: []`
 and become discoverable after its selection and composition obligations are checked;
 it needs no implementation of its own. Empty sources never establish runtime readiness.
 

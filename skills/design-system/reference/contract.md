@@ -84,8 +84,9 @@ by project policy. For those checks, ordinary authoring uses per-batch timing an
 whole-set migration returns ordinary audit results to its caller for the final check.
 
 Use existing tests, examples and focused public-use checks as evidence where they
-prove the current promises; inspect their actual results. Missing runtime evidence
-remains unverified. Browser-dependent promises need rendered/interactive evidence via
+prove the current promises; inspect their actual results. Apply the
+[shared verification rule](model.md#skipped-and-unavailable-verification) to unavailable
+checks. Browser-dependent promises need rendered/interactive evidence via
 [UI verification](verify.md). Unchanged evidenced promises
 need no new test or browser run merely because their wording was clarified.
 

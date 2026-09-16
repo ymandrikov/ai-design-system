@@ -150,8 +150,9 @@ or skip verification, recommending run. Wait for the choice; source survey may c
 Reuse an explicit or saved choice. Save it in DESIGN.md for this operation and the
 selected next-step handoff; do not apply it to unrelated later work. A refusal skips
 validators, audits, tests, builds, browser checks, demonstrations and independent review;
-report the result as unverified. [Final document reconciliation](completion.md#reconcile-final-documents)
-remains mandatory. Refusal changes neither scope nor authority.
+it also skips [final document reconciliation](completion.md#reconcile-final-documents).
+Follow the [shared verification rule](model.md#skipped-and-unavailable-verification).
+Refusal changes neither scope nor authority.
 For an explicitly requested migration, gather its missing boundary and verification
 decisions in that same round; for gradual adoption, include batch size.
 
@@ -207,10 +208,11 @@ relative symlink targets, source and installed-skill paths, preserved project en
 stage order, approvals and completion checks. Supply these requirements to
 [delegation](delegation.md#review-the-final-result) as well. Connection without changed
 contract boundaries requires no contract discovery gate.
-Run [final document reconciliation](completion.md#reconcile-final-documents), then
-[the final independent review](delegation.md#review-the-final-result) only when explicitly requested or
-required by project policy and verification is enabled,
-and [completion cleanup](completion.md#clean-up-completed-work). Report connection
+When verification is enabled, run
+[final document reconciliation](completion.md#reconcile-final-documents), then
+[the final independent review](delegation.md#review-the-final-result) only when explicitly
+requested or required by project policy. Apply
+[completion cleanup](completion.md#clean-up-completed-work) even when verification is skipped. Report connection
 complete only when its own required work is complete. Retain materials needed by
 an already selected migration, without making migration completion a setup condition.
 Preserve the verification choice in DESIGN.md for the next-step handoff even when

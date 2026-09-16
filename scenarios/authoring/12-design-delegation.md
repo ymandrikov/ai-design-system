@@ -25,4 +25,4 @@
 - Run structural validation; assess suitable, unsuitable and edge uses, including
   a new use beyond copying the contract example. Do not infer a request for independent
   discovery from ordinary quality mode. Runtime and visual behaviour
-  remain unverified; delegated design decisions are not implementation evidence.
+  are not claimed as verified; delegated design decisions are not implementation evidence.

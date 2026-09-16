@@ -112,8 +112,9 @@ the remaining scope; awaiting a decision never counts as completing its dependen
 Follow craft's applicable audits and [verification](verify.md) for affected promises,
 including consumer checks that establish compatibility. Report static, behavioural
 and visual evidence separately. Tests and snapshots must retain existing interaction
-expectations. Missing tools or skipped checks are unverified, and pre-existing logic
-failures remain explicit deferred defects rather than being repaired or labelled pass.
+expectations. Apply the [shared verification rule](model.md#skipped-and-unavailable-verification)
+to skipped or unavailable checks. Pre-existing logic failures remain explicit deferred
+defects rather than being repaired or labelled pass.
 
 Repair regressions caused by this run within its boundary. If an attempted improvement
 requires a prohibited change to work correctly, revert that attempted improvement
@@ -122,8 +123,8 @@ archive a gap only after proving its original expectation through the existing g
 procedure; partial fixes leave remaining expectations open.
 
 Finish one full pass of the selected scope, eligible changes and their verification. Do
-not restart a whole-system search after fixes. Reread changed documents against final
-sources, decisions and evidence. Account for every area and finding, separating
+not restart a whole-system search after fixes. When verification is enabled, reread
+changed documents against final sources, decisions and evidence. Account for every area and finding, separating
 completed work, pending decisions, deferred tasks and verification limits. Unavailable
 or uninspected areas mean partial coverage. Return changes, coverage, evidence and
 remaining decisions in the conversation; completed permitted work does not imply that

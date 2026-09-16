@@ -85,9 +85,9 @@ It does not settle new normative choices or authorise unrelated implementation c
 After authoring the whole area, run [whole-set discovery](blind-gates.md#whole-set-migration-discovery)
 only if explicitly requested or required by project policy and verification is enabled. Complete admission and migration only under
 the [applicable policy](admission.md#select-the-applicable-policy), retaining the
-separate document-only result where requested. Before final completion, run
-[document reconciliation](completion.md#reconcile-final-documents), any explicitly requested
-or project-required enabled [final review](delegation.md#review-the-final-result), then the existing cleanup step.
+separate document-only result where requested. When verification is enabled, run
+[document reconciliation](completion.md#reconcile-final-documents) and any explicitly requested
+or project-required [final review](delegation.md#review-the-final-result). Then apply the existing cleanup step.
 A partial batch or failed migration keeps its continuation state and unresolved work.
 
 ## Analyse APIs and escape hatches

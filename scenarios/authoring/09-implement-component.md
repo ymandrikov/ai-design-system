@@ -21,7 +21,8 @@
 - Check suitable, unsuitable and edge uses; run structural validation and actual
   discovery for proposed admission with competing candidates present.
 - Treat the request as including admission authority unless project policy says
-  otherwise. Admit only after applicable checks pass; missing browser evidence for
-  hiding and accessibility remains unverified and keeps the component hidden.
+  otherwise. Admit after enabled, available checks pass. If browser verification of
+  hiding and accessibility cannot run, briefly say so without claiming it passed;
+  its absence alone does not keep the implemented component hidden.
 - Preserve unrelated components and pages; do not ask again for already supplied
   scope or replace implementation evidence with a contract's intended promises.

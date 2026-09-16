@@ -39,8 +39,9 @@
   imports. Update the existing changed component's contract without duplicating it
   or reviving any deprecated entity.
 - Run applicable authoring and structural checks despite immediate availability.
-  Report failed/unverified results separately from documentation and eligibility;
-  preserve runtime files and complete independent work while decisions are pending.
+  Report the actual test failure and briefly mention the unavailable requested browser
+  check in the conversation, without adding verification labels or limitations to
+  contracts. Preserve runtime files and complete independent work while decisions are pending.
 
 Repeat with an agent-owned external addition: supply local registry sources outside
 the project and request copying them into its component directory using project

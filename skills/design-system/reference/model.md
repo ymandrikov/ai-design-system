@@ -207,6 +207,20 @@ before asking dependent questions; continue independent authorised work meanwhil
 This format creates no requirement for an interview or repeated confirmation when
 the task is clear and authorised. Silence is not an answer or delegation.
 
+## Skipped and unavailable verification
+
+Apply this rule across every workflow, admission decision and supporting procedure.
+Honour the user's verification choice throughout its authorised scope. Omit skipped
+checks, including separate final document reconciliation and post-cleanup rechecks;
+update affected documents and links as part of the work itself.
+Skipped or unavailable checks create no `unverified` labels, contract or progress
+entries, risk-acceptance notices, or admission/completion blockers. Save an explicit
+run-or-skip choice where the workflow needs it for continuation, without per-check records.
+If a requested check cannot run because a tool, browser or reference is unavailable,
+briefly say so in the conversation and continue independent work. Report only actual
+check outcomes; never claim that an omitted check passed or that its promises were verified.
+Keep discovered defects, unresolved decisions and unfinished implementation explicit.
+
 ## Reports
 
 Report decisions, material assumptions and actual check results clearly. Return check
