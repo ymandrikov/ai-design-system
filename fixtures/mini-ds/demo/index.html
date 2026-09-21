@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mini-ds demo</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <h1>mini-ds demo</h1>
+    <p><a href="./settings.html">Settings composition examples</a></p>
+
+    <section>
+      <h2>Button</h2>
+      <button type="button" data-ds="button" data-variant="primary">Save</button>
+      <a href="/builds" data-ds="button">View builds</a>
+    </section>
+
+    <section>
+      <h2>CopyButton</h2>
+      <ds-copy-button value="bkua_1234">
+        <button type="button">Copy token</button>
+      </ds-copy-button>
+    </section>
+
+    <section>
+      <h2>NativeSelect</h2>
+      <label for="environment">Environment</label>
+      <select id="environment" name="environment" data-ds="native-select">
+        <option value="production">Production</option>
+        <option value="staging">Staging</option>
+      </select>
+    </section>
+
+    <section>
+      <h2>Select</h2>
+      <ds-select name="country" label="Country" placeholder="Choose a country">
+        <option value="au">Australia</option>
+        <option value="br">Brazil</option>
+      </ds-select>
+    </section>
+
+    <section>
+      <h2>DropdownMenu</h2>
+      <ds-dropdown-menu>
+        <button type="button" data-slot="trigger">Actions</button>
+        <div role="menu" hidden>
+          <button type="button" role="menuitem">Rename</button>
+          <a role="menuitem" href="/builds/1">Open</a>
+        </div>
+      </ds-dropdown-menu>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <div data-ds="stack" data-space="lg">
+        <p>First</p>
+        <p>Second</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Toggle</h2>
+      <ds-toggle>
+        <label for="notifications">Notifications</label>
+        <input type="checkbox" id="notifications" />
+      </ds-toggle>
+    </section>
+
+    <div id="react-root"></div>
+
+    <script type="module" src="./dist/index.js"></script>
+  </body>
+</html>

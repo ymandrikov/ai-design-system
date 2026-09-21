@@ -1,0 +1,30 @@
+[data-ds="stack"] {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+[data-ds="stack"][data-space="sm"] { gap: 0.5rem; }
+[data-ds="stack"][data-space="lg"] { gap: 1.5rem; }
+[data-ds="stack"] > * { margin-block: 0; }
+
+[data-ds="button"] {
+  min-height: 2.5rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid #707b87;
+  border-radius: 0.25rem;
+  font: inherit;
+  cursor: pointer;
+}
+[data-ds="button"][data-variant="primary"] { color: white; background: #164b98; border-color: #164b98; }
+[data-ds="button"][data-variant="danger"] { color: #9c1526; background: white; border-color: #9c1526; }
+[data-ds="button"]:focus-visible, [data-ds="native-select"]:focus-visible { outline: 3px solid #235cb7; outline-offset: 3px; }
+
+[data-ds="native-select"] {
+  display: block;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.45rem;
+  border: 1px solid #707b87;
+  border-radius: 0.2rem;
+  font: inherit;
+}
