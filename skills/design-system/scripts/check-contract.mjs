@@ -83,7 +83,7 @@ export function frontmatter(markdown) {
   const metadata = {};
   const problems = [];
   let field;
-  // ponytail: flat YAML with two-space description blocks; use a YAML library if nested metadata is needed.
+  // Flat YAML with two-space description blocks; use a YAML library if nested metadata is needed.
   const scalar = (value) => {
     if (value.startsWith('"')) return JSON.parse(value);
     if (value.startsWith("'")) {
