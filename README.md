@@ -144,41 +144,24 @@ Or with pnpm:
 pnpm add -D lefthook
 ```
 
-Save the script below as `scripts/check-design-contracts.sh`. Set `checker` to the
-actual installed skill's script path; the example uses a repository checkout.
-It needs Node.js, Git, `sh`, `find` and `mktemp`.
-
-The hook checks **all contracts in the staged snapshot**: unstaged edits cannot hide
-stale contracts, and shared source changes are checked even when no contract is staged.
-
-```sh
-#!/bin/sh
-set -eu
-cd "$(git rev-parse --show-toplevel)"
-checker="$PWD/skills/design-system/scripts/check-contract.mjs"
-contract_snapshot=$(mktemp -d)
-trap 'rm -rf "$contract_snapshot"' EXIT
-# Export the full index; narrow the snapshot if repository size makes this slow.
-git checkout-index --all --prefix="$contract_snapshot/"
-cd "$contract_snapshot"
-for kind in component layout pattern; do
-  directory="design-system/${kind}s"
-  [ -d "$directory" ] || continue
-  find "$directory" -type f -name '*.md' -exec node "$checker" --kind "$kind" \
-    --inventory design-system/COMPONENTS.md \
-    --inventory design-system/LAYOUTS.md \
-    --inventory design-system/PATTERNS.md {} +
-done
-```
-
-Add this command to `lefthook.yml`, preserving existing hooks:
+Add this command to your project's `lefthook.yml`, preserving existing hooks.
+Replace `<design-system-directory>` with the installed skill's path. The checker
+needs Node.js and Git.
 
 ```yaml
 pre-commit:
   commands:
     design-contracts:
-      run: sh scripts/check-design-contracts.sh
+      run: node "<design-system-directory>/scripts/check-staged-contracts.mjs"
 ```
+
+The hook checks added or changed contracts and contracts whose listed `sources`
+have staged changes, including deletions and renames. It reads the Git index, so
+unstaged edits cannot hide errors in the commit. If no contracts are affected,
+it exits successfully without running the validator.
+
+Changes to `DESIGN.md`, indexes, tests, examples or Markdown link targets alone do
+not trigger checks. The hook does not validate indexes or follow source imports.
 
 Install the hook in each clone; run it manually to check staged changes:
 
@@ -194,7 +177,7 @@ pnpm exec lefthook install
 pnpm exec lefthook run pre-commit
 ```
 
-Commit the script, configuration and dependency changes. If a source hash fails,
+Commit the configuration and dependency changes. If a source hash fails,
 review the contract, update its hash and stage it with the sources. The hook does
 not update hashes or stage files.
 
