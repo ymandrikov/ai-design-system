@@ -15,14 +15,14 @@ the source files. Your components, styles and tools stay in the project.
   Component internals and business logic remain project-owned.
 
 
-- [Get started](#get-started)
-- [Workflows](#workflows)
-- [Project structure](#project-structure)
-- [Migration](#migration)
-- [Contract checks](#contract-checks)
-- [Lefthook integration](#lefthook-integration)
-- [Development](#development)
-- [License](#license)
+1. [**Get started**](#get-started)<br />
+2. [**Workflows**](#workflows)<br />
+3. [**Project structure**](#project-structure)<br />
+4. [**Migration**](#migration)<br />
+5. [**Contract checks**](#contract-checks)<br />
+6. [**Lefthook integration**](#lefthook-integration)<br />
+7. [**Development**](#development)<br />
+8. [**License**](#license)
 
 ## Get started
 
