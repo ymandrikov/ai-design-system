@@ -57,6 +57,11 @@ See [setup details](skills/design-system/reference/setup.md).
 
 Name a workflow or describe the result and let the agent choose.
 
+To invoke the skill explicitly, replace `<task>` with a workflow name or your request:
+
+- Claude Code: `/design-system <task>`
+- Codex: `$design-system <task>`
+
 | Workflow | Use it to |
 | --- | --- |
 | [`use`](skills/design-system/reference/use.md) | Build or change a product interface with existing public APIs and composition rules. |
